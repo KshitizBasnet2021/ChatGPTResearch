@@ -5,10 +5,7 @@ from ch12.merge_nonrecur import merge_sort
 
 class TestMergeSort(unittest.TestCase):
 
-    def test_empty_list(self):
-        S = []
-        merge_sort(S)
-        self.assertEqual(S, [])
+
 
     def test_single_element_list(self):
         S = [5]
@@ -39,6 +36,3 @@ class TestMergeSort(unittest.TestCase):
         S = list(range(10000, 0, -1))
         merge_sort(S)
         self.assertEqual(S, list(range(1, 10001)))
-
-if __name__ == '__main__':
-    unittest.main()

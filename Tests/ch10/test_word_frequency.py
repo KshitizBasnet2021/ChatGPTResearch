@@ -35,5 +35,3 @@ class TestFindMostFrequentWord(unittest.TestCase):
         filename = 'case_insensitivity.txt'
         self.assertEqual(find_most_frequent_word(filename), ('hello', 3))
 
-if __name__ == '__main__':
-    unittest.main()
