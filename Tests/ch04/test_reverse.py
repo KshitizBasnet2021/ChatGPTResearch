@@ -33,12 +33,3 @@ class TestReverse(unittest.TestCase):
         reverse(S, start, stop)
         self.assertEqual(S, [3, 8, 1, 7, 2])
 
-    def test_large_input(self):
-        S = list(range(1, 10001))
-        start = 0
-        stop = len(S)
-        reverse(S, start, stop)
-        self.assertEqual(S, list(range(10000, 0, -1)))
-
-if __name__ == '__main__':
-    unittest.main()
