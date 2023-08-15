@@ -19,21 +19,38 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import sys
-filename = sys.argv[1]
+# import sys
+# filename = sys.argv[1]
+#
+# freq = {}
+# for piece in open(filename).read().lower().split():
+#   # only consider alphabetic characters within this piece
+#   word = ''.join(c for c in piece if c.isalpha())
+#   if word:                                # require at least one alphabetic character
+#     freq[word] = 1 + freq.get(word, 0)
+#
+# max_word = ''
+# max_count = 0
+# for (w,c) in freq.items():    # (key, value) tuples represent (word, count)
+#   if c > max_count:
+#     max_word = w
+#     max_count = c
+# print('The most frequent word is', max_word)
+# print('Its number of occurrences is', max_count)
 
-freq = {}
-for piece in open(filename).read().lower().split():
-  # only consider alphabetic characters within this piece
-  word = ''.join(c for c in piece if c.isalpha())
-  if word:                                # require at least one alphabetic character
-    freq[word] = 1 + freq.get(word, 0)
+def find_most_frequent_word(filename):
+  freq = {}
+  with open(filename) as file:
+    for piece in file.read().lower().split():
+      word = ''.join(c for c in piece if c.isalpha())
+      if word:
+        freq[word] = 1 + freq.get(word, 0)
 
-max_word = ''
-max_count = 0
-for (w,c) in freq.items():    # (key, value) tuples represent (word, count)
-  if c > max_count:
-    max_word = w
-    max_count = c
-print('The most frequent word is', max_word)
-print('Its number of occurrences is', max_count)
+  max_word = ''
+  max_count = 0
+  for (w, c) in freq.items():
+    if c > max_count:
+      max_word = w
+      max_count = c
+
+  return max_word, max_count

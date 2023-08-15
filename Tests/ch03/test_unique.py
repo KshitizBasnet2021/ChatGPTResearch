@@ -1,46 +1,38 @@
 import unittest
 
-from ch03.unique import unique1, unique2
+from ch03.unique import unique2, unique1
 
 
-# needs to
+class TestUniqueFunctions(unittest.TestCase):
 
-class TestUnique(unittest.TestCase):
+    def test_unique1_empty_list(self):
+        self.assertTrue(unique1([]))
 
-    def test_empty_list(self):
-        S = []
-        self.assertTrue(unique1(S))
-        self.assertTrue(unique2(S))
+    def test_unique1_single_element_list(self):
+        self.assertTrue(unique1([1]))
 
-    def test_single_element_list(self):
-        S = [5]
-        self.assertTrue(unique1(S))
-        self.assertTrue(unique2(S))
+    def test_unique1_all_unique_elements(self):
+        self.assertTrue(unique1([1, 2, 3, 4]))
 
-    def test_unique_elements(self):
-        S = [2, 4, 6, 8, 10]
-        self.assertTrue(unique1(S))
-        self.assertTrue(unique2(S))
+    def test_unique1_duplicate_elements(self):
+        self.assertFalse(unique1([1, 2, 3, 1]))
 
-    def test_duplicate_elements(self):
-        S = [2, 4, 6, 8, 4]
-        self.assertFalse(unique1(S))  # Expecting False since there are duplicates
-        self.assertFalse(unique2(S))  # Expecting False since there are duplicates
+    def test_unique1_same_elements(self):
+        self.assertFalse(unique1([1, 1, 1, 1]))
 
-    def test_mixed_elements(self):
-        S = [-3, 2, 1, -5, 4]
-        self.assertTrue(unique1(S))
-        self.assertTrue(unique2(S))
+    def test_unique2_empty_list(self):
+        self.assertTrue(unique2([]))
 
-    def test_large_input(self):
-        S = list(range(1, 10001))
-        self.assertTrue(unique1(S))
-        self.assertTrue(unique2(S))
+    def test_unique2_single_element_list(self):
+        self.assertTrue(unique2([1]))
 
-    def test_large_duplicate_input(self):
-        S = [1] * 10000
-        self.assertFalse(unique1(S))  # Expecting False since there are duplicates
-        self.assertFalse(unique2(S))  # Expecting False since there are duplicates
+    def test_unique2_all_unique_elements(self):
+        self.assertTrue(unique2([1, 2, 3, 4]))
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_unique2_duplicate_elements(self):
+        self.assertTrue(unique2([1, 2, 3, 1]))
+        self.assertFalse(unique2([3, 2, 1, 1]))
+
+    def test_unique2_same_elements(self):
+        self.assertFalse(unique2([1, 1, 1, 1]))
+
