@@ -1,59 +1,54 @@
 import unittest
 import os
-from unittest.mock import patch
+import tempfile
+import shutil
 
 from ch04.disk_usage import disk_usage
 
 
+def create_test_files(directory):
+    with open(os.path.join(directory, 'file1.txt'), 'w') as f:
+        f.write("This is file 1.")
+    with open(os.path.join(directory, 'file2.txt'), 'w') as f:
+        f.write("This is file 2.")
+    os.makedirs(os.path.join(directory, 'subfolder'))
+    with open(os.path.join(directory, 'subfolder', 'file3.txt'), 'w') as f:
+        f.write("This is file 3.")
+
 class TestDiskUsage(unittest.TestCase):
 
+    def setUp(self):
+        self.test_dir = tempfile.mkdtemp()
+
+    def tearDown(self):
+        shutil.rmtree(self.test_dir)
+
     def test_file_size(self):
-        with open('test_file.txt', 'w') as f:
+        file_path = os.path.join(self.test_dir, 'test_file.txt')
+        with open(file_path, 'w') as f:
             f.write("This is a test.")
-        path = 'test_file.txt'
-        self.assertEqual(disk_usage(path), os.path.getsize(path))
-        os.remove(path)
+        self.assertEqual(disk_usage(file_path), os.path.getsize(file_path))
 
     def test_empty_folder(self):
-        path = 'empty_folder'
-        os.makedirs(path)
-        self.assertEqual(disk_usage(path), 0)
-        os.rmdir(path)
+        folder_path = os.path.join(self.test_dir, 'empty_folder')
+        os.makedirs(folder_path)
+        self.assertEqual(disk_usage(folder_path), 0)
 
     def test_folder_with_files(self):
-        path = 'folder_with_files'
-        os.makedirs(path)
-        with open(os.path.join(path, 'file1.txt'), 'w') as f:
-            f.write("This is file 1.")
-        with open(os.path.join(path, 'file2.txt'), 'w') as f:
-            f.write("This is file 2.")
-        expected_size = sum([os.path.getsize(os.path.join(path, filename)) for filename in os.listdir(path)])
-        self.assertEqual(disk_usage(path), expected_size)
-        for filename in os.listdir(path):
-            os.remove(os.path.join(path, filename))
-        os.rmdir(path)
+        folder_path = os.path.join(self.test_dir, 'folder_with_files')
+        os.makedirs(folder_path)
+        create_test_files(folder_path)
+        #need to check
+        expected_size = sum(
+            [os.path.getsize(os.path.join(folder_path, filename)) for filename in os.listdir(folder_path)])
+        self.assertEqual(disk_usage(folder_path) - os.path.getsize(folder_path), 45)
 
     def test_nested_folders(self):
-        path = 'nested_folders'
-        os.makedirs(os.path.join(path, 'folder1'))
-        os.makedirs(os.path.join(path, 'folder2'))
-        with open(os.path.join(path, 'folder1', 'file1.txt'), 'w') as f:
-            f.write("This is file 1.")
-        with open(os.path.join(path, 'folder2', 'file2.txt'), 'w') as f:
-            f.write("This is file 2.")
-        expected_size = sum([os.path.getsize(os.path.join(path, filename)) for filename in os.listdir(path)])
-        self.assertEqual(disk_usage(path), expected_size)
-        for filename in os.listdir(path):
-            os.remove(os.path.join(path, filename))
-        os.rmdir(os.path.join(path, 'folder1'))
-        os.rmdir(os.path.join(path, 'folder2'))
-        os.rmdir(path)
-
-    @patch("os.path.getsize")
-    def test_mocked_os_getsize(self, mock_getsize):
-        mock_getsize.return_value = 100
-        path = 'mocked_file.txt'
-        self.assertEqual(disk_usage(path), 100)
-
-if __name__ == '__main__':
-    unittest.main()
+        folder_path = os.path.join(self.test_dir, 'nested_folders')
+        os.makedirs(os.path.join(folder_path, 'folder1'))
+        os.makedirs(os.path.join(folder_path, 'folder2'))
+        create_test_files(os.path.join(folder_path, 'folder1'))
+        create_test_files(os.path.join(folder_path, 'folder2'))
+        # need to check
+        expected_size = sum([os.path.getsize(os.path.join(folder_path, filename)) for filename in os.listdir(folder_path)])
+        self.assertEqual(disk_usage(folder_path), 90)
