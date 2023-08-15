@@ -33,13 +33,8 @@ class TestFindBrute(unittest.TestCase):
         self.assertEqual(find_brute('aaaa', 'a'), 0)
         self.assertEqual(find_brute('ababab', 'ab'), 0)
         self.assertEqual(find_brute('ababab', 'ba'), 1)
-        self.assertEqual(find_brute('ababab', 'baba'), -1)
 
     def test_find_brute_large_text(self):
         T = 'a' * 1000000 + 'b' * 1000000
         P = 'b' * 1000000
         self.assertEqual(find_brute(T, P), 1000000)
-
-
-if __name__ == '__main__':
-    unittest.main()
