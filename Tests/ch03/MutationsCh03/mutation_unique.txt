@@ -1,0 +1,90 @@
+[*] Start mutation process:
+   - targets: ch03/unique.py
+   - tests: tests/ch03/test_unique.py
+[*] 10 tests passed:
+   - test_unique [0.00100 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR unique: 
+--------------------------------------------------------------------------------
+  21: 
+  22: def unique1(S):
+  23:     '''Return True if there are no duplicate elements in sequence S.'''
+  24:     for j in range(len(S)):
+- 25:         for k in range(j + 1, len(S)):
++ 25:         for k in range(j - 1, len(S)):
+  26:             if S[j] == S[k]:
+  27:                 return False
+  28:     return True
+  29: 
+--------------------------------------------------------------------------------
+[0.00577 s] killed by test_unique1_all_unique_elements (test_unique.TestUniqueFunctions)
+   - [#   2] AOR unique: 
+--------------------------------------------------------------------------------
+  30: def unique2(S):
+  31:     '''Return True if there are no duplicate elements in sequence S.'''
+  32:     temp = sorted(S)
+  33:     for j in range(1, len(temp)):
+- 34:         if S[j - 1] == S[j]:
++ 34:         if S[j + 1] == S[j]:
+  35:             return False
+  36:     return True
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_unique2_all_unique_elements (test_unique.TestUniqueFunctions)
+   - [#   3] COI unique: 
+--------------------------------------------------------------------------------
+  22: def unique1(S):
+  23:     '''Return True if there are no duplicate elements in sequence S.'''
+  24:     for j in range(len(S)):
+  25:         for k in range(j + 1, len(S)):
+- 26:             if S[j] == S[k]:
++ 26:             if not (S[j] == S[k]):
+  27:                 return False
+  28:     return True
+  29: 
+  30: def unique2(S):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_unique1_all_unique_elements (test_unique.TestUniqueFunctions)
+   - [#   4] COI unique: 
+--------------------------------------------------------------------------------
+  30: def unique2(S):
+  31:     '''Return True if there are no duplicate elements in sequence S.'''
+  32:     temp = sorted(S)
+  33:     for j in range(1, len(temp)):
+- 34:         if S[j - 1] == S[j]:
++ 34:         if not (S[j - 1] == S[j]):
+  35:             return False
+  36:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_unique2_all_unique_elements (test_unique.TestUniqueFunctions)
+   - [#   5] ROR unique: 
+--------------------------------------------------------------------------------
+  22: def unique1(S):
+  23:     '''Return True if there are no duplicate elements in sequence S.'''
+  24:     for j in range(len(S)):
+  25:         for k in range(j + 1, len(S)):
+- 26:             if S[j] == S[k]:
++ 26:             if S[j] != S[k]:
+  27:                 return False
+  28:     return True
+  29: 
+  30: def unique2(S):
+--------------------------------------------------------------------------------
+[0.00097 s] killed by test_unique1_all_unique_elements (test_unique.TestUniqueFunctions)
+   - [#   6] ROR unique: 
+--------------------------------------------------------------------------------
+  30: def unique2(S):
+  31:     '''Return True if there are no duplicate elements in sequence S.'''
+  32:     temp = sorted(S)
+  33:     for j in range(1, len(temp)):
+- 34:         if S[j - 1] == S[j]:
++ 34:         if S[j - 1] != S[j]:
+  35:             return False
+  36:     return True
+--------------------------------------------------------------------------------
+[0.00097 s] killed by test_unique2_all_unique_elements (test_unique.TestUniqueFunctions)
+[*] Mutation score [0.08986 s]: 100.0%
+   - all: 6
+   - killed: 6 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)

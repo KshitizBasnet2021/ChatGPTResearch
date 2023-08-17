@@ -1,0 +1,287 @@
+[*] Start mutation process:
+   - targets: ch13/find_boyer_moore.py
+   - tests: tests/ch13/test_find_boyer_moore.py
+[*] 7 tests passed:
+   - test_find_boyer_moore [0.15009 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOD find_boyer_moore: 
+--------------------------------------------------------------------------------
+  36:             else:
+  37:                 i -= 1
+  38:                 k -= 1
+  39:         else:
+- 40:             j = last.get(T[i], -1)
++ 40:             j = last.get(T[i], 1)
+  41:             i += m - min(k, j + 1)
+  42:             k = m - 1
+  43:     return -1
+--------------------------------------------------------------------------------
+[0.36037 s] survived
+   - [#   2] AOD find_boyer_moore: 
+--------------------------------------------------------------------------------
+  39:         else:
+  40:             j = last.get(T[i], -1)
+  41:             i += m - min(k, j + 1)
+  42:             k = m - 1
+- 43:     return -1
++ 43:     return 1
+--------------------------------------------------------------------------------
+[0.00575 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#   3] AOR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  26:         return 0
+  27:     last = {}
+  28:     for k in range(m):
+  29:         last[P[k]] = k
+- 30:     i = m - 1
++ 30:     i = m + 1
+  31:     k = m - 1
+  32:     while i < n:
+  33:         if T[i] == P[k]:
+  34:             if k == 0:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#   4] AOR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  27:     last = {}
+  28:     for k in range(m):
+  29:         last[P[k]] = k
+  30:     i = m - 1
+- 31:     k = m - 1
++ 31:     k = m + 1
+  32:     while i < n:
+  33:         if T[i] == P[k]:
+  34:             if k == 0:
+  35:                 return i
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#   5] AOR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  36:             else:
+  37:                 i -= 1
+  38:                 k -= 1
+  39:         else:
+- 40:             j = last.get(T[i], -1)
++ 40:             j = last.get(T[i], +1)
+  41:             i += m - min(k, j + 1)
+  42:             k = m - 1
+  43:     return -1
+--------------------------------------------------------------------------------
+[0.36950 s] survived
+   - [#   6] AOR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  37:                 i -= 1
+  38:                 k -= 1
+  39:         else:
+  40:             j = last.get(T[i], -1)
+- 41:             i += m - min(k, j + 1)
++ 41:             i += m + min(k, j + 1)
+  42:             k = m - 1
+  43:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#   7] AOR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  37:                 i -= 1
+  38:                 k -= 1
+  39:         else:
+  40:             j = last.get(T[i], -1)
+- 41:             i += m - min(k, j + 1)
++ 41:             i += m - min(k, j - 1)
+  42:             k = m - 1
+  43:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#   8] AOR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  38:                 k -= 1
+  39:         else:
+  40:             j = last.get(T[i], -1)
+  41:             i += m - min(k, j + 1)
+- 42:             k = m - 1
++ 42:             k = m + 1
+  43:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#   9] AOR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  39:         else:
+  40:             j = last.get(T[i], -1)
+  41:             i += m - min(k, j + 1)
+  42:             k = m - 1
+- 43:     return -1
++ 43:     return +1
+--------------------------------------------------------------------------------
+[0.00992 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  10] ASR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  33:         if T[i] == P[k]:
+  34:             if k == 0:
+  35:                 return i
+  36:             else:
+- 37:                 i -= 1
++ 37:                 i += 1
+  38:                 k -= 1
+  39:         else:
+  40:             j = last.get(T[i], -1)
+  41:             i += m - min(k, j + 1)
+--------------------------------------------------------------------------------
+[0.00400 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  11] ASR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  34:             if k == 0:
+  35:                 return i
+  36:             else:
+  37:                 i -= 1
+- 38:                 k -= 1
++ 38:                 k += 1
+  39:         else:
+  40:             j = last.get(T[i], -1)
+  41:             i += m - min(k, j + 1)
+  42:             k = m - 1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  12] ASR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  37:                 i -= 1
+  38:                 k -= 1
+  39:         else:
+  40:             j = last.get(T[i], -1)
+- 41:             i += m - min(k, j + 1)
++ 41:             i -= m - min(k, j + 1)
+  42:             k = m - 1
+  43:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  13] COI find_boyer_moore: 
+--------------------------------------------------------------------------------
+  21: 
+  22: def find_boyer_moore(T, P):
+  23:     '''Return the lowest index of T at which substring P begins (or else -1).'''
+  24:     (n, m) = (len(T), len(P))
+- 25:     if m == 0:
++ 25:     if not (m == 0):
+  26:         return 0
+  27:     last = {}
+  28:     for k in range(m):
+  29:         last[P[k]] = k
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  14] COI find_boyer_moore: 
+--------------------------------------------------------------------------------
+  28:     for k in range(m):
+  29:         last[P[k]] = k
+  30:     i = m - 1
+  31:     k = m - 1
+- 32:     while i < n:
++ 32:     while not (i < n):
+  33:         if T[i] == P[k]:
+  34:             if k == 0:
+  35:                 return i
+  36:             else:
+--------------------------------------------------------------------------------
+[0.01028 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  15] COI find_boyer_moore: 
+--------------------------------------------------------------------------------
+  29:         last[P[k]] = k
+  30:     i = m - 1
+  31:     k = m - 1
+  32:     while i < n:
+- 33:         if T[i] == P[k]:
++ 33:         if not (T[i] == P[k]):
+  34:             if k == 0:
+  35:                 return i
+  36:             else:
+  37:                 i -= 1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  16] COI find_boyer_moore: 
+--------------------------------------------------------------------------------
+  30:     i = m - 1
+  31:     k = m - 1
+  32:     while i < n:
+  33:         if T[i] == P[k]:
+- 34:             if k == 0:
++ 34:             if not (k == 0):
+  35:                 return i
+  36:             else:
+  37:                 i -= 1
+  38:                 k -= 1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  17] ROR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  21: 
+  22: def find_boyer_moore(T, P):
+  23:     '''Return the lowest index of T at which substring P begins (or else -1).'''
+  24:     (n, m) = (len(T), len(P))
+- 25:     if m == 0:
++ 25:     if m != 0:
+  26:         return 0
+  27:     last = {}
+  28:     for k in range(m):
+  29:         last[P[k]] = k
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  18] ROR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  28:     for k in range(m):
+  29:         last[P[k]] = k
+  30:     i = m - 1
+  31:     k = m - 1
+- 32:     while i < n:
++ 32:     while i > n:
+  33:         if T[i] == P[k]:
+  34:             if k == 0:
+  35:                 return i
+  36:             else:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  19] ROR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  28:     for k in range(m):
+  29:         last[P[k]] = k
+  30:     i = m - 1
+  31:     k = m - 1
+- 32:     while i < n:
++ 32:     while i <= n:
+  33:         if T[i] == P[k]:
+  34:             if k == 0:
+  35:                 return i
+  36:             else:
+--------------------------------------------------------------------------------
+[0.14409 s] killed by test_find_boyer_moore_single_char (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  20] ROR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  29:         last[P[k]] = k
+  30:     i = m - 1
+  31:     k = m - 1
+  32:     while i < n:
+- 33:         if T[i] == P[k]:
++ 33:         if T[i] != P[k]:
+  34:             if k == 0:
+  35:                 return i
+  36:             else:
+  37:                 i -= 1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+   - [#  21] ROR find_boyer_moore: 
+--------------------------------------------------------------------------------
+  30:     i = m - 1
+  31:     k = m - 1
+  32:     while i < n:
+  33:         if T[i] == P[k]:
+- 34:             if k == 0:
++ 34:             if k != 0:
+  35:                 return i
+  36:             else:
+  37:                 i -= 1
+  38:                 k -= 1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_find_boyer_moore_basic (test_find_boyer_moore.TestFindBoyerMoore)
+[*] Mutation score [1.26631 s]: 90.5%
+   - all: 21
+   - killed: 19 (90.5%)
+   - survived: 2 (9.5%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)

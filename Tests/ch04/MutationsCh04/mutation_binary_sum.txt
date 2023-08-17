@@ -1,0 +1,139 @@
+[*] Start mutation process:
+   - targets: ch04/binary_sum.py
+   - tests: tests/ch04/test_binary_sum.py
+[*] 5 tests passed:
+   - test_binary_sum [0.01012 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  22: def binary_sum(S, start, stop):
+  23:     '''Return the sum of the numbers in implicit slice S[start:stop].'''
+  24:     if start >= stop:
+  25:         return 0
+- 26:     elif start == stop - 1:
++ 26:     elif start == stop + 1:
+  27:         return S[start]
+  28:     else:
+  29:         mid = (start + stop) // 2
+  30:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.15471 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   2] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  25:         return 0
+  26:     elif start == stop - 1:
+  27:         return S[start]
+  28:     else:
+- 29:         mid = (start + stop) // 2
++ 29:         mid = (start - stop) // 2
+  30:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.14735 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   3] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  25:         return 0
+  26:     elif start == stop - 1:
+  27:         return S[start]
+  28:     else:
+- 29:         mid = (start + stop) // 2
++ 29:         mid = (start + stop) / 2
+  30:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.13989 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   4] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  25:         return 0
+  26:     elif start == stop - 1:
+  27:         return S[start]
+  28:     else:
+- 29:         mid = (start + stop) // 2
++ 29:         mid = (start + stop) * 2
+  30:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.14502 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   5] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  26:     elif start == stop - 1:
+  27:         return S[start]
+  28:     else:
+  29:         mid = (start + stop) // 2
+- 30:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
++ 30:         return binary_sum(S, start, mid) - binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   6] COI binary_sum: 
+--------------------------------------------------------------------------------
+  20: 
+  21: 
+  22: def binary_sum(S, start, stop):
+  23:     '''Return the sum of the numbers in implicit slice S[start:stop].'''
+- 24:     if start >= stop:
++ 24:     if not (start >= stop):
+  25:         return 0
+  26:     elif start == stop - 1:
+  27:         return S[start]
+  28:     else:
+--------------------------------------------------------------------------------
+[0.15014 s] killed by test_empty_slice (test_binary_sum.TestBinarySum)
+   - [#   7] COI binary_sum: 
+--------------------------------------------------------------------------------
+  22: def binary_sum(S, start, stop):
+  23:     '''Return the sum of the numbers in implicit slice S[start:stop].'''
+  24:     if start >= stop:
+  25:         return 0
+- 26:     elif start == stop - 1:
++ 26:     elif not (start == stop - 1):
+  27:         return S[start]
+  28:     else:
+  29:         mid = (start + stop) // 2
+  30:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.00509 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   8] ROR binary_sum: 
+--------------------------------------------------------------------------------
+  20: 
+  21: 
+  22: def binary_sum(S, start, stop):
+  23:     '''Return the sum of the numbers in implicit slice S[start:stop].'''
+- 24:     if start >= stop:
++ 24:     if start <= stop:
+  25:         return 0
+  26:     elif start == stop - 1:
+  27:         return S[start]
+  28:     else:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   9] ROR binary_sum: 
+--------------------------------------------------------------------------------
+  20: 
+  21: 
+  22: def binary_sum(S, start, stop):
+  23:     '''Return the sum of the numbers in implicit slice S[start:stop].'''
+- 24:     if start >= stop:
++ 24:     if start > stop:
+  25:         return 0
+  26:     elif start == stop - 1:
+  27:         return S[start]
+  28:     else:
+--------------------------------------------------------------------------------
+[0.14157 s] killed by test_empty_slice (test_binary_sum.TestBinarySum)
+   - [#  10] ROR binary_sum: 
+--------------------------------------------------------------------------------
+  22: def binary_sum(S, start, stop):
+  23:     '''Return the sum of the numbers in implicit slice S[start:stop].'''
+  24:     if start >= stop:
+  25:         return 0
+- 26:     elif start == stop - 1:
++ 26:     elif start != stop - 1:
+  27:         return S[start]
+  28:     else:
+  29:         mid = (start + stop) // 2
+  30:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+[*] Mutation score [0.96988 s]: 100.0%
+   - all: 10
+   - killed: 10 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
