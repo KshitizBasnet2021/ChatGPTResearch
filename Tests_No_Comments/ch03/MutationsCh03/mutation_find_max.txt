@@ -1,46 +1,43 @@
 [*] Start mutation process:
-   - targets: ch03/find_max.py
-   - tests: tests/ch03/test_find_max.py
-[*] 6 tests passed:
+   - targets: ch03/No_Comments/find_max.py
+   - tests: tests_no_comments/ch03/test_find_max.py
+[*] 8 tests passed:
    - test_find_max [0.00000 s]
 [*] Start mutants generation and execution:
    - [#   1] COI find_max: 
 --------------------------------------------------------------------------------
-  22: def find_max(data):
-  23:     '''Return the maximum element from a nonempty Python list.'''
-  24:     biggest = data[0]
-  25:     for val in data:
-- 26:         if val > biggest:
-+ 26:         if not (val > biggest):
-  27:             biggest = val
-  28:     return biggest
+  1: def find_max(data):
+  2:     biggest = data[0]
+  3:     for val in data:
+- 4:         if val > biggest:
++ 4:         if not (val > biggest):
+  5:             biggest = val
+  6:     return biggest
 --------------------------------------------------------------------------------
-[0.00744 s] killed by test_large_input (test_find_max.TestFindMax)
+[0.00000 s] killed by test_large_input (test_find_max.TestFindMaxFunction)
    - [#   2] ROR find_max: 
 --------------------------------------------------------------------------------
-  22: def find_max(data):
-  23:     '''Return the maximum element from a nonempty Python list.'''
-  24:     biggest = data[0]
-  25:     for val in data:
-- 26:         if val > biggest:
-+ 26:         if val < biggest:
-  27:             biggest = val
-  28:     return biggest
+  1: def find_max(data):
+  2:     biggest = data[0]
+  3:     for val in data:
+- 4:         if val > biggest:
++ 4:         if val < biggest:
+  5:             biggest = val
+  6:     return biggest
 --------------------------------------------------------------------------------
-[0.00100 s] killed by test_large_input (test_find_max.TestFindMax)
+[0.00000 s] killed by test_large_input (test_find_max.TestFindMaxFunction)
    - [#   3] ROR find_max: 
 --------------------------------------------------------------------------------
-  22: def find_max(data):
-  23:     '''Return the maximum element from a nonempty Python list.'''
-  24:     biggest = data[0]
-  25:     for val in data:
-- 26:         if val > biggest:
-+ 26:         if val >= biggest:
-  27:             biggest = val
-  28:     return biggest
+  1: def find_max(data):
+  2:     biggest = data[0]
+  3:     for val in data:
+- 4:         if val > biggest:
++ 4:         if val >= biggest:
+  5:             biggest = val
+  6:     return biggest
 --------------------------------------------------------------------------------
-[0.00101 s] survived
-[*] Mutation score [0.04452 s]: 66.7%
+[0.00100 s] survived
+[*] Mutation score [0.02504 s]: 66.7%
    - all: 3
    - killed: 2 (66.7%)
    - survived: 1 (33.3%)

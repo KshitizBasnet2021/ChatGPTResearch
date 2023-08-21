@@ -1,6 +1,6 @@
 import unittest
 
-from ch12.merge_nonrecur import merge_sort
+from ch12.No_Comments.merge_nonrecur import merge_sort
 
 
 class TestMergeSort(unittest.TestCase):

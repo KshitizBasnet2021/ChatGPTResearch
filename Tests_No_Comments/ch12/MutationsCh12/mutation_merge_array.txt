@@ -1,360 +1,342 @@
 [*] Start mutation process:
-   - targets: ch12/merge_array.py
-   - tests: tests/ch12/test_merge_array.py
+   - targets: ch12/No_Comments/merge_array.py
+   - tests: tests_no_comments/ch12/test_merge_array.py
 [*] 7 tests passed:
-   - test_merge_array [0.02237 s]
+   - test_merge_array [0.02828 s]
 [*] Start mutants generation and execution:
    - [#   1] AOR merge_array: 
 --------------------------------------------------------------------------------
-  21: 
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-- 25:     while i + j < len(S):
-+ 25:     while i - j < len(S):
-  26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+-  3:     while i + j < len(S):
++  3:     while i - j < len(S):
+   4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
 --------------------------------------------------------------------------------
-[0.00862 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00700 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#   2] AOR merge_array: 
 --------------------------------------------------------------------------------
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-  25:     while i + j < len(S):
-  26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-- 27:             S[i + j] = S1[i]
-+ 27:             S[i - j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
-  31:             j += 1
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+   3:     while i + j < len(S):
+   4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
+-  5:             S[i + j] = S1[i]
++  5:             S[i - j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
+   9:             j += 1
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00097 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#   3] AOR merge_array: 
 --------------------------------------------------------------------------------
-  26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-- 30:             S[i + j] = S2[j]
-+ 30:             S[i - j] = S2[j]
-  31:             j += 1
-  32: 
-  33: def merge_sort(S):
-  34:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+   4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+-  8:             S[i + j] = S2[j]
++  8:             S[i - j] = S2[j]
+   9:             j += 1
+  10: 
+  11: def merge_sort(S):
+  12:     n = len(S)
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00100 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#   4] AOR merge_array: 
 --------------------------------------------------------------------------------
-  35:     n = len(S)
-  36:     if n < 2:
-  37:         return
-  38:     
-- 39:     mid = n // 2
-+ 39:     mid = n / 2
-  40:     S1 = S[0:mid]
-  41:     S2 = S[mid:n]
-  42:     
-  43:     merge_sort(S1)
+  11: def merge_sort(S):
+  12:     n = len(S)
+  13:     if n < 2:
+  14:         return
+- 15:     mid = n // 2
++ 15:     mid = n / 2
+  16:     S1 = S[0:mid]
+  17:     S2 = S[mid:n]
+  18:     merge_sort(S1)
+  19:     merge_sort(S2)
 --------------------------------------------------------------------------------
-[0.00000 s] incompetent
+[0.00099 s] incompetent
    - [#   5] AOR merge_array: 
 --------------------------------------------------------------------------------
-  35:     n = len(S)
-  36:     if n < 2:
-  37:         return
-  38:     
-- 39:     mid = n // 2
-+ 39:     mid = n * 2
-  40:     S1 = S[0:mid]
-  41:     S2 = S[mid:n]
-  42:     
-  43:     merge_sort(S1)
+  11: def merge_sort(S):
+  12:     n = len(S)
+  13:     if n < 2:
+  14:         return
+- 15:     mid = n // 2
++ 15:     mid = n * 2
+  16:     S1 = S[0:mid]
+  17:     S2 = S[mid:n]
+  18:     merge_sort(S1)
+  19:     merge_sort(S2)
 --------------------------------------------------------------------------------
-[0.14997 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.16975 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#   6] ASR merge_array: 
 --------------------------------------------------------------------------------
-  24:     i = j = 0
-  25:     while i + j < len(S):
-  26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-- 28:             i += 1
-+ 28:             i -= 1
-  29:         else:
-  30:             S[i + j] = S2[j]
-  31:             j += 1
-  32: 
+   2:     i = j = 0
+   3:     while i + j < len(S):
+   4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+-  6:             i += 1
++  6:             i -= 1
+   7:         else:
+   8:             S[i + j] = S2[j]
+   9:             j += 1
+  10: 
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00097 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#   7] ASR merge_array: 
 --------------------------------------------------------------------------------
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
-- 31:             j += 1
-+ 31:             j -= 1
-  32: 
-  33: def merge_sort(S):
-  34:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
-  35:     n = len(S)
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
+-  9:             j += 1
++  9:             j -= 1
+  10: 
+  11: def merge_sort(S):
+  12:     n = len(S)
+  13:     if n < 2:
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00103 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#   8] COI merge_array: 
 --------------------------------------------------------------------------------
-  21: 
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-- 25:     while i + j < len(S):
-+ 25:     while not (i + j < len(S)):
-  26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+-  3:     while i + j < len(S):
++  3:     while not (i + j < len(S)):
+   4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
 --------------------------------------------------------------------------------
-[0.00458 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00102 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#   9] COI merge_array: 
 --------------------------------------------------------------------------------
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-  25:     while i + j < len(S):
-- 26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-+ 26:         if not ((j == len(S2) or (i < len(S1) and S1[i] < S2[j]))):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+   3:     while i + j < len(S):
+-  4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
++  4:         if not ((j == len(S2) or (i < len(S1) and S1[i] < S2[j]))):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
 --------------------------------------------------------------------------------
-[0.00512 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00100 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  10] COI merge_array: 
 --------------------------------------------------------------------------------
-  32: 
-  33: def merge_sort(S):
-  34:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
-  35:     n = len(S)
-- 36:     if n < 2:
-+ 36:     if not (n < 2):
-  37:         return
-  38:     
-  39:     mid = n // 2
-  40:     S1 = S[0:mid]
+   9:             j += 1
+  10: 
+  11: def merge_sort(S):
+  12:     n = len(S)
+- 13:     if n < 2:
++ 13:     if not (n < 2):
+  14:         return
+  15:     mid = n // 2
+  16:     S1 = S[0:mid]
+  17:     S2 = S[mid:n]
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00100 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  11] LCR merge_array: 
 --------------------------------------------------------------------------------
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-  25:     while i + j < len(S):
-- 26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-+ 26:         if (j == len(S2) and (i < len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+   3:     while i + j < len(S):
+-  4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
++  4:         if (j == len(S2) and (i < len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00100 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  12] LCR merge_array: 
 --------------------------------------------------------------------------------
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-  25:     while i + j < len(S):
-- 26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-+ 26:         if (j == len(S2) or (i < len(S1) or S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+   3:     while i + j < len(S):
+-  4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
++  4:         if (j == len(S2) or (i < len(S1) or S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
 --------------------------------------------------------------------------------
-[0.00008 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00100 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  13] ROR merge_array: 
 --------------------------------------------------------------------------------
-  21: 
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-- 25:     while i + j < len(S):
-+ 25:     while i + j > len(S):
-  26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+-  3:     while i + j < len(S):
++  3:     while i + j > len(S):
+   4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00064 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  14] ROR merge_array: 
 --------------------------------------------------------------------------------
-  21: 
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-- 25:     while i + j < len(S):
-+ 25:     while i + j <= len(S):
-  26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+-  3:     while i + j < len(S):
++  3:     while i + j <= len(S):
+   4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00100 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  15] ROR merge_array: 
 --------------------------------------------------------------------------------
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-  25:     while i + j < len(S):
-- 26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-+ 26:         if (j != len(S2) or (i < len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+   3:     while i + j < len(S):
+-  4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
++  4:         if (j != len(S2) or (i < len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00050 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  16] ROR merge_array: 
 --------------------------------------------------------------------------------
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-  25:     while i + j < len(S):
-- 26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-+ 26:         if (j == len(S2) or (i > len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+   3:     while i + j < len(S):
+-  4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
++  4:         if (j == len(S2) or (i > len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00101 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  17] ROR merge_array: 
 --------------------------------------------------------------------------------
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-  25:     while i + j < len(S):
-- 26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-+ 26:         if (j == len(S2) or (i <= len(S1) and S1[i] < S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+   3:     while i + j < len(S):
+-  4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
++  4:         if (j == len(S2) or (i <= len(S1) and S1[i] < S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00100 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  18] ROR merge_array: 
 --------------------------------------------------------------------------------
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-  25:     while i + j < len(S):
-- 26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-+ 26:         if (j == len(S2) or (i < len(S1) and S1[i] > S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+   3:     while i + j < len(S):
+-  4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
++  4:         if (j == len(S2) or (i < len(S1) and S1[i] > S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
 --------------------------------------------------------------------------------
-[0.00509 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00101 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  19] ROR merge_array: 
 --------------------------------------------------------------------------------
-  22: def merge(S1, S2, S):
-  23:     '''Merge two sorted Python lists S1 and S2 into properly sized list S.'''
-  24:     i = j = 0
-  25:     while i + j < len(S):
-- 26:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
-+ 26:         if (j == len(S2) or (i < len(S1) and S1[i] <= S2[j])):
-  27:             S[i + j] = S1[i]
-  28:             i += 1
-  29:         else:
-  30:             S[i + j] = S2[j]
+   1: def merge(S1, S2, S):
+   2:     i = j = 0
+   3:     while i + j < len(S):
+-  4:         if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
++  4:         if (j == len(S2) or (i < len(S1) and S1[i] <= S2[j])):
+   5:             S[i + j] = S1[i]
+   6:             i += 1
+   7:         else:
+   8:             S[i + j] = S2[j]
 --------------------------------------------------------------------------------
-[0.02430 s] survived
+[0.02853 s] survived
    - [#  20] ROR merge_array: 
 --------------------------------------------------------------------------------
-  32: 
-  33: def merge_sort(S):
-  34:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
-  35:     n = len(S)
-- 36:     if n < 2:
-+ 36:     if n > 2:
-  37:         return
-  38:     
-  39:     mid = n // 2
-  40:     S1 = S[0:mid]
+   9:             j += 1
+  10: 
+  11: def merge_sort(S):
+  12:     n = len(S)
+- 13:     if n < 2:
++ 13:     if n > 2:
+  14:         return
+  15:     mid = n // 2
+  16:     S1 = S[0:mid]
+  17:     S2 = S[mid:n]
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00104 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  21] ROR merge_array: 
 --------------------------------------------------------------------------------
-  32: 
-  33: def merge_sort(S):
-  34:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
-  35:     n = len(S)
-- 36:     if n < 2:
-+ 36:     if n <= 2:
-  37:         return
-  38:     
-  39:     mid = n // 2
-  40:     S1 = S[0:mid]
+   9:             j += 1
+  10: 
+  11: def merge_sort(S):
+  12:     n = len(S)
+- 13:     if n < 2:
++ 13:     if n <= 2:
+  14:         return
+  15:     mid = n // 2
+  16:     S1 = S[0:mid]
+  17:     S2 = S[mid:n]
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.00150 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  22] SIR merge_array: 
 --------------------------------------------------------------------------------
-  36:     if n < 2:
-  37:         return
-  38:     
-  39:     mid = n // 2
-- 40:     S1 = S[0:mid]
-+ 40:     S1 = S[:mid]
-  41:     S2 = S[mid:n]
-  42:     
-  43:     merge_sort(S1)
-  44:     merge_sort(S2)
+  12:     n = len(S)
+  13:     if n < 2:
+  14:         return
+  15:     mid = n // 2
+- 16:     S1 = S[0:mid]
++ 16:     S1 = S[:mid]
+  17:     S2 = S[mid:n]
+  18:     merge_sort(S1)
+  19:     merge_sort(S2)
+  20:     merge(S1, S2, S)
 --------------------------------------------------------------------------------
-[0.02845 s] survived
+[0.02857 s] survived
    - [#  23] SIR merge_array: 
 --------------------------------------------------------------------------------
-  36:     if n < 2:
-  37:         return
-  38:     
-  39:     mid = n // 2
-- 40:     S1 = S[0:mid]
-+ 40:     S1 = S[0:]
-  41:     S2 = S[mid:n]
-  42:     
-  43:     merge_sort(S1)
-  44:     merge_sort(S2)
+  12:     n = len(S)
+  13:     if n < 2:
+  14:         return
+  15:     mid = n // 2
+- 16:     S1 = S[0:mid]
++ 16:     S1 = S[0:]
+  17:     S2 = S[mid:n]
+  18:     merge_sort(S1)
+  19:     merge_sort(S2)
+  20:     merge(S1, S2, S)
 --------------------------------------------------------------------------------
-[0.15032 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.17109 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  24] SIR merge_array: 
 --------------------------------------------------------------------------------
-  37:         return
-  38:     
-  39:     mid = n // 2
-  40:     S1 = S[0:mid]
-- 41:     S2 = S[mid:n]
-+ 41:     S2 = S[:n]
-  42:     
-  43:     merge_sort(S1)
-  44:     merge_sort(S2)
-  45:     
+  13:     if n < 2:
+  14:         return
+  15:     mid = n // 2
+  16:     S1 = S[0:mid]
+- 17:     S2 = S[mid:n]
++ 17:     S2 = S[:n]
+  18:     merge_sort(S1)
+  19:     merge_sort(S2)
+  20:     merge(S1, S2, S)
 --------------------------------------------------------------------------------
-[0.15254 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
+[0.17709 s] killed by test_duplicate_elements (test_merge_array.TestMergeSort)
    - [#  25] SIR merge_array: 
 --------------------------------------------------------------------------------
-  37:         return
-  38:     
-  39:     mid = n // 2
-  40:     S1 = S[0:mid]
-- 41:     S2 = S[mid:n]
-+ 41:     S2 = S[mid:]
-  42:     
-  43:     merge_sort(S1)
-  44:     merge_sort(S2)
-  45:     
+  13:     if n < 2:
+  14:         return
+  15:     mid = n // 2
+  16:     S1 = S[0:mid]
+- 17:     S2 = S[mid:n]
++ 17:     S2 = S[mid:]
+  18:     merge_sort(S1)
+  19:     merge_sort(S2)
+  20:     merge(S1, S2, S)
 --------------------------------------------------------------------------------
-[0.02436 s] survived
-[*] Mutation score [0.84442 s]: 87.5%
+[0.03252 s] survived
+[*] Mutation score [0.95510 s]: 87.5%
    - all: 25
    - killed: 21 (84.0%)
    - survived: 3 (12.0%)

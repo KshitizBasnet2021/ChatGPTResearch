@@ -1,0 +1,4 @@
+[*] Start mutation process:
+   - targets: ch12/No_Comments/find_brute.py
+   - tests: tests_no_comments/ch12/test_find_brute.py
+[*] Can't load module: tests_no_comments/ch12/test_find_brute.py (ModuleNotFoundError: No module named 'tests_no_comments/ch12/test_find_brute')

@@ -1,6 +1,6 @@
 import unittest
 
-from ch13.Nocomments.find_brute import find_brute
+from ch13.No_Comments.find_brute import find_brute
 
 
 class TestBruteForce(unittest.TestCase):
