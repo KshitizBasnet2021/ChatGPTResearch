@@ -1,0 +1,106 @@
+[*] Start mutation process:
+   - targets: ch03/disjoint.py
+   - tests: tests/ch03/test_disjoint.py
+[*] 6 tests passed:
+   - test_disjoint [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] COI disjoint: 
+--------------------------------------------------------------------------------
+  23:     '''Return True if there is no element common to all three lists.'''
+  24:     for a in A:
+  25:         for b in B:
+  26:             for c in C:
+- 27:                 if a == b == c:
++ 27:                 if not (a == b == c):
+  28:                     return False
+  29:     return True
+  30: 
+  31: def disjoint2(A, B, C):
+--------------------------------------------------------------------------------
+[0.00095 s] killed by test_disjoint1_no_common (test_disjoint.TestDisjoint)
+   - [#   2] COI disjoint: 
+--------------------------------------------------------------------------------
+  31: def disjoint2(A, B, C):
+  32:     '''Return True if there is no element common to all three lists.'''
+  33:     for a in A:
+  34:         for b in B:
+- 35:             if a == b:
++ 35:             if not (a == b):
+  36:                 for c in C:
+  37:                     if a == c:
+  38:                         return False
+  39:     return True
+--------------------------------------------------------------------------------
+[0.00093 s] survived
+   - [#   3] COI disjoint: 
+--------------------------------------------------------------------------------
+  33:     for a in A:
+  34:         for b in B:
+  35:             if a == b:
+  36:                 for c in C:
+- 37:                     if a == c:
++ 37:                     if not (a == c):
+  38:                         return False
+  39:     return True
+--------------------------------------------------------------------------------
+[0.00100 s] survived
+   - [#   4] ROR disjoint: 
+--------------------------------------------------------------------------------
+  23:     '''Return True if there is no element common to all three lists.'''
+  24:     for a in A:
+  25:         for b in B:
+  26:             for c in C:
+- 27:                 if a == b == c:
++ 27:                 if a != b == c:
+  28:                     return False
+  29:     return True
+  30: 
+  31: def disjoint2(A, B, C):
+--------------------------------------------------------------------------------
+[0.00104 s] survived
+   - [#   5] ROR disjoint: 
+--------------------------------------------------------------------------------
+  23:     '''Return True if there is no element common to all three lists.'''
+  24:     for a in A:
+  25:         for b in B:
+  26:             for c in C:
+- 27:                 if a == b == c:
++ 27:                 if a == b != c:
+  28:                     return False
+  29:     return True
+  30: 
+  31: def disjoint2(A, B, C):
+--------------------------------------------------------------------------------
+[0.00118 s] survived
+   - [#   6] ROR disjoint: 
+--------------------------------------------------------------------------------
+  31: def disjoint2(A, B, C):
+  32:     '''Return True if there is no element common to all three lists.'''
+  33:     for a in A:
+  34:         for b in B:
+- 35:             if a == b:
++ 35:             if a != b:
+  36:                 for c in C:
+  37:                     if a == c:
+  38:                         return False
+  39:     return True
+--------------------------------------------------------------------------------
+[0.00162 s] survived
+   - [#   7] ROR disjoint: 
+--------------------------------------------------------------------------------
+  33:     for a in A:
+  34:         for b in B:
+  35:             if a == b:
+  36:                 for c in C:
+- 37:                     if a == c:
++ 37:                     if a != c:
+  38:                         return False
+  39:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+[*] Mutation score [0.06367 s]: 14.3%
+   - all: 7
+   - killed: 1 (14.3%)
+   - survived: 6 (85.7%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)

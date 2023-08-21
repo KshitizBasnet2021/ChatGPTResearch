@@ -1,0 +1,609 @@
+[*] Start mutation process:
+   - targets: ch12/merge_nonrecur.py
+   - tests: tests/ch12/test_merge_nonrecur.py
+[*] 6 tests passed:
+   - test_merge_nonrecur [0.01418 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  22: import math
+  23: 
+  24: def merge(src, result, start, inc):
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+- 26:     end1 = start + inc
++ 26:     end1 = start - inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+  29:     while (x < end1 and y < end2):
+  30:         if src[x] < src[y]:
+--------------------------------------------------------------------------------
+[0.00354 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#   2] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  23: 
+  24: def merge(src, result, start, inc):
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+- 27:     end2 = min(start + (2 * inc), len(src))
++ 27:     end2 = min(start - (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+  29:     while (x < end1 and y < end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#   3] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  23: 
+  24: def merge(src, result, start, inc):
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+- 27:     end2 = min(start + (2 * inc), len(src))
++ 27:     end2 = min(start + (2 / inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+  29:     while (x < end1 and y < end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+--------------------------------------------------------------------------------
+[0.00000 s] incompetent
+   - [#   4] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  23: 
+  24: def merge(src, result, start, inc):
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+- 27:     end2 = min(start + (2 * inc), len(src))
++ 27:     end2 = min(start + (2 // inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+  29:     while (x < end1 and y < end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#   5] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  23: 
+  24: def merge(src, result, start, inc):
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+- 27:     end2 = min(start + (2 * inc), len(src))
++ 27:     end2 = min(start + (2 ** inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+  29:     while (x < end1 and y < end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+--------------------------------------------------------------------------------
+[5.02420 s] timeout
+   - [#   6] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  24: def merge(src, result, start, inc):
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+- 28:     (x, y, z) = (start, start + inc, start)
++ 28:     (x, y, z) = (start, start - inc, start)
+  29:     while (x < end1 and y < end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+  32:             x += 1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#   7] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+  44:     n = len(S)
+  45:     logn = math.ceil(math.log(n, 2))
+- 46:     (src, dest) = (S, [None] * n)
++ 46:     (src, dest) = (S, [None] / n)
+  47:     for i in (2 ** k for k in range(logn)):
+  48:         for j in range(0, n, 2 * i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+--------------------------------------------------------------------------------
+[0.00000 s] incompetent
+   - [#   8] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+  44:     n = len(S)
+  45:     logn = math.ceil(math.log(n, 2))
+- 46:     (src, dest) = (S, [None] * n)
++ 46:     (src, dest) = (S, [None] // n)
+  47:     for i in (2 ** k for k in range(logn)):
+  48:         for j in range(0, n, 2 * i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+--------------------------------------------------------------------------------
+[0.00101 s] incompetent
+   - [#   9] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+  44:     n = len(S)
+  45:     logn = math.ceil(math.log(n, 2))
+- 46:     (src, dest) = (S, [None] * n)
++ 46:     (src, dest) = (S, [None] ** n)
+  47:     for i in (2 ** k for k in range(logn)):
+  48:         for j in range(0, n, 2 * i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+--------------------------------------------------------------------------------
+[0.00000 s] incompetent
+   - [#  10] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+  44:     n = len(S)
+  45:     logn = math.ceil(math.log(n, 2))
+  46:     (src, dest) = (S, [None] * n)
+- 47:     for i in (2 ** k for k in range(logn)):
++ 47:     for i in (2 * k for k in range(logn)):
+  48:         for j in range(0, n, 2 * i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+  51:     if S is not src:
+--------------------------------------------------------------------------------
+[0.00250 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  11] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  44:     n = len(S)
+  45:     logn = math.ceil(math.log(n, 2))
+  46:     (src, dest) = (S, [None] * n)
+  47:     for i in (2 ** k for k in range(logn)):
+- 48:         for j in range(0, n, 2 * i):
++ 48:         for j in range(0, n, 2 / i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+  51:     if S is not src:
+  52:         S[0:n] = src[0:n]
+--------------------------------------------------------------------------------
+[0.00000 s] incompetent
+   - [#  12] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  44:     n = len(S)
+  45:     logn = math.ceil(math.log(n, 2))
+  46:     (src, dest) = (S, [None] * n)
+  47:     for i in (2 ** k for k in range(logn)):
+- 48:         for j in range(0, n, 2 * i):
++ 48:         for j in range(0, n, 2 // i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+  51:     if S is not src:
+  52:         S[0:n] = src[0:n]
+--------------------------------------------------------------------------------
+[0.01034 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  13] AOR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  44:     n = len(S)
+  45:     logn = math.ceil(math.log(n, 2))
+  46:     (src, dest) = (S, [None] * n)
+  47:     for i in (2 ** k for k in range(logn)):
+- 48:         for j in range(0, n, 2 * i):
++ 48:         for j in range(0, n, 2 ** i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+  51:     if S is not src:
+  52:         S[0:n] = src[0:n]
+--------------------------------------------------------------------------------
+[5.03976 s] timeout
+   - [#  14] ASR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  28:     (x, y, z) = (start, start + inc, start)
+  29:     while (x < end1 and y < end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+- 32:             x += 1
++ 32:             x -= 1
+  33:         else:
+  34:             result[z] = src[y]
+  35:             y += 1
+  36:         z += 1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  15] ASR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+  34:             result[z] = src[y]
+- 35:             y += 1
++ 35:             y -= 1
+  36:         z += 1
+  37:     if x < end1:
+  38:         result[z:end2] = src[x:end1]
+  39:     elif y < end2:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  16] ASR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  32:             x += 1
+  33:         else:
+  34:             result[z] = src[y]
+  35:             y += 1
+- 36:         z += 1
++ 36:         z -= 1
+  37:     if x < end1:
+  38:         result[z:end2] = src[x:end1]
+  39:     elif y < end2:
+  40:         result[z:end2] = src[y:end2]
+--------------------------------------------------------------------------------
+[0.00567 s] incompetent
+   - [#  17] COI merge_nonrecur: 
+--------------------------------------------------------------------------------
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+- 29:     while (x < end1 and y < end2):
++ 29:     while not ((x < end1 and y < end2)):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  18] COI merge_nonrecur: 
+--------------------------------------------------------------------------------
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+  29:     while (x < end1 and y < end2):
+- 30:         if src[x] < src[y]:
++ 30:         if not (src[x] < src[y]):
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+  34:             result[z] = src[y]
+--------------------------------------------------------------------------------
+[0.00509 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  19] COI merge_nonrecur: 
+--------------------------------------------------------------------------------
+  33:         else:
+  34:             result[z] = src[y]
+  35:             y += 1
+  36:         z += 1
+- 37:     if x < end1:
++ 37:     if not (x < end1):
+  38:         result[z:end2] = src[x:end1]
+  39:     elif y < end2:
+  40:         result[z:end2] = src[y:end2]
+  41: 
+--------------------------------------------------------------------------------
+[0.00000 s] incompetent
+   - [#  20] COI merge_nonrecur: 
+--------------------------------------------------------------------------------
+  35:             y += 1
+  36:         z += 1
+  37:     if x < end1:
+  38:         result[z:end2] = src[x:end1]
+- 39:     elif y < end2:
++ 39:     elif not (y < end2):
+  40:         result[z:end2] = src[y:end2]
+  41: 
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  21] COI merge_nonrecur: 
+--------------------------------------------------------------------------------
+  47:     for i in (2 ** k for k in range(logn)):
+  48:         for j in range(0, n, 2 * i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+- 51:     if S is not src:
++ 51:     if not (S is not src):
+  52:         S[0:n] = src[0:n]
+--------------------------------------------------------------------------------
+[0.01960 s] killed by test_mixed_list (test_merge_nonrecur.TestMergeSort)
+   - [#  22] LCR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+- 29:     while (x < end1 and y < end2):
++ 29:     while (x < end1 or y < end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  23] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+- 29:     while (x < end1 and y < end2):
++ 29:     while (x > end1 and y < end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  24] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+- 29:     while (x < end1 and y < end2):
++ 29:     while (x <= end1 and y < end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  25] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+- 29:     while (x < end1 and y < end2):
++ 29:     while (x < end1 and y > end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  26] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  25:     '''Merge src[start:start+inc] and src[start+inc:start+2*inc] into result.'''
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+- 29:     while (x < end1 and y < end2):
++ 29:     while (x < end1 and y <= end2):
+  30:         if src[x] < src[y]:
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  27] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+  29:     while (x < end1 and y < end2):
+- 30:         if src[x] < src[y]:
++ 30:         if src[x] > src[y]:
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+  34:             result[z] = src[y]
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  28] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  26:     end1 = start + inc
+  27:     end2 = min(start + (2 * inc), len(src))
+  28:     (x, y, z) = (start, start + inc, start)
+  29:     while (x < end1 and y < end2):
+- 30:         if src[x] < src[y]:
++ 30:         if src[x] <= src[y]:
+  31:             result[z] = src[x]
+  32:             x += 1
+  33:         else:
+  34:             result[z] = src[y]
+--------------------------------------------------------------------------------
+[0.01999 s] survived
+   - [#  29] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  33:         else:
+  34:             result[z] = src[y]
+  35:             y += 1
+  36:         z += 1
+- 37:     if x < end1:
++ 37:     if x > end1:
+  38:         result[z:end2] = src[x:end1]
+  39:     elif y < end2:
+  40:         result[z:end2] = src[y:end2]
+  41: 
+--------------------------------------------------------------------------------
+[0.00000 s] incompetent
+   - [#  30] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  33:         else:
+  34:             result[z] = src[y]
+  35:             y += 1
+  36:         z += 1
+- 37:     if x < end1:
++ 37:     if x <= end1:
+  38:         result[z:end2] = src[x:end1]
+  39:     elif y < end2:
+  40:         result[z:end2] = src[y:end2]
+  41: 
+--------------------------------------------------------------------------------
+[0.00954 s] killed by test_mixed_list (test_merge_nonrecur.TestMergeSort)
+   - [#  31] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  35:             y += 1
+  36:         z += 1
+  37:     if x < end1:
+  38:         result[z:end2] = src[x:end1]
+- 39:     elif y < end2:
++ 39:     elif y > end2:
+  40:         result[z:end2] = src[y:end2]
+  41: 
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  32] ROR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  35:             y += 1
+  36:         z += 1
+  37:     if x < end1:
+  38:         result[z:end2] = src[x:end1]
+- 39:     elif y < end2:
++ 39:     elif y <= end2:
+  40:         result[z:end2] = src[y:end2]
+  41: 
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+--------------------------------------------------------------------------------
+[0.01512 s] survived
+   - [#  33] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  34:             result[z] = src[y]
+  35:             y += 1
+  36:         z += 1
+  37:     if x < end1:
+- 38:         result[z:end2] = src[x:end1]
++ 38:         result[:end2] = src[x:end1]
+  39:     elif y < end2:
+  40:         result[z:end2] = src[y:end2]
+  41: 
+  42: def merge_sort(S):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  34] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  34:             result[z] = src[y]
+  35:             y += 1
+  36:         z += 1
+  37:     if x < end1:
+- 38:         result[z:end2] = src[x:end1]
++ 38:         result[z:] = src[x:end1]
+  39:     elif y < end2:
+  40:         result[z:end2] = src[y:end2]
+  41: 
+  42: def merge_sort(S):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  35] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  34:             result[z] = src[y]
+  35:             y += 1
+  36:         z += 1
+  37:     if x < end1:
+- 38:         result[z:end2] = src[x:end1]
++ 38:         result[z:end2] = src[:end1]
+  39:     elif y < end2:
+  40:         result[z:end2] = src[y:end2]
+  41: 
+  42: def merge_sort(S):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  36] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  34:             result[z] = src[y]
+  35:             y += 1
+  36:         z += 1
+  37:     if x < end1:
+- 38:         result[z:end2] = src[x:end1]
++ 38:         result[z:end2] = src[x:]
+  39:     elif y < end2:
+  40:         result[z:end2] = src[y:end2]
+  41: 
+  42: def merge_sort(S):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  37] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  36:         z += 1
+  37:     if x < end1:
+  38:         result[z:end2] = src[x:end1]
+  39:     elif y < end2:
+- 40:         result[z:end2] = src[y:end2]
++ 40:         result[:end2] = src[y:end2]
+  41: 
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+  44:     n = len(S)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  38] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  36:         z += 1
+  37:     if x < end1:
+  38:         result[z:end2] = src[x:end1]
+  39:     elif y < end2:
+- 40:         result[z:end2] = src[y:end2]
++ 40:         result[z:] = src[y:end2]
+  41: 
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+  44:     n = len(S)
+--------------------------------------------------------------------------------
+[0.00518 s] killed by test_sorted_list (test_merge_nonrecur.TestMergeSort)
+   - [#  39] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  36:         z += 1
+  37:     if x < end1:
+  38:         result[z:end2] = src[x:end1]
+  39:     elif y < end2:
+- 40:         result[z:end2] = src[y:end2]
++ 40:         result[z:end2] = src[:end2]
+  41: 
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+  44:     n = len(S)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  40] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  36:         z += 1
+  37:     if x < end1:
+  38:         result[z:end2] = src[x:end1]
+  39:     elif y < end2:
+- 40:         result[z:end2] = src[y:end2]
++ 40:         result[z:end2] = src[y:]
+  41: 
+  42: def merge_sort(S):
+  43:     '''Sort the elements of Python list S using the merge-sort algorithm.'''
+  44:     n = len(S)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_merge_nonrecur.TestMergeSort)
+   - [#  41] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  48:         for j in range(0, n, 2 * i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+  51:     if S is not src:
+- 52:         S[0:n] = src[0:n]
++ 52:         S[:n] = src[0:n]
+--------------------------------------------------------------------------------
+[0.00997 s] survived
+   - [#  42] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  48:         for j in range(0, n, 2 * i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+  51:     if S is not src:
+- 52:         S[0:n] = src[0:n]
++ 52:         S[0:] = src[0:n]
+--------------------------------------------------------------------------------
+[0.01605 s] survived
+   - [#  43] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  48:         for j in range(0, n, 2 * i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+  51:     if S is not src:
+- 52:         S[0:n] = src[0:n]
++ 52:         S[0:n] = src[:n]
+--------------------------------------------------------------------------------
+[0.01474 s] survived
+   - [#  44] SIR merge_nonrecur: 
+--------------------------------------------------------------------------------
+  48:         for j in range(0, n, 2 * i):
+  49:             merge(src, dest, j, i)
+  50:         (src, dest) = (dest, src)
+  51:     if S is not src:
+- 52:         S[0:n] = src[0:n]
++ 52:         S[0:n] = src[0:]
+--------------------------------------------------------------------------------
+[0.00904 s] survived
+[*] Mutation score [10.94126 s]: 83.3%
+   - all: 44
+   - killed: 28 (63.6%)
+   - survived: 6 (13.6%)
+   - incompetent: 8 (18.2%)
+   - timeout: 2 (4.5%)
