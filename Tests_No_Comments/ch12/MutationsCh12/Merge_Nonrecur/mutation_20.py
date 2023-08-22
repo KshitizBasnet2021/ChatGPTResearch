@@ -14,7 +14,7 @@ def merge(src, result, start, inc):
     z += 1
   if x < end1:
     result[z:end2] = src[x:end1]
-  elif not (y < end2):
+  elif not (y < end2):  #   elif y < end2:
     result[z:end2] = src[y:end2]
 
 def merge_sort(S):

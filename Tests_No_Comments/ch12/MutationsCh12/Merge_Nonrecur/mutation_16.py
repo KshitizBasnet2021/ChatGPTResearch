@@ -11,7 +11,7 @@ def merge(src, result, start, inc):
     else:
       result[z] = src[y]
       y += 1
-    z -= 1
+    z -= 1  #     z += 1
   if x < end1:
     result[z:end2] = src[x:end1]
   elif y < end2:

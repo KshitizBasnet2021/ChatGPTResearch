@@ -6,104 +6,104 @@
 [*] Start mutants generation and execution:
    - [#   1] AOD find: 
 --------------------------------------------------------------------------------
-  26:     while j < n:
-  27:         if S[j] == val:
-  28:             return j
-  29:         j += 1
-- 30:     return -1
-+ 30:     return 1
+  5:     while j < n:
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+- 9:     return -1
++ 9:     return 1
 --------------------------------------------------------------------------------
-[0.00560 s] killed by test_element_not_present (test_find.TestFind)
+[0.00000 s] killed by test_element_not_present (test_find.TestFind)
    - [#   2] AOR find: 
 --------------------------------------------------------------------------------
-  26:     while j < n:
-  27:         if S[j] == val:
-  28:             return j
-  29:         j += 1
-- 30:     return -1
-+ 30:     return +1
+  5:     while j < n:
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+- 9:     return -1
++ 9:     return +1
 --------------------------------------------------------------------------------
-[0.00097 s] killed by test_element_not_present (test_find.TestFind)
+[0.00000 s] killed by test_element_not_present (test_find.TestFind)
    - [#   3] ASR find: 
 --------------------------------------------------------------------------------
-  25:     j = 0
-  26:     while j < n:
-  27:         if S[j] == val:
-  28:             return j
-- 29:         j += 1
-+ 29:         j -= 1
-  30:     return -1
+  4:     j = 0
+  5:     while j < n:
+  6:         if S[j] == val:
+  7:             return j
+- 8:         j += 1
++ 8:         j -= 1
+  9:     return -1
 --------------------------------------------------------------------------------
-[0.00054 s] killed by test_duplicate_elements (test_find.TestFind)
+[0.00000 s] killed by test_duplicate_elements (test_find.TestFind)
    - [#   4] COI find: 
 --------------------------------------------------------------------------------
-  22: def find(S, val):
-  23:     '''Return index j such that S[j] == val, or -1 if no such element.'''
-  24:     n = len(S)
-  25:     j = 0
-- 26:     while j < n:
-+ 26:     while not (j < n):
-  27:         if S[j] == val:
-  28:             return j
-  29:         j += 1
-  30:     return -1
+  1: def find(S, val):
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+- 5:     while j < n:
++ 5:     while not (j < n):
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+  9:     return -1
 --------------------------------------------------------------------------------
 [0.00000 s] killed by test_duplicate_elements (test_find.TestFind)
    - [#   5] COI find: 
 --------------------------------------------------------------------------------
-  23:     '''Return index j such that S[j] == val, or -1 if no such element.'''
-  24:     n = len(S)
-  25:     j = 0
-  26:     while j < n:
-- 27:         if S[j] == val:
-+ 27:         if not (S[j] == val):
-  28:             return j
-  29:         j += 1
-  30:     return -1
---------------------------------------------------------------------------------
-[0.00159 s] killed by test_duplicate_elements (test_find.TestFind)
-   - [#   6] ROR find: 
---------------------------------------------------------------------------------
-  22: def find(S, val):
-  23:     '''Return index j such that S[j] == val, or -1 if no such element.'''
-  24:     n = len(S)
-  25:     j = 0
-- 26:     while j < n:
-+ 26:     while j > n:
-  27:         if S[j] == val:
-  28:             return j
-  29:         j += 1
-  30:     return -1
---------------------------------------------------------------------------------
-[0.00028 s] killed by test_duplicate_elements (test_find.TestFind)
-   - [#   7] ROR find: 
---------------------------------------------------------------------------------
-  22: def find(S, val):
-  23:     '''Return index j such that S[j] == val, or -1 if no such element.'''
-  24:     n = len(S)
-  25:     j = 0
-- 26:     while j < n:
-+ 26:     while j <= n:
-  27:         if S[j] == val:
-  28:             return j
-  29:         j += 1
-  30:     return -1
---------------------------------------------------------------------------------
-[0.00085 s] killed by test_element_not_present (test_find.TestFind)
-   - [#   8] ROR find: 
---------------------------------------------------------------------------------
-  23:     '''Return index j such that S[j] == val, or -1 if no such element.'''
-  24:     n = len(S)
-  25:     j = 0
-  26:     while j < n:
-- 27:         if S[j] == val:
-+ 27:         if S[j] != val:
-  28:             return j
-  29:         j += 1
-  30:     return -1
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+  5:     while j < n:
+- 6:         if S[j] == val:
++ 6:         if not (S[j] == val):
+  7:             return j
+  8:         j += 1
+  9:     return -1
 --------------------------------------------------------------------------------
 [0.00000 s] killed by test_duplicate_elements (test_find.TestFind)
-[*] Mutation score [0.05945 s]: 100.0%
+   - [#   6] ROR find: 
+--------------------------------------------------------------------------------
+  1: def find(S, val):
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+- 5:     while j < n:
++ 5:     while j > n:
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+  9:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_find.TestFind)
+   - [#   7] ROR find: 
+--------------------------------------------------------------------------------
+  1: def find(S, val):
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+- 5:     while j < n:
++ 5:     while j <= n:
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+  9:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_element_not_present (test_find.TestFind)
+   - [#   8] ROR find: 
+--------------------------------------------------------------------------------
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+  5:     while j < n:
+- 6:         if S[j] == val:
++ 6:         if S[j] != val:
+  7:             return j
+  8:         j += 1
+  9:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_duplicate_elements (test_find.TestFind)
+[*] Mutation score [0.04830 s]: 100.0%
    - all: 8
    - killed: 8 (100.0%)
    - survived: 0 (0.0%)

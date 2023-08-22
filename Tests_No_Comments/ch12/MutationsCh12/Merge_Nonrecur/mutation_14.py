@@ -7,7 +7,7 @@ def merge(src, result, start, inc):
   while x < end1 and y < end2:
     if src[x] < src[y]:
       result[z] = src[x]
-      x -= 1
+      x -= 1  #       x += 1
     else:
       result[z] = src[y]
       y += 1

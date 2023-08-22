@@ -1,63 +1,63 @@
 [*] Start mutation process:
    - targets: ch04/disk_usage.py
    - tests: tests/ch04/test_disk_usage.py
-0       C:\Users\kshit\AppData\Local\Temp\tmp46erq2pa\empty_folder
-15      C:\Users\kshit\AppData\Local\Temp\tmpvla0iw4j\test_file.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpw75v0_rw\folder_with_files\file1.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpw75v0_rw\folder_with_files\file2.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpw75v0_rw\folder_with_files\subfolder\file3.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpw75v0_rw\folder_with_files\subfolder
-45      C:\Users\kshit\AppData\Local\Temp\tmpw75v0_rw\folder_with_files
-15      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder1\file1.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder1\file2.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder1\subfolder\file3.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder1\subfolder
-45      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder1
-15      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder2\file1.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder2\file2.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder2\subfolder\file3.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder2\subfolder
-45      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders\folder2
-90      C:\Users\kshit\AppData\Local\Temp\tmpc0ciknjk\nested_folders
+0       C:\Users\kshit\AppData\Local\Temp\tmpyuh93qj1\empty_folder
+15      C:\Users\kshit\AppData\Local\Temp\tmp9l0r_133\test_file.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmplg4n_y70\folder_with_files\file1.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmplg4n_y70\folder_with_files\file2.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmplg4n_y70\folder_with_files\subfolder\file3.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmplg4n_y70\folder_with_files\subfolder
+45      C:\Users\kshit\AppData\Local\Temp\tmplg4n_y70\folder_with_files
+15      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder1\file1.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder1\file2.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder1\subfolder\file3.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder1\subfolder
+45      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder1
+15      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder2\file1.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder2\file2.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder2\subfolder\file3.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder2\subfolder
+45      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders\folder2
+90      C:\Users\kshit\AppData\Local\Temp\tmp31cy7tfk\nested_folders
 [*] 4 tests passed:
-   - test_disk_usage [0.01585 s]
+   - test_disk_usage [0.01005 s]
 [*] Start mutants generation and execution:
    - [#   1] ASR disk_usage: 
 --------------------------------------------------------------------------------
-  26:     total = os.path.getsize(path)
-  27:     if os.path.isdir(path):
-  28:         for filename in os.listdir(path):
-  29:             childpath = os.path.join(path, filename)
-- 30:             total += disk_usage(childpath)
-+ 30:             total -= disk_usage(childpath)
-  31:     
-  32:     print('{0:<7}'.format(total), path)
-  33:     return total
+   5:     total = os.path.getsize(path)
+   6:     if os.path.isdir(path):
+   7:         for filename in os.listdir(path):
+   8:             childpath = os.path.join(path, filename)
+-  9:             total += disk_usage(childpath)
++  9:             total -= disk_usage(childpath)
+  10:     
+  11:     print('{0:<7}'.format(total), path)
+  12:     return total
 --------------------------------------------------------------------------------
-0       C:\Users\kshit\AppData\Local\Temp\tmpdrokni3t\empty_folder
-15      C:\Users\kshit\AppData\Local\Temp\tmp_v7rshrj\test_file.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpcibbs80b\folder_with_files\file1.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpcibbs80b\folder_with_files\file2.txt
-15      C:\Users\kshit\AppData\Local\Temp\tmpcibbs80b\folder_with_files\subfolder\file3.txt
--15     C:\Users\kshit\AppData\Local\Temp\tmpcibbs80b\folder_with_files\subfolder
--15     C:\Users\kshit\AppData\Local\Temp\tmpcibbs80b\folder_with_files
-[0.00000 s] killed by test_folder_with_files (test_disk_usage.TestDiskUsage)
+0       C:\Users\kshit\AppData\Local\Temp\tmpb1dku2u0\empty_folder
+15      C:\Users\kshit\AppData\Local\Temp\tmp30gmmiez\test_file.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmp0x8a_b1h\folder_with_files\file1.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmp0x8a_b1h\folder_with_files\file2.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmp0x8a_b1h\folder_with_files\subfolder\file3.txt
+-15     C:\Users\kshit\AppData\Local\Temp\tmp0x8a_b1h\folder_with_files\subfolder
+-15     C:\Users\kshit\AppData\Local\Temp\tmp0x8a_b1h\folder_with_files
+[0.00970 s] killed by test_folder_with_files (test_disk_usage.TestDiskUsage)
    - [#   2] COI disk_usage: 
 --------------------------------------------------------------------------------
-  23: 
-  24: def disk_usage(path):
-  25:     '''Return the number of bytes used by a file/folder and any descendents.'''
-  26:     total = os.path.getsize(path)
-- 27:     if os.path.isdir(path):
-+ 27:     if not (os.path.isdir(path)):
-  28:         for filename in os.listdir(path):
-  29:             childpath = os.path.join(path, filename)
-  30:             total += disk_usage(childpath)
-  31:     
+   2: 
+   3: def disk_usage(path):
+   4:     '''Return the number of bytes used by a file/folder and any descendents.'''
+   5:     total = os.path.getsize(path)
+-  6:     if os.path.isdir(path):
++  6:     if not (os.path.isdir(path)):
+   7:         for filename in os.listdir(path):
+   8:             childpath = os.path.join(path, filename)
+   9:             total += disk_usage(childpath)
+  10:     
 --------------------------------------------------------------------------------
-0       C:\Users\kshit\AppData\Local\Temp\tmp9h33rs5o\empty_folder
-[0.00251 s] killed by test_file_size (test_disk_usage.TestDiskUsage)
-[*] Mutation score [0.08011 s]: 100.0%
+0       C:\Users\kshit\AppData\Local\Temp\tmpha9_25iq\empty_folder
+[0.00000 s] killed by test_file_size (test_disk_usage.TestDiskUsage)
+[*] Mutation score [0.07005 s]: 100.0%
    - all: 2
    - killed: 2 (100.0%)
    - survived: 0 (0.0%)

@@ -60,9 +60,13 @@ def generate_mutation_files(report_file, code_file, folder):
 
 
 if __name__ == "__main__":
-    mutation_report_file1 = './Tests_No_Comments/ch12/MutationsCh12/mutation_merge_array.txt'
-    code_file1 = './ch12/No_Comments/merge_array.py'
-    dir_path1 = './Tests_No_Comments/Ch12/MutationsCh12/merge_array'
+    # mutation_report_file1 = './Tests_No_Comments/ch13/MutationsCh13/mutation_find_boyer_moore.txt'
+    # code_file1 = './ch13/No_Comments/find_boyer_moore.py'
+    # dir_path1 = './Tests_No_Comments/Ch13/MutationsCh13/find_boyer_moore'
+
+    mutation_report_file1 = './Tests/ch04/MutationsCh04/mutation_reverse_iterative.txt'
+    code_file1 = './ch04/reverse_iterative.py'
+    dir_path1 = './Tests/Ch04/MutationsCh04/reverse_iterative'
 
 
     generate_mutation_files(mutation_report_file1, code_file1, dir_path1)

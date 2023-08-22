@@ -1,0 +1,4 @@
+[*] Start mutation process:
+   - targets: ch12/merge_array.py
+   - tests: tests/ch13/merge_array.py
+[*] Can't load module: tests/ch13/merge_array.py (ModuleNotFoundError: No module named 'tests/ch13/merge_array')

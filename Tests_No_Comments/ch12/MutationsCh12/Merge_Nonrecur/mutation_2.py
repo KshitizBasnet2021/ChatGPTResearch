@@ -2,7 +2,7 @@ import math
 
 def merge(src, result, start, inc):
   end1 = start+inc
-  end2 = min(start - (2 * inc), len(src))
+  end2 = min(start - (2 * inc), len(src))  #   end2 = min(start+2*inc, len(src))
   x, y, z = start, start+inc, start
   while x < end1 and y < end2:
     if src[x] < src[y]:

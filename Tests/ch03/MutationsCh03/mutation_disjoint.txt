@@ -31,7 +31,7 @@
   17:                         return False
   18:     return True
 --------------------------------------------------------------------------------
-[0.01401 s] killed by test_single_element_lists (test_disjoint.TestDisjoint)
+[0.00000 s] killed by test_single_element_lists (test_disjoint.TestDisjoint)
    - [#   3] COI disjoint: 
 --------------------------------------------------------------------------------
   12:     for a in A:
@@ -98,7 +98,7 @@
   18:     return True
 --------------------------------------------------------------------------------
 [0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
-[*] Mutation score [0.06290 s]: 100.0%
+[*] Mutation score [0.07622 s]: 100.0%
    - all: 7
    - killed: 7 (100.0%)
    - survived: 0 (0.0%)

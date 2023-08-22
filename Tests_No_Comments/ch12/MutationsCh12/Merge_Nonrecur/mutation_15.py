@@ -10,7 +10,7 @@ def merge(src, result, start, inc):
       x += 1
     else:
       result[z] = src[y]
-    y -= 1
+      y -= 1  #       y += 1
     z += 1
   if x < end1:
     result[z:end2] = src[x:end1]

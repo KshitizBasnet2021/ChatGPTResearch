@@ -21,7 +21,7 @@ def merge_sort(S):
   n = len(S)
   logn = math.ceil(math.log(n,2))
   src, dest = S, [None] * n
-  for i in (2 * k for k in range(logn)):
+  for i in (2 * k for k in range(logn)):  #   for i in (2**k for k in range(logn)):
     for j in range(0, n, 2*i):
       merge(src, dest, j, i)
     src, dest = dest, src

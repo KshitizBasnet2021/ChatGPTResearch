@@ -26,4 +26,4 @@ def merge_sort(S):
       merge(src, dest, j, i)
     src, dest = dest, src
   if S is not src:
-   S[:n] = src[0:n]
+    S[:n] = src[0:n]  #     S[0:n] = src[0:n]

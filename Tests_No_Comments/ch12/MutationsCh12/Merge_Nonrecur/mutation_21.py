@@ -25,5 +25,5 @@ def merge_sort(S):
     for j in range(0, n, 2*i):
       merge(src, dest, j, i)
     src, dest = dest, src
-  if not (S is not src):
+  if not (S is not src):  #   if S is not src:
     S[0:n] = src[0:n]
