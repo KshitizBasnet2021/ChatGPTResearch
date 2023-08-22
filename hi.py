@@ -45,9 +45,9 @@ def generate_mutation_files(report_file, code_file, folder):
 
 
 if __name__ == "__main__":
-    mutation_report_file1 = './Tests_No_Comments/ch05/MutationsCh05/mutation_insertion_sort.txt'
-    code_file1 = './ch05/No_Comments/insertion_sort.py'
-    dir_path1 = './Tests_No_Comments/Ch05/MutationsCh05/insertion_sort'
+    mutation_report_file1 = './Tests_No_Comments/ch10/MutationsCh10/mutation_word_frequency.txt'
+    code_file1 = './ch10/No_Comments/word_frequency.py'
+    dir_path1 = './Tests_No_Comments/Ch10/MutationsCh10/word_frequency'
 
 
     generate_mutation_files(mutation_report_file1, code_file1, dir_path1)

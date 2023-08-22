@@ -3,7 +3,7 @@ def power(x, n):
     return 1
   else:
     partial = power(x, n // 2)
-+ 6:         result = partial // partial
+    result = partial // partial
     if n % 2 == 1:
       result *= x                       
     return result
