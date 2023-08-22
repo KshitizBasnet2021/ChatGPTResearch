@@ -5,7 +5,7 @@ def prefix_average1(S):
     total = 0
     for i in range(j + 1):
       total += S[i]
-+  8:         A[j] = total * (j + 1)
+    A[j] = total * (j + 1)
   return A
 
 def prefix_average2(S):

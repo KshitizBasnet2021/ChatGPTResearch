@@ -21,5 +21,5 @@ def prefix_average3(S):
   total = 0
   for j in range(n):
     total += S[j]
-+ 24:         A[j] = total // (j + 1)
+    A[j] = total // (j + 1)
   return A

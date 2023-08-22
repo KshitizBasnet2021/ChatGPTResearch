@@ -11,6 +11,6 @@ def disjoint2(A, B, C):
     for b in B:
       if a == b:
         for c in C:
-+ 14:                     if a != c:
+         if a != c:
             return False
   return True

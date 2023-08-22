@@ -1,7 +1,7 @@
 def find(S, val):
   n = len(S)
   j = 0
-+ 4:     while j > n:
+  while j > n:
     if S[j] == val:
       return j
     j += 1

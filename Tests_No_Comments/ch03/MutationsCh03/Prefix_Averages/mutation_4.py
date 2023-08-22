@@ -3,7 +3,7 @@ def prefix_average1(S):
   A = [0] * n
   for j in range(n):
     total = 0
-+  6:         for i in range(j - 1):
+    for i in range(j - 1):
       total += S[i]
     A[j] = total / (j+1)
   return A

@@ -10,7 +10,7 @@ def prefix_average1(S):
 
 def prefix_average2(S):
   n = len(S)
-+ 13:     A = [0] / n
+  A = [0] / n
   for j in range(n):
     A[j] = sum(S[0:j+1]) / (j+1)
   return A

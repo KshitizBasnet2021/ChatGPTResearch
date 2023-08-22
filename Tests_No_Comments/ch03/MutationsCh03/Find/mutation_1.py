@@ -5,4 +5,4 @@ def find(S, val):
     if S[j] == val:
       return j
     j += 1
-+ 8:     return 1
+  return 1

@@ -8,6 +8,6 @@ def unique1(S):
 def unique2(S):
   temp = sorted(S)
   for j in range(1, len(temp)):
-+ 11:         if not (S[j - 1] == S[j]):
+    if not (S[j - 1] == S[j]):
       return False
   return True

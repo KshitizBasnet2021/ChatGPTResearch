@@ -4,5 +4,5 @@ def find(S, val):
   while j < n:
     if S[j] == val:
       return j
-+ 7:         j -= 1
+    j -= 1
   return -1

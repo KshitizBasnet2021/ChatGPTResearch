@@ -9,7 +9,7 @@ def disjoint1(A, B, C):
 def disjoint2(A, B, C):
   for a in A:
     for b in B:
-+ 12:             if a != b:
+     if a != b:
         for c in C:
           if a == c:
             return False

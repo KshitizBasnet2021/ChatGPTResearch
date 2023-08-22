@@ -17,7 +17,7 @@ def prefix_average2(S):
 
 def prefix_average3(S):
   n = len(S)
-+ 20:     A = [0] / n
+  A = [0] / n
   total = 0
   for j in range(n):
     total += S[j]

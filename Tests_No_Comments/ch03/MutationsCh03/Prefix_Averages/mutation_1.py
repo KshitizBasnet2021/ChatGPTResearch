@@ -1,6 +1,6 @@
 def prefix_average1(S):
   n = len(S)
-+  3:     A = [0] / n
+  A = [0] / n
   for j in range(n):
     total = 0
     for i in range(j + 1):
