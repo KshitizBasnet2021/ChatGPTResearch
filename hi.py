@@ -45,30 +45,11 @@ def generate_mutation_files(report_file, code_file, folder):
 
 
 if __name__ == "__main__":
-    mutation_report_file1 = './Tests_No_Comments/ch04/MutationsCh04/mutation_binary_search_iterative.txt'
-    code_file1 = './ch04/No_Comments/binary_search_iterative.py'
-    dir_path1 = './Tests_No_Comments/Ch04/MutationsCh04/Binary_Search_iterative'
+    mutation_report_file1 = './Tests_No_Comments/ch05/MutationsCh05/mutation_insertion_sort.txt'
+    code_file1 = './ch05/No_Comments/insertion_sort.py'
+    dir_path1 = './Tests_No_Comments/Ch05/MutationsCh05/insertion_sort'
 
-    mutation_report_file2 = './Tests_No_Comments/ch04/MutationsCh04/mutation_binary_sum.txt'
-    code_file2 = './ch04/No_Comments/binary_sum.py'
-    dir_path2 = './Tests_No_Comments/Ch04/MutationsCh04/binary_sum'
-
-    
-    mutation_report_file3 = './Tests_No_Comments/ch04/MutationsCh04/mutation_power_fast.txt'
-    code_file3 = './ch04/No_Comments/power_fast.py'
-    dir_path3 = './Tests_No_Comments/Ch04/MutationsCh04/power_fast'
-
-    mutation_report_file4 = './Tests_No_Comments/ch04/MutationsCh04/mutation_reverse.txt'
-    code_file4 = './ch04/No_Comments/reverse.py'
-    dir_path4 = './Tests_No_Comments/Ch04/MutationsCh04/reverse'
-
-    mutation_report_file5 = './Tests_No_Comments/ch04/MutationsCh04/mutation_reverse_iterative.txt'
-    code_file5 = './ch04/No_Comments/reverse_iterative.py'
-    dir_path5 = './Tests_No_Comments/Ch04/MutationsCh04/reverse_iterative'
 
     generate_mutation_files(mutation_report_file1, code_file1, dir_path1)
-    generate_mutation_files(mutation_report_file2, code_file2, dir_path2)
-    generate_mutation_files(mutation_report_file3, code_file3, dir_path3)
-    generate_mutation_files(mutation_report_file4, code_file4, dir_path4)
-    generate_mutation_files(mutation_report_file5, code_file5, dir_path5)
+
 
