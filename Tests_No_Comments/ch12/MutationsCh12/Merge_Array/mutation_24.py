@@ -14,7 +14,7 @@ def merge_sort(S):
     return
   mid = n // 2
   S1 = S[0:mid]
-  S2 = S[:n]
+  S2 = S[:n]  #   S2 = S[mid:n]
   merge_sort(S1)
   merge_sort(S2)
   merge(S1, S2, S)

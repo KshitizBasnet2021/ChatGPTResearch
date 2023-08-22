@@ -6,7 +6,7 @@ def merge(S1, S2, S):
       i += 1
     else:
       S[i+j] = S2[j]
-      j -= 1
+      j -= 1  #       j += 1
 
 def merge_sort(S):
   n = len(S)

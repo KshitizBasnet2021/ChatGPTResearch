@@ -12,7 +12,7 @@ def merge_sort(S):
   n = len(S)
   if n < 2:
     return
-  mid = n * 2
+  mid = n * 2  #   mid = n // 2
   S1 = S[0:mid]
   S2 = S[mid:n]
   merge_sort(S1)

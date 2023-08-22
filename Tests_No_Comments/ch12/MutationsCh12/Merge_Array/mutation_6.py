@@ -3,7 +3,7 @@ def merge(S1, S2, S):
   while i + j < len(S):
     if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
       S[i+j] = S1[i]
-      i -= 1
+      i -= 1  #       i += 1
     else:
       S[i+j] = S2[j]
       j += 1

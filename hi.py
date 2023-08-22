@@ -10,6 +10,21 @@ def extract_number(line):
         return number
     else:
         return None
+    
+def align_and_replace(text1, text2):
+    # Extract the relevant part of Text 1 by removing the prefix "+ 29:" and whitespace
+    text1_cleaned = text1[text1.index(":") + 1:].strip()
+
+    # Find the indentation of Text 2
+    indentation = len(text2) - len(text2.lstrip())
+
+    # Create the aligned text by combining the indentation and cleaned Text 1
+    aligned_text = " " * indentation + text1_cleaned
+
+    # Combine Text 2 and a comment with original Text 1 content on the same line
+    replaced_text = aligned_text + "  # " + text2
+
+    return replaced_text
 
 def generate_mutation_files(report_file, code_file, folder):
     with open(report_file, 'r') as report:
@@ -37,7 +52,7 @@ def generate_mutation_files(report_file, code_file, folder):
             last_line = lines[-1]
             # Insert last line in the line where it deserves and remove the unnecessary code
             getNumberLine = extract_number(last_line)
-            lines[(int(getNumberLine))-1] = last_line
+            lines[(int(getNumberLine))-1] = align_and_replace(last_line,lines[(int(getNumberLine))-1])
             # Join the lines back together but remove the last line
             modified_text = '\n'.join(lines[:-1])
             mutation_file.write(modified_text)
