@@ -9,8 +9,9 @@ def find_boyer_moore(T, P):
   while i < n:
     if T[i] == P[k]:
       if k == 0:
-        if not (k == 0):  #         return i
-         else:
+        if not (k == 0):  # if not (k == 0)
+          return i
+      else:
         i -= 1
         k -= 1
     else:
