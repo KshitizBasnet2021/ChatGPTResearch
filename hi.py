@@ -162,22 +162,29 @@ if __name__ == "__main__":
     # code_file18 = './ch04/No_Comments/power_fast.py'
     # dir_path18 = './Tests_Final/Ch04/Mutation/Non_Commented_Code/power_fast'
 
-    mutation_report_file19 = './Tests_Final/ch04/Mutation/Commented_Code/reverse/mutation__reverse.txt'
-    code_file19 = './ch04/reverse.py'
-    dir_path19 = './Tests_Final/Ch04/Mutation/Commented_Code/reverse'
+    # mutation_report_file19 = './Tests_Final/ch04/Mutation/Commented_Code/reverse/mutation__reverse.txt'
+    # code_file19 = './ch04/reverse.py'
+    # dir_path19 = './Tests_Final/Ch04/Mutation/Commented_Code/reverse'
 
-    mutation_report_file20 = './Tests_Final/ch04/Mutation/Non_Commented_Code/reverse/mutation_reverse.txt'
-    code_file20 = './ch04/No_Comments/reverse.py'
-    dir_path20 = './Tests_Final/Ch04/Mutation/Non_Commented_Code/reverse'
+    # mutation_report_file20 = './Tests_Final/ch04/Mutation/Non_Commented_Code/reverse/mutation_reverse.txt'
+    # code_file20 = './ch04/No_Comments/reverse.py'
+    # dir_path20 = './Tests_Final/Ch04/Mutation/Non_Commented_Code/reverse'
 
-    mutation_report_file21 = './Tests_Final/ch04/Mutation/Commented_Code/reverse_iterative/mutation__reverse_iterative.txt'
-    code_file21 = './ch04/reverse_iterative.py'
-    dir_path21 = './Tests_Final/Ch04/Mutation/Commented_Code/reverse_iterative'
+    # mutation_report_file21 = './Tests_Final/ch04/Mutation/Commented_Code/reverse_iterative/mutation__reverse_iterative.txt'
+    # code_file21 = './ch04/reverse_iterative.py'
+    # dir_path21 = './Tests_Final/Ch04/Mutation/Commented_Code/reverse_iterative'
 
-    mutation_report_file22 = './Tests_Final/ch04/Mutation/Non_Commented_Code/reverse_iterative/mutation_reverse_iterative.txt'
-    code_file22 = './ch04/No_Comments/reverse_iterative.py'
-    dir_path22 = './Tests_Final/Ch04/Mutation/Non_Commented_Code/reverse_iterative'
+    # mutation_report_file22 = './Tests_Final/ch04/Mutation/Non_Commented_Code/reverse_iterative/mutation_reverse_iterative.txt'
+    # code_file22 = './ch04/No_Comments/reverse_iterative.py'
+    # dir_path22 = './Tests_Final/Ch04/Mutation/Non_Commented_Code/reverse_iterative'
 
+    mutation_report_file23 = './Tests_Final/ch05/Mutation/Commented_Code/insertion_sort/mutation_insertion_sort.txt'
+    code_file23 = './ch05/insertion_sort.py'
+    dir_path23 = './Tests_Final/Ch05/Mutation/Commented_Code/insertion_sort'
+
+    mutation_report_file24 = './Tests_Final/ch05/Mutation/Non_Commented_Code/insertion_sort/mutation_insertion_sort.txt'
+    code_file24 = './ch05/No_Comments/insertion_sort.py'
+    dir_path24 = './Tests_Final/Ch05/Mutation/Non_Commented_Code/insertion_sort'
    
     # generate_mutation_files(mutation_report_file1, code_file1, dir_path1)
     # generate_mutation_files(mutation_report_file2, code_file2, dir_path2)
@@ -197,7 +204,9 @@ if __name__ == "__main__":
     # generate_mutation_files(mutation_report_file16, code_file16, dir_path16)
     # generate_mutation_files(mutation_report_file17, code_file17, dir_path17)
     # generate_mutation_files(mutation_report_file18, code_file18, dir_path18)
-    generate_mutation_files(mutation_report_file19, code_file19, dir_path19)
-    generate_mutation_files(mutation_report_file20, code_file20, dir_path20)
-    generate_mutation_files(mutation_report_file21, code_file21, dir_path21)
-    generate_mutation_files(mutation_report_file22, code_file22, dir_path22)
+    # generate_mutation_files(mutation_report_file19, code_file19, dir_path19)
+    # generate_mutation_files(mutation_report_file20, code_file20, dir_path20)
+    # generate_mutation_files(mutation_report_file21, code_file21, dir_path21)
+    # generate_mutation_files(mutation_report_file22, code_file22, dir_path22)
+    generate_mutation_files(mutation_report_file23, code_file23, dir_path23)
+    generate_mutation_files(mutation_report_file24, code_file24, dir_path24)
