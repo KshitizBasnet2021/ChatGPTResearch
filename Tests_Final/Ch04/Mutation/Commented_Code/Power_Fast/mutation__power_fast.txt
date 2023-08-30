@@ -1,0 +1,172 @@
+[*] Start mutation process:
+   - targets: ch04/power_fast.py
+   - tests: tests_Final/ch04/test_power_fast.py
+[*] 8 tests passed:
+   - test_power_fast [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR power_fast: 
+--------------------------------------------------------------------------------
+   2:     '''Compute the value x**n for integer n.'''
+   3:     if n == 0:
+   4:         return 1
+   5:     else:
+-  6:         partial = power(x, n // 2)
++  6:         partial = power(x, n / 2)
+   7:         result = partial * partial
+   8:         if n % 2 == 1:
+   9:             result *= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.19300 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#   2] AOR power_fast: 
+--------------------------------------------------------------------------------
+   2:     '''Compute the value x**n for integer n.'''
+   3:     if n == 0:
+   4:         return 1
+   5:     else:
+-  6:         partial = power(x, n // 2)
++  6:         partial = power(x, n * 2)
+   7:         result = partial * partial
+   8:         if n % 2 == 1:
+   9:             result *= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.17700 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#   3] AOR power_fast: 
+--------------------------------------------------------------------------------
+   3:     if n == 0:
+   4:         return 1
+   5:     else:
+   6:         partial = power(x, n // 2)
+-  7:         result = partial * partial
++  7:         result = partial / partial
+   8:         if n % 2 == 1:
+   9:             result *= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#   4] AOR power_fast: 
+--------------------------------------------------------------------------------
+   3:     if n == 0:
+   4:         return 1
+   5:     else:
+   6:         partial = power(x, n // 2)
+-  7:         result = partial * partial
++  7:         result = partial // partial
+   8:         if n % 2 == 1:
+   9:             result *= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.00093 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#   5] AOR power_fast: 
+--------------------------------------------------------------------------------
+   3:     if n == 0:
+   4:         return 1
+   5:     else:
+   6:         partial = power(x, n // 2)
+-  7:         result = partial * partial
++  7:         result = partial ** partial
+   8:         if n % 2 == 1:
+   9:             result *= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.00075 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#   6] AOR power_fast: 
+--------------------------------------------------------------------------------
+   4:         return 1
+   5:     else:
+   6:         partial = power(x, n // 2)
+   7:         result = partial * partial
+-  8:         if n % 2 == 1:
++  8:         if n * 2 == 1:
+   9:             result *= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#   7] ASR power_fast: 
+--------------------------------------------------------------------------------
+   5:     else:
+   6:         partial = power(x, n // 2)
+   7:         result = partial * partial
+   8:         if n % 2 == 1:
+-  9:             result *= x
++  9:             result /= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.00097 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#   8] ASR power_fast: 
+--------------------------------------------------------------------------------
+   5:     else:
+   6:         partial = power(x, n // 2)
+   7:         result = partial * partial
+   8:         if n % 2 == 1:
+-  9:             result *= x
++  9:             result //= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.00097 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#   9] ASR power_fast: 
+--------------------------------------------------------------------------------
+   5:     else:
+   6:         partial = power(x, n // 2)
+   7:         result = partial * partial
+   8:         if n % 2 == 1:
+-  9:             result *= x
++  9:             result **= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#  10] COI power_fast: 
+--------------------------------------------------------------------------------
+   1: def power(x, n):
+   2:     '''Compute the value x**n for integer n.'''
+-  3:     if n == 0:
++  3:     if not (n == 0):
+   4:         return 1
+   5:     else:
+   6:         partial = power(x, n // 2)
+   7:         result = partial * partial
+--------------------------------------------------------------------------------
+[0.18500 s] killed by test_base_case (test_power_fast.TestPowerFunction)
+   - [#  11] COI power_fast: 
+--------------------------------------------------------------------------------
+   4:         return 1
+   5:     else:
+   6:         partial = power(x, n // 2)
+   7:         result = partial * partial
+-  8:         if n % 2 == 1:
++  8:         if not (n % 2 == 1):
+   9:             result *= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+   - [#  12] ROR power_fast: 
+--------------------------------------------------------------------------------
+   1: def power(x, n):
+   2:     '''Compute the value x**n for integer n.'''
+-  3:     if n == 0:
++  3:     if n != 0:
+   4:         return 1
+   5:     else:
+   6:         partial = power(x, n // 2)
+   7:         result = partial * partial
+--------------------------------------------------------------------------------
+[0.19604 s] killed by test_base_case (test_power_fast.TestPowerFunction)
+   - [#  13] ROR power_fast: 
+--------------------------------------------------------------------------------
+   4:         return 1
+   5:     else:
+   6:         partial = power(x, n // 2)
+   7:         result = partial * partial
+-  8:         if n % 2 == 1:
++  8:         if n % 2 != 1:
+   9:             result *= x
+  10:         return result
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_fractional_base (test_power_fast.TestPowerFunction)
+[*] Mutation score [0.82581 s]: 100.0%
+   - all: 13
+   - killed: 13 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)

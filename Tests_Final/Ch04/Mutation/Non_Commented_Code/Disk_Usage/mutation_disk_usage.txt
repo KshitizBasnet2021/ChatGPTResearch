@@ -1,0 +1,50 @@
+[*] Start mutation process:
+   - targets: ch04/No_Comments/disk_usage.py
+   - tests: tests_Final/ch04/test_disk_usage.py
+15      C:\Users\kshit\AppData\Local\Temp\tmpo3s4to1i\test_dir\file1.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmpo3s4to1i\test_dir\sub_dir\file2.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmpo3s4to1i\test_dir\sub_dir
+30      C:\Users\kshit\AppData\Local\Temp\tmpo3s4to1i\test_dir
+0       C:\Users\kshit\AppData\Local\Temp\tmprkbl_8uz
+20      C:\Users\kshit\AppData\Local\Temp\tmpiun9awxx\file.txt
+[*] 3 tests passed:
+   - test_disk_usage [0.00500 s]
+[*] Start mutants generation and execution:
+   - [#   1] ASR disk_usage: 
+--------------------------------------------------------------------------------
+   4:     total = os.path.getsize(path)
+   5:     if os.path.isdir(path):
+   6:         for filename in os.listdir(path):
+   7:             childpath = os.path.join(path, filename)
+-  8:             total += disk_usage(childpath)
++  8:             total -= disk_usage(childpath)
+   9:     
+  10:     print('{0:<7}'.format(total), path)
+  11:     return total
+--------------------------------------------------------------------------------
+15      C:\Users\kshit\AppData\Local\Temp\tmpxztmwr_9\test_dir\file1.txt
+15      C:\Users\kshit\AppData\Local\Temp\tmpxztmwr_9\test_dir\sub_dir\file2.txt
+-15     C:\Users\kshit\AppData\Local\Temp\tmpxztmwr_9\test_dir\sub_dir
+0       C:\Users\kshit\AppData\Local\Temp\tmpxztmwr_9\test_dir
+[0.00397 s] killed by test_directory_with_files (test_disk_usage.TestDiskUsage)
+   - [#   2] COI disk_usage: 
+--------------------------------------------------------------------------------
+   1: import os
+   2: 
+   3: def disk_usage(path):
+   4:     total = os.path.getsize(path)
+-  5:     if os.path.isdir(path):
++  5:     if not (os.path.isdir(path)):
+   6:         for filename in os.listdir(path):
+   7:             childpath = os.path.join(path, filename)
+   8:             total += disk_usage(childpath)
+   9:     
+--------------------------------------------------------------------------------
+0       C:\Users\kshit\AppData\Local\Temp\tmpiqkkktlt\test_dir
+[0.00297 s] killed by test_directory_with_files (test_disk_usage.TestDiskUsage)
+[*] Mutation score [0.05800 s]: 100.0%
+   - all: 2
+   - killed: 2 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)

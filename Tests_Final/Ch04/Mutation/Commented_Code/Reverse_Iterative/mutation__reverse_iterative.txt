@@ -1,0 +1,98 @@
+[*] Start mutation process:
+   - targets: ch04/reverse_iterative.py
+   - tests: tests_Final/ch04/test_reverse_iterative.py
+[*] 5 tests passed:
+   - test_reverse_iterative [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR reverse_iterative: 
+--------------------------------------------------------------------------------
+  1: def reverse_iterative(S):
+  2:     '''Reverse elements in sequence S.'''
+  3:     (start, stop) = (0, len(S))
+- 4:     while start < stop - 1:
++ 4:     while start < stop + 1:
+  5:         (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+  6:         (start, stop) = (start + 1, stop - 1)
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_empty_list (test_reverse_iterative.TestReverseIterativeFunction)
+   - [#   2] AOR reverse_iterative: 
+--------------------------------------------------------------------------------
+  1: def reverse_iterative(S):
+  2:     '''Reverse elements in sequence S.'''
+  3:     (start, stop) = (0, len(S))
+  4:     while start < stop - 1:
+- 5:         (S[start], S[stop - 1]) = (S[stop - 1], S[start])
++ 5:         (S[start], S[stop + 1]) = (S[stop - 1], S[start])
+  6:         (start, stop) = (start + 1, stop - 1)
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_even_length_list (test_reverse_iterative.TestReverseIterativeFunction)
+   - [#   3] AOR reverse_iterative: 
+--------------------------------------------------------------------------------
+  1: def reverse_iterative(S):
+  2:     '''Reverse elements in sequence S.'''
+  3:     (start, stop) = (0, len(S))
+  4:     while start < stop - 1:
+- 5:         (S[start], S[stop - 1]) = (S[stop - 1], S[start])
++ 5:         (S[start], S[stop - 1]) = (S[stop + 1], S[start])
+  6:         (start, stop) = (start + 1, stop - 1)
+--------------------------------------------------------------------------------
+[0.00029 s] killed by test_even_length_list (test_reverse_iterative.TestReverseIterativeFunction)
+   - [#   4] AOR reverse_iterative: 
+--------------------------------------------------------------------------------
+  2:     '''Reverse elements in sequence S.'''
+  3:     (start, stop) = (0, len(S))
+  4:     while start < stop - 1:
+  5:         (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+- 6:         (start, stop) = (start + 1, stop - 1)
++ 6:         (start, stop) = (start - 1, stop - 1)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_even_length_list (test_reverse_iterative.TestReverseIterativeFunction)
+   - [#   5] AOR reverse_iterative: 
+--------------------------------------------------------------------------------
+  2:     '''Reverse elements in sequence S.'''
+  3:     (start, stop) = (0, len(S))
+  4:     while start < stop - 1:
+  5:         (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+- 6:         (start, stop) = (start + 1, stop - 1)
++ 6:         (start, stop) = (start + 1, stop + 1)
+--------------------------------------------------------------------------------
+[0.00103 s] killed by test_even_length_list (test_reverse_iterative.TestReverseIterativeFunction)
+   - [#   6] COI reverse_iterative: 
+--------------------------------------------------------------------------------
+  1: def reverse_iterative(S):
+  2:     '''Reverse elements in sequence S.'''
+  3:     (start, stop) = (0, len(S))
+- 4:     while start < stop - 1:
++ 4:     while not (start < stop - 1):
+  5:         (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+  6:         (start, stop) = (start + 1, stop - 1)
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_empty_list (test_reverse_iterative.TestReverseIterativeFunction)
+   - [#   7] ROR reverse_iterative: 
+--------------------------------------------------------------------------------
+  1: def reverse_iterative(S):
+  2:     '''Reverse elements in sequence S.'''
+  3:     (start, stop) = (0, len(S))
+- 4:     while start < stop - 1:
++ 4:     while start > stop - 1:
+  5:         (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+  6:         (start, stop) = (start + 1, stop - 1)
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_empty_list (test_reverse_iterative.TestReverseIterativeFunction)
+   - [#   8] ROR reverse_iterative: 
+--------------------------------------------------------------------------------
+  1: def reverse_iterative(S):
+  2:     '''Reverse elements in sequence S.'''
+  3:     (start, stop) = (0, len(S))
+- 4:     while start < stop - 1:
++ 4:     while start <= stop - 1:
+  5:         (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+  6:         (start, stop) = (start + 1, stop - 1)
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+[*] Mutation score [0.08336 s]: 87.5%
+   - all: 8
+   - killed: 7 (87.5%)
+   - survived: 1 (12.5%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)

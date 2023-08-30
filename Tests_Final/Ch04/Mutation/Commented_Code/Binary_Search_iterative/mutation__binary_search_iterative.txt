@@ -1,0 +1,203 @@
+[*] Start mutation process:
+   - targets: ch04/binary_search_iterative.py
+   - tests: tests_Final/ch04/test_binary_search_iterative.py
+[*] 9 tests passed:
+   - test_binary_search_iterative [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   1: def binary_search_iterative(data, target):
+   2:     '''Return True if target is found in the given Python list.'''
+   3:     low = 0
+-  4:     high = len(data) - 1
++  4:     high = len(data) + 1
+   5:     while low <= high:
+   6:         mid = (low + high) // 2
+   7:         if target == data[mid]:
+   8:             return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_empty_list (test_binary_search_iterative.TestBinarySearchIterative)
+   - [#   2] AOR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   2:     '''Return True if target is found in the given Python list.'''
+   3:     low = 0
+   4:     high = len(data) - 1
+   5:     while low <= high:
+-  6:         mid = (low + high) // 2
++  6:         mid = (low - high) // 2
+   7:         if target == data[mid]:
+   8:             return True
+   9:         elif target < data[mid]:
+  10:             high = mid - 1
+--------------------------------------------------------------------------------
+[5.03757 s] timeout
+   - [#   3] AOR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   2:     '''Return True if target is found in the given Python list.'''
+   3:     low = 0
+   4:     high = len(data) - 1
+   5:     while low <= high:
+-  6:         mid = (low + high) // 2
++  6:         mid = (low + high) / 2
+   7:         if target == data[mid]:
+   8:             return True
+   9:         elif target < data[mid]:
+  10:             high = mid - 1
+--------------------------------------------------------------------------------
+[0.00100 s] incompetent
+   - [#   4] AOR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   2:     '''Return True if target is found in the given Python list.'''
+   3:     low = 0
+   4:     high = len(data) - 1
+   5:     while low <= high:
+-  6:         mid = (low + high) // 2
++  6:         mid = (low + high) * 2
+   7:         if target == data[mid]:
+   8:             return True
+   9:         elif target < data[mid]:
+  10:             high = mid - 1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_even_length_list_found (test_binary_search_iterative.TestBinarySearchIterative)
+   - [#   5] AOR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   6:         mid = (low + high) // 2
+   7:         if target == data[mid]:
+   8:             return True
+   9:         elif target < data[mid]:
+- 10:             high = mid - 1
++ 10:             high = mid + 1
+  11:         else:
+  12:             low = mid + 1
+  13:     return False
+--------------------------------------------------------------------------------
+[5.04179 s] timeout
+   - [#   6] AOR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   8:             return True
+   9:         elif target < data[mid]:
+  10:             high = mid - 1
+  11:         else:
+- 12:             low = mid + 1
++ 12:             low = mid - 1
+  13:     return False
+--------------------------------------------------------------------------------
+[5.04051 s] timeout
+   - [#   7] COI binary_search_iterative: 
+--------------------------------------------------------------------------------
+   1: def binary_search_iterative(data, target):
+   2:     '''Return True if target is found in the given Python list.'''
+   3:     low = 0
+   4:     high = len(data) - 1
+-  5:     while low <= high:
++  5:     while not (low <= high):
+   6:         mid = (low + high) // 2
+   7:         if target == data[mid]:
+   8:             return True
+   9:         elif target < data[mid]:
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_empty_list (test_binary_search_iterative.TestBinarySearchIterative)
+   - [#   8] COI binary_search_iterative: 
+--------------------------------------------------------------------------------
+   3:     low = 0
+   4:     high = len(data) - 1
+   5:     while low <= high:
+   6:         mid = (low + high) // 2
+-  7:         if target == data[mid]:
++  7:         if not (target == data[mid]):
+   8:             return True
+   9:         elif target < data[mid]:
+  10:             high = mid - 1
+  11:         else:
+--------------------------------------------------------------------------------
+[0.00036 s] killed by test_even_length_list_not_found (test_binary_search_iterative.TestBinarySearchIterative)
+   - [#   9] COI binary_search_iterative: 
+--------------------------------------------------------------------------------
+   5:     while low <= high:
+   6:         mid = (low + high) // 2
+   7:         if target == data[mid]:
+   8:             return True
+-  9:         elif target < data[mid]:
++  9:         elif not (target < data[mid]):
+  10:             high = mid - 1
+  11:         else:
+  12:             low = mid + 1
+  13:     return False
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_even_length_list_found (test_binary_search_iterative.TestBinarySearchIterative)
+   - [#  10] ROR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   1: def binary_search_iterative(data, target):
+   2:     '''Return True if target is found in the given Python list.'''
+   3:     low = 0
+   4:     high = len(data) - 1
+-  5:     while low <= high:
++  5:     while low >= high:
+   6:         mid = (low + high) // 2
+   7:         if target == data[mid]:
+   8:             return True
+   9:         elif target < data[mid]:
+--------------------------------------------------------------------------------
+[0.00038 s] killed by test_empty_list (test_binary_search_iterative.TestBinarySearchIterative)
+   - [#  11] ROR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   1: def binary_search_iterative(data, target):
+   2:     '''Return True if target is found in the given Python list.'''
+   3:     low = 0
+   4:     high = len(data) - 1
+-  5:     while low <= high:
++  5:     while low < high:
+   6:         mid = (low + high) // 2
+   7:         if target == data[mid]:
+   8:             return True
+   9:         elif target < data[mid]:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_single_element_found (test_binary_search_iterative.TestBinarySearchIterative)
+   - [#  12] ROR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   3:     low = 0
+   4:     high = len(data) - 1
+   5:     while low <= high:
+   6:         mid = (low + high) // 2
+-  7:         if target == data[mid]:
++  7:         if target != data[mid]:
+   8:             return True
+   9:         elif target < data[mid]:
+  10:             high = mid - 1
+  11:         else:
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_even_length_list_not_found (test_binary_search_iterative.TestBinarySearchIterative)
+   - [#  13] ROR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   5:     while low <= high:
+   6:         mid = (low + high) // 2
+   7:         if target == data[mid]:
+   8:             return True
+-  9:         elif target < data[mid]:
++  9:         elif target > data[mid]:
+  10:             high = mid - 1
+  11:         else:
+  12:             low = mid + 1
+  13:     return False
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_even_length_list_found (test_binary_search_iterative.TestBinarySearchIterative)
+   - [#  14] ROR binary_search_iterative: 
+--------------------------------------------------------------------------------
+   5:     while low <= high:
+   6:         mid = (low + high) // 2
+   7:         if target == data[mid]:
+   8:             return True
+-  9:         elif target < data[mid]:
++  9:         elif target <= data[mid]:
+  10:             high = mid - 1
+  11:         else:
+  12:             low = mid + 1
+  13:     return False
+--------------------------------------------------------------------------------
+[0.00103 s] survived
+[*] Mutation score [15.24588 s]: 92.3%
+   - all: 14
+   - killed: 9 (64.3%)
+   - survived: 1 (7.1%)
+   - incompetent: 1 (7.1%)
+   - timeout: 3 (21.4%)

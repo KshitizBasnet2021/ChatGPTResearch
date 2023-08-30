@@ -1,0 +1,127 @@
+[*] Start mutation process:
+   - targets: ch04/No_Comments/binary_sum.py
+   - tests: tests_Final/ch04/test_binary_sum.py
+[*] 6 tests passed:
+   - test_binary_sum [0.00100 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  1: def binary_sum(S, start, stop):
+  2:     if start >= stop:
+  3:         return 0
+- 4:     elif start == stop - 1:
++ 4:     elif start == stop + 1:
+  5:         return S[start]
+  6:     else:
+  7:         mid = (start + stop) // 2
+  8:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.18500 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   2] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  3:         return 0
+  4:     elif start == stop - 1:
+  5:         return S[start]
+  6:     else:
+- 7:         mid = (start + stop) // 2
++ 7:         mid = (start - stop) // 2
+  8:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.16304 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   3] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  3:         return 0
+  4:     elif start == stop - 1:
+  5:         return S[start]
+  6:     else:
+- 7:         mid = (start + stop) // 2
++ 7:         mid = (start + stop) / 2
+  8:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.17498 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   4] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  3:         return 0
+  4:     elif start == stop - 1:
+  5:         return S[start]
+  6:     else:
+- 7:         mid = (start + stop) // 2
++ 7:         mid = (start + stop) * 2
+  8:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.18597 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   5] AOR binary_sum: 
+--------------------------------------------------------------------------------
+  4:     elif start == stop - 1:
+  5:         return S[start]
+  6:     else:
+  7:         mid = (start + stop) // 2
+- 8:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
++ 8:         return binary_sum(S, start, mid) - binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   6] COI binary_sum: 
+--------------------------------------------------------------------------------
+  1: def binary_sum(S, start, stop):
+- 2:     if start >= stop:
++ 2:     if not (start >= stop):
+  3:         return 0
+  4:     elif start == stop - 1:
+  5:         return S[start]
+  6:     else:
+--------------------------------------------------------------------------------
+[0.19300 s] killed by test_empty_list (test_binary_sum.TestBinarySum)
+   - [#   7] COI binary_sum: 
+--------------------------------------------------------------------------------
+  1: def binary_sum(S, start, stop):
+  2:     if start >= stop:
+  3:         return 0
+- 4:     elif start == stop - 1:
++ 4:     elif not (start == stop - 1):
+  5:         return S[start]
+  6:     else:
+  7:         mid = (start + stop) // 2
+  8:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   8] ROR binary_sum: 
+--------------------------------------------------------------------------------
+  1: def binary_sum(S, start, stop):
+- 2:     if start >= stop:
++ 2:     if start <= stop:
+  3:         return 0
+  4:     elif start == stop - 1:
+  5:         return S[start]
+  6:     else:
+--------------------------------------------------------------------------------
+[0.00062 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+   - [#   9] ROR binary_sum: 
+--------------------------------------------------------------------------------
+  1: def binary_sum(S, start, stop):
+- 2:     if start >= stop:
++ 2:     if start > stop:
+  3:         return 0
+  4:     elif start == stop - 1:
+  5:         return S[start]
+  6:     else:
+--------------------------------------------------------------------------------
+[0.18497 s] killed by test_empty_list (test_binary_sum.TestBinarySum)
+   - [#  10] ROR binary_sum: 
+--------------------------------------------------------------------------------
+  1: def binary_sum(S, start, stop):
+  2:     if start >= stop:
+  3:         return 0
+- 4:     elif start == stop - 1:
++ 4:     elif start != stop - 1:
+  5:         return S[start]
+  6:     else:
+  7:         mid = (start + stop) // 2
+  8:         return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+--------------------------------------------------------------------------------
+[0.00100 s] killed by test_large_input (test_binary_sum.TestBinarySum)
+[*] Mutation score [1.16263 s]: 100.0%
+   - all: 10
+   - killed: 10 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
