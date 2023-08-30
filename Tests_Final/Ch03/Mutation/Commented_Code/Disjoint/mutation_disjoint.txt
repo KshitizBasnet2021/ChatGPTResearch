@@ -1,0 +1,106 @@
+[*] Start mutation process:
+   - targets: ch03/disjoint.py
+   - tests: tests_Final/ch03/test_disjoint.py
+[*] 5 tests passed:
+   - test_disjoint [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] COI disjoint: 
+--------------------------------------------------------------------------------
+   2:     '''Return True if there is no element common to all three lists.'''
+   3:     for a in A:
+   4:         for b in B:
+   5:             for c in C:
+-  6:                 if a == b == c:
++  6:                 if not (a == b == c):
+   7:                     return False
+   8:     return True
+   9: 
+  10: def disjoint2(A, B, C):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+   - [#   2] COI disjoint: 
+--------------------------------------------------------------------------------
+  10: def disjoint2(A, B, C):
+  11:     '''Return True if there is no element common to all three lists.'''
+  12:     for a in A:
+  13:         for b in B:
+- 14:             if a == b:
++ 14:             if not (a == b):
+  15:                 for c in C:
+  16:                     if a == c:
+  17:                         return False
+  18:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_single_element_lists (test_disjoint.TestDisjoint)
+   - [#   3] COI disjoint: 
+--------------------------------------------------------------------------------
+  12:     for a in A:
+  13:         for b in B:
+  14:             if a == b:
+  15:                 for c in C:
+- 16:                     if a == c:
++ 16:                     if not (a == c):
+  17:                         return False
+  18:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+   - [#   4] ROR disjoint: 
+--------------------------------------------------------------------------------
+   2:     '''Return True if there is no element common to all three lists.'''
+   3:     for a in A:
+   4:         for b in B:
+   5:             for c in C:
+-  6:                 if a == b == c:
++  6:                 if a != b == c:
+   7:                     return False
+   8:     return True
+   9: 
+  10: def disjoint2(A, B, C):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+   - [#   5] ROR disjoint: 
+--------------------------------------------------------------------------------
+   2:     '''Return True if there is no element common to all three lists.'''
+   3:     for a in A:
+   4:         for b in B:
+   5:             for c in C:
+-  6:                 if a == b == c:
++  6:                 if a == b != c:
+   7:                     return False
+   8:     return True
+   9: 
+  10: def disjoint2(A, B, C):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+   - [#   6] ROR disjoint: 
+--------------------------------------------------------------------------------
+  10: def disjoint2(A, B, C):
+  11:     '''Return True if there is no element common to all three lists.'''
+  12:     for a in A:
+  13:         for b in B:
+- 14:             if a == b:
++ 14:             if a != b:
+  15:                 for c in C:
+  16:                     if a == c:
+  17:                         return False
+  18:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_single_element_lists (test_disjoint.TestDisjoint)
+   - [#   7] ROR disjoint: 
+--------------------------------------------------------------------------------
+  12:     for a in A:
+  13:         for b in B:
+  14:             if a == b:
+  15:                 for c in C:
+- 16:                     if a == c:
++ 16:                     if a != c:
+  17:                         return False
+  18:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+[*] Mutation score [0.08278 s]: 100.0%
+   - all: 7
+   - killed: 7 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)

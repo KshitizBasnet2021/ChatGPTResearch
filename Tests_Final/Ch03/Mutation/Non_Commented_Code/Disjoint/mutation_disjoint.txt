@@ -1,0 +1,106 @@
+[*] Start mutation process:
+   - targets: ch03/No_Comments/disjoint.py
+   - tests: tests_Final/ch03/test_disjoint.py
+[*] 5 tests passed:
+   - test_disjoint [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] COI disjoint: 
+--------------------------------------------------------------------------------
+   1: def disjoint1(A, B, C):
+   2:     for a in A:
+   3:         for b in B:
+   4:             for c in C:
+-  5:                 if a == b == c:
++  5:                 if not (a == b == c):
+   6:                     return False
+   7:     return True
+   8: 
+   9: def disjoint2(A, B, C):
+--------------------------------------------------------------------------------
+[0.01562 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+   - [#   2] COI disjoint: 
+--------------------------------------------------------------------------------
+   8: 
+   9: def disjoint2(A, B, C):
+  10:     for a in A:
+  11:         for b in B:
+- 12:             if a == b:
++ 12:             if not (a == b):
+  13:                 for c in C:
+  14:                     if a == c:
+  15:                         return False
+  16:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_single_element_lists (test_disjoint.TestDisjoint)
+   - [#   3] COI disjoint: 
+--------------------------------------------------------------------------------
+  10:     for a in A:
+  11:         for b in B:
+  12:             if a == b:
+  13:                 for c in C:
+- 14:                     if a == c:
++ 14:                     if not (a == c):
+  15:                         return False
+  16:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+   - [#   4] ROR disjoint: 
+--------------------------------------------------------------------------------
+   1: def disjoint1(A, B, C):
+   2:     for a in A:
+   3:         for b in B:
+   4:             for c in C:
+-  5:                 if a == b == c:
++  5:                 if a != b == c:
+   6:                     return False
+   7:     return True
+   8: 
+   9: def disjoint2(A, B, C):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+   - [#   5] ROR disjoint: 
+--------------------------------------------------------------------------------
+   1: def disjoint1(A, B, C):
+   2:     for a in A:
+   3:         for b in B:
+   4:             for c in C:
+-  5:                 if a == b == c:
++  5:                 if a == b != c:
+   6:                     return False
+   7:     return True
+   8: 
+   9: def disjoint2(A, B, C):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+   - [#   6] ROR disjoint: 
+--------------------------------------------------------------------------------
+   8: 
+   9: def disjoint2(A, B, C):
+  10:     for a in A:
+  11:         for b in B:
+- 12:             if a == b:
++ 12:             if a != b:
+  13:                 for c in C:
+  14:                     if a == c:
+  15:                         return False
+  16:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_single_element_lists (test_disjoint.TestDisjoint)
+   - [#   7] ROR disjoint: 
+--------------------------------------------------------------------------------
+  10:     for a in A:
+  11:         for b in B:
+  12:             if a == b:
+  13:                 for c in C:
+- 14:                     if a == c:
++ 14:                     if a != c:
+  15:                         return False
+  16:     return True
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_common_element_disjoint_lists (test_disjoint.TestDisjoint)
+[*] Mutation score [0.08347 s]: 100.0%
+   - all: 7
+   - killed: 7 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
