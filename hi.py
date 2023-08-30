@@ -178,13 +178,53 @@ if __name__ == "__main__":
     # code_file22 = './ch04/No_Comments/reverse_iterative.py'
     # dir_path22 = './Tests_Final/Ch04/Mutation/Non_Commented_Code/reverse_iterative'
 
-    mutation_report_file23 = './Tests_Final/ch05/Mutation/Commented_Code/insertion_sort/mutation_insertion_sort.txt'
-    code_file23 = './ch05/insertion_sort.py'
-    dir_path23 = './Tests_Final/Ch05/Mutation/Commented_Code/insertion_sort'
+    # mutation_report_file23 = './Tests_Final/ch05/Mutation/Commented_Code/insertion_sort/mutation_insertion_sort.txt'
+    # code_file23 = './ch05/insertion_sort.py'
+    # dir_path23 = './Tests_Final/Ch05/Mutation/Commented_Code/insertion_sort'
 
-    mutation_report_file24 = './Tests_Final/ch05/Mutation/Non_Commented_Code/insertion_sort/mutation_insertion_sort.txt'
-    code_file24 = './ch05/No_Comments/insertion_sort.py'
-    dir_path24 = './Tests_Final/Ch05/Mutation/Non_Commented_Code/insertion_sort'
+    # mutation_report_file24 = './Tests_Final/ch05/Mutation/Non_Commented_Code/insertion_sort/mutation_insertion_sort.txt'
+    # code_file24 = './ch05/No_Comments/insertion_sort.py'
+    # dir_path24 = './Tests_Final/Ch05/Mutation/Non_Commented_Code/insertion_sort'
+
+    # mutation_report_file25 = './Tests_Final/ch10/Mutation/Commented_Code/word_frequency/mutation_word_frequency.txt'
+    # code_file25 = './ch10/word_frequency.py'
+    # dir_path25 = './Tests_Final/Ch10/Mutation/Commented_Code/word_frequency'
+
+    # mutation_report_file26 = './Tests_Final/ch10/Mutation/Non_Commented_Code/word_frequency/mutation_word_frequency.txt'
+    # code_file26 = './ch10/No_Comments/word_frequency.py'
+    # dir_path26 = './Tests_Final/Ch10/Mutation/Non_Commented_Code/word_frequency'
+
+    # mutation_report_file27 = './Tests_Final/ch12/Mutation/Commented_Code/merge_array/mutation_merge_array.txt'
+    # code_file27 = './ch12/merge_array.py'
+    # dir_path27 = './Tests_Final/Ch12/Mutation/Commented_Code/merge_array'
+
+    # mutation_report_file28 = './Tests_Final/ch12/Mutation/Non_Commented_Code/merge_array/mutation_merge_array.txt'
+    # code_file28 = './ch12/No_Comments/merge_array.py'
+    # dir_path28 = './Tests_Final/Ch12/Mutation/Non_Commented_Code/merge_array'
+
+    # mutation_report_file29 = './Tests_Final/ch12/Mutation/Commented_Code/merge_nonrecur/mutation_merge_nonrecur.txt'
+    # code_file29 = './ch12/merge_nonrecur.py'
+    # dir_path29 = './Tests_Final/Ch12/Mutation/Commented_Code/merge_nonrecur'
+
+    # mutation_report_file30 = './Tests_Final/ch12/Mutation/Non_Commented_Code/merge_nonrecur/mutation_merge_nonrecur.txt'
+    # code_file30 = './ch12/No_Comments/merge_nonrecur.py'
+    # dir_path30 = './Tests_Final/Ch12/Mutation/Non_Commented_Code/merge_nonrecur'
+
+    # mutation_report_file31 = './Tests_Final/ch13/Mutation/Commented_Code/find_boyer_moore/mutation_find_boyer_moore.txt'
+    # code_file31 = './ch13/find_boyer_moore.py'
+    # dir_path31 = './Tests_Final/Ch13/Mutation/Commented_Code/find_boyer_moore'
+
+    # mutation_report_file32 = './Tests_Final/ch13/Mutation/Non_Commented_Code/find_boyer_moore/mutation_find_boyer_moore.txt'
+    # code_file32 = './ch13/No_Comments/find_boyer_moore.py'
+    # dir_path32 = './Tests_Final/Ch13/Mutation/Non_Commented_Code/find_boyer_moore'
+
+    mutation_report_file33 = './Tests_Final/ch13/Mutation/Commented_Code/find_brute/mutation_find_brute.txt'
+    code_file33 = './ch13/find_brute.py'
+    dir_path33 = './Tests_Final/Ch13/Mutation/Commented_Code/find_brute'
+
+    mutation_report_file34 = './Tests_Final/ch13/Mutation/Non_Commented_Code/find_brute/mutation_find_brute.txt'
+    code_file34 = './ch13/No_Comments/find_brute.py'
+    dir_path34 = './Tests_Final/Ch13/Mutation/Non_Commented_Code/find_brute'
    
     # generate_mutation_files(mutation_report_file1, code_file1, dir_path1)
     # generate_mutation_files(mutation_report_file2, code_file2, dir_path2)
@@ -208,5 +248,12 @@ if __name__ == "__main__":
     # generate_mutation_files(mutation_report_file20, code_file20, dir_path20)
     # generate_mutation_files(mutation_report_file21, code_file21, dir_path21)
     # generate_mutation_files(mutation_report_file22, code_file22, dir_path22)
-    generate_mutation_files(mutation_report_file23, code_file23, dir_path23)
-    generate_mutation_files(mutation_report_file24, code_file24, dir_path24)
+    # generate_mutation_files(mutation_report_file23, code_file23, dir_path23)
+    # generate_mutation_files(mutation_report_file24, code_file24, dir_path24)
+    # generate_mutation_files(mutation_report_file27, code_file27, dir_path27)
+    # generate_mutation_files(mutation_report_file28, code_file28, dir_path28)
+    # generate_mutation_files(mutation_report_file29, code_file29, dir_path29)
+    # generate_mutation_files(mutation_report_file30, code_file30, dir_path30)
+
+    generate_mutation_files(mutation_report_file33, code_file33, dir_path33)
+    generate_mutation_files(mutation_report_file34, code_file34, dir_path34)

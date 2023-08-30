@@ -1,0 +1,82 @@
+[*] Start mutation process:
+   - targets: ch10/No_Comments/word_frequency.py
+   - tests: tests_Final/ch10/test_word_frequency.py
+[*] 5 tests passed:
+   - test_word_frequency [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR word_frequency: 
+--------------------------------------------------------------------------------
+   3:     with open(filename) as file:
+   4:         for piece in file.read().lower().split():
+   5:             word = ''.join((c for c in piece if c.isalpha()))
+   6:             if word:
+-  7:                 freq[word] = 1 + freq.get(word, 0)
++  7:                 freq[word] = 1 - freq.get(word, 0)
+   8:     
+   9:     max_word = ''
+  10:     max_count = 0
+  11:     for (w, c) in freq.items():
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_case_insensitivity (test_word_frequency.TestFindMostFrequentWord)
+   - [#   2] COI word_frequency: 
+--------------------------------------------------------------------------------
+   2:     freq = {}
+   3:     with open(filename) as file:
+   4:         for piece in file.read().lower().split():
+   5:             word = ''.join((c for c in piece if c.isalpha()))
+-  6:             if word:
++  6:             if not word:
+   7:                 freq[word] = 1 + freq.get(word, 0)
+   8:     
+   9:     max_word = ''
+  10:     max_count = 0
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_case_insensitivity (test_word_frequency.TestFindMostFrequentWord)
+   - [#   3] COI word_frequency: 
+--------------------------------------------------------------------------------
+   8:     
+   9:     max_word = ''
+  10:     max_count = 0
+  11:     for (w, c) in freq.items():
+- 12:         if c > max_count:
++ 12:         if not (c > max_count):
+  13:             max_word = w
+  14:             max_count = c
+  15:     
+  16:     return (max_word, max_count)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_case_insensitivity (test_word_frequency.TestFindMostFrequentWord)
+   - [#   4] ROR word_frequency: 
+--------------------------------------------------------------------------------
+   8:     
+   9:     max_word = ''
+  10:     max_count = 0
+  11:     for (w, c) in freq.items():
+- 12:         if c > max_count:
++ 12:         if c < max_count:
+  13:             max_word = w
+  14:             max_count = c
+  15:     
+  16:     return (max_word, max_count)
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_case_insensitivity (test_word_frequency.TestFindMostFrequentWord)
+   - [#   5] ROR word_frequency: 
+--------------------------------------------------------------------------------
+   8:     
+   9:     max_word = ''
+  10:     max_count = 0
+  11:     for (w, c) in freq.items():
+- 12:         if c > max_count:
++ 12:         if c >= max_count:
+  13:             max_word = w
+  14:             max_count = c
+  15:     
+  16:     return (max_word, max_count)
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+[*] Mutation score [0.07812 s]: 80.0%
+   - all: 5
+   - killed: 4 (80.0%)
+   - survived: 1 (20.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
