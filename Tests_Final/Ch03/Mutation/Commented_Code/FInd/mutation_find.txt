@@ -1,0 +1,111 @@
+[*] Start mutation process:
+   - targets: ch03/find.py
+   - tests: tests_Final/ch03/test_find.py
+[*] 8 tests passed:
+   - test_find [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOD find: 
+--------------------------------------------------------------------------------
+  5:     while j < n:
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+- 9:     return -1
++ 9:     return 1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_element_not_found (test_find.TestFindFunction)
+   - [#   2] AOR find: 
+--------------------------------------------------------------------------------
+  5:     while j < n:
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+- 9:     return -1
++ 9:     return +1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_element_not_found (test_find.TestFindFunction)
+   - [#   3] ASR find: 
+--------------------------------------------------------------------------------
+  4:     j = 0
+  5:     while j < n:
+  6:         if S[j] == val:
+  7:             return j
+- 8:         j += 1
++ 8:         j -= 1
+  9:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_element_found_last_position (test_find.TestFindFunction)
+   - [#   4] COI find: 
+--------------------------------------------------------------------------------
+  1: def find(S, val):
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+- 5:     while j < n:
++ 5:     while not (j < n):
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+  9:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_element_found_first_position (test_find.TestFindFunction)
+   - [#   5] COI find: 
+--------------------------------------------------------------------------------
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+  5:     while j < n:
+- 6:         if S[j] == val:
++ 6:         if not (S[j] == val):
+  7:             return j
+  8:         j += 1
+  9:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_element_found_first_position (test_find.TestFindFunction)
+   - [#   6] ROR find: 
+--------------------------------------------------------------------------------
+  1: def find(S, val):
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+- 5:     while j < n:
++ 5:     while j > n:
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+  9:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_element_found_first_position (test_find.TestFindFunction)
+   - [#   7] ROR find: 
+--------------------------------------------------------------------------------
+  1: def find(S, val):
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+- 5:     while j < n:
++ 5:     while j <= n:
+  6:         if S[j] == val:
+  7:             return j
+  8:         j += 1
+  9:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_element_not_found (test_find.TestFindFunction)
+   - [#   8] ROR find: 
+--------------------------------------------------------------------------------
+  2:     '''Return index j such that S[j] == val, or -1 if no such element.'''
+  3:     n = len(S)
+  4:     j = 0
+  5:     while j < n:
+- 6:         if S[j] == val:
++ 6:         if S[j] != val:
+  7:             return j
+  8:         j += 1
+  9:     return -1
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_element_found_first_position (test_find.TestFindFunction)
+[*] Mutation score [0.04942 s]: 100.0%
+   - all: 8
+   - killed: 8 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)

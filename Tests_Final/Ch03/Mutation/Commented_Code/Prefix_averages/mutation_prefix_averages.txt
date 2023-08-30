@@ -1,0 +1,334 @@
+[*] Start mutation process:
+   - targets: ch03/prefix_averages.py
+   - tests: tests_Final/ch03/test_prefix_averages.py
+[*] 6 tests passed:
+   - test_prefix_averages [0.03166 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+   1: def prefix_average1(S):
+   2:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+   3:     n = len(S)
+-  4:     A = [0] * n
++  4:     A = [0] / n
+   5:     for j in range(n):
+   6:         total = 0
+   7:         for i in range(j + 1):
+   8:             total += S[i]
+--------------------------------------------------------------------------------
+[0.00000 s] incompetent
+   - [#   2] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+   1: def prefix_average1(S):
+   2:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+   3:     n = len(S)
+-  4:     A = [0] * n
++  4:     A = [0] // n
+   5:     for j in range(n):
+   6:         total = 0
+   7:         for i in range(j + 1):
+   8:             total += S[i]
+--------------------------------------------------------------------------------
+[0.00000 s] incompetent
+   - [#   3] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+   1: def prefix_average1(S):
+   2:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+   3:     n = len(S)
+-  4:     A = [0] * n
++  4:     A = [0] ** n
+   5:     for j in range(n):
+   6:         total = 0
+   7:         for i in range(j + 1):
+   8:             total += S[i]
+--------------------------------------------------------------------------------
+[0.00000 s] incompetent
+   - [#   4] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+   3:     n = len(S)
+   4:     A = [0] * n
+   5:     for j in range(n):
+   6:         total = 0
+-  7:         for i in range(j + 1):
++  7:         for i in range(j - 1):
+   8:             total += S[i]
+   9:         A[j] = total / (j + 1)
+  10:     return A
+  11: 
+--------------------------------------------------------------------------------
+[3.55502 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+   - [#   5] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+   5:     for j in range(n):
+   6:         total = 0
+   7:         for i in range(j + 1):
+   8:             total += S[i]
+-  9:         A[j] = total / (j + 1)
++  9:         A[j] = total // (j + 1)
+  10:     return A
+  11: 
+  12: def prefix_average2(S):
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+--------------------------------------------------------------------------------
+[5.05811 s] timeout
+   - [#   6] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+   5:     for j in range(n):
+   6:         total = 0
+   7:         for i in range(j + 1):
+   8:             total += S[i]
+-  9:         A[j] = total / (j + 1)
++  9:         A[j] = total * (j + 1)
+  10:     return A
+  11: 
+  12: def prefix_average2(S):
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+--------------------------------------------------------------------------------
+[3.54526 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+   - [#   7] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+   5:     for j in range(n):
+   6:         total = 0
+   7:         for i in range(j + 1):
+   8:             total += S[i]
+-  9:         A[j] = total / (j + 1)
++  9:         A[j] = total / (j - 1)
+  10:     return A
+  11: 
+  12: def prefix_average2(S):
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+   - [#   8] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  11: 
+  12: def prefix_average2(S):
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  14:     n = len(S)
+- 15:     A = [0] * n
++ 15:     A = [0] / n
+  16:     for j in range(n):
+  17:         A[j] = sum(S[0:j + 1]) / (j + 1)
+  18:     return A
+  19: 
+--------------------------------------------------------------------------------
+[0.03416 s] incompetent
+   - [#   9] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  11: 
+  12: def prefix_average2(S):
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  14:     n = len(S)
+- 15:     A = [0] * n
++ 15:     A = [0] // n
+  16:     for j in range(n):
+  17:         A[j] = sum(S[0:j + 1]) / (j + 1)
+  18:     return A
+  19: 
+--------------------------------------------------------------------------------
+[0.03176 s] incompetent
+   - [#  10] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  11: 
+  12: def prefix_average2(S):
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  14:     n = len(S)
+- 15:     A = [0] * n
++ 15:     A = [0] ** n
+  16:     for j in range(n):
+  17:         A[j] = sum(S[0:j + 1]) / (j + 1)
+  18:     return A
+  19: 
+--------------------------------------------------------------------------------
+[0.03115 s] incompetent
+   - [#  11] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  14:     n = len(S)
+  15:     A = [0] * n
+  16:     for j in range(n):
+- 17:         A[j] = sum(S[0:j + 1]) / (j + 1)
++ 17:         A[j] = sum(S[0:j - 1]) / (j + 1)
+  18:     return A
+  19: 
+  20: def prefix_average3(S):
+  21:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+--------------------------------------------------------------------------------
+[3.54578 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+   - [#  12] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  14:     n = len(S)
+  15:     A = [0] * n
+  16:     for j in range(n):
+- 17:         A[j] = sum(S[0:j + 1]) / (j + 1)
++ 17:         A[j] = sum(S[0:j + 1]) // (j + 1)
+  18:     return A
+  19: 
+  20: def prefix_average3(S):
+  21:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+--------------------------------------------------------------------------------
+[5.04327 s] timeout
+   - [#  13] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  14:     n = len(S)
+  15:     A = [0] * n
+  16:     for j in range(n):
+- 17:         A[j] = sum(S[0:j + 1]) / (j + 1)
++ 17:         A[j] = sum(S[0:j + 1]) * (j + 1)
+  18:     return A
+  19: 
+  20: def prefix_average3(S):
+  21:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+--------------------------------------------------------------------------------
+[3.51280 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+   - [#  14] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  14:     n = len(S)
+  15:     A = [0] * n
+  16:     for j in range(n):
+- 17:         A[j] = sum(S[0:j + 1]) / (j + 1)
++ 17:         A[j] = sum(S[0:j + 1]) / (j - 1)
+  18:     return A
+  19: 
+  20: def prefix_average3(S):
+  21:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+--------------------------------------------------------------------------------
+[0.01563 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+   - [#  15] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  19: 
+  20: def prefix_average3(S):
+  21:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  22:     n = len(S)
+- 23:     A = [0] * n
++ 23:     A = [0] / n
+  24:     total = 0
+  25:     for j in range(n):
+  26:         total += S[j]
+  27:         A[j] = total / (j + 1)
+--------------------------------------------------------------------------------
+[0.03129 s] incompetent
+   - [#  16] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  19: 
+  20: def prefix_average3(S):
+  21:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  22:     n = len(S)
+- 23:     A = [0] * n
++ 23:     A = [0] // n
+  24:     total = 0
+  25:     for j in range(n):
+  26:         total += S[j]
+  27:         A[j] = total / (j + 1)
+--------------------------------------------------------------------------------
+[0.03166 s] incompetent
+   - [#  17] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  19: 
+  20: def prefix_average3(S):
+  21:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  22:     n = len(S)
+- 23:     A = [0] * n
++ 23:     A = [0] ** n
+  24:     total = 0
+  25:     for j in range(n):
+  26:         total += S[j]
+  27:         A[j] = total / (j + 1)
+--------------------------------------------------------------------------------
+[0.03125 s] incompetent
+   - [#  18] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  23:     A = [0] * n
+  24:     total = 0
+  25:     for j in range(n):
+  26:         total += S[j]
+- 27:         A[j] = total / (j + 1)
++ 27:         A[j] = total // (j + 1)
+  28:     return A
+--------------------------------------------------------------------------------
+[5.03686 s] timeout
+   - [#  19] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  23:     A = [0] * n
+  24:     total = 0
+  25:     for j in range(n):
+  26:         total += S[j]
+- 27:         A[j] = total / (j + 1)
++ 27:         A[j] = total * (j + 1)
+  28:     return A
+--------------------------------------------------------------------------------
+[3.60721 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+   - [#  20] AOR prefix_averages: 
+--------------------------------------------------------------------------------
+  23:     A = [0] * n
+  24:     total = 0
+  25:     for j in range(n):
+  26:         total += S[j]
+- 27:         A[j] = total / (j + 1)
++ 27:         A[j] = total / (j - 1)
+  28:     return A
+--------------------------------------------------------------------------------
+[0.03126 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+   - [#  21] ASR prefix_averages: 
+--------------------------------------------------------------------------------
+   4:     A = [0] * n
+   5:     for j in range(n):
+   6:         total = 0
+   7:         for i in range(j + 1):
+-  8:             total += S[i]
++  8:             total -= S[i]
+   9:         A[j] = total / (j + 1)
+  10:     return A
+  11: 
+  12: def prefix_average2(S):
+--------------------------------------------------------------------------------
+[5.03500 s] timeout
+   - [#  22] ASR prefix_averages: 
+--------------------------------------------------------------------------------
+  22:     n = len(S)
+  23:     A = [0] * n
+  24:     total = 0
+  25:     for j in range(n):
+- 26:         total += S[j]
++ 26:         total -= S[j]
+  27:         A[j] = total / (j + 1)
+  28:     return A
+--------------------------------------------------------------------------------
+[5.04140 s] timeout
+   - [#  23] SIR prefix_averages: 
+--------------------------------------------------------------------------------
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  14:     n = len(S)
+  15:     A = [0] * n
+  16:     for j in range(n):
+- 17:         A[j] = sum(S[0:j + 1]) / (j + 1)
++ 17:         A[j] = sum(S[:j + 1]) / (j + 1)
+  18:     return A
+  19: 
+  20: def prefix_average3(S):
+  21:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+--------------------------------------------------------------------------------
+[0.01984 s] survived
+   - [#  24] SIR prefix_averages: 
+--------------------------------------------------------------------------------
+  13:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+  14:     n = len(S)
+  15:     A = [0] * n
+  16:     for j in range(n):
+- 17:         A[j] = sum(S[0:j + 1]) / (j + 1)
++ 17:         A[j] = sum(S[0:]) / (j + 1)
+  18:     return A
+  19: 
+  20: def prefix_average3(S):
+  21:     '''Return list such that, for all j, A[j] equals average of S[0], ..., S[j].'''
+--------------------------------------------------------------------------------
+[2.45823 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+[*] Mutation score [45.98010 s]: 93.3%
+   - all: 24
+   - killed: 9 (37.5%)
+   - survived: 1 (4.2%)
+   - incompetent: 9 (37.5%)
+   - timeout: 5 (20.8%)

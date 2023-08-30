@@ -1,6 +1,6 @@
 import unittest
 
-from ch03.No_Comments.prefix_averages import prefix_average2, prefix_average3, prefix_average1
+from ch03.prefix_averages import prefix_average2, prefix_average3, prefix_average1
 
 
 class TestPrefixAverageFunctions(unittest.TestCase):

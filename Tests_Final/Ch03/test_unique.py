@@ -1,6 +1,6 @@
 import unittest
 
-from ch03.No_Comments.unique import unique1, unique2
+from ch03.unique import unique1, unique2
 
 
 class TestUniqueFunctions(unittest.TestCase):

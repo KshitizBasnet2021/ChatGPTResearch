@@ -83,12 +83,53 @@ if __name__ == "__main__":
     # code_file1 = './ch03/disjoint.py'
     # dir_path1 = './Tests_Final/Ch03/Mutation/Commented_Code/disjoint'
 
-    mutation_report_file1 = './Tests_Final/ch03/Mutation/Non_Commented_Code/disjoint/mutation_disjoint.txt'
-    code_file1 = './ch03/No_Comments/disjoint.py'
-    dir_path1 = './Tests_Final/Ch03/Mutation/Non_Commented_Code/disjoint'
+    # mutation_report_file1 = './Tests_Final/ch03/Mutation/Non_Commented_Code/disjoint/mutation_disjoint.txt'
+    # code_file1 = './ch03/No_Comments/disjoint.py'
+    # dir_path1 = './Tests_Final/Ch03/Mutation/Non_Commented_Code/disjoint'
 
+    mutation_report_file1 = './Tests_Final/ch03/Mutation/Commented_Code/find/mutation_find.txt'
+    code_file1 = './ch03/find.py'
+    dir_path1 = './Tests_Final/Ch03/Mutation/Commented_Code/find'
 
+    mutation_report_file2 = './Tests_Final/ch03/Mutation/Non_Commented_Code/find/mutation_find.txt'
+    code_file2 = './ch03/No_Comments/find.py'
+    dir_path2 = './Tests_Final/Ch03/Mutation/Non_Commented_Code/find'
 
+   
+    mutation_report_file3 = './Tests_Final/ch03/Mutation/Commented_Code/find_max/mutation_find_max.txt'
+    code_file3 = './ch03/find_max.py'
+    dir_path3 = './Tests_Final/Ch03/Mutation/Commented_Code/find_max'
+
+    mutation_report_file4 = './Tests_Final/ch03/Mutation/Non_Commented_Code/find_max/mutation_find_max.txt'
+    code_file4 = './ch03/No_Comments/find_max.py'
+    dir_path4 = './Tests_Final/Ch03/Mutation/Non_Commented_Code/find_max'
+
+    mutation_report_file5 = './Tests_Final/ch03/Mutation/Commented_Code/prefix_averages/mutation_prefix_averages.txt'
+    code_file5 = './ch03/prefix_averages.py'
+    dir_path5 = './Tests_Final/Ch03/Mutation/Commented_Code/prefix_averages'
+   
+
+    mutation_report_file6 = './Tests_Final/ch03/Mutation/Non_Commented_Code/prefix_averages/mutation_prefix_averages.txt'
+    code_file6 = './ch03/No_Comments/prefix_averages.py'
+    dir_path6 = './Tests_Final/Ch03/Mutation/Non_Commented_Code/prefix_averages'
+
+   
+    mutation_report_file7 = './Tests_Final/ch03/Mutation/Commented_Code/unique/mutation_unique.txt'
+    code_file7 = './ch03/unique.py'
+    dir_path7 = './Tests_Final/Ch03/Mutation/Commented_Code/unique'
+
+    mutation_report_file8 = './Tests_Final/ch03/Mutation/Non_Commented_Code/unique/mutation_unique.txt'
+    code_file8 = './ch03/No_Comments/unique.py'
+    dir_path8 = './Tests_Final/Ch03/Mutation/Non_Commented_Code/unique'
+
+   
     generate_mutation_files(mutation_report_file1, code_file1, dir_path1)
+    generate_mutation_files(mutation_report_file2, code_file2, dir_path2)
+    generate_mutation_files(mutation_report_file3, code_file3, dir_path3)
+    generate_mutation_files(mutation_report_file4, code_file4, dir_path4)
+    generate_mutation_files(mutation_report_file5, code_file5, dir_path5)
+    generate_mutation_files(mutation_report_file6, code_file6, dir_path6)
+    generate_mutation_files(mutation_report_file7, code_file7, dir_path7)
+    generate_mutation_files(mutation_report_file8, code_file8, dir_path8)
 
 

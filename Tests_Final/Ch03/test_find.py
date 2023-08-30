@@ -1,6 +1,6 @@
 import unittest
 
-from ch03.No_Comments.find import find
+from ch03.find import find
 
 
 class TestFindFunction(unittest.TestCase):
