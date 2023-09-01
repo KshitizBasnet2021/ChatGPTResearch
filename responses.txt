@@ -1,3 +1,1352 @@
-#1 Tests_Final/Ch13/Mutation/Non_Commented_Code/find_brute/mutation_1_line_no_9_AOD.py
-There is a bug on line 9, it should be "return -1"
+#1 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_1_line_no_6_COI.py
+def disjoint3(A, B, C):
+  """Return True if there is no element common to all three lists."""
+  for a in A:
+    if a in B:             # only check C if we found match from A and B
+      if a in C:           # (and thus a == b == c)
+        return False       # we found a common value
+  return True
+
+
+#2 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_2_line_no_14_COI.py
+def disjoint3(A, B, C):
+  """Return True if there is no element common to all three lists."""
+  for a in A:
+    for b in B:
+      if a == b:
+        for c in C:
+          if a == c:        # (and thus a == b == c)
+            return False    # we found a common value
+  return True               # if we reach this, sets are disjoint
+
+
+#3 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_3_line_no_16_COI.py
+def disjoint3(A, B, C):
+  """Return True if there is no element common to all three lists."""
+  for a in A:                # iterate over A
+    for b in B:              # iterate over B
+      if a == b:             
+        for c in C:          # iterate over C
+          if a == c:
+            return False    # we found a common value
+  return True               # if we reach this, sets are disjoint
+
+
+#4 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_4_line_no_6_ROR.py
+There is a bug in the first function - it should be "if a != b and a == c"
+
+
+#5 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_5_line_no_6_ROR.py
+There are no bugs in the given code.
+
+
+#6 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_6_line_no_14_ROR.py
+There are no bugs in the code.
+
+
+#7 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_7_line_no_16_ROR.py
+Yes, there is a bug where it will return True even if there is a common value in A, B, and C. To fix it, we can change the last line in the function to say "if a == b == c:" instead of just "if a == b:"
+
+
+#8 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_1_line_no_9_AOD.py
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+
+
+#9 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_2_line_no_9_AOR.py
+There is a bug in the code where it returns +1 instead of -1.
+
+
+#10 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_3_line_no_8_ASR.py
+j should be incremented not decremented
+
+
+#11 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_4_line_no_5_COI.py
+def find(s, val):
+  for i in range(len(s)):
+    if s[i] == val:
+      return i
+  return -1
+
+
+#12 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_5_line_no_6_COI.py
+There appear to be no bugs in the following code.
+
+
+#13 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_6_line_no_5_ROR.py
+j is initialized to 0, but the while loop continues while j is greater than n. This will cause an infinite loop. To fix this, the while loop should continue while j is less than n.
+
+
+#14 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_7_line_no_5_ROR.py
+There is a bug in the code where it will run into an infinite loop if the value is not found in the list. To fix this, the code should be changed to:
+
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j <= n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+
+
+#15 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_8_line_no_6_ROR.py
+The while loop will never end and the function will never return anything if the value is not found in the list. To fix this, you can add an else statement that returns -1 if the while loop ends without finding a match.
+
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:     # changed != to ==
+      return j          # a match was found at index j
+    j += 1
+  else:                 # added else statement
+    return -1
+
+
+#16 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_1_line_no_5_COI.py
+def find_max(data):
+  """Return the maximum element from a nonempty Python list."""
+  biggest = data[0]               # The initial value to beat
+  for val in data:                # For each value:
+    if  (val > biggest):
+      biggest = val               # we have found a new best (so far)
+  return biggest
+
+
+#17 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_2_line_no_5_ROR.py
+There are no bugs in the code.
+
+
+#18 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_3_line_no_5_ROR.py
+There are no bugs in the code.
+
+
+#19 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_10_line_no_15_AOR.py
+def prefix_average4(S):
+  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
+  n = len(S)
+  A = [0] * n
+  for j in range(n):
+    A[j] = sum(S[0:j+1]) / (j+1)  # record the average
+  return A
+
+
+#20 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_11_line_no_17_AOR.py
+There are no bugs in the code.
+
+
+#21 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_12_line_no_17_AOR.py
+There are no bugs in the code.
+
+
+#22 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_13_line_no_17_AOR.py
+There are no bugs in the code.
+
+
+#23 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_14_line_no_17_AOR.py
+None that I can see.
+
+
+#24 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_15_line_no_23_AOR.py
+There is a typo on line 18, it should be A = [0] * n not A = [0] / n.
+
+
+#25 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_16_line_no_23_AOR.py
+There are several bugs in the code. In the first function, the line A[j] = total / (j+1) should be outside the nested for loop. In the second function, the line A[j] = sum(S[0:j+1])/(j+1) should be indented within the for loop. In the third function, the line A = [0] // n should be A = [0] * n.
+
+
+#26 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_17_line_no_23_AOR.py
+The first two functions are fine, but the third one has a bug.  The line "A = [0] ** n" should be "A = [0] * n".
+
+
+#27 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_18_line_no_27_AOR.py
+There are no bugs in this code.
+
+
+#28 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_19_line_no_27_AOR.py
+def prefix_average4(S):
+  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
+  n = len(S)
+  A = [0] * n                     # create new list of n zeros
+  for j in range(n):
+    A[j] = sum(S[0:j+1]) // (j+1)  # record the average
+  return A
+
+
+#29 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_1_line_no_4_AOR.py
+The first function will not work because you are trying to divide a list by an integer. This can be fixed by changing the line "A = [0] / n" to "A = [0] * n".
+
+The second and third functions are fine as they are.
+
+
+#30 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_20_line_no_27_AOR.py
+There is a bug on line 18, it should be A[j] = total / (j + 1) in order to compute the average correctly.
+
+
+#31 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_21_line_no_8_ASR.py
+There are no bugs in the code.
+
+
+#32 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_22_line_no_26_ASR.py
+The first two functions appear to be working correctly, while the third function sets all values in list A to 0.
+
+
+#33 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_23_line_no_17_SIR.py
+# There are no bugs in the code.
+
+
+#34 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_24_line_no_17_SIR.py
+No bugs.
+
+
+#35 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_2_line_no_4_AOR.py
+# In prefix_average1, the initialization of A should be A = [0] * n in order to create a list of n zeros.
+
+
+#36 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_3_line_no_4_AOR.py
+#There is a bug in prefix_average1, where it sets all of the values in the list to 0 instead of computing the average. This can be fixed by changing "A = [0] ** n" to "A = [0] * n"
+
+
+#37 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_4_line_no_7_AOR.py
+def prefix_average4(S):
+  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
+  n = len(S)
+  A = [0] * n                   # create new list of n zeros
+  for j in range(n):
+    A[j] = sum(S[0:j+1]) / (j+1)  # record the average
+  return A
+
+
+#38 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_5_line_no_9_AOR.py
+# I don't see any bugs, but the third solution is the most elegant.
+
+
+#39 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_6_line_no_9_AOR.py
+There are no bugs in the code.
+
+
+#40 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_7_line_no_9_AOR.py
+def main():
+  heat_capacity = [3.412, 3.844, 4.168, 4.380, 4.488, 4.495, 4.487]
+  print(prefix_average3(heat_capacity))
+
+main()
+
+
+#41 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_8_line_no_15_AOR.py
+#There are no bugs in the code.
+
+
+#42 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_9_line_no_15_AOR.py
+# The first function will not work because you cannot concatenate a list and an int
+# The second function should have S[0:j+1] instead of S[0] // j+1 to slice the list
+# The third function is correct
+
+
+#43 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_1_line_no_4_AOR.py
+There are no bugs in the code.
+
+
+#44 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_2_line_no_13_AOR.py
+There are no duplicate elements in sequence S.
+
+
+#45 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_3_line_no_5_COI.py
+There are no bugs in the code.
+
+
+#46 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_4_line_no_13_COI.py
+There appear to be no bugs in the code.
+
+
+#47 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_5_line_no_5_ROR.py
+The first function will return false even if there is only one duplicate element, as opposed to all duplicates. The second function will work as intended.
+
+
+#48 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_6_line_no_13_ROR.py
+There are no bugs in the code.
+
+
+#49 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_10_line_no_6_ROR.py
+def main():
+  numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+  target = 5
+  result = binary_search(numbers, target, 0, len(numbers) - 1)
+  print(result)
+
+main()
+
+No obvious bugs.
+
+
+#50 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_11_line_no_10_ROR.py
+The main bug in the code appears to be on line 12, where it should read
+"if target == data[mid]:" instead of "if target != data[mid]:".
+
+
+#51 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_12_line_no_12_ROR.py
+There is no return statement in the else clause, so the function will return None if the target is not found.
+
+
+#52 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_13_line_no_12_ROR.py
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target <= data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+
+
+#53 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_1_line_no_9_AOR.py
+There are no bugs in this code.
+
+
+#54 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_2_line_no_9_AOR.py
+The line "mid = (low + high) / 2" will not work correctly in Python 3, as it will perform floating point division. This can be fixed by changing it to "mid = (low + high) // 2".
+
+
+#55 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_3_line_no_9_AOR.py
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+
+
+#56 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_4_line_no_14_AOR.py
+def main():
+  data = [2, 4, 5, 7, 8, 9, 12, 14, 17, 19, 22, 25, 27, 28, 33, 37]
+
+  target = int(input('Enter an integer: '))
+
+  if binary_search(data, target, 0, len(data)):
+    print(target, 'was found')
+  else:
+    print(target, 'was not found')
+
+main()
+There are no bugs in this code.
+
+
+#57 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_5_line_no_17_AOR.py
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+
+
+#58 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_6_line_no_6_COI.py
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+
+
+#59 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_7_line_no_10_COI.py
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the
+
+
+#60 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_8_line_no_12_COI.py
+There does not appear to be any bugs in this code.
+
+
+#61 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_9_line_no_6_ROR.py
+The search only considers the portion from data[low] to data[high] inclusive.
+
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:                    # interval is empty; no match
+    return False
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return
+
+
+#62 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_10_line_no_5_ROR.py
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#63 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_11_line_no_5_ROR.py
+There is no bug in the given code.
+
+
+#64 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_12_line_no_7_ROR.py
+The code should return False if the target is not found.
+
+
+#65 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_13_line_no_9_ROR.py
+There are no bugs in the above code.
+
+
+#66 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_14_line_no_9_ROR.py
+There are no bugs in this code.
+
+
+#67 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_1_line_no_4_AOR.py
+There are no bugs in the code.
+
+
+#68 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_2_line_no_6_AOR.py
+def binary_search_recursive(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search_recursive(data, target, low, mid-1)
+
+
+#69 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_3_line_no_6_AOR.py
+If the target is not found in the list, the function will return False.
+
+
+#70 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_4_line_no_6_AOR.py
+There appear to be no bugs in the code.
+
+
+#71 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_5_line_no_10_AOR.py
+There are no bugs in the given code.
+
+
+#72 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_6_line_no_12_AOR.py
+def binary_search_recursive(data, target, low=0, high=None):
+  """Return True if target is found in the given Python list."""
+  if high is None:
+    high = len(data) - 1
+  if low > high:                    # interval empty; no match
+    return False
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search_recursive(data, target, low, mid - 1)
+    else:
+
+
+#73 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_7_line_no_5_COI.py
+The loop condition should be "low <= high", not "not (low <= high)"
+
+
+#74 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_8_line_no_7_COI.py
+The code should return False if the target is not found in the given list, not True.
+
+
+#75 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_9_line_no_9_COI.py
+There are no syntax errors in the given code.
+
+
+#76 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_10_line_no_5_ROR.py
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop - 1:
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+
+#77 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_1_line_no_5_AOR.py
+There are no bugs in the above code.
+
+
+#78 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_2_line_no_8_AOR.py
+There is a bug on line 4, it should be "if start >= stop:"
+
+
+#79 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_3_line_no_8_AOR.py
+def binary_search(S, target, start, stop):
+  """Return the index of target in implicit slice S[start:stop]."""
+  if start >= stop:                       # interval empty; no match
+    return -1
+  mid = (start + stop) // 2
+  if S[mid] == target:                    # found a match
+    return mid
+  elif S[mid] < target:
+    return binary_search(S, target, mid+1, stop)  # use upper half
+  else:
+    return binary_search(S, target, start, mid)  # use lower half
+
+
+#80 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_4_line_no_8_AOR.py
+There is a syntax error on line 4, it should be:
+
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) / 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+
+#81 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_5_line_no_9_AOR.py
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+
+#82 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_6_line_no_3_COI.py
+There isn't a ':' between start and stop in the parameters for the function. It should be def binary_sum(S, start, stop):
+
+
+#83 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_7_line_no_5_COI.py
+def binary_sum(S, start, stop):                                                                   
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif not (start == stop - 1):
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+
+#84 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_8_line_no_3_ROR.py
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+
+#85 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_9_line_no_3_ROR.py
+There are no bugs in the above code.
+
+
+#86 Tests_Final/Ch04/Mutation/Commented_Code\Disk_Usage\mutation_1_line_no_9_ASR.py
+There is no main function so the code will not run.
+
+
+#87 Tests_Final/Ch04/Mutation/Commented_Code\Disk_Usage\mutation_2_line_no_6_COI.py
+No bugs present.
+
+
+#88 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_10_line_no_3_COI.py
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if not (n == 0):
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+
+
+#89 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_11_line_no_8_COI.py
+The code looks fine to me.
+
+
+#90 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_12_line_no_3_ROR.py
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+
+
+#91 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_13_line_no_8_ROR.py
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n & 1:                            # use bitwise AND
+      result *= x                       
+    return result
+
+
+#92 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_1_line_no_6_AOR.py
+If n is negative, the code will not work correctly. This can be fixed by adding an if statement to check if n is negative, and if so, make x equal to 1/x and make n equal to -n.
+
+
+#93 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_2_line_no_6_AOR.py
+There are no bugs in the code.
+
+
+#94 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_3_line_no_7_AOR.py
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+
+
+#95 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_4_line_no_7_AOR.py
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial ** 2
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+
+
+#96 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_5_line_no_7_AOR.py
+There is no bug in the given code.
+
+
+#97 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_6_line_no_8_AOR.py
+There are no bugs in this code.
+
+
+#98 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_7_line_no_9_ASR.py
+The bugs in the following code are:
+
+1. The function should return partial * partial, not result /= x.
+
+2. The function should return x ** n, not power(x, n // 2).
+
+
+#99 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_8_line_no_9_ASR.py
+result //= x should be result *= x
+
+
+#100 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_9_line_no_9_ASR.py
+There is no bug in the given code.
+
+
+#101 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_1_line_no_3_AOR.py
+There is no bug in the given code.
+
+
+#102 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_2_line_no_4_AOR.py
+There is a typo in the code. It should be:
+
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop - 1:                         # if at least 2 elements:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+    reverse(S, start+1, stop-1)
+
+
+#103 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_3_line_no_4_AOR.py
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop - 1:                         # if at least 2 elements:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start]) # swapped S[stop] for S[start]
+    reverse(S, start+1, stop-1)
+
+
+#104 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_4_line_no_5_AOR.py
+There are no bugs in the code.
+
+
+#105 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_5_line_no_5_AOR.py
+There is a typo in the stop condition - it should be stop - 1, not stop + 1.
+
+
+#106 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_6_line_no_3_COI.py
+def reverse(S, start, stop):
+  if start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start] 
+    reverse(S, start+1, stop-1)
+
+
+#107 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_7_line_no_3_ROR.py
+There is no return statement, so the function will return None.
+
+
+#108 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_8_line_no_3_ROR.py
+There are no bugs in the code.
+
+
+#109 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_1_line_no_4_AOR.py
+def reverse_recursive(S, start, stop):
+  """Reverse elements in sequence S."""
+  if start < stop - 1:                          # if at least 2 elements:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    reverse_recursive(S, start+1, stop-1)      # recur on the rest
+
+
+#110 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_2_line_no_5_AOR.py
+There is a bug on line 6, where it should be stop - 1 instead of stop + 1.
+
+
+#111 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_3_line_no_5_AOR.py
+def reverse_recursive(S, start, stop):
+  """Reverse elements in sequence S."""
+  if start < stop - 1:                          # if at least 2 elements:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])  # swap first and last
+    reverse_recursive(S, start + 1, stop - 1)  # recur on the rest
+
+
+#112 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_4_line_no_6_AOR.py
+def reverse_recursive(S, start, stop):
+  """Reverse elements in sequence S."""
+  if start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    return reverse_recursive(S, start + 1, stop - 1)  # keep going
+
+There is no bug in the code.
+
+
+#113 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_5_line_no_6_AOR.py
+def reverse_recursive(S, start, stop):
+  """Reverse elements in sequence S."""
+  # if fewer than two elements, no need to reverse
+  if start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    reverse_recursive(S, start + 1, stop - 1)  # recurse on rest
+
+
+#114 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_6_line_no_4_COI.py
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    start, stop = start + 1, stop - 1          # narrow the range
+
+
+#115 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_7_line_no_4_ROR.py
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    start, stop = start + 1, stop - 1          # narrow the range
+
+
+#116 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_8_line_no_4_ROR.py
+There are no bugs in the code.
+
+
+#117 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_1_line_no_6_AOR.py
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while j > 0 and A[j - 1] > cur:
+      A[j] = A[j - 1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+
+#118 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_2_line_no_7_AOR.py
+There is a bug on line 8, it should be:
+
+while j > 0 and A[j-1] > cur:    # element A[j-1] must be after current
+  A[j] = A[j-1]
+  j -= 1
+
+
+#119 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_3_line_no_8_ASR.py
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while j > 0 and A[j-1] > cur:    # element A[j-1] must be after current
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+
+#120 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_4_line_no_6_COI.py
+There is no return statement, so the function does not return the sorted list.
+
+
+#121 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_5_line_no_6_LCR.py
+There is no bug in the given code.
+
+
+#122 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_6_line_no_6_ROR.py
+There shouldn't be a space between A[j-1] and >. It should be A[j-1]>
+
+
+#123 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_7_line_no_6_ROR.py
+There is a bug on line 8, it should be "while (j > 0 and A[j - 1] > cur):"
+
+
+#124 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_8_line_no_6_ROR.py
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while (j > 0 and A[j - 1] > cur):
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+
+#125 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_9_line_no_6_ROR.py
+No, there are no bugs in the code.
+
+
+#126 Tests_Final/Ch10/Mutation/Commented_Code\Word_Frequency\mutation_1_line_no_7_AOR.py
+No bugs.
+
+
+#127 Tests_Final/Ch10/Mutation/Commented_Code\Word_Frequency\mutation_2_line_no_6_COI.py
+There are no bugs in the code.
+
+
+#128 Tests_Final/Ch10/Mutation/Commented_Code\Word_Frequency\mutation_3_line_no_12_COI.py
+There are no bugs in this code that I can see.
+
+
+#129 Tests_Final/Ch10/Mutation/Commented_Code\Word_Frequency\mutation_4_line_no_12_ROR.py
+There is a bug on line 11 where it should say "if c > max_count" instead of "if c < max_count"
+
+
+#130 Tests_Final/Ch10/Mutation/Commented_Code\Word_Frequency\mutation_5_line_no_12_ROR.py
+There are no bugs in this code.
+
+
+#131 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_10_line_no_15_COI.py
+There are no bugs in the code.
+
+
+#132 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_11_line_no_5_LCR.py
+S1 = [3,4,6,10,11,15]
+S2 = [1,5,8,12,14,19]
+S = [0,0,0,0,0,0]
+
+There do not appear to be any bugs in the code.
+
+
+#133 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_12_line_no_5_LCR.py
+S1 = [4, 8, 15, 16, 23, 42]
+S2 = [5, 6, 7, 8, 9, 10]
+S3 = []
+for i in range(len(S1) + len(S2)):
+  S3.append(0)
+
+merge(S1, S2, S3)
+
+print(S3)
+
+
+#134 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_13_line_no_4_ROR.py
+The merge function is missing a colon at the end of the first line.
+
+
+#135 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_14_line_no_4_ROR.py
+There are no visible bugs in the code.
+
+
+#136 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_15_line_no_5_ROR.py
+def merge(S1, S2, S):
+  """Merge two sorted Python lists S1 and S2 into properly sized list S."""
+  i = j = 0
+  while i + j < len(S):
+    if (j != len(S2) or (i < len(S1) and S1[i] < S2[j])):
+      S[i+j] = S1[i]      # copy ith element of S1 as next item of S
+      i += 1
+    else:
+      S[i+j] = S2[j]      # copy jth element of S2 as next item of S
+
+
+#137 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_16_line_no_5_ROR.py
+The bug is in the first if statement. it should be an 'or' statement not an 'and' statement.
+
+
+#138 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_17_line_no_5_ROR.py
+There are no visible bugs in the code.
+
+
+#139 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_18_line_no_5_ROR.py
+There are no bugs in the given code.
+
+
+#140 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_19_line_no_5_ROR.py
+There are no bugs in the given code.
+
+
+#141 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_1_line_no_4_AOR.py
+I don't see any bugs.
+
+
+#142 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_20_line_no_15_ROR.py
+def merge(S1, S2, S):
+  """Merge two sorted Python lists S1 and S2 into properly sized list S."""
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]      # copy ith element of S1 as next item of S
+      i += 1
+    else:
+      S[i+j] = S2[j]      # copy jth element of S2 as next item of S
+      j
+
+
+#143 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_21_line_no_15_ROR.py
+The code appears to be syntactically correct.
+
+
+#144 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_22_line_no_19_SIR.py
+There are no bugs in the code.
+
+
+#145 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_23_line_no_19_SIR.py
+There are no bugs in the given code.
+
+
+#146 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_24_line_no_20_SIR.py
+There is a bug on line 19, it should be "S2 = S[mid:n]"
+
+
+#147 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_25_line_no_20_SIR.py
+There are no bugs in the code.
+
+
+#148 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_2_line_no_6_AOR.py
+S1 = [3,5,7,9]
+S2 = [4,6,10,12]
+S = [0,0,0,0,0]
+
+merge(S1,S2,S)
+
+print(S)
+
+
+#149 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_3_line_no_9_AOR.py
+def merge(S1, S2, S):
+  """Merge two sorted Python lists S1 and S2 into properly sized list S."""
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]      # copy ith element of S1 as next item of S
+      i += 1
+    else:
+      S[i + j] = S2[j]
+      j += 1
+
+
+#150 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_4_line_no_18_AOR.py
+There are no bugs in the given code.
+
+
+#151 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_5_line_no_18_AOR.py
+def merge(S1, S2, S):
+  """Merge two sorted Python lists S1 and S2 into properly sized list S."""
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]      # copy ith element of S1 as next item of S
+      i += 1
+    else:
+      S[i+j] = S2[j]      # copy jth element of S2 as next item of S
+      j
+
+
+#152 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_6_line_no_7_ASR.py
+def merge(S1, S2, S):
+  """Merge two sorted Python lists S1 and S2 into properly sized list S."""
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]      # copy ith element of S1 as next item of S
+      i += 1
+    else:
+      S[i+j] = S2[j]      # copy jth element of S2 as next item of S
+      j
+
+
+#153 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_7_line_no_10_ASR.py
+There is a bug on line 10, where it should say "j += 1" instead of "j -= 1".
+
+
+#154 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_8_line_no_4_COI.py
+The merge function is missing a terminating condition, which could result in an infinite loop. The condition should be that i + j is less than len(S).
+
+
+#155 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Array\mutation_9_line_no_5_COI.py
+def merge(S1, S2, S):
+  """Merge two sorted Python lists S1 and S2 into properly sized list S."""
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]      # copy ith element of S1 as next item of S
+      i += 1
+    else:
+      S[i+j] = S2[j]      # copy jth element of S2 as next item of S
+
+
+#156 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_10_line_no_26_AOR.py
+There are no bugs in the merge_sort code.
+
+
+#157 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_11_line_no_27_AOR.py
+def math.ceil(n):
+  """Return the smallest integer >= n."""
+  k = int(n)
+  if k < n:
+    k += 1
+  return k
+
+
+#158 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_12_line_no_27_AOR.py
+There are no bugs in the given code.
+
+
+#159 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_13_line_no_27_AOR.py
+There are no bugs in the given code.
+
+
+#160 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_14_line_no_11_ASR.py
+def merge(src, result, start, inc):
+  """Merge src[start:start+inc] and src[start+inc:start+2*inc] into result."""
+  end1 = start+inc                        # boundary for run 1
+  end2 = min(start+2*inc, len(src))       # boundary for run 2
+  x, y, z = start, start+inc, start       # index into run 1, run 2, result
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+
+
+#161 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_15_line_no_14_ASR.py
+There are no bugs in the code.
+
+
+#162 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_16_line_no_15_ASR.py
+There are no bugs in the code.
+
+
+#163 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_17_line_no_8_COI.py
+There are no bugs in the code.
+
+
+#164 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_18_line_no_9_COI.py
+There are no bugs in the code.
+
+
+#165 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_19_line_no_16_COI.py
+There are no bugs in the code.
+
+
+#166 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_1_line_no_5_AOR.py
+There are no bugs in the code.
+
+
+#167 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_20_line_no_18_COI.py
+There are no bugs in the given code.
+
+
+#168 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_21_line_no_30_COI.py
+There are no bugs in the following code.
+
+
+#169 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_22_line_no_8_LCR.py
+There are no bugs in this code.
+
+
+#170 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_23_line_no_8_ROR.py
+There are no bugs in the following code.
+
+
+#171 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_24_line_no_8_ROR.py
+There are no bugs in the code.
+
+
+#172 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_25_line_no_8_ROR.py
+There are no bugs in the code.
+
+
+#173 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_26_line_no_8_ROR.py
+There are no bugs in the code.
+
+
+#174 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_27_line_no_9_ROR.py
+There are no bugs in the above code.
+
+
+#175 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_28_line_no_9_ROR.py
+There are no bugs in the following code.
+
+
+#176 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_29_line_no_16_ROR.py
+There are no bugs in the code.
+
+
+#177 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_2_line_no_6_AOR.py
+There are no bugs in the code.
+
+
+#178 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_30_line_no_16_ROR.py
+There are no bugs in the following code.
+
+
+#179 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_31_line_no_18_ROR.py
+There are no bugs in the code.
+
+
+#180 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_32_line_no_18_ROR.py
+There are no bugs in the code.
+
+
+#181 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_33_line_no_17_SIR.py
+There are no bugs in the code.
+
+
+#182 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_34_line_no_17_SIR.py
+None that I can see.
+
+
+#183 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_35_line_no_17_SIR.py
+There are no bugs in the code.
+
+
+#184 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_36_line_no_17_SIR.py
+There are no bugs in the merge function.
+
+
+#185 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_37_line_no_19_SIR.py
+There are no bugs in the code.
+
+
+#186 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_38_line_no_19_SIR.py
+There are no bugs in the code.
+
+
+#187 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_39_line_no_19_SIR.py
+def merge(src, result, start, inc):
+  """Merge src[start:start+inc] and src[start+inc:start+2*inc] into result."""
+  end1 = start+inc                        # boundary for run 1
+  end2 = min(start+2*inc, len(src))       # boundary for run 2
+  x, y, z = start, start+inc, start       # index into run 1, run 2, result
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+
+
+#188 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_3_line_no_6_AOR.py
+There was a syntax error on line 16, where it says "2 / inc" it should say "2 * inc".
+
+
+#189 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_40_line_no_19_SIR.py
+There are no bugs in the code.
+
+
+#190 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_41_line_no_31_SIR.py
+There are no bugs in the merge function. The merge_sort function is missing an "else" statement at the end to handle the case where S is equal to src.
+
+
+#191 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_42_line_no_31_SIR.py
+def merge(src, result, start, inc):
+  """Merge src[start:start+inc] and src[start+inc:start+2*inc] into result."""
+  end1 = start+inc                        # boundary for run 1
+  end2 = min(start+2*inc, len(src))       # boundary for run 2
+  x, y, z = start, start+inc, start       # index into run 1, run 2, result
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+
+
+#192 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_43_line_no_31_SIR.py
+There are no bugs in the code.
+
+
+#193 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_44_line_no_31_SIR.py
+def partition(lst, start, end):
+    pivot = lst[end] # we choose the last element in the list as the pivot
+    pIndex = start
+
+    for i in range(start,end):
+        if lst[i] <= pivot:
+            lst[i],lst[pIndex] = lst[pIndex],lst[i] # swap
+            pIndex += 1
+
+    lst[pIndex],lst[end] = lst[end],lst[pIndex]
+    return pIndex
+
+def quick_sort(lst, start, end):
+    if start < end:
+        pIndex = partition(
+
+
+#194 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_4_line_no_6_AOR.py
+There are no bugs in the given code.
+
+
+#195 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_5_line_no_6_AOR.py
+There are no bugs in the code.
+
+
+#196 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_6_line_no_7_AOR.py
+There are no bugs in the code.
+
+
+#197 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_7_line_no_25_AOR.py
+NoneType object is not iterable
+
+
+#198 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_8_line_no_25_AOR.py
+There are no bugs in the code.
+
+
+#199 Tests_Final/Ch12/Mutation/Commented_Code\Merge_Nonrecur\mutation_9_line_no_25_AOR.py
+There are no bugs in the code.
+
+
+#200 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_10_line_no_16_ASR.py
+There are no bugs in the code.
+
+
+#201 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_11_line_no_17_ASR.py
+def find_boyer_moore(T, P):
+  """Return the lowest index of T at which substring P begins (or else -1)."""
+  n, m = len(T), len(P)                   # introduce convenient notations
+  if m == 0: return 0                     # trivial search for empty string
+  last = {}                               # build 'last' dictionary
+  for k in range(m):
+    last[ P[k] ] = k                      # later occurrence overwrites
+  # align end of pattern at index m-1 of text
+  i = m-1                                 # an index into T
+  k = m-1                                 # an index
+
+
+#202 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_12_line_no_20_ASR.py
+There are no bugs in the following code.
+
+
+#203 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_13_line_no_4_COI.py
+def find_boyer_moore(T, P):
+  """Return the lowest index of T at which substring P begins (or else -1)."""
+  n, m = len(T), len(P)                   # introduce convenient notations
+  if not (m == 0):
+  last = {}                               # build 'last' dictionary
+  for k in range(m):
+    last[ P[k] ] = k                      # later occurrence overwrites
+  # align end of pattern at index m-1 of text
+  i = m-1                                 # an index into T
+  k = m-1                                 # an index into P
+  while i
+
+
+#204 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_14_line_no_11_COI.py
+# I do not see any errors in this code.
+
 

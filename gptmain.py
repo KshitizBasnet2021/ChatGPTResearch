@@ -28,11 +28,11 @@ def chat_with_gpt(code, filename, count):
         prompt=prompt,
         max_tokens=150,
     )
-    time.sleep(5)
+    time.sleep(1)
     # Extract and return the generated text
     generated_text = response.choices[0].text.strip()
     print(generated_text)
-    return "#"+str(count)+" "+filename+'\n'+ generated_text
+    return "#"+str(count)+" "+filename+'\n'+ generated_text +"\n"
 
 # List of Python file locations
 python_files = getPythonFiles()

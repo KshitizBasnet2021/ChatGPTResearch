@@ -218,13 +218,13 @@ if __name__ == "__main__":
     # code_file32 = './ch13/No_Comments/find_boyer_moore.py'
     # dir_path32 = './Tests_Final/Ch13/Mutation/Non_Commented_Code/find_boyer_moore'
 
-    mutation_report_file33 = './Tests_Final/ch13/Mutation/Commented_Code/find_brute/mutation_find_brute.txt'
-    code_file33 = './ch13/find_brute.py'
-    dir_path33 = './Tests_Final/Ch13/Mutation/Commented_Code/find_brute'
+    # mutation_report_file33 = './Tests_Final/ch13/Mutation/Commented_Code/find_boyer_moore/mutation_find_brute.txt'
+    # code_file33 = './ch13/find_brute.py'
+    # dir_path33 = './Tests_Final/Ch13/Mutation/Commented_Code/find_brute'
 
-    mutation_report_file34 = './Tests_Final/ch13/Mutation/Non_Commented_Code/find_brute/mutation_find_brute.txt'
-    code_file34 = './ch13/No_Comments/find_brute.py'
-    dir_path34 = './Tests_Final/Ch13/Mutation/Non_Commented_Code/find_brute'
+    # mutation_report_file34 = './Tests_Final/ch13/Mutation/Non_Commented_Code/find_brute/mutation_find_brute.txt'
+    # code_file34 = './ch13/No_Comments/find_brute.py'
+    # dir_path34 = './Tests_Final/Ch13/Mutation/Non_Commented_Code/find_brute'
    
     # generate_mutation_files(mutation_report_file1, code_file1, dir_path1)
     # generate_mutation_files(mutation_report_file2, code_file2, dir_path2)
@@ -255,5 +255,5 @@ if __name__ == "__main__":
     # generate_mutation_files(mutation_report_file29, code_file29, dir_path29)
     # generate_mutation_files(mutation_report_file30, code_file30, dir_path30)
 
-    generate_mutation_files(mutation_report_file33, code_file33, dir_path33)
-    generate_mutation_files(mutation_report_file34, code_file34, dir_path34)
+    # generate_mutation_files(mutation_report_file33, code_file33, dir_path33)
+    # generate_mutation_files(mutation_report_file34, code_file34, dir_path34)
