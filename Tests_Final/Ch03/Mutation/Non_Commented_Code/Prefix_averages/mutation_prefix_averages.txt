@@ -2,7 +2,7 @@
    - targets: ch03/No_Comments/prefix_averages.py
    - tests: tests_Final/ch03/test_prefix_averages.py
 [*] 5 tests passed:
-   - test_prefix_averages [0.00390 s]
+   - test_prefix_averages [0.00392 s]
 [*] Start mutants generation and execution:
    - [#   1] AOR prefix_averages: 
 --------------------------------------------------------------------------------
@@ -15,7 +15,7 @@
   6:         total += S[j]
   7:         A[j] = total / (j + 1)
 --------------------------------------------------------------------------------
-[0.00025 s] incompetent
+[0.00095 s] incompetent
    - [#   2] AOR prefix_averages: 
 --------------------------------------------------------------------------------
   1: def prefix_average3(S):
@@ -27,7 +27,7 @@
   6:         total += S[j]
   7:         A[j] = total / (j + 1)
 --------------------------------------------------------------------------------
-[0.00098 s] incompetent
+[0.00000 s] incompetent
    - [#   3] AOR prefix_averages: 
 --------------------------------------------------------------------------------
   1: def prefix_average3(S):
@@ -50,7 +50,7 @@
 + 7:         A[j] = total // (j + 1)
   8:     return A
 --------------------------------------------------------------------------------
-[5.01240 s] timeout
+[5.01195 s] timeout
    - [#   5] AOR prefix_averages: 
 --------------------------------------------------------------------------------
   3:     A = [0] * n
@@ -61,7 +61,7 @@
 + 7:         A[j] = total * (j + 1)
   8:     return A
 --------------------------------------------------------------------------------
-[3.20301 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+[3.19499 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
    - [#   6] AOR prefix_averages: 
 --------------------------------------------------------------------------------
   3:     A = [0] * n
@@ -72,7 +72,7 @@
 + 7:         A[j] = total / (j - 1)
   8:     return A
 --------------------------------------------------------------------------------
-[0.00095 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+[0.00000 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
    - [#   7] ASR prefix_averages: 
 --------------------------------------------------------------------------------
   2:     n = len(S)
@@ -84,8 +84,8 @@
   7:         A[j] = total / (j + 1)
   8:     return A
 --------------------------------------------------------------------------------
-[5.01238 s] timeout
-[*] Mutation score [13.28332 s]: 100.0%
+[5.01239 s] timeout
+[*] Mutation score [13.27541 s]: 100.0%
    - all: 7
    - killed: 2 (28.6%)
    - survived: 0 (0.0%)

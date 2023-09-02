@@ -2,88 +2,47 @@
    - targets: ch03/unique.py
    - tests: tests_Final/ch03/test_unique.py
 [*] 10 tests passed:
-   - test_unique [0.01564 s]
+   - test_unique [0.02400 s]
 [*] Start mutants generation and execution:
    - [#   1] AOR unique: 
 --------------------------------------------------------------------------------
-   1: def unique1(S):
-   2:     '''Return True if there are no duplicate elements in sequence S.'''
-   3:     for j in range(len(S)):
--  4:         for k in range(j + 1, len(S)):
-+  4:         for k in range(j - 1, len(S)):
-   5:             if S[j] == S[k]:
-   6:                 return False
-   7:     return True
-   8: 
+  1: def unique1(S):
+  2:     '''Return True if there are no duplicate elements in sequence S.'''
+  3:     for j in range(len(S)):
+- 4:         for k in range(j + 1, len(S)):
++ 4:         for k in range(j - 1, len(S)):
+  5:             if S[j] == S[k]:
+  6:                 return False
+  7:     return True
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_large_input (test_unique.TestUniqueFunctions)
-   - [#   2] AOR unique: 
+[0.00098 s] killed by test_large_input (test_unique.TestUniqueFunctions)
+   - [#   2] COI unique: 
 --------------------------------------------------------------------------------
-   9: def unique2(S):
-  10:     '''Return True if there are no duplicate elements in sequence S.'''
-  11:     temp = sorted(S)
-  12:     for j in range(1, len(temp)):
-- 13:         if S[j - 1] == S[j]:
-+ 13:         if S[j + 1] == S[j]:
-  14:             return False
-  15:     return True
+  1: def unique1(S):
+  2:     '''Return True if there are no duplicate elements in sequence S.'''
+  3:     for j in range(len(S)):
+  4:         for k in range(j + 1, len(S)):
+- 5:             if S[j] == S[k]:
++ 5:             if not (S[j] == S[k]):
+  6:                 return False
+  7:     return True
 --------------------------------------------------------------------------------
-[0.01568 s] killed by test_large_input (test_unique.TestUniqueFunctions)
-   - [#   3] COI unique: 
+[0.02204 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
+   - [#   3] ROR unique: 
 --------------------------------------------------------------------------------
-   1: def unique1(S):
-   2:     '''Return True if there are no duplicate elements in sequence S.'''
-   3:     for j in range(len(S)):
-   4:         for k in range(j + 1, len(S)):
--  5:             if S[j] == S[k]:
-+  5:             if not (S[j] == S[k]):
-   6:                 return False
-   7:     return True
-   8: 
-   9: def unique2(S):
+  1: def unique1(S):
+  2:     '''Return True if there are no duplicate elements in sequence S.'''
+  3:     for j in range(len(S)):
+  4:         for k in range(j + 1, len(S)):
+- 5:             if S[j] == S[k]:
++ 5:             if S[j] != S[k]:
+  6:                 return False
+  7:     return True
 --------------------------------------------------------------------------------
-[0.03122 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
-   - [#   4] COI unique: 
---------------------------------------------------------------------------------
-   9: def unique2(S):
-  10:     '''Return True if there are no duplicate elements in sequence S.'''
-  11:     temp = sorted(S)
-  12:     for j in range(1, len(temp)):
-- 13:         if S[j - 1] == S[j]:
-+ 13:         if not (S[j - 1] == S[j]):
-  14:             return False
-  15:     return True
---------------------------------------------------------------------------------
-[0.00000 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
-   - [#   5] ROR unique: 
---------------------------------------------------------------------------------
-   1: def unique1(S):
-   2:     '''Return True if there are no duplicate elements in sequence S.'''
-   3:     for j in range(len(S)):
-   4:         for k in range(j + 1, len(S)):
--  5:             if S[j] == S[k]:
-+  5:             if S[j] != S[k]:
-   6:                 return False
-   7:     return True
-   8: 
-   9: def unique2(S):
---------------------------------------------------------------------------------
-[0.01898 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
-   - [#   6] ROR unique: 
---------------------------------------------------------------------------------
-   9: def unique2(S):
-  10:     '''Return True if there are no duplicate elements in sequence S.'''
-  11:     temp = sorted(S)
-  12:     for j in range(1, len(temp)):
-- 13:         if S[j - 1] == S[j]:
-+ 13:         if S[j - 1] != S[j]:
-  14:             return False
-  15:     return True
---------------------------------------------------------------------------------
-[0.00000 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
-[*] Mutation score [0.17768 s]: 100.0%
-   - all: 6
-   - killed: 6 (100.0%)
+[0.02310 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
+[*] Mutation score [0.10592 s]: 100.0%
+   - all: 3
+   - killed: 3 (100.0%)
    - survived: 0 (0.0%)
    - incompetent: 0 (0.0%)
    - timeout: 0 (0.0%)

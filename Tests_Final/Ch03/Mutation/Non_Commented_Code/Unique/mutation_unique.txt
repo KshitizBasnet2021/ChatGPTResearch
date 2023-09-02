@@ -1,8 +1,8 @@
 [*] Start mutation process:
-   - targets: ch03/No_Comments/unique.py
+   - targets: ch03/NO_comments/unique.py
    - tests: tests_Final/ch03/test_unique.py
 [*] 10 tests passed:
-   - test_unique [0.02152 s]
+   - test_unique [0.02083 s]
 [*] Start mutants generation and execution:
    - [#   1] AOR unique: 
 --------------------------------------------------------------------------------
@@ -14,7 +14,7 @@
   5:                 return False
   6:     return True
 --------------------------------------------------------------------------------
-[0.00098 s] killed by test_large_input (test_unique.TestUniqueFunctions)
+[0.00095 s] killed by test_large_input (test_unique.TestUniqueFunctions)
    - [#   2] COI unique: 
 --------------------------------------------------------------------------------
   1: def unique1(S):
@@ -25,7 +25,7 @@
   5:                 return False
   6:     return True
 --------------------------------------------------------------------------------
-[0.02148 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
+[0.02073 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
    - [#   3] ROR unique: 
 --------------------------------------------------------------------------------
   1: def unique1(S):
@@ -36,8 +36,8 @@
   5:                 return False
   6:     return True
 --------------------------------------------------------------------------------
-[0.02055 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
-[*] Mutation score [0.09433 s]: 100.0%
+[0.02168 s] killed by test_large_duplicate_input (test_unique.TestUniqueFunctions)
+[*] Mutation score [0.09800 s]: 100.0%
    - all: 3
    - killed: 3 (100.0%)
    - survived: 0 (0.0%)
