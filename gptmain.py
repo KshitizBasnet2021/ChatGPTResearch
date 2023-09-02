@@ -18,8 +18,11 @@ def is_code_buggy(file_path):
 def chat_with_gpt(code, filename, count):
     openai.api_key = api_key
     prompt = (
-        f"Do you see any bugs in the following code, if so, can you fix it:\n\n"
-        f"{code}\n\n"
+        f"Please provide information about the bug in the code in the following format:"
+         "Bug: [Yes or No]"
+         "Description: (limit to 20 words)"
+         "Code Snippet: [Corrected Code]\n\n"
+        f"the code is: {code}\n\n"
     )
 
     # Make the API request
@@ -28,7 +31,7 @@ def chat_with_gpt(code, filename, count):
         prompt=prompt,
         max_tokens=150,
     )
-    time.sleep(1)
+    time.sleep(3)
     # Extract and return the generated text
     generated_text = response.choices[0].text.strip()
     print(generated_text)
