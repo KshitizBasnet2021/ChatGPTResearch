@@ -1,331 +1,93 @@
 [*] Start mutation process:
    - targets: ch03/No_Comments/prefix_averages.py
    - tests: tests_Final/ch03/test_prefix_averages.py
-[*] 6 tests passed:
-   - test_prefix_averages [0.03177 s]
+[*] 5 tests passed:
+   - test_prefix_averages [0.00390 s]
 [*] Start mutants generation and execution:
    - [#   1] AOR prefix_averages: 
 --------------------------------------------------------------------------------
-   1: def prefix_average1(S):
-   2:     n = len(S)
--  3:     A = [0] * n
-+  3:     A = [0] / n
-   4:     for j in range(n):
-   5:         total = 0
-   6:         for i in range(j + 1):
-   7:             total += S[i]
+  1: def prefix_average3(S):
+  2:     n = len(S)
+- 3:     A = [0] * n
++ 3:     A = [0] / n
+  4:     total = 0
+  5:     for j in range(n):
+  6:         total += S[j]
+  7:         A[j] = total / (j + 1)
 --------------------------------------------------------------------------------
-[0.00000 s] incompetent
+[0.00025 s] incompetent
    - [#   2] AOR prefix_averages: 
 --------------------------------------------------------------------------------
-   1: def prefix_average1(S):
-   2:     n = len(S)
--  3:     A = [0] * n
-+  3:     A = [0] // n
-   4:     for j in range(n):
-   5:         total = 0
-   6:         for i in range(j + 1):
-   7:             total += S[i]
+  1: def prefix_average3(S):
+  2:     n = len(S)
+- 3:     A = [0] * n
++ 3:     A = [0] // n
+  4:     total = 0
+  5:     for j in range(n):
+  6:         total += S[j]
+  7:         A[j] = total / (j + 1)
 --------------------------------------------------------------------------------
-[0.00000 s] incompetent
+[0.00098 s] incompetent
    - [#   3] AOR prefix_averages: 
 --------------------------------------------------------------------------------
-   1: def prefix_average1(S):
-   2:     n = len(S)
--  3:     A = [0] * n
-+  3:     A = [0] ** n
-   4:     for j in range(n):
-   5:         total = 0
-   6:         for i in range(j + 1):
-   7:             total += S[i]
+  1: def prefix_average3(S):
+  2:     n = len(S)
+- 3:     A = [0] * n
++ 3:     A = [0] ** n
+  4:     total = 0
+  5:     for j in range(n):
+  6:         total += S[j]
+  7:         A[j] = total / (j + 1)
 --------------------------------------------------------------------------------
 [0.00000 s] incompetent
    - [#   4] AOR prefix_averages: 
 --------------------------------------------------------------------------------
-   2:     n = len(S)
-   3:     A = [0] * n
-   4:     for j in range(n):
-   5:         total = 0
--  6:         for i in range(j + 1):
-+  6:         for i in range(j - 1):
-   7:             total += S[i]
-   8:         A[j] = total / (j + 1)
-   9:     return A
-  10: 
+  3:     A = [0] * n
+  4:     total = 0
+  5:     for j in range(n):
+  6:         total += S[j]
+- 7:         A[j] = total / (j + 1)
++ 7:         A[j] = total // (j + 1)
+  8:     return A
 --------------------------------------------------------------------------------
-[3.42980 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+[5.01240 s] timeout
    - [#   5] AOR prefix_averages: 
 --------------------------------------------------------------------------------
-   4:     for j in range(n):
-   5:         total = 0
-   6:         for i in range(j + 1):
-   7:             total += S[i]
--  8:         A[j] = total / (j + 1)
-+  8:         A[j] = total // (j + 1)
-   9:     return A
-  10: 
-  11: def prefix_average2(S):
-  12:     n = len(S)
+  3:     A = [0] * n
+  4:     total = 0
+  5:     for j in range(n):
+  6:         total += S[j]
+- 7:         A[j] = total / (j + 1)
++ 7:         A[j] = total * (j + 1)
+  8:     return A
 --------------------------------------------------------------------------------
-[5.04712 s] timeout
+[3.20301 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
    - [#   6] AOR prefix_averages: 
 --------------------------------------------------------------------------------
-   4:     for j in range(n):
-   5:         total = 0
-   6:         for i in range(j + 1):
-   7:             total += S[i]
--  8:         A[j] = total / (j + 1)
-+  8:         A[j] = total * (j + 1)
-   9:     return A
-  10: 
-  11: def prefix_average2(S):
-  12:     n = len(S)
+  3:     A = [0] * n
+  4:     total = 0
+  5:     for j in range(n):
+  6:         total += S[j]
+- 7:         A[j] = total / (j + 1)
++ 7:         A[j] = total / (j - 1)
+  8:     return A
 --------------------------------------------------------------------------------
-[3.46481 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
-   - [#   7] AOR prefix_averages: 
+[0.00095 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
+   - [#   7] ASR prefix_averages: 
 --------------------------------------------------------------------------------
-   4:     for j in range(n):
-   5:         total = 0
-   6:         for i in range(j + 1):
-   7:             total += S[i]
--  8:         A[j] = total / (j + 1)
-+  8:         A[j] = total / (j - 1)
-   9:     return A
-  10: 
-  11: def prefix_average2(S):
-  12:     n = len(S)
+  2:     n = len(S)
+  3:     A = [0] * n
+  4:     total = 0
+  5:     for j in range(n):
+- 6:         total += S[j]
++ 6:         total -= S[j]
+  7:         A[j] = total / (j + 1)
+  8:     return A
 --------------------------------------------------------------------------------
-[0.00000 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
-   - [#   8] AOR prefix_averages: 
---------------------------------------------------------------------------------
-   9:     return A
-  10: 
-  11: def prefix_average2(S):
-  12:     n = len(S)
-- 13:     A = [0] * n
-+ 13:     A = [0] / n
-  14:     for j in range(n):
-  15:         A[j] = sum(S[0:j + 1]) / (j + 1)
-  16:     return A
-  17: 
---------------------------------------------------------------------------------
-[0.01301 s] incompetent
-   - [#   9] AOR prefix_averages: 
---------------------------------------------------------------------------------
-   9:     return A
-  10: 
-  11: def prefix_average2(S):
-  12:     n = len(S)
-- 13:     A = [0] * n
-+ 13:     A = [0] // n
-  14:     for j in range(n):
-  15:         A[j] = sum(S[0:j + 1]) / (j + 1)
-  16:     return A
-  17: 
---------------------------------------------------------------------------------
-[0.01563 s] incompetent
-   - [#  10] AOR prefix_averages: 
---------------------------------------------------------------------------------
-   9:     return A
-  10: 
-  11: def prefix_average2(S):
-  12:     n = len(S)
-- 13:     A = [0] * n
-+ 13:     A = [0] ** n
-  14:     for j in range(n):
-  15:         A[j] = sum(S[0:j + 1]) / (j + 1)
-  16:     return A
-  17: 
---------------------------------------------------------------------------------
-[0.01563 s] incompetent
-   - [#  11] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  11: def prefix_average2(S):
-  12:     n = len(S)
-  13:     A = [0] * n
-  14:     for j in range(n):
-- 15:         A[j] = sum(S[0:j + 1]) / (j + 1)
-+ 15:         A[j] = sum(S[0:j - 1]) / (j + 1)
-  16:     return A
-  17: 
-  18: def prefix_average3(S):
-  19:     n = len(S)
---------------------------------------------------------------------------------
-[3.18408 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
-   - [#  12] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  11: def prefix_average2(S):
-  12:     n = len(S)
-  13:     A = [0] * n
-  14:     for j in range(n):
-- 15:         A[j] = sum(S[0:j + 1]) / (j + 1)
-+ 15:         A[j] = sum(S[0:j + 1]) // (j + 1)
-  16:     return A
-  17: 
-  18: def prefix_average3(S):
-  19:     n = len(S)
---------------------------------------------------------------------------------
-[5.03401 s] timeout
-   - [#  13] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  11: def prefix_average2(S):
-  12:     n = len(S)
-  13:     A = [0] * n
-  14:     for j in range(n):
-- 15:         A[j] = sum(S[0:j + 1]) / (j + 1)
-+ 15:         A[j] = sum(S[0:j + 1]) * (j + 1)
-  16:     return A
-  17: 
-  18: def prefix_average3(S):
-  19:     n = len(S)
---------------------------------------------------------------------------------
-[3.50545 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
-   - [#  14] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  11: def prefix_average2(S):
-  12:     n = len(S)
-  13:     A = [0] * n
-  14:     for j in range(n):
-- 15:         A[j] = sum(S[0:j + 1]) / (j + 1)
-+ 15:         A[j] = sum(S[0:j + 1]) / (j - 1)
-  16:     return A
-  17: 
-  18: def prefix_average3(S):
-  19:     n = len(S)
---------------------------------------------------------------------------------
-[0.01568 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
-   - [#  15] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  16:     return A
-  17: 
-  18: def prefix_average3(S):
-  19:     n = len(S)
-- 20:     A = [0] * n
-+ 20:     A = [0] / n
-  21:     total = 0
-  22:     for j in range(n):
-  23:         total += S[j]
-  24:         A[j] = total / (j + 1)
---------------------------------------------------------------------------------
-[0.03123 s] incompetent
-   - [#  16] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  16:     return A
-  17: 
-  18: def prefix_average3(S):
-  19:     n = len(S)
-- 20:     A = [0] * n
-+ 20:     A = [0] // n
-  21:     total = 0
-  22:     for j in range(n):
-  23:         total += S[j]
-  24:         A[j] = total / (j + 1)
---------------------------------------------------------------------------------
-[0.03172 s] incompetent
-   - [#  17] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  16:     return A
-  17: 
-  18: def prefix_average3(S):
-  19:     n = len(S)
-- 20:     A = [0] * n
-+ 20:     A = [0] ** n
-  21:     total = 0
-  22:     for j in range(n):
-  23:         total += S[j]
-  24:         A[j] = total / (j + 1)
---------------------------------------------------------------------------------
-[0.03125 s] incompetent
-   - [#  18] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  20:     A = [0] * n
-  21:     total = 0
-  22:     for j in range(n):
-  23:         total += S[j]
-- 24:         A[j] = total / (j + 1)
-+ 24:         A[j] = total // (j + 1)
-  25:     return A
---------------------------------------------------------------------------------
-[5.03449 s] timeout
-   - [#  19] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  20:     A = [0] * n
-  21:     total = 0
-  22:     for j in range(n):
-  23:         total += S[j]
-- 24:         A[j] = total / (j + 1)
-+ 24:         A[j] = total * (j + 1)
-  25:     return A
---------------------------------------------------------------------------------
-[3.48118 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
-   - [#  20] AOR prefix_averages: 
---------------------------------------------------------------------------------
-  20:     A = [0] * n
-  21:     total = 0
-  22:     for j in range(n):
-  23:         total += S[j]
-- 24:         A[j] = total / (j + 1)
-+ 24:         A[j] = total / (j - 1)
-  25:     return A
---------------------------------------------------------------------------------
-[0.03172 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
-   - [#  21] ASR prefix_averages: 
---------------------------------------------------------------------------------
-   3:     A = [0] * n
-   4:     for j in range(n):
-   5:         total = 0
-   6:         for i in range(j + 1):
--  7:             total += S[i]
-+  7:             total -= S[i]
-   8:         A[j] = total / (j + 1)
-   9:     return A
-  10: 
-  11: def prefix_average2(S):
---------------------------------------------------------------------------------
-[5.03790 s] timeout
-   - [#  22] ASR prefix_averages: 
---------------------------------------------------------------------------------
-  19:     n = len(S)
-  20:     A = [0] * n
-  21:     total = 0
-  22:     for j in range(n):
-- 23:         total += S[j]
-+ 23:         total -= S[j]
-  24:         A[j] = total / (j + 1)
-  25:     return A
---------------------------------------------------------------------------------
-[5.04342 s] timeout
-   - [#  23] SIR prefix_averages: 
---------------------------------------------------------------------------------
-  11: def prefix_average2(S):
-  12:     n = len(S)
-  13:     A = [0] * n
-  14:     for j in range(n):
-- 15:         A[j] = sum(S[0:j + 1]) / (j + 1)
-+ 15:         A[j] = sum(S[:j + 1]) / (j + 1)
-  16:     return A
-  17: 
-  18: def prefix_average3(S):
-  19:     n = len(S)
---------------------------------------------------------------------------------
-[0.03127 s] survived
-   - [#  24] SIR prefix_averages: 
---------------------------------------------------------------------------------
-  11: def prefix_average2(S):
-  12:     n = len(S)
-  13:     A = [0] * n
-  14:     for j in range(n):
-- 15:         A[j] = sum(S[0:j + 1]) / (j + 1)
-+ 15:         A[j] = sum(S[0:]) / (j + 1)
-  16:     return A
-  17: 
-  18: def prefix_average3(S):
-  19:     n = len(S)
---------------------------------------------------------------------------------
-[2.50305 s] killed by test_large_input (test_prefix_averages.TestPrefixAverageFunctions)
-[*] Mutation score [45.33221 s]: 93.3%
-   - all: 24
-   - killed: 9 (37.5%)
-   - survived: 1 (4.2%)
-   - incompetent: 9 (37.5%)
-   - timeout: 5 (20.8%)
+[5.01238 s] timeout
+[*] Mutation score [13.28332 s]: 100.0%
+   - all: 7
+   - killed: 2 (28.6%)
+   - survived: 0 (0.0%)
+   - incompetent: 3 (42.9%)
+   - timeout: 2 (28.6%)
