@@ -6,11 +6,11 @@ def disjoint1(A, B, C):
           return False
   return True
 
-def disjoint2(A, B, C):
-  for a in A:
-    for b in B:
-      if a == b:
-        for c in C:
-          if a == c:
-            return False
-  return True
+# def disjoint2(A, B, C):
+#   for a in A:
+#     for b in B:
+#       if a == b:
+#         for c in C:
+#           if a == c:
+#             return False
+#   return True
