@@ -3,7 +3,7 @@ def disjoint1(A, B, C):
   for a in A:
     for b in B:
       for c in C:
-        if a == b == c:
+        if a != b == c:
           return False      # we found a common value
   return True               # if we reach this, sets are disjoint
 

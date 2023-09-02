@@ -2,7 +2,7 @@ import os
 
 
 def getPythonFiles():
-    chapters = ['Ch03', 'Ch04', 'Ch05', 'Ch10', 'Ch12', 'Ch13']
+    chapters = ['Ch03']
 
     # Initialize an empty list to store file locations
     file_locations = []
