@@ -1,20 +1,54 @@
 #1 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_1_line_no_6_COI.py
-Bug: Yes
-Description: There is a bug in the code that causes it to return False if there is a common value between two of the lists, rather than all three lists.
-Code Snippet: def disjoint1(A, B, C):
+Yes, I see a bug in the provided code. The bug is that the code returns False as soon as it finds any common values among the three lists. However, we want the code to return True only if there are no common values in all three lists.
+
+To fix this, we can modify the code as follows:
+
+```python
+def disjoint1(A, B, C):
+  """Return True if there is no element common to all three lists."""
+  for a in A:
+    found_common = False
+    for b in B:
+      for c in C:
+        if a == b == c:
+          found_common = True
+          break
+      if found_common:
+        break
+    if found_common:
+      return False  # we found a common value
+  return True       # if we reach this, sets are disjoint
+```
+
+In the modified code, we introduce a `found_common` variable to keep track of whether a common value is found. We set it to `False` initially, and if a common value is found, we set it to `True`. The code will only return False if `found_common` is `True` at any point. Otherwise, it will return True after checking all the elements.
+
+
+#2 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_2_line_no_6_ROR.py
+Yes, there is a bug in the provided code. The condition `a != b == c` is incorrect as it compares `a` and `b` separately, and then compares the result to `c`. This may not give the expected result.
+
+To fix it, we need to compare `a`, `b`, and `c` together to check if they are equal. The correct condition should be `a != b != c`. Here's the updated code:
+
+```python
+def disjoint1(A, B, C):
   """Return True if there is no element common to all three lists."""
   for a in A:
     for b in B:
       for c in C:
-        if not (a == b == c):
-          return False      # we found a common value
-  return True
+        if a != b != c:
+          return True       # there is no common value
+  return False              # if we reach this, sets are not disjoint
+```
+
+In this updated code, the condition `a != b != c` checks if `a`, `b`, and `c` are all different, indicating that there is no common value. If we find any combination of `a`, `b`, and `c` that satisfies this condition, we can immediately return `True` meaning the sets are disjoint. If we complete all the iterations without finding any common value, we return `False` meaning the sets are not disjoint.
 
 
-#2 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_2_line_no_6_ROR.py
-Bug: No
-Description: The code returns True if there is no element common to all three lists and False if there is an element common to all three lists.
-Code Snippet: def disjoint1(A, B, C):
+#3 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_3_line_no_6_ROR.py
+The code provided has a logical error. The condition `if a == b != c` in the innermost loop is incorrect. This condition checks if `a` is equal to `b` and not equal to `c`, which means it only checks if there is an element common between the first two lists `A` and `B`, but ignores the third list `C`. 
+
+To fix this bug, we need to modify the condition to check if `a` is equal to `b` and also if it is equal to `c`. The updated code is provided below:
+
+```python
+def disjoint1(A, B, C):
   """Return True if there is no element common to all three lists."""
   for a in A:
     for b in B:
@@ -22,25 +56,15 @@ Code Snippet: def disjoint1(A, B, C):
         if a == b == c:
           return False      # we found a common value
   return True               # if we reach this, sets are disjoint
+```
 
-
-#3 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_3_line_no_6_ROR.py
-Bug: No
-Description: Returns True if there is no element common to all three lists.
-Code Snippet: def disjoint1(A, B, C):
-  """Return True if there is no element common to all three lists."""
-  for a in A:
-    for b in B:
-      for c in C:
-        if a == b and b != c:
-          return False      # we found a common value
-  return True               # if we reach this, sets are disjoint
+Now, this code will properly check for a common element among all three lists `A`, `B`, and `C`. If it finds a common element, it will return `False`, otherwise, it will return `True`.
 
 
 #4 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_1_line_no_9_AOD.py
-Bug: Yes
- Description: The bug is that the code should return -1 if no such element is found, but it returns 1.
- Code Snippet: def find(S, val):
+Yes, there is a bug in the provided code. The bug is in the last line of the function. The function should return -1 instead of 1 when no match is found. Here's the corrected code:
+
+def find(S, val):
   """Return index j such that S[j] == val, or -1 if no such element."""
   n = len(S)
   j = 0
@@ -48,13 +72,16 @@ Bug: Yes
     if S[j] == val:
       return j          # a match was found at index j
     j += 1
-  return -1
+  return -1  # no match was found, so return -1 instead of 1
 
 
 #5 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_2_line_no_9_AOR.py
-Bug: Yes
-Description: find() should return -1 if no such element is found
-Code Snippet: def find(S, val):
+Yes, there is a bug in the provided code. The bug is in the return statement when no match is found. Instead of returning -1, it is returning +1. The correct return statement should be `return -1` to indicate that no match was found. 
+
+Here's the corrected code:
+
+```python
+def find(S, val):
   """Return index j such that S[j] == val, or -1 if no such element."""
   n = len(S)
   j = 0
@@ -63,39 +90,13 @@ Code Snippet: def find(S, val):
       return j          # a match was found at index j
     j += 1
   return -1
+```
+
+Now, when no match is found, the function will correctly return -1.
 
 
 #6 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_3_line_no_8_ASR.py
-Bug: No
-Description:
-
-This code snippet correctly finds the index of a given value in a list.
-
-
-#7 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_4_line_no_5_COI.py
-Bug: Yes
-Description: The condition in the while loop is incorrect. It should be while j < n.
-Code Snippet: def find(S, val):
-  """Return index j such that S[j] == val, or -1 if no such element."""
-  n = len(S)
-  j = 0
-  while j < n:
-    if S[j] == val:
-      return j          # a match was found at index j
-    j += 1
-  return -1
-
-
-#8 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_5_line_no_6_COI.py
-Bug: No
-Description: Code correctly finds and returns the index of val in S, or -1 if no such element is found.
-Code Snippet: N/A
-
-
-#9 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_6_line_no_5_ROR.py
-Bug: Yes
-Description: S[j] will never be equal to val because j is always greater than n.
-Code Snippet:
+Yes, there is a bug in the provided code. The bug is in the while loop condition where j should be less than n instead of greater than. Additionally, the update statement for j should be j += 1 instead of j -= 1. Here's the fixed code:
 
 def find(S, val):
   """Return index j such that S[j] == val, or -1 if no such element."""
@@ -108,208 +109,273 @@ def find(S, val):
   return -1
 
 
+#7 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_4_line_no_5_COI.py
+Yes, there is a bug in the provided code. 
+
+The bug is that the while loop condition should be `j < n` instead of `not (j < n)`. 
+
+Here's the corrected code:
+
+```python
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+```
+
+In the original code, the while loop condition `not (j < n)` will always evaluate to False because `j` is initialized as 0. So the loop will never execute and the function will always return -1. By changing the condition to `j < n`, the loop will iterate until `j` reaches the end of the list `S` or a match is found.
+
+
+#8 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_5_line_no_6_COI.py
+The provided code seems to have a small logic error. The code returns the index `j` when a match is found at `S[j] == val` which is incorrect. Instead, it should return `-1` when a match is found, and return the index `j` otherwise.
+
+Here's the fixed code:
+
+```python
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+```
+
+In the fixed code, `return j` has been changed to `return -1`, and `return -1` has been changed to `return j` within the if condition statement. This ensures that the correct value is returned based on whether a match is found or not.
+
+
+#9 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_6_line_no_5_ROR.py
+Yes, there is a bug in the provided code. The bug is in the while loop condition. It should be `j < n` instead of `j > n` to ensure that the loop runs as long as `j` is less than the length of `S`. 
+
+Here's the corrected code:
+
+```python
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+```
+
+Now the while loop will properly iterate through the elements of `S` and return the correct index when a match is found, or -1 if no match is found.
+
+
 #10 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_7_line_no_5_ROR.py
-Bug: No
-Description: The code is finding the index of a given value in a sequence.
-Code Snippet: N/A
+Yes, there is a bug in the provided code. The condition in the while loop should be j < n instead of j <= n. This is because the index of a list in Python starts from 0 and goes up to n-1.
+
+Here's the corrected code:
+
+```python
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+```
+
+In the corrected code, the while loop will iterate until j reaches (n-1) and then exit.
 
 
 #11 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_8_line_no_6_ROR.py
-Bug: No
-Description: Returns the index of the first element in the sequence that is equal to the value, or -1 if the value is not found
-Code Snippet: [Corrected Code]
+The provided code has a bug. In the line `return j`, the function should be returning the index where the match was found, but it currently returns the index where the match was not found. To fix this, we can simply change the condition in the `if` statement to check for equality instead of inequality. Here's the corrected code:
+
+```python
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+```
+
+Now, the function will correctly return the index `j` where the value `val` is found in the list `S`, or -1 if the value is not present.
 
 
 #12 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_1_line_no_5_COI.py
-Bug: No 
- Description: The code correctly finds the maximum value in a list. 
- Code Snippet: N/A
+Yes, there is a bug in the provided code. The condition in the if statement should be changed to val > biggest instead of not (val > biggest). Currently, the code is finding the minimum value instead of the maximum. Here's the corrected code:
+
+```python
+def find_max(data):
+  """Return the maximum element from a nonempty Python list."""
+  biggest = data[0]               # The initial value to beat
+  for val in data:                # For each value:
+    if val > biggest:
+      biggest = val               # we have found a new best (so far)
+  return biggest                  # When loop ends, biggest is the max
+```
+
+This modified code will correctly return the maximum element from the given list.
 
 
 #13 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_2_line_no_5_ROR.py
-Bug: No
-Description: Function correctly finds maximum element in a list.
-Code Snippet: N/A
+Yes, I see a bug in the provided code. The comparison in the if statement should be val > biggest instead of val < biggest.
+
+Here's the fixed version of the code:
+
+def find_max(data):
+  """Return the maximum element from a nonempty Python list."""
+  biggest = data[0]               # The initial value to beat
+  for val in data:                # For each value:
+    if val > biggest:
+      biggest = val               # we have found a new best (so far)
+  return biggest                  # When loop ends, biggest is the max
 
 
 #14 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_3_line_no_5_ROR.py
-Bug: No
-Description: The code correctly finds the maximum element from a nonempty Python list.
-Code Snippet: N/A
+The provided code has a bug. If the input list is empty, it will raise an IndexError because it tries to access data[0]. To fix this, you can add an if statement at the beginning of the function to check if the list is empty and return an appropriate value. Here's the fixed code:
+
+def find_max(data):
+  """Return the maximum element from a nonempty Python list."""
+  if not data:                     # Check if the list is empty
+    return None                    # If so, return None or any other appropriate value
+  
+  biggest = data[0]               # The initial value to beat
+  for val in data:                # For each value:
+    if val >= biggest:
+      biggest = val               # we have found a new best (so far)
+  return biggest                  # When loop ends, biggest is the max
 
 
-#15 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_10_line_no_15_AOR.py
-Bug: No
-Description: calculate the average for a prefix
-Code Snippet: def prefix_average1(S):
-  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-  n = len(S)
-  A = [0] * n                     # create new list of n zeros
-  for j in range(n):
-    total = 0                     # begin computing S[0] + ... + S[j]
-    for i in range(j + 1):
-      total += S[i]
-    A[j] = total / (j+1)          # record the average
+#15 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_1_line_no_4_AOR.py
+Yes, there are a couple of bugs in the provided code:
 
+1. The line `A = [0] / n` is incorrect. It should be `A = [0] * n` to initialize a list of zeros with the same length as `S`.
 
-#16 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_11_line_no_17_AOR.py
-Bug: No
-Description: The code produces the desired outcome of computing the prefix sum of a list.
-Code Snippet: N/A
+2. The division in the line `A[j] = total / (j+1)` should be float division instead of integer division to ensure the average is computed correctly. You can fix this by changing the line to `A[j] = float(total) / (j+1)` or `A[j] = total / float(j+1)`.
 
+Here's the corrected code:
 
-#17 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_12_line_no_17_AOR.py
-Bug: No
-Description: The code returns a list such that, for all j, A[j] equals average of S[0], ..., S[j].
-Code Snippet: def prefix_average1(S):
-  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-  n = len(S)
-  A = [0] * n                     # create new list of n zeros
-  for j in range(n):
-    total = 0                     # begin computing S[0] + ... + S[j]
-    for i in range(j + 1):
-      total +=
-
-
-#18 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_13_line_no_17_AOR.py
-Yes
-Description: The code fails to prefix average when given a list of floats
-Code Snippet: A = [0.0] * n
-
-
-#19 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_14_line_no_17_AOR.py
-Yes
-Description: The code is incorrect because it does not iterate over the entire list.
-Code Snippet:
-
-def prefix_average1(S):
-  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-  n = len(S)
-  A = [0] * n                     # create new list of n zeros
-  for j in range(n):
-    total = 0                     # begin computing S[0] + ... + S[j]
-    for i in range(j + 1):
-      total += S[i]
-    A[j] = total / (
-
-
-#20 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_15_line_no_23_AOR.py
-Bug: Yes
- Description: The last line in the code should be "return A" not "return total/A"
- Code Snippet:
-
-def prefix_average3(S):
-  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-  n = len(S)
-  A = [0] / n
-  total = 0                     # compute prefix sum as S[0] + S[1] + ...
-  for j in range(n):
-    total += S[j]               # update prefix sum to include S[j]
-    A[j] = total / (j+
-
-
-#21 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_16_line_no_23_AOR.py
-No
-Description: You cannot divide by 0
-Code Snippet: A = [0] * n
-
-
-#22 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_17_line_no_23_AOR.py
-Bug: Yes
-Description: Code Snippet 3 is incorrect because it sets the list A to be a list of n zeroes raised to the nth power instead of just n zeroes.
-Code Snippet: [Corrected Code]
-
+```python
 def prefix_average3(S):
   """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
   n = len(S)
   A = [0] * n
   total = 0                     # compute prefix sum as S[0] + S[1] + ...
   for j in range(n):
-    total += S[j]
+    total += S[j]               # update prefix sum to include S[j]
+    A[j] = float(total) / (j+1)        # compute average based on current sum
+  return A
+```
 
 
-#23 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_18_line_no_27_AOR.py
-Bug: No
-Description: The code creates a list of zeros, then iterates through the list to total the previous values and update each entry with the average.
-Code Snippet: n = len(S)
-A = [0] * n
-for j in range(n):
-  A[j] = sum(S[0:j+1]) / (j+1)
+#16 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_2_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The line `A = [0] // n` is incorrect because `//` is the floor division operator, which performs integer division. To fix this, you should use `/` instead to perform regular division.
+
+Here's the corrected code:
+
+```python
+def prefix_average3(S):
+    """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
+    n = len(S)
+    A = [0] * n
+    total = 0  # compute prefix sum as S[0] + S[1] + ...
+  
+    for j in range(n):
+        total += S[j]  # update prefix sum to include S[j]
+        A[j] = total / (j + 1)  # compute average based on current sum
+  
+    return A
+```
+
+In the fixed code, `A = [0] * n` creates a list of size `n` with all elements initialized to 0, and `/` is used for regular division to compute the average.
 
 
-#24 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_19_line_no_27_AOR.py
-Bug: No
-Description: The code calculates the prefix sum of a list.
-Code Snippet: def prefix_average3(S):
+#17 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_3_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The line `A = [0] ** n` is incorrect. It is trying to create a list of size n with all elements as 0. However, the correct syntax to create a list of size n with all elements as 0 is `A = [0] * n`.
+
+Here's the corrected code:
+
+```python
+def prefix_average3(S):
   """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
   n = len(S)
-  A = [0] * n                   # create new list of n zeros
+  A = [0] * n
   total = 0                     # compute prefix sum as S[0] + S[1] + ...
   for j in range(n):
     total += S[j]               # update prefix sum to include S[j]
-    A[j] = total / (j + 1)
+    A[j] = total / (j+1)        # compute average based on current sum
+  return A
+```
+
+With this correction, the code should work as intended.
 
 
-#25 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_1_line_no_4_AOR.py
-Bug: No
-Description: The three functions above compute the prefix averages of a given sequence in linear time.
-Code Snippet: N/A
+#18 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_4_line_no_8_AOR.py
+The code you provided does not have any syntax errors, but there is a logical flaw in the code. The issue lies in the line where the average is calculated:
+
+```
+A[j] = total // (j + 1)
+```
+
+The division operator `//` performs integer division, which rounds the result down to the nearest integer. However, when calculating the average, you want to perform regular floating-point division to get an accurate result.
+
+To fix this issue, you can replace the line with:
+
+```
+A[j] = total / (j + 1)
+```
+
+Here's the corrected code:
+
+```python
+def prefix_average3(S):
+    """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
+    n = len(S)
+    A = [0] * n                   # create new list of n zeros
+    total = 0                     # compute prefix sum as S[0] + S[1] + ...
+    for j in range(n):
+        total += S[j]               # update prefix sum to include S[j]
+        A[j] = total / (j + 1)      # perform regular division to calculate average
+    return A
+```
+
+Now the code will correctly calculate the average of the prefix of `S` and return the resulting list `A`.
 
 
-#26 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_20_line_no_27_AOR.py
-Bug: Yes
-Description: The code should read "A[j] = total / (j+1)," not "A[j] = total / (j - 1)." 
-Code Snippet: [Corrected Code]
+#19 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_5_line_no_8_AOR.py
+The provided code has a bug in the calculation of the prefix average. Currently, it calculates the prefix sum (`total`) correctly, but it multiplies it by `(j + 1)` instead of dividing. 
 
+To fix the bug, we need to divide `total` by `(j + 1)` instead of multiplying. Here's the corrected code:
+
+```python
 def prefix_average3(S):
   """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
   n = len(S)
   A = [0] * n                   # create new list of n zeros
   total = 0                     # compute prefix sum as S[0] + S[1] + ...
   for j in range(n):
-    total
+    total += S[j]               # update prefix sum to include S[j]
+    A[j] = total / (j + 1)      # divide total by (j + 1) to get average
+  return A
+```
+
+Now, the `A[j]` will correctly store the average of elements from `S[0]` to `S[j]`.
 
 
-#27 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_21_line_no_8_ASR.py
-(a)Bug: No 
-Description: the code calculates the prefix sum of a list 
-Code Snippet:
+#20 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_6_line_no_8_AOR.py
+Yes, I see a bug in the provided code. In the line `A[j] = total / (j - 1)`, the denominator should be `j + 1` instead of `j - 1` to calculate the average correctly. 
 
+Here's the corrected code:
 
-#28 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_22_line_no_26_ASR.py
-Bug: No
-Description: The code correctly calculates the prefix average.
-Code Snippet: N/A
-
-
-#29 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_23_line_no_17_SIR.py
-Bug: No
-Description: The code correctly implements the prefix average algorithm.
-Code Snippet: N/A
-
-
-#30 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_24_line_no_17_SIR.py
-Bug: No
-Description: The code produces the desired outcome
-Code Snippet: N/A
-
-
-#31 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_2_line_no_4_AOR.py
-Bug: No
-Description: The code correctly computes the prefix average of a given list.
-Code Snippet: N/A
-
-
-#32 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_3_line_no_4_AOR.py
-Yes
-Description: The code should create a list of n zeros.
-Code Snippet: A = [0] * n
-
-
-#33 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_4_line_no_7_AOR.py
-Yes
-Description: The code should iterate through the list and average the previous values including the current value Code Snippet: 
-
+```
 def prefix_average3(S):
   """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
   n = len(S)
@@ -317,84 +383,71 @@ def prefix_average3(S):
   total = 0                     # compute prefix sum as S[0] + S[1] + ...
   for j in range(n):
     total += S[j]               # update prefix sum to include S[j]
-    A[j] =
+    A[j] = total / (j + 1)      # calculate average accordingly
+  return A
+```
+
+Now each element `A[j]` will correctly represent the average of `S[0]` through `S[j]`.
 
 
-#34 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_5_line_no_9_AOR.py
-The bug is: No
+#21 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_7_line_no_7_ASR.py
+Yes, there is a bug in the provided code. The bug is in the line where the value of `total` is computed. The current implementation subtracts `S[j]` from `total` which is incorrect. 
 
-Description: There is no bug in the code. The three functions provided compute the prefix average of a given list S in three different ways.
+To fix the bug, we should be adding `S[j]` to `total` instead. Here's the corrected code:
 
-Code Snippet: N/A
-
-
-#35 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_6_line_no_9_AOR.py
-Bug: No
-Description: None
-Code Snippet: None
-
-
-#36 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_7_line_no_9_AOR.py
-Yes
-Description: The code should have used "j+1" in the denominator instead of "j-1"
-Code Snippet: A[j] = total / (j + 1)
-
-
-#37 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_8_line_no_15_AOR.py
-Bug: No
-Description: Creates a list of prefix averages.
-Code Snippet:
-
-def prefix_average1(S):
+```python
+def prefix_average3(S):
   """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
   n = len(S)
-  A = [0] * n                     # create new list of n zeros
+  A = [0] * n                   # create new list of n zeros
+  total = 0                     # compute prefix sum as S[0] + S[1] + ...
   for j in range(n):
-    total = 0                     # begin computing S[0] + ... + S[j]
-    for i in range(j + 1):
-      total += S[i]
-    A[j] = total / (j+1)
+    total += S[j]               # update total by adding S[j]
+    A[j] = total / (j+1)        # compute average based on current sum
+  return A
+```
+
+Now, the code correctly computes the average prefix values and returns the list `A` where each element `A[j]` represents the average of `S[0]` to `S[j]`.
 
 
-#38 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_9_line_no_15_AOR.py
-Bug: No
-Description: The code correctly computes the prefix average of a given list.
-Code Snippet: N/A
+#22 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_1_line_no_4_AOR.py
+Yes, there is a bug in the code. The inner loop should start from `j + 1` instead of `j - 1`, otherwise it will compare an element with itself and incorrectly report a duplicate. Here's the corrected code:
+
+```python
+def unique1(S):
+    """Return True if there are no duplicate elements in sequence S."""
+    for j in range(len(S)):
+        for k in range(j + 1, len(S)):
+            if S[j] == S[k]:
+                return False  # found duplicate pair
+    return True  # if we reach this, elements were unique
+```
+
+With this fix, the code will correctly check for duplicate elements and return `True` if all elements in the sequence are unique.
 
 
-#39 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_1_line_no_4_AOR.py
-Bug: No
-Description: The code correctly determines if there are any duplicate elements in a sequence.
-Code Snippet: N/A
+#23 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_2_line_no_5_COI.py
+Yes, there is a bug in the provided code. The condition inside the inner loop that checks for duplicates is incorrect. To fix it, you need to change `if not (S[j] == S[k])` to `if S[j] == S[k]`, and reverse the return statements. Here's the corrected code:
 
-
-#40 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_2_line_no_13_AOR.py
-Bug: No
-Description:
-
-This code correctly determines if a given sequence has duplicate elements or not.
-
-
-#41 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_3_line_no_5_COI.py
-Bug: No
-Description: Determines if there are duplicates in a given sequence
-Code Snippet: def unique1(S):
+```python
+def unique1(S):
   """Return True if there are no duplicate elements in sequence S."""
   for j in range(len(S)):
     for k in range(j+1, len(S)):
-      if (S[j] == S[k]):
+      if S[j] == S[k]:
         return False              # found duplicate pair
   return True                     # if we reach this, elements were unique
+```
 
-def unique2(S):
-  """Return True if there are no duplicate elements in sequence S."""
-  temp = sorted(S)                # create a sorted copy of
+With these changes, the code should work correctly and return `True` if there are no duplicate elements in the sequence `S`, and `False` otherwise.
 
 
-#42 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_4_line_no_13_COI.py
-Bug: No
-Description: Code determines if there are any duplicate elements in a given sequence S.
-Code Snippet: def unique1(S):
+#24 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_3_line_no_5_ROR.py
+Yes, there is a bug in the provided code. The code currently returns False as soon as it finds a pair of elements that are not equal. However, this logic is incorrect because it does not check all the pairs of elements in the sequence.
+
+To fix this bug, we can modify the inner loop to run until the end of the sequence and change the condition inside the loop to check for duplicate elements. Here's the updated code:
+
+def unique(S):
   """Return True if there are no duplicate elements in sequence S."""
   for j in range(len(S)):
     for k in range(j+1, len(S)):
@@ -402,37 +455,6 @@ Code Snippet: def unique1(S):
         return False              # found duplicate pair
   return True                     # if we reach this, elements were unique
 
-def unique2(S):
-  """Return True if there are no duplicate elements in sequence S."""
-  temp = sorted(S)                # create a sorted copy
-
-
-#43 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_5_line_no_5_ROR.py
-Bug: No
-Description: Checks for duplicates in a sequence
-Code Snippet: def unique1(S):
-  """Return True if there are no duplicate elements in sequence S."""
-  for j in range(len(S)):
-    for k in range(j+1, len(S)):
-      if S[j] == S[k]:
-        return False              # found duplicate pair
-  return True                     # if we reach this, elements were unique
-
-def unique2(S):
-  """Return True if there are no duplicate elements in sequence S."""
-  temp = sorted(S)                # create a sorted copy of S
-  for j in
-
-
-#44 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_6_line_no_13_ROR.py
-Bug: No
-Description: The code checks for duplicates in a sequence and returns True if there are no duplicates.
-Code Snippet: def unique3(S):
-  """Return True if there are no duplicate elements in sequence S."""
-  for j in range(len(S)):
-    for k in range(j+1, len(S)):
-      if S[j] == S[k]:
-        return False              # found duplicate pair
-  return True
+Now, the code will compare all pairs of elements in the sequence and return False if it finds any duplicates, or True if it does not find any duplicates.
 
 

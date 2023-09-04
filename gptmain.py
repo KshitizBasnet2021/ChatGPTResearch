@@ -1,41 +1,60 @@
+import json
 import time
 import openai
 import os
+import requests
 
 from getAllFiles import getPythonFiles
 
 # Your OpenAI API key
+api_endpoint = "https://api.openai.com/v1/chat/completions"
 api_key = "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"
 
 # Function to check if a Python code file is buggy
 def is_code_buggy(file_path):
-    # Implement your logic to check if the code is buggy here
-    # You can use static analysis tools or test the code, for example
-    # For simplicity, let's assume all code is buggy
     return True
 
 # Function to interact with ChatGPT and correct code if it's buggy
 def chat_with_gpt(code, filename, count):
-    openai.api_key = api_key
+
+
+# Define the prompt you want to send to the model
     prompt = (
-        f"Please provide information about the bug in the code in the following format:"
-         "Bug: [Yes or No]"
-         "Description: (limit to 20 words)"
-         "Code Snippet: [Corrected Code]\n\n"
-        f"the code is: {code}\n\n"
+        "Hi ChatGPt, "
+        f"Provided Code: {code}\n\n"
+        f"Do you see any bugs in the provided code, if so, can you fix it. \n"
+        # Your response should be in the following format:
+        #  "Bug: [Yes or No]\n"
+        #  "Description: [Describe the bug but limit it to 20 words]\n"
+        #  "Code Snippet: [Full Corrected Code]"
     )
 
-    # Make the API request
-    response = openai.Completion.create(
-        engine="text-davinci-002",
-        prompt=prompt,
-        max_tokens=150,
-    )
-    time.sleep(3)
-    # Extract and return the generated text
-    generated_text = response.choices[0].text.strip()
-    print(generated_text)
-    return "#"+str(count)+" "+filename+'\n'+ generated_text +"\n"
+# Define the parameters for the API request
+    params = {
+        "model": "gpt-3.5-turbo",  # This is the ChatGPT model
+        "messages": [
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ]
+    }
+
+# Define the headers, including your API key
+    headers = {
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"
+    }
+
+# Make the API request
+    response = requests.post(api_endpoint, json=params, headers=headers)
+
+    # Parse and print the response
+    if response.status_code == 200:
+        result = json.loads(response.text)
+        return "#"+str(count)+" "+filename+'\n'+ result["choices"][0]["message"]["content"] +"\n" 
+    else:
+        print("Error:", response.status_code, response.text)
+        
+       
 
 # List of Python file locations
 python_files = getPythonFiles()
