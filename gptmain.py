@@ -55,9 +55,9 @@ def chat_with_gpt(code, filename, count):
 python_files = getPythonFiles()
 
 # Create a text file to store the responses
-output_directory = 'Runs/Run_1_Commented_code/'
+output_directory = 'Runs/Run_2_Non_Commented_code/'
 
-output_file = os.path.join(output_directory, 'run-1_ch13_commented_code.txt')
+output_file = os.path.join(output_directory, 'run-2_ch13_non_commented_code.txt')
 # Iterate over the Python files
 with open(output_file, "w") as output_file:
     count = 0

@@ -1,0 +1,2090 @@
+#1 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_10_line_no_13_COI.py
+Yes, there is a bug in the provided code. In the merge_sort function, the condition for the base case is incorrect. Instead of checking if n < 2, it should check if n > 1. 
+
+Here's the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n > 1:
+    mid = n // 2
+    S1 = S[0:mid]
+    S2 = S[mid:n]
+    merge_sort(S1)
+    merge_sort(S2)
+    merge(S1, S2, S)
+
+
+#2 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_11_line_no_4_LCR.py
+Yes, there is a bug in the provided code. In the first if condition inside the while loop of the merge function, the condition should be `S1[i] <= S2[j]` instead of `S1[i] < S2[j]`. This is because we want to include equal elements from both S1 and S2 in the merged list.
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if (j == len(S2) or (i < len(S1) and S1[i] <= S2[j])):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#3 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_12_line_no_4_LCR.py
+There is a bug in the provided code. In the if condition inside the while loop of the merge function, the comparison operator should be <= instead of < for checking if i is less than len(S1). 
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if (j == len(S2) or (i < len(S1) and S1[i] <= S2[j])):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#4 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_13_line_no_3_ROR.py
+Yes, there is a bug in the provided code. The bug is in the while loop condition of the merge function. The condition should be i + j < len(S) instead of i + j > len(S). 
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#5 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_14_line_no_3_ROR.py
+Yes, there is a bug in the provided code. The bug is in the while loop condition of the merge function. The condition should be `i + j < len(S)` instead of `i + j <= len(S)`. 
+
+Here's the corrected code:
+
+```python
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+```
+
+With this fix, the merge sort algorithm should work correctly.
+
+
+#6 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_15_line_no_4_ROR.py
+The provided code is missing a base case for the merge_sort function. When the length of the input list S is less than 2, the function should return without performing any further operations.
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if (j != len(S2) or (i < len(S1) and S1[i] < S2[j])):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#7 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_16_line_no_4_ROR.py
+Yes, there is a bug in the provided code. In the first if condition inside the while loop of the merge function, the condition `(i > len(S1) and S1[i] < S2[j])` should be changed to `(i < len(S1) and (j >= len(S2) or S1[i] < S2[j]))`. 
+
+Here's the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if (i < len(S1) and (j >= len(S2) or S1[i] < S2[j])):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#8 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_17_line_no_4_ROR.py
+The provided code appears to be correct and does not contain any bugs. It implements the merge sort algorithm correctly.
+
+
+#9 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_18_line_no_4_ROR.py
+The provided code is missing the base case for the merge_sort function. It should return when the length of the list is less than 2. Additionally, the merge function is not handling the case when S1 and S2 have different lengths. Here's the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i < len(S1) and j < len(S2):
+    if S1[i] <= S2[j]:
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+  while i < len(S1):
+    S[i+j] = S1[i]
+    i += 1
+  while j < len(S2):
+    S[i+j] = S2[j]
+    j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return S
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+  return S
+
+
+#10 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_19_line_no_4_ROR.py
+The provided code appears to be correct and does not contain any bugs. It implements the merge sort algorithm correctly.
+
+
+#11 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_1_line_no_3_AOR.py
+There is a bug in the provided code. The condition in the while loop of the merge function should be "i < len(S1) and j < len(S2)" instead of "i - j < len(S)". 
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i < len(S1) and j < len(S2):
+    if S1[i] < S2[j]:
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+  while i < len(S1):
+    S[i+j] = S1[i]
+    i += 1
+  while j < len(S2):
+    S[i+j] = S2[j]
+    j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#12 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_20_line_no_13_ROR.py
+Yes, there is a bug in the provided code. In the `merge_sort` function, the condition `if n > 2` should be `if n > 1` to correctly handle the base case. 
+
+Here is the corrected code:
+
+```python
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n > 1:
+    mid = n // 2
+    S1 = S[0:mid]
+    S2 = S[mid:n]
+    merge_sort(S1)
+    merge_sort(S2)
+    merge(S1, S2, S)
+```
+
+Now the `merge_sort` function will correctly handle the base case when `n` is 1.
+
+
+#13 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_21_line_no_13_ROR.py
+Yes, there is a bug in the provided code. The condition `if n <= 2` in the `merge_sort` function is incorrect. It should be `if n <= 1` instead. 
+
+Here's the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n <= 1:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#14 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_22_line_no_16_SIR.py
+The provided code appears to be correct and does not contain any bugs. It implements the merge sort algorithm correctly.
+
+
+#15 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_23_line_no_16_SIR.py
+There is a bug in the provided code. In the line `S1 = S[0:]`, the slicing operation should be `S1 = S[0:mid]` to correctly divide the list `S` into two halves.
+
+Here is the corrected code:
+
+```python
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+```
+
+Now the code should work correctly for sorting a list using the merge sort algorithm.
+
+
+#16 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_24_line_no_17_SIR.py
+Yes, there is a bug in the provided code. 
+
+In the merge_sort function, when dividing the list S into two halves, the second half S2 is incorrectly assigned as S[:n] instead of S[mid:]. This will result in the second half being the entire list S instead of the correct half.
+
+To fix this bug, we need to change the line S2 = S[:n] to S2 = S[mid:]. 
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#17 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_25_line_no_17_SIR.py
+The provided code is missing the base case for the merge_sort function. It should return when the length of the list is less than or equal to 1. Additionally, the merge function is missing a condition for when the elements in S1 and S2 are equal. Here's the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] <= S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n <= 1:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#18 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_2_line_no_5_AOR.py
+There is a bug in the provided code. In the merge function, when merging the elements from S1 and S2 into S, the indices used to access the elements of S1 and S2 are incorrect. 
+
+To fix this bug, you need to update the indices used to access the elements of S1 and S2 in the merge function. 
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i + j] = S1[i]
+      i += 1
+    else:
+      S[i + j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#19 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_3_line_no_8_AOR.py
+There is a bug in the provided code. In the else block of the merge function, the line `S[i - j] = S2[j]` should be `S[i + j] = S2[j]`. 
+
+Here is the corrected code:
+
+```python
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i + j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+```
+
+Now the code should work correctly.
+
+
+#20 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_4_line_no_15_AOR.py
+Yes, there is a bug in the provided code. In the `merge_sort` function, the line `mid = n / 2` performs integer division, which may result in a truncated value for `mid` if `n` is an odd number. To fix this, we can use the `//` operator for floor division instead. 
+
+Here is the corrected code:
+
+```python
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+```
+
+Now the `merge_sort` function will correctly divide the list into two halves, even if the length of the list is odd.
+
+
+#21 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_5_line_no_15_AOR.py
+Yes, there is a bug in the provided code. The bug is in the calculation of the mid index in the merge_sort function. 
+
+The correct calculation of the mid index should be `mid = n // 2` instead of `mid = n * 2`. 
+
+Here is the corrected code:
+
+```python
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+```
+
+With this fix, the merge_sort function should work correctly.
+
+
+#22 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_6_line_no_6_ASR.py
+Yes, there is a bug in the provided code. In the merge function, the line `i -= 1` should be changed to `i += 1` in order to correctly merge the two sorted subarrays.
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#23 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_7_line_no_9_ASR.py
+Yes, there is a bug in the provided code. In the else block of the merge function, the variable j should be incremented by 1 instead of decremented by 1. 
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#24 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_8_line_no_3_COI.py
+Yes, there is a bug in the provided code. The condition in the while loop of the merge function is incorrect. It should be "while i + j < len(S)" instead of "while not (i + j < len(S))". 
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#25 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_9_line_no_4_COI.py
+There is a bug in the provided code. The condition in the if statement inside the while loop of the merge function is incorrect. 
+
+Here is the corrected code:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+Now the code should work correctly.
+
+
+#26 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_10_line_no_24_AOR.py
+There is a bug in the provided code. In the merge_sort function, the loop that iterates over the values of i is incorrect. Instead of using `(2 * k for k in range(logn))`, it should be `(2 ** k for k in range(logn))`. This will correctly iterate over the powers of 2.
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2 ** k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#27 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_11_line_no_25_AOR.py
+Yes, there is a bug in the provided code. 
+
+In the inner loop of the `merge_sort` function, the range should be `range(0, n, i)` instead of `range(0, n, 2 / i)`. The division operator `/` performs floating-point division in Python, but we need integer division in this case. 
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#28 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_12_line_no_25_AOR.py
+Yes, there is a bug in the provided code. 
+
+In the line `for j in range(0, n, 2 // i):`, the division operator `//` is used instead of the multiplication operator `*`. This will result in `j` always being 0, which means the merge function will only be called once with `start` as 0 and `inc` as 1. 
+
+To fix this bug, we need to change `2 // i` to `2 * i`. 
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2 * i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the merge_sort function will correctly sort the input list.
+
+
+#29 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_13_line_no_25_AOR.py
+There is a bug in the provided code. In the merge_sort function, the line "if S is not src:" should be changed to "if S is not dest:". This is because after the sorting is complete, the sorted elements are stored in the 'dest' list, so we need to check if 'S' is not equal to 'dest' to determine if we need to copy the sorted elements back to 'S'. 
+
+Here is the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2 ** i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not dest:
+    S[0:n] = dest[0:n]
+
+
+#30 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_14_line_no_10_ASR.py
+Yes, there is a bug in the provided code. In the `merge` function, when `src[x] < src[y]`, the line `x -= 1` should be `x += 1` to move to the next element in `src`. Similarly, when `src[x] >= src[y]`, the line `y += 1` should be `y += 1` to move to the next element in `src`.
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#31 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_15_line_no_13_ASR.py
+Yes, there is a bug in the provided code. In the merge function, when `src[x] < src[y]`, the value of `y` should be incremented by 1 instead of decremented by 1. 
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#32 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_16_line_no_14_ASR.py
+Yes, there is a bug in the provided code. In the merge function, the variable z is incorrectly decremented instead of incremented. This causes the result array to be populated in reverse order.
+
+To fix this bug, we need to change the line "z -= 1" to "z += 1" in the merge function. Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the merge function correctly merges the subarrays in the correct order, and the merge_sort function should work as expected.
+
+
+#33 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_17_line_no_7_COI.py
+Yes, there is a bug in the provided code. The condition in the while loop of the merge function is incorrect. It should be `while x < end1 and y < end2` instead of `while not ((x < end1 and y < end2))`. 
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#34 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_18_line_no_8_COI.py
+There is a bug in the provided code. In the merge function, the condition for comparing elements should be `src[x] <= src[y]` instead of `src[x] < src[y]`. This is because if two elements are equal, we should still copy the element from `src[x]` to `result[z]` to maintain stability in the sorting algorithm.
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if not (src[x] <= src[y]):
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the merge sort algorithm should work correctly.
+
+
+#35 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_19_line_no_15_COI.py
+The provided code is missing the import statement for the `math` module. To fix this, add the line `import math` at the beginning of the code.
+
+Other than that, the code appears to be correct and does not contain any bugs.
+
+
+#36 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_1_line_no_4_AOR.py
+There is a bug in the provided code. In the merge function, the condition for the while loop should be `x < end1` instead of `x < end1 and y < end2`. This is because when `x` reaches `end1`, there is no need to compare it with `y` anymore. 
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start + inc
+  end2 = min(start + 2*inc, len(src))
+  x, y, z = start, start + inc, start
+  while x < end1:
+    if y < end2 and src[y] < src[x]:
+      result[z] = src[y]
+      y += 1
+    else:
+      result[z] = src[x]
+      x += 1
+    z += 1
+  result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+This fix ensures that the merge function correctly merges the subarrays.
+
+
+#37 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_20_line_no_17_COI.py
+There is a bug in the provided code. In the merge_sort function, the line "if S is not src:" should be changed to "if S is not dest:". This is because after the sorting is complete, the sorted elements are stored in the 'dest' list, so we need to check if 'S' is not equal to 'dest' to determine if we need to copy the sorted elements back to 'S'. 
+
+Here is the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif not (y < end2):
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not dest:
+    S[0:n] = dest[0:n]
+
+
+#38 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_21_line_no_28_COI.py
+The provided code is missing the main function that calls the merge_sort function and tests it. Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if not (S is not src):
+    S[0:n] = src[0:n]
+
+def main():
+  S = [5, 3, 8, 4, 2, 1, 6, 7]
+  merge_sort(S)
+  print(S)
+
+if __name__ == "__main__":
+  main()
+```
+
+This code defines the main function that creates a list `S`, calls the `merge_sort` function to sort the list, and then prints the sorted list.
+
+
+#39 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_22_line_no_7_LCR.py
+Yes, there is a bug in the provided code. 
+
+In the merge function, when copying the remaining elements from src to result, the end index should be `end2` instead of `end1`. 
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while (x < end1 or y < end2):
+    if x < end1 and (y >= end2 or src[x] < src[y]):
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#40 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_23_line_no_7_ROR.py
+Yes, there is a bug in the provided code. 
+
+In the while loop of the `merge` function, the condition `(x > end1 and y < end2)` should be changed to `(x < end1 and y < end2)` to ensure that the loop continues as long as both `x` and `y` are within their respective ranges.
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while (x < end1 and y < end2):
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#41 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_24_line_no_7_ROR.py
+Yes, there is a bug in the provided code. In the merge function, the condition for the while loop should be `(x < end1 and y < end2)` instead of `(x <= end1 and y < end2)`. 
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while (x < end1 and y < end2):
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#42 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_25_line_no_7_ROR.py
+Yes, there is a bug in the provided code. The condition in the while loop of the merge function is incorrect. The condition should be `x < end1 and y < end2` instead of `x < end1 and y > end2`. 
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while (x < end1 and y < end2):
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#43 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_26_line_no_7_ROR.py
+Yes, there is a bug in the provided code. In the merge function, when copying the remaining elements from src to result, the end index should be end2 instead of end1. 
+
+Here's the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while (x < end1 and y < end2):
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+
+
+#44 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_27_line_no_8_ROR.py
+There is a bug in the provided code. In the merge function, when copying the remaining elements from src to result, the end index should be end2 instead of end1. 
+
+Here's the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] > src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+
+
+#45 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_28_line_no_8_ROR.py
+The provided code is missing the import statement for the `math` module. To fix this, add the line `import math` at the beginning of the code.
+
+Other than that, the code appears to be correct and does not contain any bugs.
+
+
+#46 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_29_line_no_15_ROR.py
+There is a bug in the provided code. In the line `if x > end1:`, it should be `if x < end1:` instead. This is because we want to check if there are any remaining elements in the first half of the list `src` that have not been merged yet. The corrected code is as follows:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+This bug fix ensures that all elements in the first half of the list are properly merged when there are remaining elements.
+
+
+#47 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_2_line_no_5_AOR.py
+Yes, there is a bug in the provided code. In the line `end2 = min(start - (2 * inc), len(src))`, the calculation of `end2` is incorrect. It should be `end2 = min(start + (2 * inc), len(src))` instead.
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start + inc
+  end2 = min(start + (2 * inc), len(src))
+  x, y, z = start, start + inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n, 2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#48 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_30_line_no_15_ROR.py
+There is a bug in the provided code. In the line `if x <= end1:`, it should be `if x < end1:` instead. This is because the elements from `src[x:end1]` should be copied to `result[z:end2]` only if `x` is less than `end1`, not less than or equal to `end1`.
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#49 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_31_line_no_17_ROR.py
+There is a bug in the provided code. In the line `elif y > end2:`, the condition should be `elif y < end2:` instead. This is because we want to check if `y` is less than `end2`, not greater than `end2`. 
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the bug has been fixed.
+
+
+#50 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_32_line_no_17_ROR.py
+There is a bug in the provided code. In the line `elif y <= end2:`, the condition should be `elif y < end2:` instead. This is because `end2` is the upper bound of the second half of the array, and we want to include elements up to `end2-1`. 
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#51 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_33_line_no_16_SIR.py
+There is a bug in the provided code. In the line `result[:end2] = src[x:end1]` and `result[z:end2] = src[y:end2]`, the slicing is incorrect. It should be `result[z:end2] = src[x:end1]` and `result[z:end2] = src[y:end2]` respectively.
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#52 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_34_line_no_16_SIR.py
+There is a bug in the provided code. In the merge_sort function, the line "if S is not src:" should be changed to "if S is not dest:". This is because after the sorting is complete, the sorted elements are stored in the 'dest' list, so we need to check if 'S' is not equal to 'dest' to determine if we need to copy the sorted elements back to 'S'. 
+
+Here is the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not dest:
+    S[0:n] = dest[0:n]
+
+
+#53 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_35_line_no_16_SIR.py
+There is a bug in the provided code. In the line `result[z:end2] = src[:end1]` and `result[z:end2] = src[y:end2]`, the slicing is incorrect. It should be `result[z:end2] = src[x:end1]` and `result[z:end2] = src[y:end2]` respectively.
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#54 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_36_line_no_16_SIR.py
+There is a bug in the provided code. In the merge_sort function, the line "if S is not src:" should be changed to "if S is not dest:". This is because after the sorting is complete, the sorted elements are stored in the 'dest' list, so we need to check if 'S' is not equal to 'dest' to determine if we need to copy the sorted elements back to 'S'. 
+
+Here is the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not dest:
+    S[0:n] = dest[0:n]
+
+
+#55 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_37_line_no_18_SIR.py
+There is a bug in the provided code. In the line `result[:end2] = src[y:end2]`, it should be `result[z:end2] = src[y:end2]` instead. This is because we want to assign the values from `src[y:end2]` to `result[z:end2]`, not `result[:end2]`. 
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#56 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_38_line_no_18_SIR.py
+The provided code appears to be correct and does not contain any bugs. It implements the merge sort algorithm correctly.
+
+
+#57 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_39_line_no_18_SIR.py
+There is a bug in the code. In the line `result[z:end2] = src[:end2]`, it should be `result[z:end2] = src[y:end2]` instead. This is because if `x < end1` is False, it means that all the elements from `src[x:end1]` have already been merged into `result`, so we need to merge the remaining elements from `src[y:end2]` instead. 
+
+Here is the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#58 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_3_line_no_5_AOR.py
+Yes, there is a bug in the provided code. 
+
+In the line `end2 = min(start + (2 / inc), len(src))`, the division operation `(2 / inc)` should be `(start + 2 * inc)` to calculate the correct end index for the second half of the merge. 
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start + inc
+  end2 = min(start + 2 * inc, len(src))
+  x, y, z = start, start + inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n, 2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2 * i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#59 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_40_line_no_18_SIR.py
+The provided code is missing the import statement for the `math` module. To fix this, add the line `import math` at the beginning of the code.
+
+Other than that, the code appears to be correct and does not contain any bugs.
+
+
+#60 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_41_line_no_29_SIR.py
+There is a bug in the provided code. In the merge_sort function, the line "if S is not src:" should be changed to "if S is not dest:". This is because after the sorting is complete, the sorted elements are stored in the 'dest' list, so we need to check if 'S' is not equal to 'dest' to determine if we need to copy the sorted elements back to 'S'. 
+
+Here is the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not dest:
+    S[:n] = dest[0:n]
+
+
+#61 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_42_line_no_29_SIR.py
+The provided code is missing the import statement for the `math` module. To fix this, add the line `import math` at the beginning of the code.
+
+Other than that, the code appears to be correct and does not contain any bugs.
+
+
+#62 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_43_line_no_29_SIR.py
+There is a bug in the provided code. In the merge_sort function, the line "if S is not src:" should be changed to "if S is not dest:". This is because after the sorting is complete, the sorted elements are stored in the 'dest' list, so we need to check if 'S' is not equal to 'dest' to determine if we need to copy the sorted elements back to 'S'. 
+
+Here is the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not dest:
+    S[0:n] = dest[:n]
+
+
+#63 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_44_line_no_29_SIR.py
+The provided code is missing the import statement for the `math` module. To fix this, add the line `import math` at the beginning of the code.
+
+Other than that, the code appears to be correct and does not contain any bugs.
+
+
+#64 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_4_line_no_5_AOR.py
+Yes, there is a bug in the provided code. 
+
+In the line `end2 = min(start + (2 // inc), len(src))`, the division operator `//` is used instead of the multiplication operator `*`. This causes `end2` to always be equal to `start`, resulting in incorrect merging of subarrays.
+
+To fix this bug, we need to change `2 // inc` to `2 * inc`. 
+
+Here's the corrected code:
+
+```python
+import math
+
+def merge(src, result, start, inc):
+  end1 = start + inc
+  end2 = min(start + (2 * inc), len(src))
+  x, y, z = start, start + inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n, 2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2 * i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+```
+
+Now the code should work correctly.
+
+
+#65 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_5_line_no_5_AOR.py
+There is a bug in the provided code. In the merge_sort function, the line "if S is not src:" should be changed to "if S is not dest:". This is because after the sorting is complete, the sorted elements are stored in the 'dest' list, so we need to check if 'S' is not equal to 'dest' to determine if we need to copy the sorted elements back to 'S'. 
+
+Here is the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start + (2 ** inc), len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not dest:
+    S[0:n] = dest[0:n]
+
+
+#66 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_6_line_no_6_AOR.py
+Yes, there is a bug in the provided code. In the merge function, the condition for copying the remaining elements from src to result is incorrect. The correct condition should be "if x < end1 and y >= end2", instead of "elif y < end2".
+
+Here is the corrected code:
+
+import math
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  (x, y, z) = (start, start - inc, start)
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1 and y >= end2:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+def merge_sort(S):
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n
+  for i in (2**k for k in range(logn)):
+    for j in range(0, n, 2*i):
+      merge(src, dest, j, i)
+    src, dest = dest, src
+  if S is not src:
+    S[0:n] = src[0:n]
+
+
+#67 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_7_line_no_23_AOR.py
+Yes, there is a bug in the provided code. 
+
+In the line `(src, dest) = (S, [None] / n)`, there is a typo. Instead of dividing `[None]` by `n`, it should be divided by `n` using the `/` operator. 
+
+The corrected line should be `(src, dest) = (S, [None] * n)`. 
+
+This will create a list of `None` values with the same length as `S`.
+
+
+#68 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_8_line_no_23_AOR.py
+Yes, there is a bug in the provided code. 
+
+In the line `(src, dest) = (S, [None] // n)`, the division operator `//` is used instead of the list multiplication operator `*`. 
+
+To fix this, we need to change `//` to `*` so that the `dest` list is initialized with `None` repeated `n` times. 
+
+Here's the corrected code:
+
+```python
+(src, dest) = (S, [None] * n)
+```
+
+With this fix, the code should work correctly.
+
+
+#69 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_9_line_no_23_AOR.py
+There is a bug in the provided code. In the line `(src, dest) = (S, [None] ** n)`, the code is attempting to create a list of length `n` filled with `None` values. However, the syntax `[None] ** n` does not create the desired list. 
+
+To fix this bug, you can replace that line with `(src, dest) = (S, [None] * n)`. This will create a list of length `n` filled with `None` values.
+
+

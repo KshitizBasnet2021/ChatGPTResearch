@@ -9,7 +9,7 @@ def getPythonFiles():
     for chapter in chapters:
 
     # Specify the path to the "Commented_Code" directory
-        commented_code_path = f'Tests_Final/{chapter}/Mutation/Commented_Code'
+        commented_code_path = f'Tests_Final/{chapter}/Mutation/Non_Commented_Code'
 
     # Check if the specified path exists
         if os.path.exists(commented_code_path):

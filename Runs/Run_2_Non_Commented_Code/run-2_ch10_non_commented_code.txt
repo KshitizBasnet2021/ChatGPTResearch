@@ -1,0 +1,129 @@
+#1 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_1_line_no_7_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line `freq[word] = 1 - freq.get(word, 0)`. The intention of this line is to increment the frequency count of each word by 1. However, the current implementation is incorrect and will not give the correct frequency count.
+
+To fix this bug, we need to update the line to correctly increment the frequency count. Here's the corrected code:
+
+```python
+def find_most_frequent_word(filename):
+  freq = {}
+  with open(filename) as file:
+    for piece in file.read().lower().split():
+      word = ''.join(c for c in piece if c.isalpha())
+      if word:
+        freq[word] = freq.get(word, 0) + 1
+
+  max_word = ''
+  max_count = 0
+  for (w, c) in freq.items():
+    if c > max_count:
+      max_word = w
+      max_count = c
+
+  return max_word, max_count
+```
+
+In the corrected code, we increment the frequency count of each word by 1 using `freq[word] = freq.get(word, 0) + 1`. This will correctly update the frequency count for each word.
+
+
+#2 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_2_line_no_6_COI.py
+Yes, there is a bug in the provided code. The bug is in the line `if not word:`. This condition is checking if the word is empty, but it should be checking if the word is not empty. 
+
+To fix the bug, we need to change the condition to `if word:`. This will ensure that only non-empty words are counted in the frequency dictionary.
+
+Here is the corrected code:
+
+```python
+def find_most_frequent_word(filename):
+  freq = {}
+  with open(filename) as file:
+    for piece in file.read().lower().split():
+      word = ''.join(c for c in piece if c.isalpha())
+      if word:
+        freq[word] = 1 + freq.get(word, 0)
+
+  max_word = ''
+  max_count = 0
+  for (w, c) in freq.items():
+    if c > max_count:
+      max_word = w
+      max_count = c
+
+  return max_word, max_count
+```
+
+Now the code should correctly count the frequency of non-empty words in the file.
+
+
+#3 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_3_line_no_12_COI.py
+Yes, there is a bug in the provided code. The bug is in the second for loop where it checks if the count of a word is not greater than the current maximum count. This condition is incorrect and will result in the wrong word being returned as the most frequent word.
+
+To fix the bug, we need to change the condition to check if the count of a word is greater than the current maximum count. Here's the corrected code:
+
+def find_most_frequent_word(filename):
+  freq = {}
+  with open(filename) as file:
+    for piece in file.read().lower().split():
+      word = ''.join(c for c in piece if c.isalpha())
+      if word:
+        freq[word] = 1 + freq.get(word, 0)
+
+  max_word = ''
+  max_count = 0
+  for (w, c) in freq.items():
+    if c > max_count:
+      max_word = w
+      max_count = c
+
+  return max_word, max_count
+
+Now, the code will correctly find and return the most frequent word in the given file.
+
+
+#4 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_4_line_no_12_ROR.py
+Yes, there is a bug in the provided code. The bug is in the second for loop where it checks if the count of a word is less than the current maximum count. It should be checking if the count is greater than the current maximum count instead.
+
+Here's the fixed code:
+
+def find_most_frequent_word(filename):
+  freq = {}
+  with open(filename) as file:
+    for piece in file.read().lower().split():
+      word = ''.join(c for c in piece if c.isalpha())
+      if word:
+        freq[word] = 1 + freq.get(word, 0)
+
+  max_word = ''
+  max_count = 0
+  for (w, c) in freq.items():
+    if c > max_count:
+      max_word = w
+      max_count = c
+
+  return max_word, max_count
+
+Now the code should correctly find the most frequent word in the given file.
+
+
+#5 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_5_line_no_12_ROR.py
+Yes, there is a bug in the provided code. The bug is in the comparison `if c >= max_count` in the second for loop. The condition should be `if c > max_count` instead, because we want to find the word with the highest frequency, not the word with the highest or equal frequency.
+
+Here's the fixed code:
+
+def find_most_frequent_word(filename):
+  freq = {}
+  with open(filename) as file:
+    for piece in file.read().lower().split():
+      word = ''.join(c for c in piece if c.isalpha())
+      if word:
+        freq[word] = 1 + freq.get(word, 0)
+
+  max_word = ''
+  max_count = 0
+  for (w, c) in freq.items():
+    if c > max_count:
+      max_word = w
+      max_count = c
+
+  return max_word, max_count
+
+
