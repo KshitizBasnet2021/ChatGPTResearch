@@ -2,7 +2,7 @@ import os
 
 
 def getPythonFiles():
-    chapters = ['Ch03']
+    chapters = ['Ch13']
 
     # Initialize an empty list to store file locations
     file_locations = []
@@ -21,6 +21,8 @@ def getPythonFiles():
                     #if file is a python file
                     if(file_path.endswith(".py")):
                         # Append the file location to the list
+                        # print(file)
+                        # print(file_path)
                         file_locations.append(file_path)
 
         else:
@@ -48,7 +50,6 @@ total_word_count = 0
 # Loop through each file location in the list
 for file_location in file_locations:
     word_count = count_words_in_file(file_location)
-    #print(f"{file_location}: {word_count} words")
     total_word_count += word_count
 
 #print(f"Total word count across all files: {total_word_count} words")

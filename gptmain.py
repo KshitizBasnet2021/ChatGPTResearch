@@ -10,9 +10,6 @@ from getAllFiles import getPythonFiles
 api_endpoint = "https://api.openai.com/v1/chat/completions"
 api_key = "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"
 
-# Function to check if a Python code file is buggy
-def is_code_buggy(file_path):
-    return True
 
 # Function to interact with ChatGPT and correct code if it's buggy
 def chat_with_gpt(code, filename, count):
@@ -20,13 +17,8 @@ def chat_with_gpt(code, filename, count):
 
 # Define the prompt you want to send to the model
     prompt = (
-        "Hi ChatGPt, "
         f"Provided Code: {code}\n\n"
         f"Do you see any bugs in the provided code, if so, can you fix it. \n"
-        # Your response should be in the following format:
-        #  "Bug: [Yes or No]\n"
-        #  "Description: [Describe the bug but limit it to 20 words]\n"
-        #  "Code Snippet: [Full Corrected Code]"
     )
 
 # Define the parameters for the API request
@@ -35,7 +27,8 @@ def chat_with_gpt(code, filename, count):
         "messages": [
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": prompt}
-        ]
+        ],
+         "temperature": 0
     }
 
 # Define the headers, including your API key
@@ -43,16 +36,18 @@ def chat_with_gpt(code, filename, count):
     "Authorization": f"Bearer {api_key}",
     "Content-Type": "application/json"
     }
-
 # Make the API request
     response = requests.post(api_endpoint, json=params, headers=headers)
-
+    
     # Parse and print the response
     if response.status_code == 200:
         result = json.loads(response.text)
+        print(str(count)+" "+filename+" data written in the text file..")
         return "#"+str(count)+" "+filename+'\n'+ result["choices"][0]["message"]["content"] +"\n" 
     else:
         print("Error:", response.status_code, response.text)
+        return "Eroor at " + filename + response.text
+     
         
        
 
@@ -60,8 +55,9 @@ def chat_with_gpt(code, filename, count):
 python_files = getPythonFiles()
 
 # Create a text file to store the responses
-output_file = "responses.txt"
+output_directory = 'Runs/Run_1_Commented_code/'
 
+output_file = os.path.join(output_directory, 'run-1_ch13_commented_code.txt')
 # Iterate over the Python files
 with open(output_file, "w") as output_file:
     count = 0

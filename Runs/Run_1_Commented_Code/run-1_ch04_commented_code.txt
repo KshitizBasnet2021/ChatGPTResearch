@@ -1,0 +1,1383 @@
+#1 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_10_line_no_6_ROR.py
+Yes, there is a bug in the provided code. The condition `if low >= high` should be `if low > high` in order to correctly handle the case when the interval is empty. 
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+This fix ensures that the binary search algorithm terminates correctly when the target is not found in the list.
+
+
+#2 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_11_line_no_10_ROR.py
+Yes, there is a bug in the provided code. The bug is in the line `if target != data[mid]:`. It should be `if target == data[mid]:` instead. 
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+
+#3 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_12_line_no_12_ROR.py
+Yes, there is a bug in the provided code. The bug is in the recursive calls to `binary_search` when the target is greater than the middle element. 
+
+To fix the bug, we need to update the recursive calls to `binary_search` as follows:
+
+```python
+# recur on the portion right of the middle
+return binary_search(data, target, mid + 1, high)
+```
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target > data[mid]:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+    else:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+```
+
+Now the recursive calls are correctly updating the low and high indices based on the target value.
+
+
+#4 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_13_line_no_12_ROR.py
+The provided code is missing a base case for when the target is not found in the list. To fix this, we can add a return statement at the end of the function to return False if none of the conditions are met. Here's the updated code:
+
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target <= data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+  
+  return False  # target not found in the list
+
+
+#5 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_1_line_no_9_AOR.py
+Yes, there is a bug in the provided code. The bug is in the calculation of the middle index. 
+
+The line `mid = (low - high) // 2` should be changed to `mid = (low + high) // 2`. 
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+Now the code should work correctly.
+
+
+#6 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_2_line_no_9_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line where the middle index is calculated:
+
+mid = (low + high) / 2
+
+In Python 3.x, the division operator (/) performs floating-point division, which may result in a float value. However, the binary search algorithm requires an integer value for the middle index.
+
+To fix this bug, we can use the integer division operator (//) instead:
+
+mid = (low + high) // 2
+
+This will ensure that the middle index is always an integer value.
+
+Here is the corrected code:
+
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+
+
+#7 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_3_line_no_9_AOR.py
+Yes, there is a bug in the provided code. The bug is in the calculation of the middle index. Instead of `(low + high) * 2`, it should be `(low + high) // 2` to find the middle index correctly.
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+Now the code should work correctly for binary search.
+
+
+#8 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_4_line_no_14_AOR.py
+Yes, there is a bug in the provided code. 
+
+The bug is in the recursive calls to `binary_search` when the target is less than `data[mid]`. The correct logic should be to recur on the portion left of the middle, so the recursive call should be `binary_search(data, target, low, mid - 1)` instead of `binary_search(data, target, low, mid + 1)`.
+
+Here is the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+Now the recursive calls will correctly search the left or right portion of the list based on the target value.
+
+
+#9 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_5_line_no_17_AOR.py
+Yes, there is a bug in the provided code. 
+
+In the recursive calls to `binary_search`, the parameters `low` and `high` are not updated correctly. 
+
+To fix this, we need to update the parameters as follows:
+
+- When `target < data[mid]`, we should search in the left portion of the list, so the recursive call should be `binary_search(data, target, low, mid - 1)`.
+- When `target > data[mid]`, we should search in the right portion of the list, so the recursive call should be `binary_search(data, target, mid + 1, high)`.
+
+Here is the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+Now the recursive calls will update the `low` and `high` parameters correctly, ensuring that the search is performed on the correct portion of the list.
+
+
+#10 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_6_line_no_6_COI.py
+Yes, there is a bug in the provided code. The bug is in the condition `if not (low > high):`. This condition should be `if low > high:` instead. 
+
+Here's the corrected code:
+
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+
+
+#11 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_7_line_no_10_COI.py
+Yes, there is a bug in the provided code. The bug is in the line `if not (target == data[mid]):`. The condition should be `if target != data[mid]:` instead. 
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target != data[mid]:
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+
+#12 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_8_line_no_12_COI.py
+Yes, there is a bug in the provided code. 
+
+The bug is in the recursive calls to `binary_search` when the target is not found. 
+
+To fix the bug, we need to change the conditions for the recursive calls. 
+
+Here is the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+In the original code, the condition for the recursive call on the left portion was `not (target < data[mid])`, which is incorrect. The correct condition is `target < data[mid]`.
+
+
+#13 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_9_line_no_6_ROR.py
+Yes, there is a bug in the provided code. The bug is in the condition `if low < high:`. It should be `if low <= high:` instead. 
+
+Here's the corrected code:
+
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+
+
+#14 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_10_line_no_5_ROR.py
+Yes, there is a bug in the provided code. The condition in the while loop is incorrect. It should be `low <= high` instead of `low >= high`. 
+
+Here's the corrected code:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#15 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_11_line_no_5_ROR.py
+Yes, there is a bug in the provided code. The bug is in the while loop condition. The condition should be `low <= high` instead of `low < high`. This is because when `low` and `high` are equal, there is still one element left to be checked. 
+
+Here is the corrected code:
+
+```python
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+```
+
+Now the binary search algorithm should work correctly.
+
+
+#16 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_12_line_no_7_ROR.py
+Yes, there is a bug in the provided code. The bug is in the line `if target != data[mid]:`. This line should be checking if the target is equal to `data[mid]` instead of not equal to `data[mid]`. 
+
+Here is the corrected code:
+
+```python
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+```
+
+Now, the code will correctly return `True` if the target is found in the list and `False` otherwise.
+
+
+#17 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_13_line_no_9_ROR.py
+Yes, there is a bug in the provided code. The bug is in the lines where the values of `high` and `low` are updated.
+
+To fix the bug, we need to update the values of `high` and `low` correctly. 
+
+Here is the corrected code:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target > data[mid]:
+      low = mid + 1                 # only consider values right of mid
+    else:
+      high = mid - 1                # only consider values left of mid
+  return False                      # loop ended without success
+
+
+#18 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_14_line_no_9_ROR.py
+The provided code looks correct and does not have any bugs. It implements the iterative binary search algorithm correctly.
+
+
+#19 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_1_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The bug is in the initialization of the `high` variable. It should be initialized to `len(data) - 1` instead of `len(data) + 1`. 
+
+Here's the corrected code:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data) - 1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#20 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_2_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The bug is in the calculation of the middle index. 
+
+The line `mid = (low - high) // 2` should be changed to `mid = (low + high) // 2`. 
+
+Here's the corrected code:
+
+```python
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+```
+
+Now the code should work correctly.
+
+
+#21 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_3_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line where the middle index is calculated:
+
+mid = (low + high) / 2
+
+In Python 3.x, the division operator (/) performs floating-point division, which can result in a float value for the middle index. However, the list indices in Python must be integers.
+
+To fix this bug, we can use the integer division operator (//) instead:
+
+mid = (low + high) // 2
+
+This will ensure that the middle index is always an integer.
+
+
+#22 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_4_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The bug is in the calculation of the middle index (mid) inside the while loop. The correct calculation should be (low + high) // 2 instead of (low + high) * 2.
+
+Here is the corrected code:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#23 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_5_line_no_10_AOR.py
+Yes, there is a bug in the provided code. In the line `high = mid + 1` inside the `elif` statement, it should be `high = mid - 1` instead. This is because if the target is less than the value at the middle index, we should update the `high` index to be one less than the middle index, not one more.
+
+Here is the corrected code:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#24 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_6_line_no_12_AOR.py
+Yes, there is a bug in the provided code. The bug is in the else statement where it should update the value of `low` to `mid + 1` instead of `mid - 1`. 
+
+Here's the corrected code:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#25 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_7_line_no_5_COI.py
+Yes, there is a bug in the provided code. The condition in the while loop is incorrect. It should be `while low <= high` instead of `while not (low <= high)`. 
+
+Here's the corrected code:
+
+```python
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+```
+
+Now the code should work correctly.
+
+
+#26 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_8_line_no_7_COI.py
+Yes, there is a bug in the provided code. The bug is in the line `if not (target == data[mid]):`. This condition should be checking if the target is equal to the data[mid], but instead it is checking if the target is not equal to the data[mid]. 
+
+To fix this bug, we can change the condition to `if target == data[mid]:`. 
+
+Here is the corrected code:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#27 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_9_line_no_9_COI.py
+Yes, there is a bug in the provided code. The condition in the `elif` statement should be `target > data[mid]` instead of `not (target < data[mid])`. 
+
+Here's the corrected code:
+
+```python
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target > data[mid]:
+      low = mid + 1                 # only consider values right of mid
+    else:
+      high = mid - 1                # only consider values left of mid
+  return False                      # loop ended without success
+```
+
+In the corrected code, the `elif` condition checks if the target is greater than the middle element, and if so, updates the `low` variable to `mid + 1` to only consider values to the right of the middle element.
+
+
+#28 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_10_line_no_5_ROR.py
+Yes, there is a bug in the provided code. The condition `elif start != stop - 1:` is incorrect. It should be `elif start != stop:` to handle the case when there is only one element in the slice.
+
+Here is the corrected code:
+
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start != stop:
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+
+#29 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_1_line_no_5_AOR.py
+Yes, there is a bug in the provided code. 
+
+The bug is in the line `elif start == stop + 1:`. This condition should be `elif start == stop:` because if `start` is equal to `stop + 1`, it means that there are no elements in the slice and we should return 0. 
+
+Here is the corrected code:
+
+```python
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop:
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+```
+
+Now the code should work correctly.
+
+
+#30 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_2_line_no_8_AOR.py
+Yes, there is a bug in the provided code. The bug is in the calculation of the midpoint (mid) in the recursive calls to binary_sum. 
+
+The correct calculation of the midpoint should be:
+mid = (start + stop) // 2
+
+Here is the corrected code:
+
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+
+#31 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_3_line_no_8_AOR.py
+Yes, there is a bug in the provided code. The line `mid = (start + stop) / 2` is using integer division, which will result in a truncated value for `mid`. This will cause the function to enter an infinite recursion loop when the slice has more than two elements.
+
+To fix this bug, we can use the floor division operator `//` instead of the regular division operator `/`. This will ensure that `mid` is always an integer value.
+
+Here is the corrected code:
+
+```python
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+```
+
+With this fix, the function should work correctly.
+
+
+#32 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_4_line_no_8_AOR.py
+Yes, there is a bug in the provided code. The bug is in the calculation of the midpoint (mid) in the recursive calls to binary_sum. 
+
+The correct calculation of the midpoint should be (start + stop) // 2, which finds the index of the middle element in the slice. 
+
+Here is the corrected code:
+
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+
+#33 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_5_line_no_9_AOR.py
+Yes, there is a bug in the provided code. The bug is in the recursive calls to `binary_sum` function. 
+
+The correct implementation of the `binary_sum` function should be as follows:
+
+```python
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+```
+
+In the else block, the recursive calls to `binary_sum` should be added instead of subtracted. This is because we want to calculate the sum of the numbers in the slice, not the difference.
+
+
+#34 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_6_line_no_3_COI.py
+Yes, there is a bug in the provided code. The condition in the if statement is incorrect. It should be `if not (start < stop):` instead of `if not (start >= stop):`. 
+
+Here's the corrected code:
+
+```python
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if not (start < stop):
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+```
+
+This fix ensures that the function returns 0 when the start index is greater than or equal to the stop index, indicating an empty slice.
+
+
+#35 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_7_line_no_5_COI.py
+Yes, there is a bug in the provided code. The condition in the elif statement is incorrect. It should be "if start == stop - 1" instead of "if not (start == stop - 1)". 
+
+Here is the corrected code:
+
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop - 1:
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+
+#36 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_8_line_no_3_ROR.py
+Yes, there is a bug in the provided code. The condition `if start <= stop` should be `if start >= stop` to correctly check if the slice is empty. 
+
+Here's the corrected code:
+
+```python
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+```
+
+This fix ensures that the function returns 0 when the slice is empty, and correctly calculates the sum of the numbers in the slice otherwise.
+
+
+#37 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_9_line_no_3_ROR.py
+Yes, there is a bug in the provided code. The condition `start > stop` should be `start >= stop` in order to handle the case when `start` and `stop` are equal. 
+
+Here's the corrected code:
+
+```python
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+```
+
+This fix ensures that when `start` and `stop` are equal, the function returns 0, indicating an empty slice.
+
+
+#38 Tests_Final/Ch04/Mutation/Commented_Code\Disk_Usage\mutation_1_line_no_9_ASR.py
+There is a bug in the provided code. When calculating the total disk usage for a directory, the code subtracts the disk usage of each child from the total. However, this subtraction should only occur if the child is a directory. 
+
+To fix this bug, we need to add a condition to check if the child is a directory before subtracting its disk usage from the total. Here's the corrected code:
+
+```python
+import os
+
+def disk_usage(path):
+  """Return the number of bytes used by a file/folder and any descendents."""
+  total = os.path.getsize(path)                  # account for direct usage
+  if os.path.isdir(path):                        # if this is a directory,
+    for filename in os.listdir(path):            # then for each child:
+      childpath = os.path.join(path, filename)   # compose full path to child
+      if os.path.isdir(childpath):               # check if child is a directory
+        total -= disk_usage(childpath)
+
+  print ('{0:<7}'.format(total), path)           # descriptive output (optional)
+  return total                                   # return the grand total
+```
+
+With this fix, the code will correctly calculate the disk usage for directories and files.
+
+
+#39 Tests_Final/Ch04/Mutation/Commented_Code\Disk_Usage\mutation_2_line_no_6_COI.py
+There is a bug in the provided code. When checking if a path is a directory, the code uses `os.path.isdir(path)`. However, this check should be done before getting the size of the path using `os.path.getsize(path)`. 
+
+Here's the fixed code:
+
+```python
+import os
+
+def disk_usage(path):
+  """Return the number of bytes used by a file/folder and any descendents."""
+  if os.path.isdir(path):
+    total = 0
+    for filename in os.listdir(path):            # then for each child:
+      childpath = os.path.join(path, filename)   # compose full path to child
+      total += disk_usage(childpath)             # add child's usage to total
+  else:
+    total = os.path.getsize(path)                  # account for direct usage
+
+  print ('{0:<7}'.format(total), path)           # descriptive output (optional)
+  return total                                   # return the grand total
+```
+
+In the fixed code, the check for directory is done first, and if it is a directory, the code recursively calculates the total size of all its children. If it is not a directory, the code directly gets the size of the path.
+
+
+#40 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_10_line_no_3_COI.py
+Yes, there is a bug in the provided code. The bug is in the if statement at the beginning of the function. The condition should be "if n == 0" instead of "if not (n == 0)". 
+
+Here is the corrected code:
+
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+
+
+#41 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_11_line_no_8_COI.py
+The provided code is correct and does not contain any bugs. It correctly computes the value of x raised to the power of n using a recursive approach.
+
+
+#42 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_12_line_no_3_ROR.py
+Yes, there is a bug in the provided code. The condition in the if statement is incorrect. It should be `if n == 0` instead of `if n != 0`. 
+
+Here's the corrected code:
+
+```python
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+```
+
+This code correctly computes the value of `x` raised to the power of `n` for integer `n`.
+
+
+#43 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_13_line_no_8_ROR.py
+The provided code is missing a base case for when n is negative. To fix this, we can add a condition to check if n is less than 0 and return 1 divided by the result of power(x, -n). This will handle negative exponents correctly.
+
+Here's the updated code:
+
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  elif n < 0:
+    return 1 / power(x, -n)
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 != 1:
+      result *= x                       
+    return result
+
+
+#44 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_1_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line `partial = power(x, n / 2)`. The division operator `/` performs floating-point division in Python, which means that `n / 2` will always result in a float value, even if `n` is an integer. 
+
+To fix this bug, we can use the integer division operator `//` instead, which performs integer division and returns an integer result. 
+
+Here is the corrected code:
+
+```python
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+```
+
+Now, the code will correctly compute the value `x**n` for integer `n`.
+
+
+#45 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_2_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The bug is in the recursive call to the power function. Instead of multiplying `x` by itself `n * 2` times, it should be multiplied `x` by itself `n // 2` times.
+
+Here's the corrected code:
+
+```python
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+```
+
+This code will correctly compute the value `x**n` for any integer `n`.
+
+
+#46 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_3_line_no_7_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line `result = partial / partial`. This line should be `result = partial * partial` instead. 
+
+Here is the corrected code:
+
+```python
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+```
+
+Now the code should correctly compute the value `x**n` for integer `n`.
+
+
+#47 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_4_line_no_7_AOR.py
+Yes, there is a bug in the provided code. 
+
+The bug is in the line `result = partial // partial`. This line is supposed to calculate the result of `x**n` by multiplying `partial` with itself. However, using the `//` operator performs integer division, which will always result in 1. 
+
+To fix this bug, we need to change the line to `result = partial * partial`. This will correctly calculate the result of `x**n` by multiplying `partial` with itself. 
+
+Here is the corrected code:
+
+```python
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+```
+
+Now the code should work correctly.
+
+
+#48 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_5_line_no_7_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line `result = partial ** partial`. It should be `result = partial * partial` instead. 
+
+Here's the corrected code:
+
+```python
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+```
+
+This fix ensures that the correct power is calculated by multiplying the partial result with itself, rather than raising it to the power of itself.
+
+
+#49 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_6_line_no_8_AOR.py
+Yes, there is a bug in the provided code. The condition `if n * 2 == 1` is incorrect and will not work as intended. 
+
+To fix it, we can change the condition to `if n % 2 == 1` to check if `n` is odd. 
+
+Here's the corrected code:
+
+```python
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:
+      result *= x                       
+    return result
+```
+
+This updated code will correctly handle both even and odd values of `n`.
+
+
+#50 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_7_line_no_9_ASR.py
+The code provided is correct and does not contain any bugs. It correctly computes the value of x raised to the power of n using a recursive approach.
+
+
+#51 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_8_line_no_9_ASR.py
+The provided code is correct and does not contain any bugs. It correctly computes the value of x raised to the power of n using a recursive approach.
+
+
+#52 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_9_line_no_9_ASR.py
+Yes, there is a bug in the provided code. The line `result **= x` should be `result *= x` to correctly include the extra factor of x when n is odd. Here is the corrected code:
+
+```python
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x
+    return result
+```
+
+Now the code should work correctly.
+
+
+#53 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_1_line_no_3_AOR.py
+Yes, there is a bug in the provided code. The base case condition in the recursive function is incorrect. It should be `start < stop` instead of `start < stop + 1`. 
+
+Here's the corrected code:
+
+```python
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    reverse(S, start+1, stop-1)                # recur on rest
+```
+
+This code will correctly reverse the elements in the given slice `S[start:stop]`.
+
+
+#54 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_2_line_no_4_AOR.py
+Yes, there is a bug in the provided code. 
+
+The bug is in the line `(S[start], S[stop + 1]) = (S[stop - 1], S[start])`. 
+
+To fix the bug, we need to change it to `(S[start], S[stop - 1]) = (S[stop - 1], S[start])`. 
+
+Here is the corrected code:
+
+```python
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop - 1:                         # if at least 2 elements:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+    reverse(S, start+1, stop-1)                # recur on rest
+```
+
+
+#55 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_3_line_no_4_AOR.py
+Yes, there is a bug in the provided code. 
+
+The bug is in the line `(S[start], S[stop - 1]) = (S[stop + 1], S[start])`. 
+
+To fix the bug, we need to swap the elements correctly. The correct line should be `(S[start], S[stop - 1]) = (S[stop - 1], S[start])`. 
+
+Here is the corrected code:
+
+```python
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop - 1:                         # if at least 2 elements:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+    reverse(S, start+1, stop-1)                # recur on rest
+```
+
+
+#56 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_4_line_no_5_AOR.py
+Yes, there is a bug in the provided code. The recursive call to `reverse` should have `start` and `stop` as arguments, not `start - 1` and `stop - 1`. 
+
+Here's the corrected code:
+
+```python
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop - 1:                         # if at least 2 elements:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    reverse(S, start + 1, stop - 1)
+```
+
+In the corrected code, the recursive call to `reverse` swaps the elements at `start` and `stop-1`, and then recursively calls `reverse` with `start + 1` and `stop - 1` as arguments. This ensures that the slice being reversed is gradually reduced until it reaches the base case of having only one element or no elements left.
+
+
+#57 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_5_line_no_5_AOR.py
+Yes, there is a bug in the provided code. The recursive call to `reverse` should have `stop - 1` as the second argument instead of `stop + 1`. 
+
+Here's the corrected code:
+
+```python
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop - 1:                         # if at least 2 elements:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    reverse(S, start + 1, stop - 1)
+```
+
+This fix ensures that the recursive call reduces the size of the slice by 1 in each iteration, eventually reaching the base case when `start` is equal to or greater than `stop - 1`.
+
+
+#58 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_6_line_no_3_COI.py
+Yes, there is a bug in the provided code. The base case for the recursion is missing, which can lead to an infinite recursion if the start and stop indices are not properly defined.
+
+To fix the bug, we need to add a base case that stops the recursion when the start index is greater than or equal to the stop index. Here's the corrected code:
+
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start >= stop - 1:
+    return  # base case, stop recursion
+  S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+  reverse(S, start+1, stop-1)                # recur on rest
+
+With this fix, the function will correctly reverse the elements in the given slice.
+
+
+#59 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_7_line_no_3_ROR.py
+Yes, there is a bug in the provided code. The base case for the recursion is missing, which can lead to an infinite recursion. To fix this, we need to add a condition to check if the start index is greater than or equal to the stop index. If it is, we can simply return without making any changes.
+
+Here's the corrected code:
+
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start >= stop - 1:
+    return  # base case, return if start >= stop
+
+  S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+  reverse(S, start+1, stop-1)                # recur on rest
+
+
+#60 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_8_line_no_3_ROR.py
+Yes, there is a bug in the provided code. The condition `start <= stop - 1` should be `start < stop - 1` to ensure that the function stops when `start` and `stop` are equal. 
+
+Here's the corrected code:
+
+```python
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    reverse(S, start+1, stop-1)                # recur on rest
+```
+
+This will fix the bug and ensure that the function stops when `start` and `stop` are equal.
+
+
+#61 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_1_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The condition in the while loop should be `start < stop`, not `start < stop + 1`. 
+
+Here's the corrected code:
+
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    start, stop = start + 1, stop - 1          # narrow the range
+
+This will correctly reverse the elements in the sequence.
+
+
+#62 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_2_line_no_5_AOR.py
+Yes, there is a bug in the provided code. The line `(S[start], S[stop + 1]) = (S[stop - 1], S[start])` is incorrect. It should be `(S[start], S[stop - 1]) = (S[stop - 1], S[start])`. 
+
+Here is the corrected code:
+
+```python
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+    start, stop = start + 1, stop - 1          # narrow the range
+```
+
+This code will correctly reverse the elements in the sequence `S`.
+
+
+#63 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_3_line_no_5_AOR.py
+Yes, there is a bug in the provided code. The assignment statement `(S[start], S[stop - 1]) = (S[stop + 1], S[start])` is incorrect. It should be `(S[start], S[stop - 1]) = (S[stop - 1], S[start])` to correctly swap the elements at the start and stop indices.
+
+Here is the corrected code:
+
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+    start, stop = start + 1, stop - 1          # narrow the range
+
+Now the code should correctly reverse the elements in the sequence.
+
+
+#64 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_4_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The start and stop indices are being updated incorrectly in each iteration of the while loop. 
+
+To fix the bug, we need to update the start and stop indices as follows:
+
+start = start + 1
+stop = stop - 1
+
+Here is the corrected code:
+
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    start = start + 1
+    stop = stop - 1
+
+Now the code should correctly reverse the elements in the sequence S.
+
+
+#65 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_5_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The stop variable should be decremented by 1 in each iteration of the while loop, not incremented. 
+
+Here is the corrected code:
+
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    (start, stop) = (start + 1, stop - 1)  # decrement stop by 1
+
+Now the code should correctly reverse the elements in the sequence S.
+
+
+#66 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_6_line_no_4_COI.py
+Yes, there is a bug in the provided code. The condition in the while loop is incorrect. It should be `start < stop - 1` instead of `not (start < stop - 1)`. 
+
+Here is the corrected code:
+
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    start, stop = start + 1, stop - 1          # narrow the range
+
+This code will correctly reverse the elements in the sequence `S`.
+
+
+#67 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_7_line_no_4_ROR.py
+Yes, there is a bug in the provided code. The condition in the while loop is incorrect. It should be `start < stop - 1` instead of `start > stop - 1`. 
+
+Here's the corrected code:
+
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    start, stop = start + 1, stop - 1          # narrow the range
+
+This code will correctly reverse the elements in the sequence `S`.
+
+
+#68 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_8_line_no_4_ROR.py
+Yes, there is a bug in the provided code. The bug is in the while loop condition. The condition should be `start < stop - 1` instead of `start <= stop - 1`. 
+
+Here's the corrected code:
+
+```python
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    start, stop = start + 1, stop - 1          # narrow the range
+```
+
+This fix ensures that the loop stops when `start` is equal to `stop - 1`, which is the middle element in the sequence.
+
+

@@ -1,0 +1,150 @@
+#1 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_1_line_no_6_AOR.py
+Yes, there is a bug in the provided code. In the while loop condition, it should be `A[j] > cur` instead of `A[j + 1] > cur`. 
+
+Here is the corrected code:
+
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while (j > 0 and A[j] > cur):
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+
+#2 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_2_line_no_7_AOR.py
+Yes, there is a bug in the provided code. In the while loop, when shifting elements to the right, the assignment `A[j] = A[j + 1]` should be `A[j] = A[j - 1]` to correctly shift the elements to the right. 
+
+Here is the corrected code:
+
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while j > 0 and A[j-1] > cur:    # element A[j-1] must be after current
+      A[j] = A[j - 1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+
+#3 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_3_line_no_8_ASR.py
+Yes, there is a bug in the provided code. In the while loop, the variable j should be decremented by 1 instead of incremented by 1. 
+
+Here is the corrected code:
+
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while j > 0 and A[j-1] > cur:    # element A[j-1] must be after current
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+
+#4 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_4_line_no_6_COI.py
+Yes, there is a bug in the provided code. The condition in the while loop is incorrect. It should be `while j > 0 and A[j - 1] > cur:` instead of `while not ((j > 0 and A[j - 1] > cur)):`.
+
+Here is the corrected code:
+
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while j > 0 and A[j - 1] > cur:
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+
+#5 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_5_line_no_6_LCR.py
+Yes, there is a bug in the provided code. The condition in the while loop should be "j > 0 and A[j - 1] > cur" instead of "j > 0 or A[j - 1] > cur". 
+
+Here is the corrected code:
+
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while (j > 0 and A[j - 1] > cur):
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+
+#6 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_6_line_no_6_ROR.py
+Yes, there is a bug in the provided code. The condition in the while loop should be `while (j > 0 and A[j - 1] > cur)` instead of `while (j < 0 and A[j - 1] > cur)`. 
+
+Here's the corrected code:
+
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while (j > 0 and A[j - 1] > cur):
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+
+#7 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_7_line_no_6_ROR.py
+The code provided is almost correct, but there is a small bug in the while loop condition. The condition should be `j > 0` instead of `j >= 0` to avoid accessing an index out of range when `j` is 0.
+
+Here is the corrected code:
+
+```python
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while (j > 0 and A[j - 1] > cur):
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+```
+
+With this correction, the code should work correctly to sort the list `A` in non-decreasing order using the insertion sort algorithm.
+
+
+#8 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_8_line_no_6_ROR.py
+Yes, there is a bug in the provided code. The code is currently sorting the list in non-increasing order instead of non-decreasing order. To fix this, we need to change the condition in the while loop from `A[j - 1] < cur` to `A[j - 1] > cur`. 
+
+Here is the corrected code:
+
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while (j > 0 and A[j - 1] > cur):
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+
+Now the code will correctly sort the list in non-decreasing order.
+
+
+#9 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_9_line_no_6_ROR.py
+The provided code is missing proper indentation. Here is the corrected code:
+
+def insertion_sort(A):
+    """Sort list of comparable elements into nondecreasing order."""
+    for k in range(1, len(A)):         # from 1 to n-1
+        cur = A[k]                       # current element to be inserted
+        j = k                            # find correct index j for current
+        while (j > 0 and A[j - 1] >= cur):
+            A[j] = A[j-1]
+            j -= 1
+        A[j] = cur                       # cur is now in the right place
+
+The code itself looks correct and should work as intended. It implements the insertion sort algorithm to sort a list of comparable elements in non-decreasing order.
+
+

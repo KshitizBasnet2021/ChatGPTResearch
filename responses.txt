@@ -1,460 +1,786 @@
-#1 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_1_line_no_6_COI.py
-Yes, I see a bug in the provided code. The bug is that the code returns False as soon as it finds any common values among the three lists. However, we want the code to return True only if there are no common values in all three lists.
+#1 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_10_line_no_6_ROR.py
+The provided code seems to work correctly. However, there is a minor improvement that can be made. Currently, the condition for checking if the interval is empty is `low >= high`. This condition doesn't include the case where `low == high - 1`, which means the interval has only one element.
 
-To fix this, we can modify the code as follows:
-
-```python
-def disjoint1(A, B, C):
-  """Return True if there is no element common to all three lists."""
-  for a in A:
-    found_common = False
-    for b in B:
-      for c in C:
-        if a == b == c:
-          found_common = True
-          break
-      if found_common:
-        break
-    if found_common:
-      return False  # we found a common value
-  return True       # if we reach this, sets are disjoint
-```
-
-In the modified code, we introduce a `found_common` variable to keep track of whether a common value is found. We set it to `False` initially, and if a common value is found, we set it to `True`. The code will only return False if `found_common` is `True` at any point. Otherwise, it will return True after checking all the elements.
-
-
-#2 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_2_line_no_6_ROR.py
-Yes, there is a bug in the provided code. The condition `a != b == c` is incorrect as it compares `a` and `b` separately, and then compares the result to `c`. This may not give the expected result.
-
-To fix it, we need to compare `a`, `b`, and `c` together to check if they are equal. The correct condition should be `a != b != c`. Here's the updated code:
+To fix this, we can modify the condition to `low > high`. Here's the updated code:
 
 ```python
-def disjoint1(A, B, C):
-  """Return True if there is no element common to all three lists."""
-  for a in A:
-    for b in B:
-      for c in C:
-        if a != b != c:
-          return True       # there is no common value
-  return False              # if we reach this, sets are not disjoint
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
 ```
 
-In this updated code, the condition `a != b != c` checks if `a`, `b`, and `c` are all different, indicating that there is no common value. If we find any combination of `a`, `b`, and `c` that satisfies this condition, we can immediately return `True` meaning the sets are disjoint. If we complete all the iterations without finding any common value, we return `False` meaning the sets are not disjoint.
 
+#2 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_11_line_no_10_ROR.py
+Yes, there seems to be a bug in the code. 
 
-#3 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_3_line_no_6_ROR.py
-The code provided has a logical error. The condition `if a == b != c` in the innermost loop is incorrect. This condition checks if `a` is equal to `b` and not equal to `c`, which means it only checks if there is an element common between the first two lists `A` and `B`, but ignores the third list `C`. 
+In the line `if target != data[mid]:`, it is returning `True` instead of `False` when the target is not equal to `data[mid]`. This logic is incorrect.
 
-To fix this bug, we need to modify the condition to check if `a` is equal to `b` and also if it is equal to `c`. The updated code is provided below:
-
-```python
-def disjoint1(A, B, C):
-  """Return True if there is no element common to all three lists."""
-  for a in A:
-    for b in B:
-      for c in C:
-        if a == b == c:
-          return False      # we found a common value
-  return True               # if we reach this, sets are disjoint
-```
-
-Now, this code will properly check for a common element among all three lists `A`, `B`, and `C`. If it finds a common element, it will return `False`, otherwise, it will return `True`.
-
-
-#4 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_1_line_no_9_AOD.py
-Yes, there is a bug in the provided code. The bug is in the last line of the function. The function should return -1 instead of 1 when no match is found. Here's the corrected code:
-
-def find(S, val):
-  """Return index j such that S[j] == val, or -1 if no such element."""
-  n = len(S)
-  j = 0
-  while j < n:
-    if S[j] == val:
-      return j          # a match was found at index j
-    j += 1
-  return -1  # no match was found, so return -1 instead of 1
-
-
-#5 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_2_line_no_9_AOR.py
-Yes, there is a bug in the provided code. The bug is in the return statement when no match is found. Instead of returning -1, it is returning +1. The correct return statement should be `return -1` to indicate that no match was found. 
+To fix it, we need to change `return True` to `return False` in that line. 
 
 Here's the corrected code:
 
 ```python
-def find(S, val):
-  """Return index j such that S[j] == val, or -1 if no such element."""
-  n = len(S)
-  j = 0
-  while j < n:
-    if S[j] == val:
-      return j          # a match was found at index j
-    j += 1
-  return -1
+def binary_search(data, target, low, high):
+  """Return True if target is found in the indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target != data[mid]:
+      return False
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
 ```
 
-Now, when no match is found, the function will correctly return -1.
+Now, the code will return `True` if the target is found and `False` otherwise.
 
 
-#6 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_3_line_no_8_ASR.py
-Yes, there is a bug in the provided code. The bug is in the while loop condition where j should be less than n instead of greater than. Additionally, the update statement for j should be j += 1 instead of j -= 1. Here's the fixed code:
+#3 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_12_line_no_12_ROR.py
+Yes, I see a bug in the provided code. The bug is in the recursive calls of the binary_search function when the target is greater than the middle element.
 
-def find(S, val):
-  """Return index j such that S[j] == val, or -1 if no such element."""
-  n = len(S)
-  j = 0
-  while j < n:
-    if S[j] == val:
-      return j          # a match was found at index j
-    j += 1
-  return -1
-
-
-#7 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_4_line_no_5_COI.py
-Yes, there is a bug in the provided code. 
-
-The bug is that the while loop condition should be `j < n` instead of `not (j < n)`. 
+To fix it, we need to swap the low and mid - 1 values in the recursive call when target is greater than data[mid].
 
 Here's the corrected code:
 
 ```python
-def find(S, val):
-  """Return index j such that S[j] == val, or -1 if no such element."""
-  n = len(S)
-  j = 0
-  while j < n:
-    if S[j] == val:
-      return j          # a match was found at index j
-    j += 1
-  return -1
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
 ```
 
-In the original code, the while loop condition `not (j < n)` will always evaluate to False because `j` is initialized as 0. So the loop will never execute and the function will always return -1. By changing the condition to `j < n`, the loop will iterate until `j` reaches the end of the list `S` or a match is found.
+In the corrected code, I changed the condition in the second elif statement from `target > data[mid]` to `target < data[mid]`, which correctly adjusts the boundaries for the recursive call when target is less than the middle element.
 
 
-#8 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_5_line_no_6_COI.py
-The provided code seems to have a small logic error. The code returns the index `j` when a match is found at `S[j] == val` which is incorrect. Instead, it should return `-1` when a match is found, and return the index `j` otherwise.
+#4 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_13_line_no_12_ROR.py
+The provided code for binary search looks correct. I don't see any bugs in it.
+
+
+#5 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_1_line_no_9_AOR.py
+Yes, there is a bug in the provided code. The bug lies in the calculation of the middle index. 
+
+To fix it, you should change the line 
+
+```
+mid = (low - high) // 2
+```
+
+to 
+
+```
+mid = (low + high) // 2
+```
+
+In the original code, the subtraction operator (-) is used instead of the addition operator (+), which results in incorrect calculation of the middle index. By using the addition operator, we can find the correct middle index for the binary search algorithm.
+
+
+#6 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_2_line_no_9_AOR.py
+Yes, there is a bug in the provided code. The calculation of the middle index should be done using integer division (//) instead of regular division (/) to ensure that the result is an integer. 
+
+Here's the corrected code:
+
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+
+
+#7 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_3_line_no_9_AOR.py
+Yes, there is a bug in the code. The calculation of the midpoint is incorrect, it should be `(low + high) // 2` instead of `(low + high) * 2`. This error will cause the binary search to malfunction and return incorrect results.
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+    """Return True if target is found in indicated portion of a Python list.
+
+    The search only considers the portion from data[low] to data[high] inclusive.
+    """
+    if low > high:
+        return False  # interval is empty; no match
+    else:
+        mid = (low + high) // 2
+        if target == data[mid]:  # found a match
+            return True
+        elif target < data[mid]:
+            # recur on the portion left of the middle
+            return binary_search(data, target, low, mid - 1)
+        else:
+            # recur on the portion right of the middle
+            return binary_search(data, target, mid + 1, high)
+```
+
+Now the binary search algorithm should work correctly.
+
+
+#8 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_4_line_no_14_AOR.py
+Yes, there is a bug in the provided code. In the `elif` branch, the function makes a recursive call to `binary_search` with the incorrect parameters for searching the left portion of the list. It should be `return binary_search(data, target, low, mid - 1)` instead of `return binary_search(data, target, low, mid + 1)`.
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+    """Return True if target is found in indicated portion of a Python list.
+
+    The search only considers the portion from data[low] to data[high] inclusive.
+    """
+    if low > high:
+        return False  # interval is empty; no match
+    else:
+        mid = (low + high) // 2
+        if target == data[mid]:  # found a match
+            return True
+        elif target < data[mid]:
+            # recur on the portion left of the middle
+            return binary_search(data, target, low, mid - 1)
+        else:
+            # recur on the portion right of the middle
+            return binary_search(data, target, mid + 1, high)
+```
+
+The mistake was in the `elif` clause where it should decrease the `high` index `mid - 1` instead of increasing `low` index `mid + 1` for searching the left portion of the list.
+
+
+#9 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_5_line_no_17_AOR.py
+Yes, there is a bug in the provided code. When recursively calling the binary_search function for the portion right of the middle, the high parameter should be updated as mid+1 rather than mid-1. 
+
+Here's the updated code with the bug fixed:
+
+```python
+def binary_search(data, target, low, high):
+    """Return True if target is found in indicated portion of a Python list.
+
+    The search only considers the portion from data[low] to data[high] inclusive.
+    """
+    if low > high:
+        return False  # interval is empty; no match
+    else:
+        mid = (low + high) // 2
+        if target == data[mid]:  # found a match
+            return True
+        elif target < data[mid]:
+            # recur on the portion left of the middle
+            return binary_search(data, target, low, mid - 1)
+        else:
+            # recur on the portion right of the middle
+            return binary_search(data, target, mid + 1, high)
+```
+
+Now the binary search function should work correctly.
+
+
+#10 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_6_line_no_6_COI.py
+Yes, there is a bug in the provided code. The bug is in the conditional statement at the beginning of the function. 
+
+The condition `if not (low > high):` is incorrect, as it will evaluate to `False` when `low` is greater than `high`, instead of `True`, which is the intended behavior.
+
+To fix this, you can change the condition to `if low > high:`. 
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+With this fix, the binary search function should work correctly.
+
+
+#11 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_7_line_no_10_COI.py
+Yes, there is a bug in the provided code. The bug is in the line `if not (target == data[mid]):`, which is supposed to check if the target is equal to the middle element. However, it is negating the condition using `not` and returning `True` when there is not a match, instead of returning `False`. 
+
+To fix this bug, we need to change `return True` to `return False` in that line. Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+    """Return True if target is found in indicated portion of a Python list.
+
+    The search only considers the portion from data[low] to data[high] inclusive.
+    """
+    if low > high:
+        return False                    # interval is empty; no match
+    else:
+        mid = (low + high) // 2
+        if target == data[mid]:  # Corrected line
+            return True
+        elif target < data[mid]:
+            # recur on the portion left of the middle
+            return binary_search(data, target, low, mid - 1)
+        else:
+            # recur on the portion right of the middle
+            return binary_search(data, target, mid + 1, high)
+```
+
+Now, the function should work correctly and return `True` if the target is found in the list, and `False` otherwise.
+
+
+#12 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_8_line_no_12_COI.py
+Yes, there is a bug in the provided code. The bug is in the `elif` condition where it performs the recursive call to search the left portion of the list.
+
+To fix the bug, we need to change the condition from `elif not (target < data[mid])` to `elif not (target > data[mid])`. This will correctly check if the target is greater than the middle element and then perform the recursive call on the left portion if needed.
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif not (target > data[mid]):
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+This fix will ensure that the binary search algorithm works correctly.
+
+
+#13 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_9_line_no_6_ROR.py
+Yes, there is a bug in the provided code. The bug is in the condition `if low < high`, which should actually be `if low > high`. 
+
+Here's the corrected code:
+
+```python
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+```
+
+
+#14 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_10_line_no_5_ROR.py
+Yes, there is a bug in the provided code. The condition in the `while` loop is incorrect. It should be `low <= high` instead of `low >= high`. 
+
+Here's the corrected code:
+
+```python
+def binary_search_iterative(data, target):
+    """Return True if target is found in the given Python list."""
+    low = 0
+    high = len(data) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if target == data[mid]:         # found a match
+            return True
+        elif target < data[mid]:
+            high = mid - 1              # only consider values left of mid
+        else:
+            low = mid + 1               # only consider values right of mid
+    return False                       # loop ended without success
+```
+
+Now, the code will correctly perform a binary search and return `True` if the target value is found in the list, and `False` if it is not found.
+
+
+#15 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_11_line_no_5_ROR.py
+Yes, there seems to be a bug in the given code. The bug lies in the condition of the while loop. The current condition `while low < high` will cause the loop to exit when there are only two elements left to search, which might result in missing the target element.
+
+To fix this, we need to modify the condition to `while low <= high`, so that the loop will continue until the target element is found or until there is only one element left to search. 
+
+Here's the corrected code:
+
+```python
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data) - 1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+```
+
+Now the iterative binary search should work correctly.
+
+
+#16 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_12_line_no_7_ROR.py
+There is a bug in the provided code. 
+
+In the line `if target != data[mid]:`, the condition is checking if the target is not equal to the value at the mid index. However, instead of returning `True` when the target is found, the code should return `False` to indicate that the target was found. 
+
+Here's the corrected code:
+
+```python
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:       # check if target is equal to mid value
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+```
+
+Now, the code will return `True` if the target is found in the list, and `False` otherwise.
+
+
+#17 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_13_line_no_9_ROR.py
+Yes, I see a bug in the code. In the `elif` statement where `target > data[mid]`, `high` should be updated to `mid - 1` instead of `mid + 1`. Similarly, in the `else` statement where `target < data[mid]`, `low` should be updated to `mid + 1` instead of `mid - 1`.
+
+Here's the corrected code:
+
+```python
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target > data[mid]:
+      low = mid + 1                 # only consider values right of mid
+    else:
+      high = mid - 1                # only consider values left of mid
+  return False                      # loop ended without success
+```
+
+Now, the code should perform the binary search correctly.
+
+
+#18 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_14_line_no_9_ROR.py
+The provided code looks correct and should work fine for performing an iterative binary search. I don't see any bugs in the code.
+
+If you encounter any issues or errors while using this code, please provide more details so that I can assist you further.
+
+
+#19 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_1_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line where `high` is initialized. It should be `high = len(data) - 1` instead of `high = len(data) + 1`. 
 
 Here's the fixed code:
 
 ```python
-def find(S, val):
-  """Return index j such that S[j] == val, or -1 if no such element."""
-  n = len(S)
-  j = 0
-  while j < n:
-    if S[j] == val:
-      return j          # a match was found at index j
-    j += 1
-  return -1
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data) - 1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
 ```
 
-In the fixed code, `return j` has been changed to `return -1`, and `return -1` has been changed to `return j` within the if condition statement. This ensures that the correct value is returned based on whether a match is found or not.
+This fix ensures that `high` represents the index of the last element in the list, rather than going out of bounds.
 
 
-#9 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_6_line_no_5_ROR.py
-Yes, there is a bug in the provided code. The bug is in the while loop condition. It should be `j < n` instead of `j > n` to ensure that the loop runs as long as `j` is less than the length of `S`. 
+#20 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_2_line_no_6_AOR.py
+Yes, I see a bug in the provided code. The bug is in the calculation of the `mid` index within the while loop. 
+
+The line: `mid = (low - high) // 2` should be changed to `mid = (low + high) // 2` to calculate the correct `mid` index. 
 
 Here's the corrected code:
 
 ```python
-def find(S, val):
-  """Return index j such that S[j] == val, or -1 if no such element."""
-  n = len(S)
-  j = 0
-  while j < n:
-    if S[j] == val:
-      return j          # a match was found at index j
-    j += 1
-  return -1
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
 ```
 
-Now the while loop will properly iterate through the elements of `S` and return the correct index when a match is found, or -1 if no match is found.
+With this fix, the binary search algorithm should work correctly.
 
 
-#10 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_7_line_no_5_ROR.py
-Yes, there is a bug in the provided code. The condition in the while loop should be j < n instead of j <= n. This is because the index of a list in Python starts from 0 and goes up to n-1.
+#21 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_3_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line `mid = (low + high) / 2`. In Python 3.x, the division operator `/` returns a float value, while the indices used in the code are expected to be integers. To fix this bug, you can use integer division `//` instead.
 
 Here's the corrected code:
 
 ```python
-def find(S, val):
-  """Return index j such that S[j] == val, or -1 if no such element."""
-  n = len(S)
-  j = 0
-  while j < n:
-    if S[j] == val:
-      return j          # a match was found at index j
-    j += 1
-  return -1
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data) - 1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
 ```
 
-In the corrected code, the while loop will iterate until j reaches (n-1) and then exit.
+Now the code should work correctly.
 
 
-#11 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_8_line_no_6_ROR.py
-The provided code has a bug. In the line `return j`, the function should be returning the index where the match was found, but it currently returns the index where the match was not found. To fix this, we can simply change the condition in the `if` statement to check for equality instead of inequality. Here's the corrected code:
+#22 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_4_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The calculation of the middle index, `mid`, in binary_search_iterative() is incorrect. To fix it, you need to calculate the middle index as the average of the low and high indices, not their sum multiplied by 2.
+
+Here's the corrected code:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+The correction involves replacing `(low + high) * 2` with `(low + high) // 2` to correctly calculate the middle index. The `//` operator performs integer division, rounding down to the nearest whole number.
+
+
+#23 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_5_line_no_10_AOR.py
+Yes, there appears to be a bug in the provided code. 
+
+The bug is in the line `high = mid + 1` inside the `elif` branch. It should actually be `high = mid - 1` to correctly update the high value when the target is smaller than the midpoint. 
+
+Here is the corrected code:
 
 ```python
-def find(S, val):
-  """Return index j such that S[j] == val, or -1 if no such element."""
-  n = len(S)
-  j = 0
-  while j < n:
-    if S[j] == val:
-      return j          # a match was found at index j
-    j += 1
-  return -1
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
 ```
 
-Now, the function will correctly return the index `j` where the value `val` is found in the list `S`, or -1 if the value is not present.
+This correction ensures that the high index is properly updated when the target is smaller than the midpoint.
 
 
-#12 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_1_line_no_5_COI.py
-Yes, there is a bug in the provided code. The condition in the if statement should be changed to val > biggest instead of not (val > biggest). Currently, the code is finding the minimum value instead of the maximum. Here's the corrected code:
-
-```python
-def find_max(data):
-  """Return the maximum element from a nonempty Python list."""
-  biggest = data[0]               # The initial value to beat
-  for val in data:                # For each value:
-    if val > biggest:
-      biggest = val               # we have found a new best (so far)
-  return biggest                  # When loop ends, biggest is the max
-```
-
-This modified code will correctly return the maximum element from the given list.
-
-
-#13 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_2_line_no_5_ROR.py
-Yes, I see a bug in the provided code. The comparison in the if statement should be val > biggest instead of val < biggest.
-
-Here's the fixed version of the code:
-
-def find_max(data):
-  """Return the maximum element from a nonempty Python list."""
-  biggest = data[0]               # The initial value to beat
-  for val in data:                # For each value:
-    if val > biggest:
-      biggest = val               # we have found a new best (so far)
-  return biggest                  # When loop ends, biggest is the max
-
-
-#14 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_3_line_no_5_ROR.py
-The provided code has a bug. If the input list is empty, it will raise an IndexError because it tries to access data[0]. To fix this, you can add an if statement at the beginning of the function to check if the list is empty and return an appropriate value. Here's the fixed code:
-
-def find_max(data):
-  """Return the maximum element from a nonempty Python list."""
-  if not data:                     # Check if the list is empty
-    return None                    # If so, return None or any other appropriate value
-  
-  biggest = data[0]               # The initial value to beat
-  for val in data:                # For each value:
-    if val >= biggest:
-      biggest = val               # we have found a new best (so far)
-  return biggest                  # When loop ends, biggest is the max
-
-
-#15 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_1_line_no_4_AOR.py
-Yes, there are a couple of bugs in the provided code:
-
-1. The line `A = [0] / n` is incorrect. It should be `A = [0] * n` to initialize a list of zeros with the same length as `S`.
-
-2. The division in the line `A[j] = total / (j+1)` should be float division instead of integer division to ensure the average is computed correctly. You can fix this by changing the line to `A[j] = float(total) / (j+1)` or `A[j] = total / float(j+1)`.
+#24 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_6_line_no_12_AOR.py
+Yes, there is a bug in the provided code. The bug lies in the else case when `target > data[mid]`. Instead of updating `low` to `mid - 1`, it should be updated to `mid + 1`. Additionally, the return statement should be updated to `return False` when the loop ends.
 
 Here's the corrected code:
 
 ```python
-def prefix_average3(S):
-  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-  n = len(S)
-  A = [0] * n
-  total = 0                     # compute prefix sum as S[0] + S[1] + ...
-  for j in range(n):
-    total += S[j]               # update prefix sum to include S[j]
-    A[j] = float(total) / (j+1)        # compute average based on current sum
-  return A
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
 ```
 
+This will correctly search for the target value in the list using binary search.
 
-#16 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_2_line_no_4_AOR.py
-Yes, there is a bug in the provided code. The line `A = [0] // n` is incorrect because `//` is the floor division operator, which performs integer division. To fix this, you should use `/` instead to perform regular division.
+
+#25 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_7_line_no_5_COI.py
+Yes, there is a bug in the provided code. The condition in the `while` loop is incorrect. The condition should be `low <= high` instead of `not (low <= high)`. Additionally, the code should return `False` if the loop ends without finding the target.
 
 Here's the corrected code:
 
 ```python
-def prefix_average3(S):
-    """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-    n = len(S)
-    A = [0] * n
-    total = 0  # compute prefix sum as S[0] + S[1] + ...
-  
-    for j in range(n):
-        total += S[j]  # update prefix sum to include S[j]
-        A[j] = total / (j + 1)  # compute average based on current sum
-  
-    return A
+def binary_search_iterative(data, target):
+    """Return True if target is found in the given Python list."""
+    low = 0
+    high = len(data) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if target == data[mid]:  # found a match
+            return True
+        elif target < data[mid]:
+            high = mid - 1  # only consider values left of mid
+        else:
+            low = mid + 1  # only consider values right of mid
+    return False  # loop ended without success
 ```
 
-In the fixed code, `A = [0] * n` creates a list of size `n` with all elements initialized to 0, and `/` is used for regular division to compute the average.
+This corrected code will perform the binary search correctly.
 
 
-#17 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_3_line_no_4_AOR.py
-Yes, there is a bug in the provided code. The line `A = [0] ** n` is incorrect. It is trying to create a list of size n with all elements as 0. However, the correct syntax to create a list of size n with all elements as 0 is `A = [0] * n`.
+#26 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_8_line_no_7_COI.py
+I apologize, but I don't see any bugs in the provided code. It appears to be a correct implementation of an iterative binary search algorithm.
+
+
+#27 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_9_line_no_9_COI.py
+Yes, there is a bug in the provided code. 
+
+The bug is in the condition `not (target < data[mid])` inside the `elif` statement. This condition should be `target < data[mid]` instead. 
 
 Here's the corrected code:
 
 ```python
-def prefix_average3(S):
-  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-  n = len(S)
-  A = [0] * n
-  total = 0                     # compute prefix sum as S[0] + S[1] + ...
-  for j in range(n):
-    total += S[j]               # update prefix sum to include S[j]
-    A[j] = total / (j+1)        # compute average based on current sum
-  return A
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
 ```
+Now the logic of the code is correct, and it will perform a binary search on the given list.
 
-With this correction, the code should work as intended.
+
+#28 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_10_line_no_5_ROR.py
+Yes, there is a bug in the provided code. The bug is in the line that checks if there are two or more elements in the slice:
+
+elif start != stop - 1:
+
+This condition will only be true when there are exactly two elements in the slice. However, the intention seems to be to handle cases when there are two or more elements in the slice.
+
+To fix this, we can change the condition to:
+
+elif start != stop:
+
+This condition will be true when there is at least one element in the slice.
+
+Here's the corrected code:
+
+def binary_sum(S, start, stop):
+    """Return the sum of the numbers in implicit slice S[start:stop]."""
+    if start >= stop:                      # zero elements in slice
+        return 0
+    elif start != stop:
+        return S[start]
+    else:                                  # two or more elements in slice
+        mid = (start + stop) // 2
+        return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
 
 
-#18 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_4_line_no_8_AOR.py
-The code you provided does not have any syntax errors, but there is a logical flaw in the code. The issue lies in the line where the average is calculated:
-
-```
-A[j] = total // (j + 1)
-```
-
-The division operator `//` performs integer division, which rounds the result down to the nearest integer. However, when calculating the average, you want to perform regular floating-point division to get an accurate result.
-
-To fix this issue, you can replace the line with:
-
-```
-A[j] = total / (j + 1)
-```
+#29 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_1_line_no_5_AOR.py
+Yes, there is a bug in the provided code. The bug is in the condition `elif start == stop + 1`, which is incorrect for computing the sum of the numbers in the slice.
 
 Here's the corrected code:
 
 ```python
-def prefix_average3(S):
-    """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-    n = len(S)
-    A = [0] * n                   # create new list of n zeros
-    total = 0                     # compute prefix sum as S[0] + S[1] + ...
-    for j in range(n):
-        total += S[j]               # update prefix sum to include S[j]
-        A[j] = total / (j + 1)      # perform regular division to calculate average
-    return A
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop - 1:
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
 ```
 
-Now the code will correctly calculate the average of the prefix of `S` and return the resulting list `A`.
+In the corrected code, `elif start == stop - 1` is used instead of `elif start == stop + 1` to handle the case where there is only one element in the slice.
 
 
-#19 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_5_line_no_8_AOR.py
-The provided code has a bug in the calculation of the prefix average. Currently, it calculates the prefix sum (`total`) correctly, but it multiplies it by `(j + 1)` instead of dividing. 
+#30 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_2_line_no_8_AOR.py
+Yes, there is a bug in the provided code. 
 
-To fix the bug, we need to divide `total` by `(j + 1)` instead of multiplying. Here's the corrected code:
-
-```python
-def prefix_average3(S):
-  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-  n = len(S)
-  A = [0] * n                   # create new list of n zeros
-  total = 0                     # compute prefix sum as S[0] + S[1] + ...
-  for j in range(n):
-    total += S[j]               # update prefix sum to include S[j]
-    A[j] = total / (j + 1)      # divide total by (j + 1) to get average
-  return A
-```
-
-Now, the `A[j]` will correctly store the average of elements from `S[0]` to `S[j]`.
-
-
-#20 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_6_line_no_8_AOR.py
-Yes, I see a bug in the provided code. In the line `A[j] = total / (j - 1)`, the denominator should be `j + 1` instead of `j - 1` to calculate the average correctly. 
+The bug is in the calculation of the `mid` variable. It should be `(start + stop) // 2` instead of `(start - stop) // 2` in order to calculate the midpoint correctly. 
 
 Here's the corrected code:
 
+```python
+def binary_sum(S, start, stop):
+    """Return the sum of the numbers in implicit slice S[start:stop]."""
+    if start >= stop:                      # zero elements in slice
+        return 0
+    elif start == stop-1:                  # one element in slice
+        return S[start]
+    else:                                  # two or more elements in slice
+        mid = (start + stop) // 2
+        return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
 ```
-def prefix_average3(S):
-  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-  n = len(S)
-  A = [0] * n                   # create new list of n zeros
-  total = 0                     # compute prefix sum as S[0] + S[1] + ...
-  for j in range(n):
-    total += S[j]               # update prefix sum to include S[j]
-    A[j] = total / (j + 1)      # calculate average accordingly
-  return A
-```
 
-Now each element `A[j]` will correctly represent the average of `S[0]` through `S[j]`.
+With this modification, the code should work correctly.
 
 
-#21 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_7_line_no_7_ASR.py
-Yes, there is a bug in the provided code. The bug is in the line where the value of `total` is computed. The current implementation subtracts `S[j]` from `total` which is incorrect. 
+#31 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_3_line_no_8_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line where the mid index is computed: mid = (start + stop) / 2. 
 
-To fix the bug, we should be adding `S[j]` to `total` instead. Here's the corrected code:
+In Python 3.x, the division operator (/) performs floating-point division, which can result in a non-integer value for the mid index. However, in this case, the mid index should always be an integer index to properly slice the list.
+
+To fix the bug, we can use integer division (//) instead of floating-point division. Here's the corrected code:
+
+def binary_sum(S, start, stop):
+    """Return the sum of the numbers in implicit slice S[start:stop]."""
+    if start >= stop:                      # zero elements in slice
+        return 0
+    elif start == stop-1:                  # one element in slice
+        return S[start]
+    else:                                  # two or more elements in slice
+        mid = (start + stop) // 2
+        return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+
+Now, the code will correctly compute the mid index as the integer division of (start + stop) by 2.
+
+
+#32 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_4_line_no_8_AOR.py
+Yes, there is a bug in the provided code. The calculation of the midpoint is incorrect. The correct calculation should be `mid = (start + stop) // 2` instead of `mid = (start + stop) * 2`.
+
+Here's the fixed code:
 
 ```python
-def prefix_average3(S):
-  """Return list such that, for all j, A[j] equals average of S[0], ..., S[j]."""
-  n = len(S)
-  A = [0] * n                   # create new list of n zeros
-  total = 0                     # compute prefix sum as S[0] + S[1] + ...
-  for j in range(n):
-    total += S[j]               # update total by adding S[j]
-    A[j] = total / (j+1)        # compute average based on current sum
-  return A
+def binary_sum(S, start, stop):
+    """Return the sum of the numbers in implicit slice S[start:stop]."""
+    if start >= stop:                      # zero elements in slice
+        return 0
+    elif start == stop-1:                  # one element in slice
+        return S[start]
+    else:                                  # two or more elements in slice
+        mid = (start + stop) // 2
+        return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
 ```
 
-Now, the code correctly computes the average prefix values and returns the list `A` where each element `A[j]` represents the average of `S[0]` to `S[j]`.
+Now the code should correctly calculate the midpoint and perform the binary sum recursively.
 
 
-#22 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_1_line_no_4_AOR.py
-Yes, there is a bug in the code. The inner loop should start from `j + 1` instead of `j - 1`, otherwise it will compare an element with itself and incorrectly report a duplicate. Here's the corrected code:
+#33 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_5_line_no_9_AOR.py
+Yes, there is a bug in the provided code. The logic for calculating the sum of the numbers in the binary_sum function is incorrect.
+
+To fix the bug, we need to modify the recursive calls to binary_sum so that they calculate the sum correctly. Here's the corrected code:
 
 ```python
-def unique1(S):
-    """Return True if there are no duplicate elements in sequence S."""
-    for j in range(len(S)):
-        for k in range(j + 1, len(S)):
-            if S[j] == S[k]:
-                return False  # found duplicate pair
-    return True  # if we reach this, elements were unique
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
 ```
 
-With this fix, the code will correctly check for duplicate elements and return `True` if all elements in the sequence are unique.
+In the else block, instead of subtracting the second recursive call result from the first one, we should add them together. By making this change, we will correctly calculate the sum of the numbers in the slice.
 
 
-#23 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_2_line_no_5_COI.py
-Yes, there is a bug in the provided code. The condition inside the inner loop that checks for duplicates is incorrect. To fix it, you need to change `if not (S[j] == S[k])` to `if S[j] == S[k]`, and reverse the return statements. Here's the corrected code:
+#34 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_6_line_no_3_COI.py
+Yes, there is a bug in the provided code. The bug is in the first condition `if not (start >= stop):`. It should be `if not (start < stop):` instead. This is because the function should stop the recursive call when `start` is equal to or exceeds `stop`, not the other way around.
+
+Here's the corrected code:
 
 ```python
-def unique1(S):
-  """Return True if there are no duplicate elements in sequence S."""
-  for j in range(len(S)):
-    for k in range(j+1, len(S)):
-      if S[j] == S[k]:
-        return False              # found duplicate pair
-  return True                     # if we reach this, elements were unique
+def binary_sum(S, start, stop):
+    """Return the sum of the numbers in implicit slice S[start:stop]."""
+    if not (start < stop):
+        return 0
+    elif start == stop - 1:  # one element in slice
+        return S[start]
+    else:  # two or more elements in slice
+        mid = (start + stop) // 2
+        return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
 ```
 
-With these changes, the code should work correctly and return `True` if there are no duplicate elements in the sequence `S`, and `False` otherwise.
-
-
-#24 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_3_line_no_5_ROR.py
-Yes, there is a bug in the provided code. The code currently returns False as soon as it finds a pair of elements that are not equal. However, this logic is incorrect because it does not check all the pairs of elements in the sequence.
-
-To fix this bug, we can modify the inner loop to run until the end of the sequence and change the condition inside the loop to check for duplicate elements. Here's the updated code:
-
-def unique(S):
-  """Return True if there are no duplicate elements in sequence S."""
-  for j in range(len(S)):
-    for k in range(j+1, len(S)):
-      if S[j] == S[k]:
-        return False              # found duplicate pair
-  return True                     # if we reach this, elements were unique
-
-Now, the code will compare all pairs of elements in the sequence and return False if it finds any duplicates, or True if it does not find any duplicates.
+With this fix, the function will correctly calculate the sum of numbers in the slice `S[start:stop]`.
 
 
