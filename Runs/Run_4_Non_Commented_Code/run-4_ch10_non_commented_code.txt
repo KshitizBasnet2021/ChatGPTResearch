@@ -1,0 +1,61 @@
+#1 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_1_line_no_7_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#2 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_2_line_no_6_COI.py
+
+Yes, there is a bug in the provided code. The code should increment the frequency of the word if it already exists in the dictionary, but the code is currently setting the frequency to 1 if the word already exists. 
+
+To fix this bug, the code should be changed to:
+
+def find_most_frequent_word(filename):
+  freq = {}
+  with open(filename) as file:
+    for piece in file.read().lower().split():
+      word = ''.join(c for c in piece if c.isalpha())
+      if word:
+        freq[word] = 1 + freq.get(word, 0)
+
+  max_word = ''
+  max_count = 0
+  for (w, c) in freq.items():
+    if c > max_count:
+      max_word = w
+      max_count = c
+
+  return max_word, max_count
+
+
+#3 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_3_line_no_12_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#4 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_4_line_no_12_ROR.py
+
+Yes, there is a bug in the provided code. The code should be changed to:
+
+def find_most_frequent_word(filename):
+  freq = {}
+  with open(filename) as file:
+    for piece in file.read().lower().split():
+      word = ''.join(c for c in piece if c.isalpha())
+      if word:
+        freq[word] = 1 + freq.get(word, 0)
+
+  max_word = ''
+  max_count = 0
+  for (w, c) in freq.items():
+    if c > max_count:
+      max_word = w
+      max_count = c
+
+  return max_word, max_count
+
+
+#5 Tests_Final/Ch10/Mutation/Non_Commented_Code\Word_Frequency\mutation_5_line_no_12_ROR.py
+
+No, there are no bugs in the provided code.
+
+

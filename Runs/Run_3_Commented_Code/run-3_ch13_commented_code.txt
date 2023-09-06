@@ -1,0 +1,181 @@
+#1 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_10_line_no_16_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#2 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_11_line_no_17_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#3 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_12_line_no_20_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#4 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_13_line_no_4_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#5 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_14_line_no_11_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#6 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_15_line_no_12_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#7 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_16_line_no_13_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#8 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_17_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#9 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_18_line_no_11_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#10 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_19_line_no_11_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#11 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_1_line_no_19_AOD.py
+
+No, there are no bugs in the provided code.
+
+
+#12 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_20_line_no_12_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#13 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_21_line_no_13_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#14 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_2_line_no_22_AOD.py
+
+No, there are no bugs in the provided code.
+
+
+#15 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_3_line_no_9_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#16 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_4_line_no_10_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#17 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_5_line_no_19_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#18 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_6_line_no_20_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#19 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_7_line_no_20_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#20 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_8_line_no_21_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#21 Tests_Final/Ch13/Mutation/Commented_Code\find_boyer_moore\mutation_9_line_no_22_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#22 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_10_line_no_6_ROR.py
+
+Yes, there is a bug in the provided code. The while loop should be changed to "while (k < m and T[i + k] == P[k]):". This will ensure that the loop runs until the end of the pattern is reached.
+
+
+#23 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_11_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#24 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_12_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#25 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_13_line_no_8_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#26 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_1_line_no_10_AOD.py
+
+No, there are no bugs in the provided code.
+
+
+#27 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_2_line_no_4_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#28 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_3_line_no_4_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#29 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_4_line_no_6_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#30 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_5_line_no_10_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#31 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_6_line_no_7_ASR.py
+
+Yes, there is a bug in the provided code. The while loop should increment k instead of decrementing it. The fixed code should look like this:
+
+def find_brute(T, P):
+  """Return the lowest index of T at which substring P begins (or else -1)."""
+  n, m = len(T), len(P)                      # introduce convenient notations
+  for i in range(n-m+1):                     # try every potential starting index within T
+    k = 0                                    # an index into pattern P
+    while k < m and T[i + k] == P[k]:        # kth character of P matches
+      k += 1
+    if k == m:                               # if we reached the end of pattern,
+      return i                               # substring T[i:i+m] matches P
+  return -1                                  # failed to find a match starting with any i
+
+
+#32 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_7_line_no_6_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#33 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_8_line_no_8_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#34 Tests_Final/Ch13/Mutation/Commented_Code\find_brute\mutation_9_line_no_6_LCR.py
+
+No, there are no bugs in the provided code.
+
+

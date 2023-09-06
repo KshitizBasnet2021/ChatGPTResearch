@@ -1,0 +1,182 @@
+#1 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_1_line_no_6_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#2 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_2_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#3 Tests_Final/Ch03/Mutation/Commented_Code\Disjoint\mutation_3_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#4 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_1_line_no_9_AOD.py
+
+Yes, there is a bug in the provided code. The return statement should be "return -1" instead of "return 1". This is because if no match is found, the function should return -1, not 1. 
+
+The fixed code should look like this:
+
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+
+
+#5 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_2_line_no_9_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#6 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_3_line_no_8_ASR.py
+
+Yes, there is a bug in the provided code. The while loop should use the increment operator (j += 1) instead of the decrement operator (j -= 1). This will ensure that the loop iterates through the list until it finds a match or reaches the end of the list. 
+
+Fixed Code:
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+
+
+#7 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_4_line_no_5_COI.py
+
+Yes, there is a bug in the provided code. The while loop should be written as "while j < n" instead of "while not (j < n)". This is because the loop should continue until j is equal to n, not until j is not less than n. 
+
+Fixed Code:
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+
+
+#8 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_5_line_no_6_COI.py
+
+Yes, there is a bug in the provided code. The code should return j if S[j] == val, not if not (S[j] == val). The code should be changed to:
+
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+
+
+#9 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_6_line_no_5_ROR.py
+
+Yes, there is a bug in the provided code. The while loop should be while j < n instead of while j > n. This will ensure that the loop runs until the end of the list is reached. 
+
+def find(S, val):
+  """Return index j such that S[j] == val, or -1 if no such element."""
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j          # a match was found at index j
+    j += 1
+  return -1
+
+
+#10 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_7_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#11 Tests_Final/Ch03/Mutation/Commented_Code\FInd\mutation_8_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#12 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_1_line_no_5_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#13 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_2_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#14 Tests_Final/Ch03/Mutation/Commented_Code\Find_max\mutation_3_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#15 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_1_line_no_4_AOR.py
+
+Yes, there is a bug in the provided code. The line "A = [0] / n" should be changed to "A = [0] * n" in order for the code to work properly. This is because the line is attempting to divide the list [0] by the length of the list S, which is not possible. By changing the line to "A = [0] * n", the code will create a list of length n with all elements equal to 0.
+
+
+#16 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_2_line_no_4_AOR.py
+
+Yes, there is a bug in the provided code. The line "A = [0] // n" should be changed to "A = [0] * n" in order for the code to work properly. This is because the "//" operator performs floor division, which will not create a list of the desired length. The "*" operator performs multiplication, which will create a list of the desired length.
+
+
+#17 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_3_line_no_4_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#18 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_4_line_no_8_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#19 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_5_line_no_8_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#20 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_6_line_no_8_AOR.py
+
+Yes, there is a bug in the provided code. The line "A[j] = total / (j - 1)" should be "A[j] = total / (j + 1)". This is because the average should be calculated from S[0] to S[j], which is j+1 elements.
+
+
+#21 Tests_Final/Ch03/Mutation/Commented_Code\Prefix_averages\mutation_7_line_no_7_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#22 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_1_line_no_4_AOR.py
+
+Yes, there is a bug in the provided code. The code should check for duplicates starting from the index after j, not from the beginning of the sequence. This can be fixed by changing the range in the for loop to range(j + 1, len(S)). 
+
+def unique1(S):
+  """Return True if there are no duplicate elements in sequence S."""
+  for j in range(len(S)):
+    for k in range(j + 1, len(S)):
+      if S[j] == S[k]:
+        return False              # found duplicate pair
+  return True                     # if we reach this, elements were unique
+
+
+#23 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_2_line_no_5_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#24 Tests_Final/Ch03/Mutation/Commented_Code\Unique\mutation_3_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+

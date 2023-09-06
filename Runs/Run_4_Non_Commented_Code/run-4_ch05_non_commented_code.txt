@@ -1,0 +1,64 @@
+#1 Tests_Final/Ch05/Mutation/Non_Commented_Code\Insertion_Sort\mutation_1_line_no_5_AOR.py
+
+Yes, there is a bug in the provided code. The line "while (j > 0 and A[j + 1] > cur):" should be changed to "while (j > 0 and A[j - 1] > cur):". This is because the code is trying to compare the current element with the element before it, but the code is using the wrong index.
+
+
+#2 Tests_Final/Ch05/Mutation/Non_Commented_Code\Insertion_Sort\mutation_2_line_no_6_AOR.py
+
+Yes, there is a bug in the provided code. The line "A[j] = A[j + 1]" should be "A[j] = A[j - 1]". This line should be swapping the current element with the element to its left, not the element to its right. 
+
+Fixed Code:
+def insertion_sort(A):
+  for k in range(1, len(A)):
+    cur = A[k]
+    j = k
+    while j > 0 and A[j-1] > cur:
+      A[j] = A[j - 1]
+      j -= 1
+    A[j] = cur
+
+
+#3 Tests_Final/Ch05/Mutation/Non_Commented_Code\Insertion_Sort\mutation_3_line_no_7_ASR.py
+
+Yes, there is a bug in the provided code. The line "j += 1" should be "j -= 1" in order to move the index back one position in the array. The corrected code should look like this:
+
+def insertion_sort(A):
+  for k in range(1, len(A)):
+    cur = A[k]
+    j = k
+    while j > 0 and A[j-1] > cur:
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur
+
+
+#4 Tests_Final/Ch05/Mutation/Non_Commented_Code\Insertion_Sort\mutation_4_line_no_5_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#5 Tests_Final/Ch05/Mutation/Non_Commented_Code\Insertion_Sort\mutation_5_line_no_5_LCR.py
+
+Yes, there is a bug in the provided code. The while loop should be changed to "while (j > 0 and A[j - 1] > cur):". This will ensure that the loop only runs if j is greater than 0 and the element at A[j-1] is greater than cur.
+
+
+#6 Tests_Final/Ch05/Mutation/Non_Commented_Code\Insertion_Sort\mutation_6_line_no_5_ROR.py
+
+Yes, there is a bug in the provided code. The while loop should be written as "while (j > 0 and A[j - 1] > cur):" instead of "while (j < 0 and A[j - 1] > cur):". This is because the loop should only run if j is greater than 0, not less than 0.
+
+
+#7 Tests_Final/Ch05/Mutation/Non_Commented_Code\Insertion_Sort\mutation_7_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#8 Tests_Final/Ch05/Mutation/Non_Commented_Code\Insertion_Sort\mutation_8_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#9 Tests_Final/Ch05/Mutation/Non_Commented_Code\Insertion_Sort\mutation_9_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+

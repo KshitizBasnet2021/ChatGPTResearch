@@ -1,0 +1,515 @@
+#1 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_10_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#2 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_11_line_no_10_ROR.py
+
+Yes, there is a bug in the provided code. The code should return False if the target is not found in the indicated portion of the list. The code should be changed to:
+
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+
+
+#3 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_12_line_no_12_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#4 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_13_line_no_12_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#5 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_1_line_no_9_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#6 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_2_line_no_9_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#7 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_3_line_no_9_AOR.py
+
+Yes, there is a bug in the provided code. The mid variable should be calculated as (low + high) // 2 instead of (low + high) * 2. This is because the mid variable should be the average of the low and high values, not the product of the two. 
+
+The fixed code should look like this:
+
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+
+
+#8 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_4_line_no_14_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#9 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_5_line_no_17_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#10 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_6_line_no_6_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#11 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_7_line_no_10_COI.py
+
+Yes, there is a bug in the provided code. The code should return False if the target is not found in the indicated portion of the list. The code should be changed to:
+
+def binary_search(data, target, low, high):
+  """Return True if target is found in indicated portion of a Python list.
+
+  The search only considers the portion from data[low] to data[high] inclusive.
+  """
+  if low > high:
+    return False                    # interval is empty; no match
+  else:
+    mid = (low + high) // 2
+    if target == data[mid]:
+      return True
+    elif target < data[mid]:
+      # recur on the portion left of the middle
+      return binary_search(data, target, low, mid - 1)
+    else:
+      # recur on the portion right of the middle
+      return binary_search(data, target, mid + 1, high)
+
+
+#12 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_8_line_no_12_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#13 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search\mutation_9_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#14 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_10_line_no_5_ROR.py
+
+Yes, there is a bug in the provided code. The while loop should be "while low <= high:" instead of "while low >= high:". This is because the loop should continue until the low index is greater than the high index, which indicates that the target is not in the list. 
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#15 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_11_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#16 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_12_line_no_7_ROR.py
+
+Yes, there is a bug in the provided code. The if statement should be "if target == data[mid]:" instead of "if target != data[mid]:". This is because the binary search algorithm should return True if the target is found in the given list, not False. 
+
+The fixed code should look like this:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#17 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_13_line_no_9_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#18 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_14_line_no_9_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#19 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_1_line_no_4_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#20 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_2_line_no_6_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#21 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_3_line_no_6_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#22 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_4_line_no_6_AOR.py
+
+Yes, there is a bug in the provided code. The line "mid = (low + high) * 2" should be changed to "mid = (low + high) // 2" in order to calculate the midpoint correctly.
+
+
+#23 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_5_line_no_10_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#24 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_6_line_no_12_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#25 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_7_line_no_5_COI.py
+
+Yes, there is a bug in the provided code. The while loop should be while low <= high instead of while not (low <= high). This will ensure that the loop will terminate when the low index is greater than the high index. 
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:         # found a match
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#26 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_8_line_no_7_COI.py
+
+Yes, there is a bug in the provided code. The if statement should be "if target == data[mid]:" instead of "if not (target == data[mid]):". This should be fixed as follows:
+
+def binary_search_iterative(data, target):
+  """Return True if target is found in the given Python list."""
+  low = 0
+  high = len(data)-1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == data[mid]:
+      return True
+    elif target < data[mid]:
+      high = mid - 1                # only consider values left of mid
+    else:
+      low = mid + 1                 # only consider values right of mid
+  return False                      # loop ended without success
+
+
+#27 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Search_iterative\mutation_9_line_no_9_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#28 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_10_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#29 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_1_line_no_5_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#30 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_2_line_no_8_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#31 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_3_line_no_8_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#32 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_4_line_no_8_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#33 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_5_line_no_9_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#34 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_6_line_no_3_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#35 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_7_line_no_5_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#36 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_8_line_no_3_ROR.py
+
+Yes, there is a bug in the provided code. The if statement should be changed from "if start <= stop:" to "if start >= stop:". This will ensure that the function returns 0 when the start index is greater than or equal to the stop index.
+
+
+#37 Tests_Final/Ch04/Mutation/Commented_Code\Binary_Sum\mutation_9_line_no_3_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#38 Tests_Final/Ch04/Mutation/Commented_Code\Disk_Usage\mutation_1_line_no_9_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#39 Tests_Final/Ch04/Mutation/Commented_Code\Disk_Usage\mutation_2_line_no_6_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#40 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_10_line_no_3_COI.py
+
+Yes, there is a bug in the provided code. The code should include an if-else statement to check if n is 0. The code should be changed to:
+
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+
+
+#41 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_11_line_no_8_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#42 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_12_line_no_3_ROR.py
+
+Yes, there is a bug in the provided code. The code should include an if statement to check if n is equal to 0, and if so, return x to the power of n. The code should be changed to:
+
+def power(x, n):
+  """Compute the value x**n for integer n."""
+  if n == 0:
+    return 1
+  else:
+    partial = power(x, n // 2)          # rely on truncated division
+    result = partial * partial
+    if n % 2 == 1:                      # if n odd, include extra factor of x
+      result *= x                       
+    return result
+
+
+#43 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_13_line_no_8_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#44 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_1_line_no_6_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#45 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_2_line_no_6_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#46 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_3_line_no_7_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#47 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_4_line_no_7_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#48 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_5_line_no_7_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#49 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_6_line_no_8_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#50 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_7_line_no_9_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#51 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_8_line_no_9_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#52 Tests_Final/Ch04/Mutation/Commented_Code\Power_Fast\mutation_9_line_no_9_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#53 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_1_line_no_3_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#54 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_2_line_no_4_AOR.py
+
+Yes, there is a bug in the provided code. The code should be:
+
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop - 1:                         # if at least 2 elements:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+    reverse(S, start+1, stop-1)                # recur on rest
+
+
+#55 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_3_line_no_4_AOR.py
+
+Yes, there is a bug in the provided code. The code should be:
+
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start < stop - 1:                         # if at least 2 elements:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+    reverse(S, start+1, stop-1)                # recur on rest
+
+
+#56 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_4_line_no_5_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#57 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_5_line_no_5_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#58 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_6_line_no_3_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#59 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_7_line_no_3_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#60 Tests_Final/Ch04/Mutation/Commented_Code\Reverse\mutation_8_line_no_3_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#61 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_1_line_no_4_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#62 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_2_line_no_5_AOR.py
+
+Yes, there is a bug in the provided code. The code should be:
+
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+    start, stop = start + 1, stop - 1          # narrow the range
+
+
+#63 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_3_line_no_5_AOR.py
+
+Yes, there is a bug in the provided code. The code should be:
+
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    (S[start], S[stop - 1]) = (S[stop - 1], S[start])
+    start, stop = start + 1, stop - 1          # narrow the range
+
+
+#64 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_4_line_no_6_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#65 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_5_line_no_6_AOR.py
+
+Yes, there is a bug in the provided code. The stop variable should be decremented instead of incremented in the last line. The code should be changed to:
+
+start, stop = 0, len(S)
+while start < stop - 1:
+  S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+  (start, stop) = (start + 1, stop - 1)
+
+
+#66 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_6_line_no_4_COI.py
+
+Yes, there is a bug in the provided code. The while loop should be written as "while start < stop - 1" instead of "while not (start < stop - 1)". This will ensure that the loop runs until the start index is less than the stop index minus one.
+
+
+#67 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_7_line_no_4_ROR.py
+
+Yes, there is a bug in the provided code. The while loop should be while start < stop - 1 instead of while start > stop - 1. This will ensure that the loop runs until the start index is less than the stop index. 
+
+Fixed Code:
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    start, stop = start + 1, stop - 1          # narrow the range
+
+
+#68 Tests_Final/Ch04/Mutation/Commented_Code\Reverse_Iterative\mutation_8_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+

@@ -1,0 +1,438 @@
+#1 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_10_line_no_13_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#2 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_11_line_no_4_LCR.py
+
+No, there are no bugs in the provided code.
+
+
+#3 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_12_line_no_4_LCR.py
+
+Yes, there is a bug in the provided code. The if statement should be changed to:
+
+if (j == len(S2) or (i < len(S1) and S1[i] < S2[j])):
+      S[i+j] = S1[i]
+      i += 1
+
+The bug was that the "or" operator was used instead of the "and" operator.
+
+
+#4 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_13_line_no_3_ROR.py
+
+Yes, there is a bug in the provided code. The while loop should be changed to:
+
+while i + j < len(S):
+
+This is because the loop should stop when the index is one less than the length of the list, not when it is equal to the length of the list.
+
+
+#5 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_14_line_no_3_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#6 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_15_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#7 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_16_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#8 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_17_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#9 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_18_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#10 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_19_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#11 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_1_line_no_3_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#12 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_20_line_no_13_ROR.py
+
+Yes, there is a bug in the provided code. The bug is that the function merge_sort() does not have a return statement. This means that the function will not return any value when it is called. 
+
+To fix this bug, we can add a return statement to the function merge_sort():
+
+def merge_sort(S):
+  n = len(S)
+  if n > 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+  return S
+
+
+#13 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_21_line_no_13_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#14 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_22_line_no_16_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#15 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_23_line_no_16_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#16 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_24_line_no_17_SIR.py
+
+Yes, there is a bug in the provided code. In the merge() function, the second parameter of the slice operator in the line "S2 = S[:n]" should be "mid" instead of "n". This should be changed to "S2 = S[mid:n]".
+
+
+#17 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_25_line_no_17_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#18 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_2_line_no_5_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#19 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_3_line_no_8_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#20 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_4_line_no_15_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#21 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_5_line_no_15_AOR.py
+
+Yes, there is a bug in the provided code. The mid variable should be set to n // 2 instead of n * 2. This is because the mid variable is used to divide the list into two halves, and multiplying it by 2 will result in an index out of range error. 
+
+The code should be changed to:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+def merge_sort(S):
+  n = len(S)
+  if n < 2:
+    return
+  mid = n // 2
+  S1 = S[0:mid]
+  S2 = S[mid:n]
+  merge_sort(S1)
+  merge_sort(S2)
+  merge(S1, S2, S)
+
+
+#22 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_6_line_no_6_ASR.py
+
+Yes, there is a bug in the provided code. The variable "i" should be incremented instead of decremented in the while loop. The corrected code should be:
+
+def merge(S1, S2, S):
+  i = j = 0
+  while i + j < len(S):
+    if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+      S[i+j] = S1[i]
+      i += 1
+    else:
+      S[i+j] = S2[j]
+      j += 1
+
+
+#23 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_7_line_no_9_ASR.py
+
+Yes, there is a bug in the provided code. The line "j -= 1" should be "j += 1". This line should increment the value of j, not decrement it.
+
+
+#24 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_8_line_no_3_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#25 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Array\mutation_9_line_no_4_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#26 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_10_line_no_24_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#27 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_11_line_no_25_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#28 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_12_line_no_25_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#29 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_13_line_no_25_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#30 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_14_line_no_10_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#31 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_15_line_no_13_ASR.py
+
+Yes, there is a bug in the provided code. In the merge() function, the variable y should be incremented instead of decremented. The corrected code should look like this:
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start+2*inc, len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+
+#32 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_16_line_no_14_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#33 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_17_line_no_7_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#34 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_18_line_no_8_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#35 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_19_line_no_15_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#36 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_1_line_no_4_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#37 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_20_line_no_17_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#38 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_21_line_no_28_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#39 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_22_line_no_7_LCR.py
+
+No, there are no bugs in the provided code.
+
+
+#40 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_23_line_no_7_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#41 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_24_line_no_7_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#42 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_25_line_no_7_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#43 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_26_line_no_7_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#44 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_27_line_no_8_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#45 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_28_line_no_8_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#46 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_29_line_no_15_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#47 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_2_line_no_5_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#48 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_30_line_no_15_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#49 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_31_line_no_17_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#50 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_32_line_no_17_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#51 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_33_line_no_16_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#52 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_34_line_no_16_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#53 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_35_line_no_16_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#54 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_36_line_no_16_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#55 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_37_line_no_18_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#56 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_38_line_no_18_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#57 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_39_line_no_18_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#58 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_3_line_no_5_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#59 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_40_line_no_18_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#60 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_41_line_no_29_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#61 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_42_line_no_29_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#62 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_43_line_no_29_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#63 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_44_line_no_29_SIR.py
+
+No, there are no bugs in the provided code.
+
+
+#64 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_4_line_no_5_AOR.py
+
+Yes, there is a bug in the provided code. The bug is in the merge function. The end2 variable should be set to min(start + (2 * inc), len(src)) instead of min(start + (2 // inc), len(src)). This is because the expression (2 // inc) will always evaluate to 0, which will cause the end2 variable to be set to start, which is incorrect. 
+
+The fixed code should look like this:
+
+def merge(src, result, start, inc):
+  end1 = start+inc
+  end2 = min(start + (2 * inc), len(src))
+  x, y, z = start, start+inc, start
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1
+  if x < end1:
+    result[z:end2] = src[x:end1]
+  elif y < end2:
+    result[z:end2] = src[y:end2]
+
+
+#65 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_5_line_no_5_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#66 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_6_line_no_6_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#67 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_7_line_no_23_AOR.py
+
+Yes, there is a bug in the provided code. The line "dest = [None] / n" should be changed to "dest = [None] * n" in order to create a list of length n with all elements set to None.
+
+
+#68 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_8_line_no_23_AOR.py
+
+Yes, there is a bug in the provided code. The line "dest = [None] // n" should be changed to "dest = [None] * n" in order to create a list of length n with all elements set to None.
+
+
+#69 Tests_Final/Ch12/Mutation/Non_Commented_Code\Merge_Nonrecur\mutation_9_line_no_23_AOR.py
+
+No, there are no bugs in the provided code.
+
+

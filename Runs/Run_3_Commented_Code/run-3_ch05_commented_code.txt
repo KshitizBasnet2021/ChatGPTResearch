@@ -1,0 +1,49 @@
+#1 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_1_line_no_6_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#2 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_2_line_no_7_AOR.py
+
+Yes, there is a bug in the provided code. The line "A[j] = A[j + 1]" should be "A[j] = A[j - 1]". This line should be swapping the current element with the element before it, not the element after it.
+
+
+#3 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_3_line_no_8_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#4 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_4_line_no_6_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#5 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_5_line_no_6_LCR.py
+
+No, there are no bugs in the provided code.
+
+
+#6 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_6_line_no_6_ROR.py
+
+Yes, there is a bug in the provided code. The while loop should be changed to:
+
+while (j > 0 and A[j - 1] > cur):
+  A[j] = A[j-1]
+  j -= 1
+
+
+#7 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_7_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#8 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_8_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#9 Tests_Final/Ch05/Mutation/Commented_Code\Insertion_Sort\mutation_9_line_no_6_ROR.py
+
+No, there are no bugs in the provided code.
+
+

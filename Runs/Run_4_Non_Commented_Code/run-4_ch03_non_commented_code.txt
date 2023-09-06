@@ -1,0 +1,192 @@
+#1 Tests_Final/Ch03/Mutation/Non_Commented_Code\Disjoint\mutation_1_line_no_5_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#2 Tests_Final/Ch03/Mutation/Non_Commented_Code\Disjoint\mutation_2_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#3 Tests_Final/Ch03/Mutation/Non_Commented_Code\Disjoint\mutation_3_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#4 Tests_Final/Ch03/Mutation/Non_Commented_Code\FInd\mutation_1_line_no_8_AOD.py
+
+Yes, there is a bug in the provided code. The code should return -1 if the value is not found in the list, instead of 1. To fix this, the code should be changed to:
+
+def find(S, val):
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j
+    j += 1
+  return -1
+
+
+#5 Tests_Final/Ch03/Mutation/Non_Commented_Code\FInd\mutation_2_line_no_8_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#6 Tests_Final/Ch03/Mutation/Non_Commented_Code\FInd\mutation_3_line_no_7_ASR.py
+
+Yes, there is a bug in the provided code. The while loop should be using the increment operator (j += 1) instead of the decrement operator (j -= 1). This will ensure that the loop will iterate through the list until it finds the value or reaches the end of the list. 
+
+The code should be changed to:
+
+def find(S, val):
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j
+    j += 1
+  return -1
+
+
+#7 Tests_Final/Ch03/Mutation/Non_Commented_Code\FInd\mutation_4_line_no_4_COI.py
+
+Yes, there is a bug in the provided code. The while loop should be written as "while j < n" instead of "while not (j < n)". This is because the loop should continue until j is no longer less than n, not until it is not less than n. 
+
+The fixed code should look like this:
+
+def find(S, val):
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j
+    j += 1
+  return -1
+
+
+#8 Tests_Final/Ch03/Mutation/Non_Commented_Code\FInd\mutation_5_line_no_5_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#9 Tests_Final/Ch03/Mutation/Non_Commented_Code\FInd\mutation_6_line_no_4_ROR.py
+
+Yes, there is a bug in the provided code. The while loop should be while j < n instead of while j > n. This will ensure that the loop runs until the end of the list is reached. 
+
+def find(S, val):
+  n = len(S)
+  j = 0
+  while j < n:
+    if S[j] == val:
+      return j
+    j += 1
+  return -1
+
+
+#10 Tests_Final/Ch03/Mutation/Non_Commented_Code\FInd\mutation_7_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#11 Tests_Final/Ch03/Mutation/Non_Commented_Code\FInd\mutation_8_line_no_5_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#12 Tests_Final/Ch03/Mutation/Non_Commented_Code\Find_max\mutation_1_line_no_4_COI.py
+
+No, there are no bugs in the provided code.
+
+
+#13 Tests_Final/Ch03/Mutation/Non_Commented_Code\Find_max\mutation_2_line_no_4_ROR.py
+
+Yes, there is a bug in the provided code. The comparison operator used is incorrect. The code should use the greater than operator (>) instead of the less than operator (<).
+
+def find_max(data):
+  biggest = data[0]
+  for val in data:
+    if val > biggest:
+      biggest = val
+  return biggest
+
+
+#14 Tests_Final/Ch03/Mutation/Non_Commented_Code\Find_max\mutation_3_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+
+#15 Tests_Final/Ch03/Mutation/Non_Commented_Code\Prefix_averages\mutation_1_line_no_3_AOR.py
+
+Yes, there is a bug in the provided code. The line "A = [0] / n" should be changed to "A = [0] * n" in order for the code to work properly. This is because the line as it is written is attempting to divide the list [0] by the value of n, which is not possible. By changing it to "A = [0] * n", the code will create a list of length n with all elements equal to 0.
+
+
+#16 Tests_Final/Ch03/Mutation/Non_Commented_Code\Prefix_averages\mutation_2_line_no_3_AOR.py
+
+Yes, there is a bug in the provided code. The line "A = [0] // n" should be changed to "A = [0] * n" in order for the code to work properly. This is because the "//" operator performs floor division, which will not create a list of length n. The "*" operator performs multiplication, which will create a list of length n with all elements initialized to 0.
+
+
+#17 Tests_Final/Ch03/Mutation/Non_Commented_Code\Prefix_averages\mutation_3_line_no_3_AOR.py
+
+Yes, there is a bug in the provided code. The line "A = [0] ** n" should be changed to "A = [0] * n" in order for the code to work properly. This is because the "**" operator is used for exponentiation, while the "*" operator is used for multiplication.
+
+
+#18 Tests_Final/Ch03/Mutation/Non_Commented_Code\Prefix_averages\mutation_4_line_no_7_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#19 Tests_Final/Ch03/Mutation/Non_Commented_Code\Prefix_averages\mutation_5_line_no_7_AOR.py
+
+No, there are no bugs in the provided code.
+
+
+#20 Tests_Final/Ch03/Mutation/Non_Commented_Code\Prefix_averages\mutation_6_line_no_7_AOR.py
+
+Yes, there is a bug in the provided code. The bug is that the denominator in the A[j] calculation should be j+1 instead of j-1. This is because the index of the array starts at 0, so the first element should be divided by 1, the second element should be divided by 2, and so on. 
+
+The fixed code should look like this:
+
+def prefix_average3(S):
+  n = len(S)
+  A = [0] * n
+  total = 0
+  for j in range(n):
+    total += S[j]
+    A[j] = total / (j + 1)
+  return A
+
+
+#21 Tests_Final/Ch03/Mutation/Non_Commented_Code\Prefix_averages\mutation_7_line_no_6_ASR.py
+
+No, there are no bugs in the provided code.
+
+
+#22 Tests_Final/Ch03/Mutation/Non_Commented_Code\Unique\mutation_1_line_no_3_AOR.py
+
+Yes, there is a bug in the provided code. The code should check for the condition S[j] == S[k] only when j is less than k. Otherwise, it will always return False. The code should be modified as follows:
+
+def unique1(S):
+  for j in range(len(S)):
+    for k in range(j + 1, len(S)):
+      if S[j] == S[k]:
+        return False
+  return True
+
+
+#23 Tests_Final/Ch03/Mutation/Non_Commented_Code\Unique\mutation_2_line_no_4_COI.py
+
+Yes, there is a bug in the provided code. The code should check if two elements are equal, not if they are not equal. The code should be changed to:
+
+def unique1(S):
+  for j in range(len(S)):
+    for k in range(j+1, len(S)):
+      if (S[j] == S[k]):
+        return False
+  return True
+
+
+#24 Tests_Final/Ch03/Mutation/Non_Commented_Code\Unique\mutation_3_line_no_4_ROR.py
+
+No, there are no bugs in the provided code.
+
+
