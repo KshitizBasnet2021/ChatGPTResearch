@@ -1,0 +1,2 @@
+Tests passed: 10
+Total tests: 10

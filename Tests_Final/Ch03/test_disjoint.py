@@ -4,6 +4,7 @@ from ch03.disjoint import disjoint1
 
 
 class TestDisjoint(unittest.TestCase):
+    
 
     def test_empty_lists(self):
         A = []
