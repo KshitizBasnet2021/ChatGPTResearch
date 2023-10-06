@@ -1,8 +1,8 @@
 import pytest
 from QuixBugs.python_testcases.node import Node
 
-# from QuixBugs.python_programs.topological_ordering import topological_ordering
-from QuixBugs.gptTOcode._topological_ordering import topological_ordering
+from QuixBugs.correct_python_programs.topological_ordering import topological_ordering
+#from QuixBugs.gptTOcode._topological_ordering import topological_ordering
 
 def test1():
     """Case 1: Wikipedia graph

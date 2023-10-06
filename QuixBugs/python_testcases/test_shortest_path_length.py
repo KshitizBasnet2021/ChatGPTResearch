@@ -1,8 +1,8 @@
 import pytest
 from QuixBugs.python_testcases.node import Node
 
-# from QuixBugs.python_programs.shortest_path_length import shortest_path_length
-from QuixBugs.gptTOcode._shortest_path_length import shortest_path_length
+from QuixBugs.correct_python_programs.shortest_path_length import shortest_path_length
+#from QuixBugs.gptTOcode._shortest_path_length import shortest_path_length
 
 node1 = Node("1")
 node5 = Node("5")

@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.find_in_sorted import find_in_sorted
-from QuixBugs.gptTOcode._find_in_sorted import find_in_sorted
+from QuixBugs.correct_python_programs.find_in_sorted import find_in_sorted
+#from QuixBugs.gptTOcode._find_in_sorted import find_in_sorted
 
 testdata = load_json_testcases(find_in_sorted.__name__)
 

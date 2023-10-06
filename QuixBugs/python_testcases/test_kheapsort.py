@@ -1,7 +1,7 @@
 import pytest
 from load_testdata import load_json_testcases
 
-from QuixBugs.python_programs.kheapsort import kheapsort
+from QuixBugs.correct_python_programs.kheapsort import kheapsort
 # from QuixBugs.gptTOcode._kheapsort import kheapsort
 
 testdata = load_json_testcases(kheapsort.__name__)

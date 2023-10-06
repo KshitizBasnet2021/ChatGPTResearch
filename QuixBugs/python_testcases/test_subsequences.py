@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.subsequences import subsequences
-from QuixBugs.gptTOcode._subsequences import subsequences
+from QuixBugs.correct_python_programs.subsequences import subsequences
+#from QuixBugs.gptTOcode._subsequences import subsequences
 
 testdata = load_json_testcases(subsequences.__name__)
 

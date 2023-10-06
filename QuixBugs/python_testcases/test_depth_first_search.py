@@ -1,8 +1,8 @@
 import pytest
 from QuixBugs.python_testcases.node import Node
 
-# from QuixBugs.python_programs.depth_first_search import depth_first_search
-from QuixBugs.gptTOcode._depth_first_search import depth_first_search
+from QuixBugs.correct_python_programs.depth_first_search import depth_first_search
+#from QuixBugs.gptTOcode._depth_first_search import depth_first_search
 
 def test1():
     """Case 1: Strongly connected graph

@@ -1,8 +1,8 @@
 import pytest
 from QuixBugs.python_testcases.node import Node
 
-# from QuixBugs.python_programs.reverse_linked_list import reverse_linked_list
-from QuixBugs.gptTOcode._reverse_linked_list import reverse_linked_list
+from QuixBugs.correct_python_programs.reverse_linked_list import reverse_linked_list
+#from QuixBugs.gptTOcode._reverse_linked_list import reverse_linked_list
 
 def test1():
     """Case 1: 5-node list input

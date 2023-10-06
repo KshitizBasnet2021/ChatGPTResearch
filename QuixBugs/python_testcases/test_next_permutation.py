@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.next_permutation import next_permutation
-from QuixBugs.gptTOcode._next_permutation import next_permutation
+from QuixBugs.correct_python_programs.next_permutation import next_permutation
+#from QuixBugs.gptTOcode._next_permutation import next_permutation
 
 testdata = load_json_testcases(next_permutation.__name__)
 

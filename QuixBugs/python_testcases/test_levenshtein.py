@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.levenshtein import levenshtein
-from QuixBugs.gptTOcode._levenshtein import levenshtein
+from QuixBugs.correct_python_programs.levenshtein import levenshtein
+#from QuixBugs.gptTOcode._levenshtein import levenshtein
 
 testdata = load_json_testcases(levenshtein.__name__)
 

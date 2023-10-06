@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.sieve import sieve
-from QuixBugs.gptTOcode._sieve import sieve
+from QuixBugs.correct_python_programs.sieve import sieve
+#from QuixBugs.gptTOcode._sieve import sieve
 
 testdata = load_json_testcases(sieve.__name__)
 

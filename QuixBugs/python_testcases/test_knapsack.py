@@ -1,15 +1,15 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.knapsack import knapsack
-from QuixBugs.gptTOcode._knapsack import knapsack
+from QuixBugs.python_programs.knapsack import knapsack
+# from QuixBugs.gptTOcode._knapsack import knapsack
 
 testdata = load_json_testcases(knapsack.__name__)
 
 
 @pytest.mark.parametrize("input_data,expected", testdata)
 def test_knapsack(input_data, expected):
-    if not pytest.run_slow and input_data == [
+    if  input_data == [
         6404180,
         [
             [382745, 825594],

@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.wrap import wrap
-from QuixBugs.gptTOcode._wrap import wrap
+from QuixBugs.correct_python_programs.wrap import wrap
+#from QuixBugs.gptTOcode._wrap import wrap
 
 testdata = load_json_testcases(wrap.__name__)
 

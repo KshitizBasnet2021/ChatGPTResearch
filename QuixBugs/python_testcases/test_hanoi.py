@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.hanoi import hanoi
-from QuixBugs.gptTOcode._hanoi import hanoi
+from QuixBugs.correct_python_programs.hanoi import hanoi
+#from QuixBugs.gptTOcode._hanoi import hanoi
 
 testdata = load_json_testcases(hanoi.__name__)
 testdata = [[inp, [tuple(x) for x in out]] for inp, out in testdata]

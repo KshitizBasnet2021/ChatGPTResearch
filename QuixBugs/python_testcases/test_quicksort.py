@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.quicksort import quicksort
-from QuixBugs.gptTOcode._quicksort import quicksort
+from QuixBugs.correct_python_programs.quicksort import quicksort
+#from QuixBugs.gptTOcode._quicksort import quicksort
 
 testdata = load_json_testcases(quicksort.__name__)
 

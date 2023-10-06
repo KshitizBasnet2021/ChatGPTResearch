@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.possible_change import possible_change
-from QuixBugs.gptTOcode._possible_change import possible_change
+from QuixBugs.correct_python_programs.possible_change import possible_change
+#from QuixBugs.gptTOcode._possible_change import possible_change
 
 testdata = load_json_testcases(possible_change.__name__)
 

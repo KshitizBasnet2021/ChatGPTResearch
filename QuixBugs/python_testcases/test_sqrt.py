@@ -1,8 +1,7 @@
 import pytest
 from load_testdata import load_json_testcases
-
-# from QuixBugs.python_programs.sqrt import sqrt
-from QuixBugs.gptTOcode._sqrt import sqrt
+from QuixBugs.correct_python_programs.sqrt import sqrt
+#from QuixBugs.gptTOcode._sqrt import sqrt
 
 testdata = load_json_testcases(sqrt.__name__)
 

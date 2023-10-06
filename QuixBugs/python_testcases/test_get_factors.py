@@ -1,8 +1,8 @@
 import pytest
 from load_testdata import load_json_testcases
 
-# from QuixBugs.python_programs.get_factors import get_factors
-from QuixBugs.gptTOcode._get_factors  import get_factors
+from QuixBugs.correct_python_programs.get_factors import get_factors
+#from QuixBugs.gptTOcode._get_factors  import get_factors
 
 testdata = load_json_testcases(get_factors.__name__)
 

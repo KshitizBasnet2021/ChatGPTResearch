@@ -1,7 +1,7 @@
 import pytest
 
-# from QuixBugs.python_programs.shortest_paths import shortest_paths
-from QuixBugs.gptTOcode._shortest_paths import shortest_paths
+from QuixBugs.correct_python_programs.shortest_paths import shortest_paths
+#from QuixBugs.gptTOcode._shortest_paths import shortest_paths
 
 def test1():
     """Case 1: Graph with multiple paths

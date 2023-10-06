@@ -1,8 +1,8 @@
 import pytest
 from QuixBugs.python_testcases.node import Node
 
-# from QuixBugs.python_programs.detect_cycle import detect_cycle
-from QuixBugs.gptTOcode._detect_cycle import detect_cycle
+from QuixBugs.correct_python_programs.detect_cycle import detect_cycle
+#from QuixBugs.gptTOcode._detect_cycle import detect_cycle
 
 node1 = Node(1)
 node2 = Node(2, node1)
