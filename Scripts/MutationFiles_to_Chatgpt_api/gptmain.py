@@ -4,8 +4,8 @@ import openai
 import os
 import requests
 
-# from getAllFiles import getPythonFiles
-from QuixBugs.Scripts.RunTests import getPythonFiles
+from getAllFiles import getPythonFiles
+
 
 # Your OpenAI API key
 api_endpoint = "https://api.openai.com/v1/chat/completions"
@@ -56,9 +56,10 @@ def chat_with_gpt(code, filename, count):
 python_files = getPythonFiles()
 
 # Create a text file to store the responses
-output_directory = '../../QuixBugs/'
+output_directory = 'test'
 
-output_file = os.path.join(output_directory, 'chatgpt-response.txt')
+output_file = os.path.join(output_directory, 'Run-5-ch13-chatgpt-response-for-obs-commented.txt')
+os.makedirs(output_directory, exist_ok=True)
 # Iterate over the Python files
 with open(output_file, "w") as output_file:
     count = 0

@@ -60,12 +60,12 @@ def filesGenerator(file_path, chapter_no,run):
         with open(new_filepath, 'w') as newfile:
             newfile.write("#" + extracted_string + '\n' + modified_code.strip())
 
-    print(f'{len(section_headers)} sections extracted and saved to separate Python files in the "Disjoint" folder.')
+    print(f'{len(section_headers)} sections extracted and saved to separate Python files in the  folder.')
 
 
-run = 2
+run = 5
 chapters = ['03', '04', '05', '10', '12', '13']
 for chapter in chapters:
-    file_path = f'Runs/Run_2_Non_commented_code/run-2_ch{chapter}_non_commented_code.txt'
+    file_path = f'{os.getcwd()}/Runs/Run_5_Commented_Code/Run-5-ch{chapter}-chatgpt-response-for-obs-commented.txt'
     # file_path = f'Runs/Run_1_commented_code/run-1_ch{chapter}_commented_code.txt'
     filesGenerator(file_path, chapter,run)

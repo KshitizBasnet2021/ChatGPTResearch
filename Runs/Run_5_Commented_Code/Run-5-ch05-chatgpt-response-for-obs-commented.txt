@@ -1,0 +1,107 @@
+#1 Buggy Code Obs/Buggy code for Book/Ch5/Commented_Code\Insertion_Sort\mutation_1_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The line `lIllIlIIIIl[lllIllllIllllIllll] = lIllIlIIIIl[lllIllllIllllIllll-1]` should be `lIllIlIIIIl[lllIllllIllllIllll] = lIllIlIIIIl[lllIllllIllllIllll-1]`. The index should be `lllIllllIllllIllll-1` instead of `lllIllllIllllIllll+1`. 
+
+Here is the corrected code:
+
+def llIlIllIIIlllIllIII(lIllIlIIIIl):
+  for IIlIIIll in range(1, len(lIllIlIIIIl)):         
+    IIIIIllI = lIllIlIIIIl[IIlIIIll]                       
+    lllIllllIllllIllll = IIlIIIll                            
+    while (lllIllllIllllIllll > 0 and lIllIlIIIIl[lllIllllIllllIllll - 1] > IIIIIllI):
+      lIllIlIIIIl[lllIllllIllllIllll] = lIllIlIIIIl[lllIllllIllllIllll-1]
+      lllIllllIllllIllll -= 1
+    lIllIlIIIIl[lllIllllIllllIllll] = IIIIIllI
+
+
+#2 Buggy Code Obs/Buggy code for Book/Ch5/Commented_Code\Insertion_Sort\mutation_2_line_no_7_AOR.py
+Yes, there is a bug in the provided code. The line `IlIIllllIlII[IIIIIIllIlI] = IlIIllllIlII[IIIIIIllIlI + 1]` should be `IlIIllllIlII[IIIIIIllIlI] = IlIIllllIlII[IIIIIIllIlI - 1]` to correctly shift the elements to the right. 
+
+Here is the corrected code:
+
+def lIIIIIIIlII(IlIIllllIlII):
+  for IlllIllIlIIIlIlll in range(1, len(IlIIllllIlII)):         
+    lIIlIIlIl = IlIIllllIlII[IlllIllIlIIIlIlll]                       
+    IIIIIIllIlI = IlllIllIlIIIlIlll                            
+    while IIIIIIllIlI > 0 and IlIIllllIlII[IIIIIIllIlI-1] > lIIlIIlIl:    
+      IlIIllllIlII[IIIIIIllIlI] = IlIIllllIlII[IIIIIIllIlI - 1]
+      IIIIIIllIlI -= 1
+    IlIIllllIlII[IIIIIIllIlI] = lIIlIIlIl                       
+
+Now the code should work correctly.
+
+
+#3 Buggy Code Obs/Buggy code for Book/Ch5/Commented_Code\Insertion_Sort\mutation_3_line_no_8_ASR.py
+Yes, there is a bug in the provided code. The bug is in the line `IIlllIIIlIlI += 1`. It should be `IIlllIIIlIlI -= 1` instead. 
+
+Here's the corrected code:
+
+def lIIlIIlIlIIlI(IIlIIIlIlIlIIIIlllI):
+  for llIIllIlIlIllIIl in range(1, len(IIlIIIlIlIlIIIIlllI)):         
+    lIlllIIlIIllII = IIlIIIlIlIlIIIIlllI[llIIllIlIlIllIIl]                       
+    IIlllIIIlIlI = llIIllIlIlIllIIl                            
+    while IIlllIIIlIlI > 0 and IIlIIIlIlIlIIIIlllI[IIlllIIIlIlI-1] > lIlllIIlIIllII:    
+      IIlIIIlIlIlIIIIlllI[IIlllIIIlIlI] = IIlIIIlIlIlIIIIlllI[IIlllIIIlIlI-1]
+      IIlllIIIlIlI -= 1
+    IIlIIIlIlIlIIIIlllI[IIlllIIIlIlI] = lIlllIIlIIllII                       
+
+Now the code should work correctly.
+
+
+#4 Buggy Code Obs/Buggy code for Book/Ch5/Commented_Code\Insertion_Sort\mutation_4_line_no_6_COI.py
+The code provided is an implementation of the insertion sort algorithm. It sorts a given list in ascending order.
+
+There is no bug in the code. It is correctly implemented.
+
+
+#5 Buggy Code Obs/Buggy code for Book/Ch5/Commented_Code\Insertion_Sort\mutation_5_line_no_6_LCR.py
+The provided code is an implementation of the insertion sort algorithm. It sorts a list of elements in ascending order. 
+
+There is no bug in the code. It is a correct implementation of the insertion sort algorithm.
+
+
+#6 Buggy Code Obs/Buggy code for Book/Ch5/Commented_Code\Insertion_Sort\mutation_6_line_no_6_ROR.py
+Yes, there is a bug in the provided code. The while loop condition should be `lllIlIlIIIIll > 0` instead of `lllIlIlIIIIll < 0`. This is because we want to check if the current index is greater than 0, not less than 0. 
+
+Here is the corrected code:
+
+def IlIllIllIIII(lIIllIIlll):
+  for lIlIllIlIllIIIlIIII in range(1, len(lIIllIIlll)):         
+    lIIllIIlIIllIll = lIIllIIlll[lIlIllIlIllIIIlIIII]                       
+    lllIlIlIIIIll = lIlIllIlIllIIIlIIII                            
+    while (lllIlIlIIIIll > 0 and lIIllIIlll[lllIlIlIIIIll - 1] > lIIllIIlIIllIll):
+      lIIllIIlll[lllIlIlIIIIll] = lIIllIIlll[lllIlIlIIIIll-1]
+      lllIlIlIIIIll -= 1
+    lIIllIIlll[lllIlIlIIIIll] = lIIllIIlIIllIll                       
+
+Now the code should work correctly.
+
+
+#7 Buggy Code Obs/Buggy code for Book/Ch5/Commented_Code\Insertion_Sort\mutation_7_line_no_6_ROR.py
+The code you provided is an implementation of the insertion sort algorithm. It sorts a list of elements in ascending order.
+
+There is no bug in the code. It is a correct implementation of the insertion sort algorithm.
+
+
+#8 Buggy Code Obs/Buggy code for Book/Ch5/Commented_Code\Insertion_Sort\mutation_8_line_no_6_ROR.py
+The provided code is an implementation of the insertion sort algorithm. It sorts a list of elements in descending order. However, there is a small bug in the code. 
+
+In the while loop condition, it should be `lIlIIllIllllIIlIlI[lllIlIlllIIlIIIlll - 1] > IIIIIIlIlIllIllIlI` instead of `lIlIIllIllllIIlIlI[lllIlIlllIIlIIIlll - 1] < IIIIIIlIlIllIllIlI`. This is because we want to sort the elements in descending order, so we need to check if the previous element is greater than the current element.
+
+Here is the corrected code:
+
+def lIIlIlIIIlIlIlllI(lIlIIllIllllIIlIlI):
+  for lIlIlIlIllIlIIIIIIl in range(1, len(lIlIIllIllllIIlIlI)):         
+    IIIIIIlIlIllIllIlI = lIlIIllIllllIIlIlI[lIlIlIlIllIlIIIIIIl]                       
+    lllIlIlllIIlIIIlll = lIlIlIlIllIlIIIIIIl                            
+    while (lllIlIlllIIlIIIlll > 0 and lIlIIllIllllIIlIlI[lllIlIlllIIlIIIlll - 1] > IIIIIIlIlIllIllIlI):
+      lIlIIllIllllIIlIlI[lllIlIlllIIlIIIlll] = lIlIIllIllllIIlIlI[lllIlIlllIIlIIIlll-1]
+      lllIlIlllIIlIIIlll -= 1
+    lIlIIllIllllIIlIlI[lllIlIlllIIlIIIlll] = IIIIIIlIlIllIllIlI
+
+Now the code should correctly sort the list in descending order.
+
+
+#9 Buggy Code Obs/Buggy code for Book/Ch5/Commented_Code\Insertion_Sort\mutation_9_line_no_6_ROR.py
+The code provided is an implementation of the insertion sort algorithm. It appears to be correct and does not contain any bugs.
+
+

@@ -1,0 +1,1191 @@
+#1 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_10_line_no_6_ROR.py
+The code appears to be implementing a binary search algorithm to search for a target value in a sorted list. However, there is a bug in the code. 
+
+In the recursive calls to `llIIIIIIlIlllII`, the parameters `lllIIIlIlII` and `IIlIIIIll` are not updated correctly. 
+
+To fix the bug, we need to update the parameters as follows:
+
+1. If `lllllIIIllIlIllIIl < llIlIlIIIlIllIlllI[IIIlIllllIlllIII]`, we should update `IIlIIIIll` to `IIIlIllllIlllIII - 1` instead of `IIlIIIIll`.
+2. If `lllllIIIllIlIllIIl > llIlIlIIIlIllIlllI[IIIlIllllIlllIII]`, we should update `lllIIIlIlII` to `IIIlIllllIlllIII + 1` instead of `lllIIIlIlII`.
+
+Here is the corrected code:
+
+def llIIIIIIlIlllII(llIlIlIIIlIllIlllI, lllllIIIllIlIllIIl, lllIIIlIlII, IIlIIIIll):
+  if lllIIIlIlII > IIlIIIIll:
+    return False                    
+  else:
+    IIIlIllllIlllIII = (lllIIIlIlII + IIlIIIIll) // 2
+    if lllllIIIllIlIllIIl == llIlIlIIIlIllIlllI[IIIlIllllIlllIII]:         
+      return True
+    elif lllllIIIllIlIllIIl < llIlIlIIIlIllIlllI[IIIlIllllIlllIII]:
+      return llIIIIIIlIlllII(llIlIlIIIlIllIlllI, lllllIIIllIlIllIIl, lllIIIlIlII, IIIlIllllIlllIII - 1)
+    else:
+      return llIIIIIIlIlllII(llIlIlIIIlIllIlllI, lllllIIIllIlIllIIl, IIIlIllllIlllIII + 1, IIlIIIIll)
+
+
+#2 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_11_line_no_10_ROR.py
+There is a bug in the provided code. The function name is misspelled as "lIIlIIIIIIlIIl" instead of "lIIlIIIIIIlIIl". To fix it, you can change the function name to "lIIlIIIIIIlIIl". Here's the corrected code:
+
+def lIIlIIIIIIlIIl(IIIllIIlIllIllIIlI, IllIllIlIlllIIllIIII, lIIlIIIIlIIIIIIlIIll, lllIIIlllIlIIIIII):
+  if lIIlIIIIlIIIIIIlIIll > lllIIIlllIlIIIIII:
+    return False                    
+  else:
+    lIlIIlIlll = (lIIlIIIIlIIIIIIlIIll + lllIIIlllIlIIIIII) // 2
+    if IllIllIlIlllIIllIIII != IIIllIIlIllIllIIlI[lIlIIlIlll]:
+      return True
+    elif IllIllIlIlllIIllIIII < IIIllIIlIllIllIIlI[lIlIIlIlll]:
+      return lIIlIIIIIIlIIl(IIIllIIlIllIllIIlI, IllIllIlIlllIIllIIII, lIIlIIIIlIIIIIIlIIll, lIlIIlIlll - 1)
+    else:
+      return lIIlIIIIIIlIIl(IIIllIIlIllIllIIlI, IllIllIlIlllIIllIIII, lIlIIlIlll + 1, lllIIIlllIlIIIIII)
+
+
+#3 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_12_line_no_12_ROR.py
+Yes, there is a bug in the provided code. 
+
+In the line `return IIIIlIIlIlIlIlI(lllllIllIl, llllIlllIll, IIlllIIllllIllIll - 1)`, the function is missing the `IIllIIIlIIII` argument. 
+
+To fix this, the line should be changed to `return IIIIlIIlIlIlIlI(lllllIllIl, llllIlllIll, IIllIIIlIIII, IIlllIIllllIllIll - 1)`.
+
+
+#4 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_13_line_no_12_ROR.py
+There is a bug in the provided code. The bug is in the recursive calls to the `IIllIlllll` function. 
+
+In the first recursive call, when `IlllllllIlllIIIIII <= IllIIIIllIlIlIlIIlI[lIlIIIIIIIllI]`, the second argument should be `IlllllllIlllIIIIII`, not `IlllllllIlllIIIIII - 1`. 
+
+In the second recursive call, when `IlllllllIlllIIIIII > IllIIIIllIlIlIlIIlI[lIlIIIIIIIllI]`, the third argument should be `lIlIIIIIIIllI + 1`, not `lIlIIIIIIIllI`. 
+
+Here is the corrected code:
+
+def IIllIlllll(IllIIIIllIlIlIlIIlI, IlllllllIlllIIIIII, lIllIlllIllll, IIlllllIIIllllII):
+  if lIllIlllIllll > IIlllllIIIllllII:
+    return False                    
+  else:
+    lIlIIIIIIIllI = (lIllIlllIllll + IIlllllIIIllllII) // 2
+    if IlllllllIlllIIIIII == IllIIIIllIlIlIlIIlI[lIlIIIIIIIllI]:         
+      return True
+    elif IlllllllIlllIIIIII <= IllIIIIllIlIlIlIIlI[lIlIIIIIIIllI]:
+      return IIllIlllll(IllIIIIllIlIlIlIIlI, IlllllllIlllIIIIII, lIllIlllIllll, lIlIIIIIIIllI)
+    else:
+      return IIllIlllll(IllIIIIllIlIlIlIIlI, IlllllllIlllIIIIII, lIlIIIIIIIllI + 1, IIlllllIIIllllII)
+
+
+#5 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_1_line_no_9_AOR.py
+There is a bug in the provided code. The bug is in the line where the recursive calls are made. The parameters for the recursive calls are not correct. 
+
+Here is the corrected code:
+
+def IlIlIIllIlIllII(IIlIIIllIlll, IIIIIIlllIlIlIII, IlIllIIlIlIl, IllllllIlllIllI):
+  if IlIllIIlIlIl > IllllllIlllIllI:
+    return False                    
+  else:
+    lllIlllIIlIlI = (IlIllIIlIlIl + IllllllIlllIllI) // 2
+    if IIIIIIlllIlIlIII == IIlIIIllIlll[lllIlllIIlIlI]:         
+      return True
+    elif IIIIIIlllIlIlIII < IIlIIIllIlll[lllIlllIIlIlI]:
+      return IlIlIIllIlIllII(IIlIIIllIlll, IIIIIIlllIlIlIII, IlIllIIlIlIl, lllIlllIIlIlI - 1)
+    else:
+      return IlIlIIllIlIllII(IIlIIIllIlll, IIIIIIlllIlIlIII, lllIlllIIlIlI + 1, IllllllIlllIllI)
+
+The correction is made in the line where lllIlllIIlIlI is calculated. Instead of subtracting IlIllIIlIlIl from IllllllIlllIllI, we need to add them. This is because we are trying to find the middle index between IlIllIIlIlIl and IllllllIlllIllI.
+
+
+#6 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_2_line_no_9_AOR.py
+There is a bug in the provided code. The bug is in the line where the midpoint is calculated:
+
+llIIIlllIIl = (IlllllIlIlllIlIIl + IIlIlIlllI) / 2
+
+The division operator (/) performs floating-point division in Python, which means that the result will be a float. However, the code expects the midpoint to be an integer index. To fix this bug, you can use the integer division operator (//) instead:
+
+llIIIlllIIl = (IlllllIlIlllIlIIl + IIlIlIlllI) // 2
+
+This will ensure that the midpoint is always an integer.
+
+
+#7 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_3_line_no_9_AOR.py
+There is a bug in the provided code. The bug is in the line where the recursive calls are made. The indices used for the recursive calls are incorrect.
+
+Here is the corrected code:
+
+def IllIIllIIIIllIl(llllIlllIIllllIIlI, IllllIllIlIllIlll, IIllIIlIlIIlII, llIllIIlllIIllllII):
+  if IIllIIlIlIIlII > llIllIIlllIIllllII:
+    return False                    
+  else:
+    IIIllIIIIlllIIllIll = (IIllIIlIlIIlII + llIllIIlllIIllllII) // 2
+    if IllllIllIlIllIlll == llllIlllIIllllIIlI[IIIllIIIIlllIIllIll]:         
+      return True
+    elif IllllIllIlIllIlll < llllIlllIIllllIIlI[IIIllIIIIlllIIllIll]:
+      return IllIIllIIIIllIl(llllIlllIIllllIIlI, IllllIllIlIllIlll, IIllIIlIlIIlII, IIIllIIIIlllIIllIll - 1)
+    else:
+      return IllIIllIIIIllIl(llllIlllIIllllIIlI, IllllIllIlIllIlll, IIIllIIIIlllIIllIll + 1, llIllIIlllIIllllII)
+
+The correction is made in the line where the middle index is calculated. Instead of multiplying by 2, it should be divided by 2 to find the middle index.
+
+
+#8 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_4_line_no_14_AOR.py
+Yes, there is a bug in the provided code. 
+
+In the line `return IIlllIIIlll(llIIlIIIlII, lllllllllII, lllIIIlllIlI, IIIIlllIll + 1)`, the second argument `lllllllllII` should be passed as `lllllllllII - 1` instead. 
+
+Here's the corrected code:
+
+def IIlllIIIlll(llIIlIIIlII, lllllllllII, lllIIIlllIlI, llllIIllIlIIIl):
+  if lllIIIlllIlI > llllIIllIlIIIl:
+    return False                    
+  else:
+    IIIIlllIll = (lllIIIlllIlI + llllIIllIlIIIl) // 2
+    if lllllllllII == llIIlIIIlII[IIIIlllIll]:         
+      return True
+    elif lllllllllII < llIIlIIIlII[IIIIlllIll]:
+      return IIlllIIIlll(llIIlIIIlII, lllllllllII, lllIIIlllIlI, IIIIlllIll - 1)
+    else:
+      return IIlllIIIlll(llIIlIIIlII, lllllllllII, IIIIlllIll + 1, llllIIllIlIIIl)
+
+
+#9 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_5_line_no_17_AOR.py
+Yes, there is a bug in the provided code. 
+
+In the second recursive call, when lIIIIIII is greater than lIlllllllIIll[llIlIlIIIIIIIllIIIl], the function should search in the right half of the list. However, the code is incorrectly searching in the left half again by calling `IlllIIlII(lIlllllllIIll, lIIIIIII, llIlIlIIIIIIIllIIIl - 1, lIIIlIIIIlllIll)` instead of `IlllIIlII(lIlllllllIIll, lIIIIIII, llIlIlIIIIIIIllIIIl + 1, lIIIlIIIIlllIll)`.
+
+Here is the corrected code:
+
+def IlllIIlII(lIlllllllIIll, lIIIIIII, lllIIIlIIlllIllIIIll, lIIIlIIIIlllIll):
+  if lllIIIlIIlllIllIIIll > lIIIlIIIIlllIll:
+    return False                    
+  else:
+    llIlIlIIIIIIIllIIIl = (lllIIIlIIlllIllIIIll + lIIIlIIIIlllIll) // 2
+    if lIIIIIII == lIlllllllIIll[llIlIlIIIIIIIllIIIl]:         
+      return True
+    elif lIIIIIII < lIlllllllIIll[llIlIlIIIIIIIllIIIl]:
+      return IlllIIlII(lIlllllllIIll, lIIIIIII, lllIIIlIIlllIllIIIll, llIlIlIIIIIIIllIIIl - 1)
+    else:
+      return IlllIIlII(lIlllllllIIll, lIIIIIII, llIlIlIIIIIIIllIIIl + 1, lIIIlIIIIlllIll)
+
+
+#10 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_6_line_no_6_COI.py
+There is a bug in the provided code. The bug is in the line `if not (IllIIIIIlIllIIIIIIII > llIIIlIIllIlIlIIIIll):`. The condition should be `if not (IllIIIIIlIllIIIIIIII >= llIIIlIIllIlIlIIIIll):` instead. 
+
+Here's the corrected code:
+
+def lIllIlll(lllIIlIlIIIIlllIlll, llIIlIIIllIllIIIl, IllIIIIIlIllIIIIIIII, llIIIlIIllIlIlIIIIll):
+  if not (IllIIIIIlIllIIIIIIII >= llIIIlIIllIlIlIIIIll):
+    return False                    
+  else:
+    IlIlIIIIIIII = (IllIIIIIlIllIIIIIIII + llIIIlIIllIlIlIIIIll) // 2
+    if llIIlIIIllIllIIIl == lllIIlIlIIIIlllIlll[IlIlIIIIIIII]:         
+      return True
+    elif llIIlIIIllIllIIIl < lllIIlIlIIIIlllIlll[IlIlIIIIIIII]:
+      return lIllIlll(lllIIlIlIIIIlllIlll, llIIlIIIllIllIIIl, IllIIIIIlIllIIIIIIII, IlIlIIIIIIII - 1)
+    else:
+      return lIllIlll(lllIIlIlIIIIlllIlll, llIIlIIIllIllIIIl, IlIlIIIIIIII + 1, llIIIlIIllIlIlIIIIll)
+
+
+#11 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_7_line_no_10_COI.py
+The code appears to be an implementation of the binary search algorithm. However, there is a bug in the code. 
+
+In the recursive calls to the `IIlllIlllIll` function, the parameters `IllllIIl` and `lIIllIlIIlIllI` are not updated correctly. 
+
+To fix the bug, we need to update the parameters as follows:
+
+1. If `IlllIIIlllIlII < lIllIllI[llllIllllIlIllI]`, we should update `lIIllIlIIlIllI` to `llllIllllIlIllI - 1` instead of `lIIllIlIIlIllI`.
+2. If `IlllIIIlllIlII > lIllIllI[llllIllllIlIllI]`, we should update `IllllIIl` to `llllIllllIlIllI + 1` instead of `IllllIIl`.
+
+Here is the corrected code:
+
+def IIlllIlllIll(lIllIllI, IlllIIIlllIlII, IllllIIl, lIIllIlIIlIllI):
+  if IllllIIl > lIIllIlIIlIllI:
+    return False                    
+  else:
+    llllIllllIlIllI = (IllllIIl + lIIllIlIIlIllI) // 2
+    if not (IlllIIIlllIlII == lIllIllI[llllIllllIlIllI]):
+      return True
+    elif IlllIIIlllIlII < lIllIllI[llllIllllIlIllI]:
+      return IIlllIlllIll(lIllIllI, IlllIIIlllIlII, IllllIIl, llllIllllIlIllI - 1)
+    else:
+      return IIlllIlllIll(lIllIllI, IlllIIIlllIlII, llllIllllIlIllI + 1, lIIllIlIIlIllI)
+
+
+#12 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_8_line_no_12_COI.py
+The code appears to be a recursive binary search algorithm. However, there is a bug in the code. 
+
+In the line `return llIIlIIIIllIII(lllllllIlIlllIllllll, lIlllllllIIlll, llIllIllIlllll, lllllIllIlIllIIIIIl - 1)`, the last parameter should be `lllllIllIlIllIIIIIl - 1` instead of `lllllIllIlIllIIIIIl - 1`. 
+
+Here is the corrected code:
+
+```python
+def llIIlIIIIllIII(lllllllIlIlllIllllll, lIlllllllIIlll, llIllIllIlllll, IIlIIIIllIIll):
+  if llIllIllIlllll > IIlIIIIllIIll:
+    return False                    
+  else:
+    lllllIllIlIllIIIIIl = (llIllIllIlllll + IIlIIIIllIIll) // 2
+    if lIlllllllIIlll == lllllllIlIlllIllllll[lllllIllIlIllIIIIIl]:         
+      return True
+    elif not (lIlllllllIIlll < lllllllIlIlllIllllll[lllllIllIlIllIIIIIl]):
+      return llIIlIIIIllIII(lllllllIlIlllIllllll, lIlllllllIIlll, llIllIllIlllll, lllllIllIlIllIIIIIl - 1)
+    else:
+      return llIIlIIIIllIII(lllllllIlIlllIllllll, lIlllllllIIlll, lllllIllIlIllIIIIIl + 1, IIlIIIIllIIll)
+```
+
+Please note that without the context of the input and expected output, it is difficult to determine if there are any other bugs in the code.
+
+
+#13 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search\mutation_9_line_no_6_ROR.py
+The code appears to be a binary search algorithm. However, there is a typo in the function name. The first letter should be lowercase instead of uppercase. Here is the corrected code:
+
+def iIlIlIIIIIIl(IllllIlIllIlIIll, IIIIlIIl, IIIlIIlIllllllIIII, IIIIlIlI):
+  if IIIlIIlIllllllIIII > IIIIlIlI:
+    return False                    
+  else:
+    llIIIllIlIlIllIl = (IIIlIIlIllllllIIII + IIIIlIlI) // 2
+    if IIIIlIIl == IllllIlIllIlIIll[llIIIllIlIlIllIl]:         
+      return True
+    elif IIIIlIIl < IllllIlIllIlIIll[llIIIllIlIlIllIl]:
+      return iIlIlIIIIIIl(IllllIlIllIlIIll, IIIIlIIl, IIIlIIlIllllllIIII, llIIIllIlIlIllIl - 1)
+    else:
+      return iIlIlIIIIIIl(IllllIlIllIlIIll, IIIIlIIl, llIIIllIlIlIllIl + 1, IIIIlIlI)
+
+
+#14 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_10_line_no_5_ROR.py
+Yes, there is a bug in the provided code. The while loop condition is incorrect. It should be `lIllllIIllllI <= IIllIIIIIIl` instead of `lIllllIIllllI >= IIllIIIIIIl`. 
+
+Here's the corrected code:
+
+def llIIIIIlIlIIl(llIIIIllIlIIl, llIIIIIIlII):
+  lIllllIIllllI = 0
+  IIllIIIIIIl = len(llIIIIllIlIIl)-1
+  while lIllllIIllllI <= IIllIIIIIIl:
+    IIllIlllIIIIlllIlI = (lIllllIIllllI + IIllIIIIIIl) // 2
+    if llIIIIIIlII == llIIIIllIlIIl[IIllIlllIIIIlllIlI]:         
+      return True
+    elif llIIIIIIlII < llIIIIllIlIIl[IIllIlllIIIIlllIlI]:
+      IIllIIIIIIl = IIllIlllIIIIlllIlI - 1                
+    else:
+      lIllllIIllllI = IIllIlllIIIIlllIlI + 1                 
+  return False
+
+
+#15 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_11_line_no_5_ROR.py
+Yes, there is a bug in the provided code. The variable name `IIIIllllIllllllIIIII` is misspelled as `IIIIllllIllllllIIIII` in the code. 
+
+To fix it, we need to replace all occurrences of `IIIIllllIllllllIIIII` with `IIIIllllIllllllIIIII`. 
+
+Here's the corrected code:
+
+def lIllIlll(IIIIllllIllllllIIIII, IIlIlIllllll):
+  lIllIllIII = 0
+  lllIlIIll = len(IIIIllllIllllllIIIII)-1
+  while lIllIllIII <= lllIlIIll:
+    IllIIlIlIIIlIllIll = (lIllIllIII + lllIlIIll) // 2
+    if IIlIlIllllll == IIIIllllIllllllIIIII[IllIIlIlIIIlIllIll]:         
+      return True
+    elif IIlIlIllllll < IIIIllllIllllllIIIII[IllIIlIlIIIlIllIll]:
+      lllIlIIll = IllIIlIlIIIlIllIll - 1                
+    else:
+      lIllIllIII = IllIIlIlIIIlIllIll + 1                 
+  return False                      
+
+
+#16 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_12_line_no_7_ROR.py
+There is a bug in the provided code. The bug is in the line `if lIlIIIIIlIl != lIIllIllI[lIIIIlllllIlIllI]:`. The condition should be checking if `lIlIIIIIlIl` is equal to `lIIllIllI[lIIIIlllllIlIllI]`, not not equal to it. 
+
+Here's the corrected code:
+
+def lIllllIlllIlIlllIIlI(lIIllIllI, lIlIIIIIlIl):
+  lIllIIIIIlII = 0
+  lIllIllllllIl = len(lIIllIllI)-1
+  while lIllIIIIIlII <= lIllIllllllIl:
+    lIIIIlllllIlIllI = (lIllIIIIIlII + lIllIllllllIl) // 2
+    if lIlIIIIIlIl == lIIllIllI[lIIIIlllllIlIllI]:
+      return True
+    elif lIlIIIIIlIl < lIIllIllI[lIIIIlllllIlIllI]:
+      lIllIllllllIl = lIIIIlllllIlIllI - 1                
+    else:
+      lIllIIIIIlII = lIIIIlllllIlIllI + 1                 
+  return False                      
+
+
+#17 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_13_line_no_9_ROR.py
+Yes, there is a bug in the provided code. The bug is in the line where the variable `lIIlIIllIllIlllIlIlI` is updated when `lIIlIIlIllIlIllI > IIlllIIllllllIIll[lIlllIllIlIIlIIlI]`. The correct update should be `lIIlIIllIllIlllIlIlI = lIlllIllIlIIlIIlI + 1` instead of `lIIlIIllIllIlllIlIlI = lIlllIllIlIIlIIlI - 1`.
+
+Here is the corrected code:
+
+def lIlIIIlI(IIlllIIllllllIIll, lIIlIIlIllIlIllI):
+  IIIIlllIll = 0
+  lIIlIIllIllIlllIlIlI = len(IIlllIIllllllIIll)-1
+  while IIIIlllIll <= lIIlIIllIllIlllIlIlI:
+    lIlllIllIlIIlIIlI = (IIIIlllIll + lIIlIIllIllIlllIlIlI) // 2
+    if lIIlIIlIllIlIllI == IIlllIIllllllIIll[lIlllIllIlIIlIIlI]:         
+      return True
+    elif lIIlIIlIllIlIllI > IIlllIIllllllIIll[lIlllIllIlIIlIIlI]:
+      IIIIlllIll = lIlllIllIlIIlIIlI + 1                
+    else:
+      lIIlIIllIllIlllIlIlI = lIlllIllIlIIlIIlI - 1                 
+  return False
+
+
+#18 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_14_line_no_9_ROR.py
+There is a bug in the provided code. The bug is in the line `lIlIIIIlIIl = len(llIIllIIlIIIIIlIIll)-1`. The variable `lIlIIIIlIIl` should be initialized with the length of the list `llIIllIIlIIIIIlIIll`, not the length minus 1.
+
+Here's the corrected code:
+
+def IIllllIIlllIl(llIIllIIlIIIIIlIIll, llIlIIlIIllIIII):
+  lIIIIlIIlIIlIIlIl = 0
+  lIlIIIIlIIl = len(llIIllIIlIIIIIlIIll)
+  while lIIIIlIIlIIlIIlIl < lIlIIIIlIIl:
+    IlllIlIlIIllI = (lIIIIlIIlIIlIIlIl + lIlIIIIlIIl) // 2
+    if llIlIIlIIllIIII == llIIllIIlIIIIIlIIll[IlllIlIlIIllI]:         
+      return True
+    elif llIlIIlIIllIIII < llIIllIIlIIIIIlIIll[IlllIlIlIIllI]:
+      lIlIIIIlIIl = IlllIlIlIIllI                
+    else:
+      lIIIIlIIlIIlIIlIl = IlllIlIlIIllI + 1                 
+  return False                      
+
+
+#19 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_1_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line `while lIlIIlIlIlI <= lIIIIlII:`. The condition should be `while lIlIIlIlIlI < lIIIIlII:` instead. 
+
+Here's the corrected code:
+
+def lIIllIllIII(lIlIIllIllllIllIlIll, llIlIIlII):
+  lIlIIlIlIlI = 0
+  lIIIIlII = len(lIlIIllIllllIllIlIll) + 1
+  while lIlIIlIlIlI < lIIIIlII:
+    lllllIIIlIllIllll = (lIlIIlIlIlI + lIIIIlII) // 2
+    if llIlIIlII == lIlIIllIllllIllIlIll[lllllIIIlIllIllll]:         
+      return True
+    elif llIlIIlII < lIlIIllIllllIllIlIll[lllllIIIlIllIllll]:
+      lIIIIlII = lllllIIIlIllIllll - 1                
+    else:
+      lIlIIlIlIlI = lllllIIIlIllIllll + 1                 
+  return False
+
+
+#20 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_2_line_no_6_AOR.py
+There is a bug in the provided code. The line `llllIIlIIllIIlI = (lIllllIIlIlIII - IIlIlIlIIIllIlIII) // 2` should be `llllIIlIIllIIlI = (lIllllIIlIlIII + IIlIlIlIIIllIlIII) // 2`. 
+
+Here is the corrected code:
+
+def IIlIIllllIIIIllIl(lIIlllIII, IIlIIlllIlIIIIl):
+  lIllllIIlIlIII = 0
+  IIlIlIlIIIllIlIII = len(lIIlllIII)-1
+  while lIllllIIlIlIII <= IIlIlIlIIIllIlIII:
+    llllIIlIIllIIlI = (lIllllIIlIlIII + IIlIlIlIIIllIlIII) // 2
+    if IIlIIlllIlIIIIl == lIIlllIII[llllIIlIIllIIlI]:         
+      return True
+    elif IIlIIlllIlIIIIl < lIIlllIII[llllIIlIIllIIlI]:
+      IIlIlIlIIIllIlIII = llllIIlIIllIIlI - 1                
+    else:
+      lIllllIIlIlIII = llllIIlIIllIIlI + 1                 
+  return False
+
+
+#21 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_3_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The division operator (/) is used to calculate the middle index in the binary search algorithm. However, in Python 3.x, the division operator returns a float value, which cannot be used as an index for a list.
+
+To fix this bug, we can use the integer division operator (//) instead. Here's the corrected code:
+
+def binary_search(arr, target):
+  low = 0
+  high = len(arr) - 1
+  while low <= high:
+    mid = (low + high) // 2
+    if target == arr[mid]:
+      return True
+    elif target < arr[mid]:
+      high = mid - 1
+    else:
+      low = mid + 1
+  return False
+
+
+#22 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_4_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line where the variable IIllIIlIllIlII is calculated. The correct calculation should be (lIlIlIIIIll + lllIllllIIIlllllIII) // 2 instead of (lIlIlIIIIll + lllIllllIIIlllllIII) * 2. 
+
+Here is the corrected code:
+
+def IlllIIllll(lIIIIIIIlIIlI, lIIIlIlIIlllIlII):
+  lIlIlIIIIll = 0
+  lllIllllIIIlllllIII = len(lIIIIIIIlIIlI)-1
+  while lIlIlIIIIll <= lllIllllIIIlllllIII:
+    IIllIIlIllIlII = (lIlIlIIIIll + lllIllllIIIlllllIII) // 2
+    if lIIIlIlIIlllIlII == lIIIIIIIlIIlI[IIllIIlIllIlII]:         
+      return True
+    elif lIIIlIlIIlllIlII < lIIIIIIIlIIlI[IIllIIlIllIlII]:
+      lllIllllIIIlllllIII = IIllIIlIllIlII - 1                
+    else:
+      lIlIlIIIIll = IIllIIlIllIlII + 1                 
+  return False
+
+
+#23 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_5_line_no_10_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line `IIllIIIIl = llllIIIlIIIIlllII + 1` inside the `elif` statement. It should be `IIllIIIIl = llllIIIlIIIIlllII - 1` instead.
+
+Here's the corrected code:
+
+def llllIIIIllIIllIII(lIIlIlIlII, lIlIIIlll):
+  lIIlllllIl = 0
+  IIllIIIIl = len(lIIlIlIlII)-1
+  while lIIlllllIl <= IIllIIIIl:
+    llllIIIlIIIIlllII = (lIIlllllIl + IIllIIIIl) // 2
+    if lIlIIIlll == lIIlIlIlII[llllIIIlIIIIlllII]:         
+      return True
+    elif lIlIIIlll < lIIlIlIlII[llllIIIlIIIIlllII]:
+      IIllIIIIl = llllIIIlIIIIlllII - 1
+    else:
+      lIIlllllIl = llllIIIlIIIIlllII + 1                 
+  return False
+
+
+#24 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_6_line_no_12_AOR.py
+Yes, there is a bug in the provided code. The bug is in the else statement where the value of IIIIIlIlIIlIllllIII is being updated incorrectly. 
+
+To fix the bug, we need to update the value of IIIIIlIlIIlIllllIII to llIIllIIllIIIIIlIl + 1 instead of llIIllIIllIIIIIlIl - 1. 
+
+Here is the corrected code:
+
+def IlIlIIIlIllIll(llIlllIlIllllIl, lIllllllIlllIl):
+  IIIIIlIlIIlIllllIII = 0
+  IIlIlllllIllIIl = len(llIlllIlIllllIl)-1
+  while IIIIIlIlIIlIllllIII <= IIlIlllllIllIIl:
+    llIIllIIllIIIIIlIl = (IIIIIlIlIIlIllllIII + IIlIlllllIllIIl) // 2
+    if lIllllllIlllIl == llIlllIlIllllIl[llIIllIIllIIIIIlIl]:         
+      return True
+    elif lIllllllIlllIl < llIlllIlIllllIl[llIIllIIllIIIIIlIl]:
+      IIlIlllllIllIIl = llIIllIIllIIIIIlIl - 1                
+    else:
+      IIIIIlIlIIlIllllIII = llIIllIIllIIIIIlIl + 1
+  return False
+
+
+#25 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_7_line_no_5_COI.py
+There is a bug in the provided code. The condition in the while loop is incorrect. It should be "while llIllllII <= IIIIllIIIIllIIlIllI:" instead of "while not (llIllllII <= IIIIllIIIIllIIlIllI):". 
+
+Here is the corrected code:
+
+def IlIIlIIIllIIIlllIlI(lllIlIlIIlllIIlI, lIlIIIlIIIIlIIll):
+  llIllllII = 0
+  IIIIllIIIIllIIlIllI = len(lllIlIlIIlllIIlI)-1
+  while llIllllII <= IIIIllIIIIllIIlIllI:
+    IlIIlIIlllIlIlII = (llIllllII + IIIIllIIIIllIIlIllI) // 2
+    if lIlIIIlIIIIlIIll == lllIlIlIIlllIIlI[IlIIlIIlllIlIlII]:         
+      return True
+    elif lIlIIIlIIIIlIIll < lllIlIlIIlllIIlI[IlIIlIIlllIlIlII]:
+      IIIIllIIIIllIIlIllI = IlIIlIIlllIlIlII - 1                
+    else:
+      llIllllII = IlIIlIIlllIlIlII + 1                 
+  return False
+
+
+#26 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_8_line_no_7_COI.py
+Yes, there is a bug in the provided code. The bug is in the condition `if not (lIllllIIIIIlllIIl == IlIlIIlllII[IIIIlIIlllIllIlllII]):`. This condition should be checking for inequality (`!=`) instead of equality (`==`).
+
+Here is the corrected code:
+
+def llIllIIllIlllI(IlIlIIlllII, lIllllIIIIIlllIIl):
+  IIllIIlIl = 0
+  IlIlllIIlIllIIIIIll = len(IlIlIIlllII)-1
+  while IIllIIlIl <= IlIlllIIlIllIIIIIll:
+    IIIIlIIlllIllIlllII = (IIllIIlIl + IlIlllIIlIllIIIIIll) // 2
+    if not (lIllllIIIIIlllIIl != IlIlIIlllII[IIIIlIIlllIllIlllII]):
+      return True
+    elif lIllllIIIIIlllIIl < IlIlIIlllII[IIIIlIIlllIllIlllII]:
+      IlIlllIIlIllIIIIIll = IIIIlIIlllIllIlllII - 1                
+    else:
+      IIllIIlIl = IIIIlIIlllIllIlllII + 1                 
+  return False
+
+
+#27 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Search_iterative\mutation_9_line_no_9_COI.py
+There is a bug in the provided code. The bug is in the line `elif not (lIlIIIIllIIIllIIllII < IIllIIllIIl[IIIllIIlIl]):`. The condition should be `elif not (lIlIIIIllIIIllIIllII > IIllIIllIIl[IIIllIIlIl]):` instead.
+
+Here is the corrected code:
+
+def lIllIllllIlIlIII(IIllIIllIIl, lIlIIIIllIIIllIIllII):
+  IllIlIIIlIll = 0
+  IIIIIllIlIIIlII = len(IIllIIllIIl)-1
+  while IllIlIIIlIll <= IIIIIllIlIIIlII:
+    IIIllIIlIl = (IllIlIIIlIll + IIIIIllIlIIIlII) // 2
+    if lIlIIIIllIIIllIIllII == IIllIIllIIl[IIIllIIlIl]:         
+      return True
+    elif not (lIlIIIIllIIIllIIllII > IIllIIllIIl[IIIllIIlIl]):
+      IIIIIllIlIIIlII = IIIllIIlIl - 1                
+    else:
+      IllIlIIIlIll = IIIllIIlIl + 1                 
+  return False
+
+
+#28 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_10_line_no_5_ROR.py
+There is a bug in the provided code. The recursive calls to the `llIllIIIIl` function are incorrect. The second recursive call should start from `IIIIIIllIllI + 1` instead of `IIIIIIllIllI`. 
+
+Here's the corrected code:
+
+def llIllIIIIl(IIIIIIIIIl, lIIlIlIIlllIlIIll, IIIlIlIIllIlIl):
+  if lIIlIlIIlllIlIIll >= IIIlIlIIllIlIl:                      
+    return 0
+  elif lIIlIlIIlllIlIIll != IIIlIlIIllIlIl - 1:
+    return IIIIIIIIIl[lIIlIlIIlllIlIIll]
+  else:                                  
+    IIIIIIIllIllI = (lIIlIlIIlllIlIIll + IIIlIlIIllIlIl) // 2
+    return llIllIIIIl(IIIIIIIIIl, lIIlIlIIlllIlIIll, IIIIIIIllIllI) + llIllIIIIl(IIIIIIIIIl, IIIIIIIllIllI + 1, IIIlIlIIllIlIl)
+
+
+#29 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_1_line_no_5_AOR.py
+The provided code is a recursive implementation of the binary search algorithm. It calculates the sum of a range of elements in a list.
+
+There is a small bug in the code. In the recursive calls, the second parameter should be `lIlIlIIIlIIIIll + 1` instead of `lIlIlIIIlIIIIll`. This is because the range should be exclusive of the middle element.
+
+Here is the corrected code:
+
+```python
+def lIIIIIIllIlIlIll(IIlIIIII, lIllIIIIlllllll, llllIllIllIlIIll):
+  if lIllIIIIlllllll >= llllIllIllIlIIll:                      
+    return 0
+  elif lIllIIIIlllllll == llllIllIllIlIIll + 1:
+    return IIlIIIII[lIllIIIIlllllll]
+  else:                                  
+    lIlIlIIIlIIIIll = (lIllIIIIlllllll + llllIllIllIlIIll) // 2
+    return lIIIIIIllIlIlIll(IIlIIIII, lIllIIIIlllllll, lIlIlIIIlIIIIll) + lIIIIIIllIlIlIll(IIlIIIII, lIlIlIIIlIIIIll + 1, llllIllIllIlIIll)
+```
+
+Now the code should work correctly.
+
+
+#30 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_2_line_no_8_AOR.py
+Yes, there is a bug in the provided code. The bug is in the recursive calls to the `llIllIllIIllI` function. The second recursive call should have the arguments `lIlIlIIIIlIIIllI` and `IlllIlIIIIIllI`, instead of `llIIllIIII` and `lIlIlIIIIlIIIllI`. 
+
+Here is the corrected code:
+
+def llIllIllIIllI(llllIIIIIlIl, llIIllIIII, IlllIlIIIIIllI):
+  if llIIllIIII >= IlllIlIIIIIllI:                      
+    return 0
+  elif llIIllIIII == IlllIlIIIIIllI-1:                  
+    return llllIIIIIlIl[llIIllIIII]
+  else:                                  
+    lIlIlIIIIlIIIllI = (llIIllIIII + IlllIlIIIIIllI) // 2
+    return llIllIllIIllI(llllIIIIIlIl, llIIllIIII, lIlIlIIIIlIIIllI) + llIllIllIIllI(llllIIIIIlIl, lIlIlIIIIlIIIllI, IlllIlIIIIIllI)
+
+
+#31 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_3_line_no_8_AOR.py
+Yes, there is a bug in the provided code. The division operator (/) is used to calculate the midpoint (IllIlIlll) of the array indices (IlIIIIlllllIlIlllIIl and IIlIIIllIIIlllI). However, the division operator (/) in Python returns a float, and array indices should be integers.
+
+To fix this bug, we can use the floor division operator (//) instead of the division operator (/) to ensure that the midpoint is an integer. Here's the corrected code:
+
+def IIllIllllIIIl(llIlIIIlIlII, IlIIIIlllllIlIlllIIl, IIlIIIllIIIlllI):
+  if IlIIIIlllllIlIlllIIl >= IIlIIIllIIIlllI:                      
+    return 0
+  elif IlIIIIlllllIlIlllIIl == IIlIIIllIIIlllI-1:                  
+    return llIlIIIlIlII[IlIIIIlllllIlIlllIIl]
+  else:                                  
+    IllIlIlll = (IlIIIIlllllIlIlllIIl + IIlIIIllIIIlllI) // 2
+    return IIllIllllIIIl(llIlIIIlIlII, IlIIIIlllllIlIlllIIl, IllIlIlll) + IIllIllllIIIl(llIlIIIlIlII, IllIlIlll, IIlIIIllIIIlllI)
+
+
+#32 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_4_line_no_8_AOR.py
+There is a bug in the provided code. The recursive call to `lllIlIIlIlIIlIll` in the `else` block has incorrect arguments. The second argument should be `IIIllIIIlIl` instead of `lllIlIlIlII`. 
+
+Here is the corrected code:
+
+```python
+def lllIlIIlIlIIlIll(lIlIIIlIlIllllIlIll, lllIlIlIlII, llIIllIIlI):
+  if lllIlIlIlII >= llIIllIIlI:                      
+    return 0
+  elif lllIlIlIlII == llIIllIIlI-1:                  
+    return lIlIIIlIlIllllIlIll[lllIlIlIlII]
+  else:                                  
+    IIIllIIIlIl = (lllIlIlIlII + llIIllIIlI) // 2
+    return lllIlIIlIlIIlIll(lIlIIIlIlIllllIlIll, lllIlIlIlII, IIIllIIIlIl) + lllIlIIlIlIIlIll(lIlIIIlIlIllllIlIll, IIIllIIIlIl, llIIllIIlI)
+```
+
+In the corrected code, the second argument of the recursive calls is changed to `IIIllIIIlIl`.
+
+
+#33 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_5_line_no_9_AOR.py
+There is a bug in the code. The subtraction operator (-) should be changed to addition operator (+) in the return statement. Here's the corrected code:
+
+def lllIIIlIIIlI(IlllIIlIIlIllIIllI, lIlIlIIIllI, IIlllIlIIIIllIl):
+  if lIlIlIIIllI >= IIlllIlIIIIllIl:                      
+    return 0
+  elif lIlIlIIIllI == IIlllIlIIIIllIl-1:                  
+    return IlllIIlIIlIllIIllI[lIlIlIIIllI]
+  else:                                  
+    llIIlIlllIIIlII = (lIlIlIIIllI + IIlllIlIIIIllIl) // 2
+    return lllIIIlIIIlI(IlllIIlIIlIllIIllI, lIlIlIIIllI, llIIlIlllIIIlII) + lllIIIlIIIlI(IlllIIlIIlIllIIllI, llIIlIlllIIIlII, IIlllIlIIIIllIl)
+
+
+#34 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_6_line_no_3_COI.py
+There is a bug in the provided code. The bug is in the line `return IllllIIlIIIIIlIlllII(llIllIllllIIllI, IIlIIlllIIlIIl, IlIlIIIlIIIlIIlIIll)`. The second recursive call should have the arguments `IIlIIlllIIlIIl, IlIlIIIlIIIlIIlIIll` instead of `llIllIllllIIllI, IIlIIlllIIlIIl, IlIlIIIlIIIlIIlIIll`. 
+
+Here is the corrected code:
+
+def IllllIIlIIIIIlIlllII(llIllIllllIIllI, lIlllIIllIllIlllI, IlIlIIIlIIIlIIlIIll):
+  if not (lIlllIIllIllIlllI >= IlIlIIIlIIIlIIlIIll):
+    return 0
+  elif lIlllIIllIllIlllI == IlIlIIIlIIIlIIlIIll-1:                  
+    return llIllIllllIIllI[lIlllIIllIllIlllI]
+  else:                                  
+    IIlIIlllIIlIIl = (lIlllIIllIllIlllI + IlIlIIIlIIIlIIlIIll) // 2
+    return IllllIIlIIIIIlIlllII(llIllIllllIIllI, lIlllIIllIllIlllI, IIlIIlllIIlIIl) + IllllIIlIIIIIlIlllII(llIllIllllIIllI, IIlIIlllIIlIIl, IlIlIIIlIIIlIIlIIll)
+
+
+#35 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_7_line_no_5_COI.py
+There is a bug in the provided code. The recursive function `IlllllIlllIIIlll` is not being called correctly in the last line. The correct way to call the function recursively is to pass the updated indices `IllIllIIIllII` and `IIIlIlIIlIlIllIllIll` as arguments.
+
+Here is the corrected code:
+
+def IlllllIlllIIIlll(IllIIlIIllll, IllIllIIIllII, lIlIIllIIIll):
+  if IllIllIIIllII >= lIlIIllIIIll:                      
+    return 0
+  elif not (IllIllIIIllII == lIlIIllIIIll - 1):
+    return IllIIlIIllll[IllIllIIIllII]
+  else:                                  
+    IIIlIlIIlIlIllIllIll = (IllIllIIIllII + lIlIIllIIIll) // 2
+    return IlllllIlllIIIlll(IllIIlIIllll, IllIllIIIllII, IIIlIlIIlIlIllIllIll) + IlllllIlllIIIlll(IllIIlIIllll, IIIlIlIIlIlIllIllIll, lIlIIllIIIll)
+
+Now the function should work correctly.
+
+
+#36 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_8_line_no_3_ROR.py
+There is a bug in the provided code. The bug is in the line where the function is recursively called. The second recursive call should be made with the arguments `(lIlIlIlIlIll, lllllIIl, lllIIIIIlIIllIIIIII)` instead of `(lllllIIl, lllIIIIIlIIllIIIIII)`. 
+
+Here is the corrected code:
+
+```python
+def IllllIlllllII(lIlIlIlIlIll, llIllllllIIIIllll, lllIIIIIlIIllIIIIII):
+  if llIllllllIIIIllll <= lllIIIIIlIIllIIIIII:
+    return 0
+  elif llIllllllIIIIllll == lllIIIIIlIIllIIIIII-1:                  
+    return lIlIlIlIlIll[llIllllllIIIIllll]
+  else:                                  
+    lllllIIl = (llIllllllIIIIllll + lllIIIIIlIIllIIIIII) // 2
+    return IllllIlllllII(lIlIlIlIlIll, llIllllllIIIIllll, lllllIIl) + IllllIlllllII(lIlIlIlIlIll, lllllIIl, lllIIIIIlIIllIIIIII)
+```
+
+Now the code should work correctly.
+
+
+#37 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Binary_Sum\mutation_9_line_no_3_ROR.py
+Yes, there is a bug in the provided code. The bug is in the recursive call to the `IllIlIlllIIl` function. The second recursive call should have the arguments `(llIlIIlIIIIlIlllII, lIIIIIIlIIlllIIII, lIIllIIllIIllIlIlII)` instead of `(llIlIIlIIIIlIlllII, IIllllIIIl, lIIIIIIlIIlllIIII)`. 
+
+Here is the corrected code:
+
+```python
+def IllIlIlllIIl(llIlIIlIIIIlIlllII, IIllllIIIl, lIIllIIllIIllIlIlII):
+  if IIllllIIIl > lIIllIIllIIllIlIlII:
+    return 0
+  elif IIllllIIIl == lIIllIIllIIllIlIlII-1:                  
+    return llIlIIlIIIIlIlllII[IIllllIIIl]
+  else:                                  
+    lIIIIIIlIIlllIIII = (IIllllIIIl + lIIllIIllIIllIlIlII) // 2
+    return IllIlIlllIIl(llIlIIlIIIIlIlllII, IIllllIIIl, lIIIIIIlIIlllIIII) + IllIlIlllIIl(llIlIIlIIIIlIlllII, lIIIIIIlIIlllIIII, lIIllIIllIIllIlIlII)
+```
+
+Now the code should work correctly.
+
+
+#38 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Disk_Usage\mutation_1_line_no_9_ASR.py
+Yes, there is a bug in the provided code. The variable `os.IllllIIlIIIl` should be `os.path` instead. Here's the corrected code:
+
+import os
+
+def llIIlIlIlIlII(IllllIIlIIIl):
+  lIlIIIlll = os.path.getsize(IllllIIlIIIl)
+  if os.path.isdir(IllllIIlIIIl):
+    for llIIIIIlllIlIIl in os.listdir(IllllIIlIIIl):
+      lllIIIIllIIIlllll = os.path.join(IllllIIlIIIl, llIIIIIlllIlIIl)
+      lIlIIIlll -= llIIlIlIlIlII(lllIIIIllIIIlllll)
+  print('{0:<7}'.format(lIlIIIlll), IllllIIlIIIl)
+  return lIlIIIlll
+
+The bug was fixed by replacing `os.IllllIIlIIIl` with `os.path` in the `getsize()` and `isdir()` functions.
+
+
+#39 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Disk_Usage\mutation_2_line_no_6_COI.py
+Yes, there is a bug in the provided code. The function `os.IllIIlllllIlIIIIll.getsize(IllIIlllllIlIIIIll)` should be `os.path.getsize(IllIIlllllIlIIIIll)`.
+
+Here is the corrected code:
+
+```python
+import os
+
+def IllIlIIllIIl(IllIIlllllIlIIIIll):
+    IllllIll = os.path.getsize(IllIIlllllIlIIIIll)
+    if not os.path.isdir(IllIIlllllIlIIIIll):
+        for llIIlIlllllI in os.listdir(IllIIlllllIlIIIIll):
+            IlIIIIlIlIIIIlIlIll = os.path.join(IllIIlllllIlIIIIll, llIIlIlllllI)
+            IllllIll += IllIlIIllIIl(IlIIIIlIlIIIIlIlIll)
+    print('{0:<7}'.format(IllllIll), IllIIlllllIlIIIIll)
+    return IllllIll
+```
+
+This code fixes the bug by using `os.path.getsize()` instead of `os.IllIIlllllIlIIIIll.getsize()`.
+
+
+#40 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_10_line_no_3_COI.py
+The provided code is a recursive function that calculates the power of a number. However, there is a bug in the code. 
+
+The bug is in the line `IlIllIII = lIlIIllIl * lIlIIllIl`. This line should be `IlIllIII = lIlIIllIl * lIlIIllIl * IIIllIllIIlIlIlIIIl` to correctly calculate the power of the number.
+
+Here is the corrected code:
+
+```python
+def lIIIlIlllllIIIlIlI(IIIllIllIIlIlIlIIIl, IIllIIIII):
+  if not (IIllIIIII == 0):
+    return 1
+  else:
+    lIlIIllIl = lIIIlIlllllIIIlIlI(IIIllIllIIlIlIlIIIl, IIllIIIII // 2)          
+    IlIllIII = lIlIIllIl * lIlIIllIl * IIIllIllIIlIlIlIIIl
+    if IIllIIIII % 2 == 1:                      
+      IlIllIII *= IIIllIllIIlIlIlIIIl                       
+    return IlIllIII
+```
+
+Now the code should correctly calculate the power of a number.
+
+
+#41 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_11_line_no_8_COI.py
+The code provided is a recursive implementation of the exponentiation by squaring algorithm. It calculates the power of a number efficiently using recursion.
+
+There is one bug in the code. The condition `if not (IlIlIIlIIIl % 2 == 1):` should be changed to `if IlIlIIlIIIl % 2 == 0:`. This condition checks if the exponent is even, not odd. 
+
+Here is the corrected code:
+
+def lllIIIllllIIlll(lllIIIIlIIIlIlIlllI, IlIlIIlIIIl):
+  if IlIlIIlIIIl == 0:
+    return 1
+  else:
+    IIllllIIIIIlIl = lllIIIllllIIlll(lllIIIIlIIIlIlIlllI, IlIlIIlIIIl // 2)          
+    lllllIIIIlIllIIllI = IIllllIIIIIlIl * IIllllIIIIIlIl
+    if IlIlIIlIIIl % 2 == 0:
+      lllllIIIIlIllIIllI *= lllIIIIlIIIlIlIlllI                       
+    return lllllIIIIlIllIIllI
+
+Now the code should work correctly.
+
+
+#42 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_12_line_no_3_ROR.py
+The provided code is a recursive function that calculates the power of a number using exponentiation by squaring. However, there is a bug in the code. 
+
+The bug is in the line `IlIIlIlIllI *= lIIIIlIIllllllllIlII`. This line should be inside the `else` block, not outside. 
+
+Here is the corrected code:
+
+```python
+def llIllIlllIlIl(lIIIIlIIllllllllIlII, lllllIIll):
+  if lllllIIll != 0:
+    return 1
+  else:
+    IIlIIIlIII = llIllIlllIlIl(lIIIIlIIllllllllIlII, lllllIIll // 2)          
+    IlIIlIlIllI = IIlIIIlIII * IIlIIIlIII
+    if lllllIIll % 2 == 1:                      
+      IlIIlIlIllI *= lIIIIlIIllllllllIlII                       
+    return IlIIlIlIllI
+```
+
+Now the code should work correctly.
+
+
+#43 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_13_line_no_8_ROR.py
+The code provided is a recursive implementation of the exponentiation by squaring algorithm. It calculates the power of a number efficiently using recursion.
+
+There is no bug in the code. It is correct as it is.
+
+
+#44 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_1_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line `lllllIIllll = IllIIIlIlllII * IllIIIlIlllII`. It should be `lllllIIllll = IllIIIlIlllII * IllIIIlIlllII` instead. 
+
+Here's the corrected code:
+
+def lIlllIlIIIIIllll(lllIllIlllIIIl, IIlIIIIIllllI):
+  if IIlIIIIIllllI == 0:
+    return 1
+  else:
+    IllIIIlIlllII = lIlllIlIIIIIllll(lllIllIlllIIIl, IIlIIIIIllllI // 2)
+    lllllIIllll = IllIIIlIlllII * IllIIIlIlllII
+    if IIlIIIIIllllI % 2 == 1:                      
+      lllllIIllll *= lllIllIlllIIIl                       
+    return lllllIIllll
+
+The correction is changing `IIlIIIIIllllI / 2` to `IIlIIIIIllllI // 2` to perform integer division instead of float division.
+
+
+#45 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_2_line_no_6_AOR.py
+The code provided is a recursive function that calculates the power of a number. However, there is a bug in the code. 
+
+The bug is in the line `lIIlIIIIlIIIllIIl = lllIIlIl(IllllIIIlll, lIIllIIIIlllIlIIIII * 2)`. The second argument passed to the recursive function is `lIIllIIIIlllIlIIIII * 2`, which means that the function will be called with an increasing value of `lIIllIIIIlllIlIIIII` each time. This will result in an infinite recursion and eventually cause a stack overflow error.
+
+To fix this bug, we need to change the second argument passed to the recursive function. Instead of `lIIllIIIIlllIlIIIII * 2`, we should pass `lIIllIIIIlllIlIIIII // 2` to calculate the power of the number correctly.
+
+Here is the corrected code:
+
+def lllIIlIl(IllllIIIlll, lIIllIIIIlllIlIIIII):
+  if lIIllIIIIlllIlIIIII == 0:
+    return 1
+  else:
+    lIIlIIIIlIIIllIIl = lllIIlIl(IllllIIIlll, lIIllIIIIlllIlIIIII // 2)
+    lIlIIlIIIllIlllIIlI = lIIlIIIIlIIIllIIl * lIIlIIIIlIIIllIIl
+    if lIIllIIIIlllIlIIIII % 2 == 1:                      
+      lIlIIlIIIllIlllIIlI *= IllllIIIlll                       
+    return lIlIIlIIIllIlllIIlI
+
+
+#46 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_3_line_no_7_AOR.py
+Yes, there is a bug in the provided code. 
+
+The bug is in the line `IIIIlIlIlIlIlIIlllll = IlIlIIlIIlllll / IlIlIIlIIlllll`. This line is trying to divide `IlIlIIlIIlllll` by itself, which will always result in 1. 
+
+To fix this bug, we need to change the line to `IIIIlIlIlIlIlIIlllll = IIlIlIIIIIllIlllI * IlIlIIlIIlllll`. This will multiply `IIlIlIIIIIllIlllI` with `IlIlIIlIIlllll`, instead of dividing it by itself. 
+
+Here is the corrected code:
+
+def IIIIlIlIIllIIIIIlIIl(IIlIlIIIIIllIlllI, lIlIIlIlllIlI):
+  if lIlIIlIlllIlI == 0:
+    return 1
+  else:
+    IlIlIIlIIlllll = IIIIlIlIIllIIIIIlIIl(IIlIlIIIIIllIlllI, lIlIIlIlllIlI // 2)          
+    IIIIlIlIlIlIlIIlllll = IIlIlIIIIIllIlllI * IlIlIIlIIlllll
+    if lIlIIlIlllIlI % 2 == 1:                      
+      IIIIlIlIlIlIlIIlllll *= IIlIlIIIIIllIlllI                       
+    return IIIIlIlIlIlIlIIlllll
+
+
+#47 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_4_line_no_7_AOR.py
+Yes, there is a bug in the provided code. The line `IlllIIIIlllIlll = lIllIlIlIl // lIllIlIlIl` is dividing `lIllIlIlIl` by itself, which will always result in 1. This line should be removed.
+
+Here is the corrected code:
+
+```python
+def lIIIIlllIlIIIIllI(llIIllIllll, lIIIIIIl):
+  if lIIIIIIl == 0:
+    return 1
+  else:
+    lIllIlIlIl = lIIIIlllIlIIIIllI(llIIllIllll, lIIIIIIl // 2)          
+    IlllIIIIlllIlll = lIllIlIlIl
+    if lIIIIIIl % 2 == 1:                      
+      IlllIIIIlllIlll *= llIIllIllll                       
+    return IlllIIIIlllIlll
+```
+
+In this corrected code, the line `IlllIIIIlllIlll = lIllIlIlIl // lIllIlIlIl` has been removed, and `IlllIIIIlllIlll` is assigned the value of `lIllIlIlIl` directly.
+
+
+#48 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_5_line_no_7_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line `llIIlllIIIII = IIIIIIllllIllIIl ** IIIIIIllllIllIIl`. The intention seems to be to calculate the power of `IIIIIIllllIllIIl` raised to itself, but the code is actually calculating the power of `IIIIIIllllIllIIl` raised to `IIIIIIllllIllIIl`. 
+
+To fix this bug, we need to change the line to `llIIlllIIIII = IIIIIIllllIllIIl ** IIllIlIlI`. This will correctly calculate the power of `IIIIIIllllIllIIl` raised to `IIllIlIlI`. 
+
+Here's the corrected code:
+
+def lIlIIIlIlIIIlllI(llllIlIIIIIlllIIIIll, IIllIlIlI):
+  if IIllIlIlI == 0:
+    return 1
+  else:
+    IIIIIIllllIllIIl = lIlIIIlIlIIIlllI(llllIlIIIIIlllIIIIll, IIllIlIlI // 2)          
+    llIIlllIIIII = IIIIIIllllIllIIl ** IIllIlIlI
+    if IIllIlIlI % 2 == 1:                      
+      llIIlllIIIII *= llllIlIIIIIlllIIIIll                       
+    return llIIlllIIIII
+
+
+#49 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_6_line_no_8_AOR.py
+The code provided is a recursive implementation of the exponentiation by squaring algorithm. It calculates the power of a number efficiently using recursion.
+
+However, there is a bug in the code. The condition `if IllIlllIlI * 2 == 1:` is incorrect. It should be `if IllIlllIlI % 2 == 1:` to check if the exponent is odd.
+
+Here is the corrected code:
+
+```python
+def llIlllIlIIllI(llIlIlllIIllIIlIllI, IllIlllIlI):
+  if IllIlllIlI == 0:
+    return 1
+  else:
+    llllIIllIIIlIl = llIlllIlIIllI(llIlIlllIIllIIlIllI, IllIlllIlI // 2)          
+    IlIlIIIIl = llllIIllIIIlIl * llllIIllIIIlIl
+    if IllIlllIlI % 2 == 1:
+      IlIlIIIIl *= llIlIlllIIllIIlIllI                       
+    return IlIlIIIIl
+```
+
+Now the code should work correctly.
+
+
+#50 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_7_line_no_9_ASR.py
+The code provided is a recursive implementation of the exponentiation by squaring algorithm. However, there is a bug in the code. 
+
+The bug is in the line `IllIllIIIlII /= lllIlIlIlIll`. This line should be `IllIllIIIlII *= lllIlIlIlIll` instead. 
+
+Here is the corrected code:
+
+```python
+def IllIIllIII(lllIlIlIlIll, llIIlllIlIIlIIlIll):
+  if llIIlllIlIIlIIlIll == 0:
+    return 1
+  else:
+    lIIIlIIllI = IllIIllIII(lllIlIlIlIll, llIIlllIlIIlIIlIll // 2)          
+    IllIllIIIlII = lIIIlIIllI * lIIIlIIllI
+    if llIIlllIlIIlIIlIll % 2 == 1:                      
+      IllIllIIIlII *= lllIlIlIlIll
+    return IllIllIIIlII
+```
+
+Now the code should work correctly.
+
+
+#51 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_8_line_no_9_ASR.py
+The provided code is a recursive implementation of the exponentiation by squaring algorithm. It calculates the power of a number efficiently using recursion.
+
+There is no bug in the code. It is correct as it is.
+
+
+#52 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Power_Fast\mutation_9_line_no_9_ASR.py
+Yes, there is a bug in the provided code. The line `IllIIIIlllIIIIIlllIl **= llIllIIllIIlIlllIl` should be `IllIIIIlllIIIIIlllIl *= llIllIIllIIlIlllIl`. 
+
+Here is the corrected code:
+
+```python
+def IIlIlIII(llIllIIllIIlIlllIl, lIlIIlIlllIl):
+  if lIlIIlIlllIl == 0:
+    return 1
+  else:
+    IlIIIIIl = IIlIlIII(llIllIIllIIlIlllIl, lIlIIlIlllIl // 2)          
+    IllIIIIlllIIIIIlllIl = IlIIIIIl * IlIIIIIl
+    if lIlIIlIlllIl % 2 == 1:                      
+      IllIIIIlllIIIIIlllIl *= llIllIIllIIlIlllIl
+    return IllIIIIlllIIIIIlllIl
+```
+
+
+#53 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse\mutation_1_line_no_3_AOR.py
+The provided code is a recursive function that swaps elements in a list. However, there is a bug in the code. 
+
+The bug is in the condition `llIllIlIIlllI < IlIlllIlIIIllII + 1`. This condition should be `llIllIlIIlllI < IlIlllIlIIIllII` because the indices of a list start from 0, so the maximum index is `IlIlllIlIIIllII - 1`. 
+
+Here is the corrected code:
+
+def IlllIlllIlIIl(lIIIIlllIlI, llIllIlIIlllI, IlIlllIlIIIllII):
+  if llIllIlIIlllI < IlIlllIlIIIllII:
+    lIIIIlllIlI[llIllIlIIlllI], lIIIIlllIlI[IlIlllIlIIIllII-1] = lIIIIlllIlI[IlIlllIlIIIllII-1], lIIIIlllIlI[llIllIlIIlllI]  
+    IlllIlllIlIIl(lIIIIlllIlI, llIllIlIIlllI+1, IlIlllIlIIIllII-1)                
+
+Now the code should work correctly.
+
+
+#54 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse\mutation_2_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line where the swap is happening:
+
+(lIIlIIlllIlIllI[IlllIlIIlllIl], lIIlIIlllIlIllI[llllIlllllIl + 1]) = (lIIlIIlllIlIllI[llllIlllllIl - 1], lIIlIIlllIlIllI[IlllIlIIlllIl])
+
+The indices used for swapping are incorrect. It should be:
+
+(lIIlIIlllIlIllI[IlllIlIIlllIl], lIIlIIlllIlIllI[IlllIlIIlllIl + 1]) = (lIIlIIlllIlIllI[IlllIlIIlllIl + 1], lIIlIIlllIlIllI[IlllIlIIlllIl])
+
+Here's the corrected code:
+
+def lIlIlllllIlII(lIIlIIlllIlIllI, IlllIlIIlllIl, llllIlllllIl):
+  if IlllIlIIlllIl < llllIlllllIl - 1:                         
+    (lIIlIIlllIlIllI[IlllIlIIlllIl], lIIlIIlllIlIllI[IlllIlIIlllIl + 1]) = (lIIlIIlllIlIllI[IlllIlIIlllIl + 1], lIIlIIlllIlIllI[IlllIlIIlllIl])
+    lIlIlllllIlII(lIIlIIlllIlIllI, IlllIlIIlllIl+1, llllIlllllIl-1)
+
+
+#55 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse\mutation_3_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line where the swap is happening:
+
+(lIlllIllI[llIIlIlII], lIlllIllI[lIlIIIll - 1]) = (lIlllIllI[lIlIIIll + 1], lIlllIllI[llIIlIlII])
+
+The indices used for swapping are incorrect. It should be:
+
+(lIlllIllI[llIIlIlII], lIlllIllI[lIlIIIll - 1]) = (lIlllIllI[lIlIIIll - 1], lIlllIllI[llIIlIlII])
+
+Here's the corrected code:
+
+def lIllIIIIlI(lIlllIllI, llIIlIlII, lIlIIIll):
+  if llIIlIlII < lIlIIIll - 1:                         
+    (lIlllIllI[llIIlIlII], lIlllIllI[lIlIIIll - 1]) = (lIlllIllI[lIlIIIll - 1], lIlllIllI[llIIlIlII])
+    lIllIIIIlI(lIlllIllI, llIIlIlII+1, lIlIIIll-1)
+
+
+#56 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse\mutation_4_line_no_5_AOR.py
+The provided code is a recursive implementation of the QuickSort algorithm. However, there is a bug in the code. 
+
+The bug is in the recursive call to `llllIIIlIIllllIIIlll` function. The second argument `IlIIIIlIllIIIlllI - 1` should be `IlIIIIlIllIIIlllI`, and the third argument `IIllIIlIllIIIIl - 1` should be `IIllIIlIllIIIIl - 2`. 
+
+Here's the corrected code:
+
+def llllIIIlIIllllIIIlll(lIIlllIll, IlIIIIlIllIIIlllI, IIllIIlIllIIIIl):
+  if IlIIIIlIllIIIlllI < IIllIIlIllIIIIl - 1:                         
+    lIIlllIll[IlIIIIlIllIIIlllI], lIIlllIll[IIllIIlIllIIIIl-1] = lIIlllIll[IIllIIlIllIIIIl-1], lIIlllIll[IlIIIIlIllIIIlllI]  
+    llllIIIlIIllllIIIlll(lIIlllIll, IlIIIIlIllIIIlllI, IIllIIlIllIIIIl - 2)
+
+Now the code should work correctly.
+
+
+#57 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse\mutation_5_line_no_5_AOR.py
+Yes, there is a bug in the provided code. The recursive function `IlIIIlIlIIll` is missing a base case, which can lead to an infinite recursion. To fix this, we need to add a condition to stop the recursion when `lIlIIIlIIllIIlIll` is greater than or equal to `llIlIlllIllIIlIIllI - 1`. Here's the corrected code:
+
+def IlIIIlIlIIll(lIIllIIl, lIlIIIlIIllIIlIll, llIlIlllIllIIlIIllI):
+  if lIlIIIlIIllIIlIll < llIlIlllIllIIlIIllI - 1:                         
+    lIIllIIl[lIlIIIlIIllIIlIll], lIIllIIl[llIlIlllIllIIlIIllI-1] = lIIllIIl[llIlIlllIllIIlIIllI-1], lIIllIIl[lIlIIIlIIllIIlIll]  
+    IlIIIlIlIIll(lIIllIIl, lIlIIIlIIllIIlIll + 1, llIlIlllIllIIlIIllI + 1)
+  return lIIllIIl
+
+This code will swap the elements at indices `lIlIIIlIIllIIlIll` and `llIlIlllIllIIlIIllI-1` in the list `lIIllIIl`, and then recursively call the function with the next indices. The function will stop when `lIlIIIlIIllIIlIll` is greater than or equal to `llIlIlllIllIIlIIllI - 1`, and it will return the modified list.
+
+
+#58 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse\mutation_6_line_no_3_COI.py
+The provided code is a recursive implementation of the bubble sort algorithm. However, there is a bug in the code. The condition in the if statement should be `IIlIIllIlIlIl < IlIllIIIIIl`, not `IIlIIllIlIlIl < IlIllIIIIIl - 1`. 
+
+Here's the corrected code:
+
+def IlIIIIIlIIlIl(IIIIlIIlIIlII, IIlIIllIlIlIl, IlIllIIIIIl):
+  if not (IIlIIllIlIlIl < IlIllIIIIIl):
+    return
+  if IIIIlIIlIIlII[IIlIIllIlIlIl] > IIIIlIIlIIlII[IlIllIIIIIl]:
+    IIIIlIIlIIlII[IIlIIllIlIlIl], IIIIlIIlIIlII[IlIllIIIIIl] = IIIIlIIlIIlII[IlIllIIIIIl], IIIIlIIlIIlII[IIlIIllIlIlIl]
+  IlIIIIIlIIlIl(IIIIlIIlIIlII, IIlIIllIlIlIl+1, IlIllIIIIIl-1)
+
+This code should correctly sort the input list using the bubble sort algorithm.
+
+
+#59 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse\mutation_7_line_no_3_ROR.py
+The provided code is missing a base case for the recursive function. Without a base case, the function will continue to call itself indefinitely, resulting in a stack overflow error.
+
+To fix this, we can add a base case that checks if `llIlIlIIIlll` is greater than or equal to `IlIIllIIllIl - 1`. If this condition is true, we can simply return without making any further recursive calls.
+
+Here's the updated code:
+
+def IIllIlIlI(lIlIlIlIlllIIIllIll, llIlIlIIIlll, IlIIllIIllIl):
+  if llIlIlIIIlll >= IlIIllIIllIl - 1:
+    return
+  
+  lIlIlIlIlllIIIllIll[llIlIlIIIlll], lIlIlIlIlllIIIllIll[IlIIllIIllIl-1] = lIlIlIlIlllIIIllIll[IlIIllIIllIl-1], lIlIlIlIlllIIIllIll[llIlIlIIIlll]  
+  IIllIlIlI(lIlIlIlIlllIIIllIll, llIlIlIIIlll+1, IlIIllIIllIl-1)                
+
+Now, the function will terminate when `llIlIlIIIlll` is greater than or equal to `IlIIllIIllIl - 1`, preventing an infinite recursion.
+
+
+#60 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse\mutation_8_line_no_3_ROR.py
+The provided code is a recursive implementation of the Quicksort algorithm. It swaps elements in the input list based on a pivot element and recursively sorts the sublists on either side of the pivot.
+
+There is a small bug in the code. The condition `llIIIllIIIllIIIIIII <= IlIlIllIllIIllIlIlI - 1` should be `llIIIllIIIllIIIIIII < IlIlIllIllIIllIlIlI - 1`. This is because the pivot element is already in its correct position, so there is no need to include it in the recursive calls.
+
+Here is the corrected code:
+
+def llllIIIlllI(IlllllIIlIllllllIIII, llIIIllIIIllIIIIIII, IlIlIllIllIIllIlIlI):
+  if llIIIllIIIllIIIIIII < IlIlIllIllIIllIlIlI - 1:
+    IlllllIIlIllllllIIII[llIIIllIIIllIIIIIII], IlllllIIlIllllllIIII[IlIlIllIllIIllIlIlI-1] = IlllllIIlIllllllIIII[IlIlIllIllIIllIlIlI-1], IlllllIIlIllllllIIII[llIIIllIIIllIIIIIII]  
+    llllIIIlllI(IlllllIIlIllllllIIII, llIIIllIIIllIIIIIII+1, IlIlIllIllIIllIlIlI-1)                
+
+Now the code should work correctly.
+
+
+#61 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse_Iterative\mutation_1_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The loop condition should be `lIlIllIllIIIIIIlIIl < IllIlIllllII // 2` instead of `lIlIllIllIIIIIIlIIl < IllIlIllllII + 1`. This is because we only need to swap the elements until we reach the middle of the list. 
+
+Here is the corrected code:
+
+def llIlllIIlIII(llIlllIlIll):
+  lIlIllIllIIIIIIlIIl, IllIlIllllII = 0, len(llIlllIlIll)
+  while lIlIllIllIIIIIIlIIl < IllIlIllllII // 2:
+    llIlllIlIll[lIlIllIllIIIIIIlIIl], llIlllIlIll[IllIlIllllII-1] = llIlllIlIll[IllIlIllllII-1], llIlllIlIll[lIlIllIllIIIIIIlIIl]  
+    lIlIllIllIIIIIIlIIl, IllIlIllllII = lIlIllIllIIIIIIlIIl + 1, IllIlIllllII - 1
+
+This code will correctly swap the elements in the list.
+
+
+#62 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse_Iterative\mutation_2_line_no_5_AOR.py
+Yes, there is a bug in the provided code. The line `(llIIIIIllIIIl[IIlIIIlIlllllIIl], llIIIIIllIIIl[llIIIIlIIllIIIIII + 1]) = (llIIIIIllIIIl[llIIIIlIIllIIIIII - 1], llIIIIIllIIIl[IIlIIIlIlllllIIl])` is trying to swap two elements in the list `llIIIIIllIIIl`, but it is using incorrect indices.
+
+Here is the corrected code:
+
+def lIllllIllIlIl(llIIIIIllIIIl):
+  IIlIIIlIlllllIIl, llIIIIlIIllIIIIII = 0, len(llIIIIIllIIIl) - 1
+  while IIlIIIlIlllllIIl < llIIIIlIIllIIIIII:
+    llIIIIIllIIIl[IIlIIIlIlllllIIl], llIIIIIllIIIl[llIIIIlIIllIIIIII] = llIIIIIllIIIl[llIIIIlIIllIIIIII], llIIIIIllIIIl[IIlIIIlIlllllIIl]
+    IIlIIIlIlllllIIl, llIIIIlIIllIIIIII = IIlIIIlIlllllIIl + 1, llIIIIlIIllIIIIII - 1
+
+I have corrected the indices used for swapping the elements in the list.
+
+
+#63 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse_Iterative\mutation_3_line_no_5_AOR.py
+Yes, there is a bug in the provided code. The bug is in the line where the swapping of elements is done:
+
+(lIIIlIlIIIll[IIIlllIIIIlll], lIIIlIlIIIll[lIIIIIIIIlIlllIIlII - 1]) = (lIIIlIlIIIll[lIIIIIIIIlIlllIIlII + 1], lIIIlIlIIIll[IIIlllIIIIlll])
+
+The indices used for swapping are incorrect. It should be:
+
+(lIIIlIlIIIll[IIIlllIIIIlll], lIIIlIlIIIll[lIIIIIIIIlIlllIIlII - 1]) = (lIIIlIlIIIll[lIIIIIIIIlIlllIIlII - 1], lIIIlIlIIIll[IIIlllIIIIlll])
+
+Here's the corrected code:
+
+def IlllIllIIllllIll(lIIIlIlIIIll):
+  IIIlllIIIIlll, lIIIIIIIIlIlllIIlII = 0, len(lIIIlIlIIIll)
+  while IIIlllIIIIlll < lIIIIIIIIlIlllIIlII - 1:
+    (lIIIlIlIIIll[IIIlllIIIIlll], lIIIlIlIIIll[lIIIIIIIIlIlllIIlII - 1]) = (lIIIlIlIIIll[lIIIIIIIIlIlllIIlII - 1], lIIIlIlIIIll[IIIlllIIIIlll])
+    IIIlllIIIIlll, lIIIIIIIIlIlllIIlII = IIIlllIIIIlll + 1, lIIIIIIIIlIlllIIlII - 1
+
+
+#64 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse_Iterative\mutation_4_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The loop condition should be `lllIlIIIIIlIl <= lIIIlIIlII - 1` instead of `lllIlIIIIIlIl < lIIIlIIlII - 1`. This is because the loop should continue until `lllIlIIIIIlIl` is equal to or greater than `lIIIlIIlII - 1` in order to swap the last element with itself. 
+
+Here is the corrected code:
+
+def llIlllII(lIIIlIlIlIIIl):
+  lllIlIIIIIlIl, lIIIlIIlII = 0, len(lIIIlIlIlIIIl)
+  while lllIlIIIIIlIl <= lIIIlIIlII - 1:
+    lIIIlIlIlIIIl[lllIlIIIIIlIl], lIIIlIlIlIIIl[lIIIlIIlII-1] = lIIIlIlIlIIIl[lIIIlIIlII-1], lIIIlIlIlIIIl[lllIlIIIIIlIl]  
+    (lllIlIIIIIlIl, lIIIlIIlII) = (lllIlIIIIIlIl - 1, lIIIlIIlII - 1)
+
+
+#65 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse_Iterative\mutation_5_line_no_6_AOR.py
+Yes, there is a bug in the provided code. The loop condition should be `lllIlIlIlIlI <= llIllIIIllIIll - 1` instead of `lllIlIlIlIlI < llIllIIIllIIll - 1`. This is because the loop should continue until `lllIlIlIlIlI` is equal to `llIllIIIllIIll - 1`, so that the last element in the list is also swapped.
+
+Here is the corrected code:
+
+def llllIlIlllIIl(IIlIlIIII):
+  lllIlIlIlIlI, llIllIIIllIIll = 0, len(IIlIlIIII)
+  while lllIlIlIlIlI <= llIllIIIllIIll - 1:
+    IIlIlIIII[lllIlIlIlIlI], IIlIlIIII[llIllIIIllIIll-1] = IIlIlIIII[llIllIIIllIIll-1], IIlIlIIII[lllIlIlIlIlI]  
+    (lllIlIlIlIlI, llIllIIIllIIll) = (lllIlIlIlIlI + 1, llIllIIIllIIll - 1)
+
+Now the code will correctly swap the first and last elements of the list.
+
+
+#66 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse_Iterative\mutation_6_line_no_4_COI.py
+Yes, there is a bug in the provided code. The condition in the while loop is incorrect. It should be "while IIIIIIIllIIllIIIlI < IIIIIIIlIllIIllIlll - 1" instead of "while not (IIIIIIllIIllIIIlI < IIIIIIIlIllIIllIlll - 1)". 
+
+Here is the corrected code:
+
+def IIlIlllII(IlIIllllI):
+  IIIIIIllIIllIIIlI, IIIIIIIlIllIIllIlll = 0, len(IlIIllllI)
+  while IIIIIIIllIIllIIIlI < IIIIIIIlIllIIllIlll - 1:
+    IlIIllllI[IIIIIIllIIllIIIlI], IlIIllllI[IIIIIIIlIllIIllIlll-1] = IlIIllllI[IIIIIIIlIllIIllIlll-1], IlIIllllI[IIIIIIllIIllIIIlI]  
+    IIIIIIllIIllIIIlI, IIIIIIIlIllIIllIlll = IIIIIIllIIllIIIlI + 1, IIIIIIIlIllIIllIlll - 1
+
+
+#67 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse_Iterative\mutation_7_line_no_4_ROR.py
+Yes, there is a bug in the provided code. The while loop condition should be `lIIIlllllll < lllllIllllllIIllIII - 1` instead of `lIIIlllllll > lllllIllllllIIllIII - 1`. 
+
+Here's the corrected code:
+
+def IlIIIllIlllIIIIll(IlIllllllIllIIIlllI):
+  lIIIlllllll, lllllIllllllIIllIII = 0, len(IlIllllllIllIIIlllI)
+  while lIIIlllllll < lllllIllllllIIllIII - 1:
+    IlIllllllIllIIIlllI[lIIIlllllll], IlIllllllIllIIIlllI[lllllIllllllIIllIII-1] = IlIllllllIllIIIlllI[lllllIllllllIIllIII-1], IlIllllllIllIIIlllI[lIIIlllllll]  
+    lIIIlllllll, lllllIllllllIIllIII = lIIIlllllll + 1, lllllIllllllIIllIII - 1          
+
+Now the code should work correctly.
+
+
+#68 Buggy Code Obs/Buggy code for Book/Ch4/Commented_Code\Reverse_Iterative\mutation_8_line_no_4_ROR.py
+Yes, there is a bug in the provided code. The loop condition should be `IlIllllIIlIlll < lllllIIIllllIIl - 1` instead of `IlIllllIIlIlll <= lllllIIIllllIIl - 1`. This is because the current condition allows the loop to run one extra iteration, which is unnecessary.
+
+Here's the corrected code:
+
+def lIllIlll(llllIIIIIlIl):
+  IlIllllIIlIlll, lllllIIIllllIIl = 0, len(llllIIIIIlIl)
+  while IlIllllIIlIlll < lllllIIIllllIIl - 1:
+    llllIIIIIlIl[IlIllllIIlIlll], llllIIIIIlIl[lllllIIIllllIIl-1] = llllIIIIIlIl[lllllIIIllllIIl-1], llllIIIIIlIl[IlIllllIIlIlll]  
+    IlIllllIIlIlll, lllllIIIllllIIl = IlIllllIIlIlll + 1, lllllIIIllllIIl - 1
+
+This code will swap the first and last elements of the input list until the loop reaches the middle of the list.
+
+

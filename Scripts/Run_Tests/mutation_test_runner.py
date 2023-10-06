@@ -89,7 +89,7 @@ for filez in allrunfiles:
             overall_test_passed = False
 
 # Write the individual test results to a text file
-with open('test_results_run_3.txt', 'w') as result_file:
+with open('test_results_run_5.txt', 'w') as result_file:
     for result in individual_test_results:
         result_file.write(result + '\n')
 

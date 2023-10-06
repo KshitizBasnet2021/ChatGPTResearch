@@ -1,0 +1,853 @@
+#1 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_10_line_no_16_ASR.py
+There is a bug in the provided code. The variable `IIIIIlIlIIIl` is misspelled as `IIIIIlIlIIIl` in the line `if IIIIIlIlIIIl[lllIlIIIlIIIIIlIlI] == IIIlIIllIlIIll[lIlIIlIlllIlIl]:`. 
+
+To fix this, you can change `IIIIIlIlIIIl` to `IIIIlIlIIIl` in that line. 
+
+Here is the corrected code:
+
+def IlIlllllllIllIlI(IIIIlIlIIIl, IIIlIIllIlIIll):
+  llIIllIllI, IIIIIIllIIIIIl = len(IIIIlIlIIIl), len(IIIlIIllIlIIll)                   
+  if IIIIIIllIIIIIl == 0: return 0                     
+  llIIIIIlIlllIl = {}                               
+  for lIlIIlIlllIlIl in range(IIIIIIllIIIIIl):
+    llIIIIIlIlllIl[ IIIlIIllIlIIll[lIlIIlIlllIlIl] ] = lIlIIlIlllIlIl                      
+  lllIlIIIlIIIIIlIlI = IIIIIIllIIIIIl-1                                 
+  lIlIIlIlllIlIl = IIIIIIllIIIIIl-1                                 
+  while lllIlIIIlIIIIIlIlI < llIIllIllI:
+    if IIIIlIlIIIl[lllIlIIIlIIIIIlIlI] == IIIlIIllIlIIll[lIlIIlIlllIlIl]:                      
+      if lIlIIlIlllIlIl == 0:
+        return lllIlIIIlIIIIIlIlI                          
+      else:
+        lllIlIIIlIIIIIlIlI += 1
+        lIlIIlIlllIlIl -= 1                            
+    else:
+      IIlIIIIllIl = llIIIIIlIlllIl.get(IIIIlIlIIIl[lllIlIIIlIIIIIlIlI], -1)              
+      lllIlIIIlIIIIIlIlI += IIIIIIllIIIIIl - min(lIlIIlIlllIlIl, IIlIIIIllIl + 1)              
+      lIlIIlIlllIlIl = IIIIIIllIIIIIl - 1                           
+  return -1
+
+
+#2 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_11_line_no_17_ASR.py
+There is a bug in the provided code. The variable `llllIIlIll` is not defined, which will result in a NameError when the code is executed. To fix this, we can replace `llllIIlIll` with `llllIIlIll = len(llIIlIIII)`.
+
+Here is the corrected code:
+
+```python
+def IllllIIIIIIl(llIIlIIII, lllIlIlIIllllIIlIII):
+  llllIIlIll = len(llIIlIIII)
+  IIlIlIIlllII = len(lllIlIlIIllllIIlIII)                   
+  if IIlIlIIlllII == 0: return 0                     
+  IIllIIIlIllIll = {}                               
+  for IllIIIlII in range(IIlIlIIlllII):
+    IIllIIIlIllIll[lllIlIlIIllllIIlIII[IllIIIlII]] = IllIIIlII                      
+  lIIIlllllllIIIll = IIlIlIIlllII-1                                 
+  IllIIIlII = IIlIlIIlllII-1                                 
+  while lIIIlllllllIIIll < llllIIlIll:
+    if llIIlIIII[lIIIlllllllIIIll] == lllIlIlIIllllIIlIII[IllIIIlII]:                      
+      if IllIIIlII == 0:
+        return lIIIlllllllIIIll                          
+      else:
+        lIIIlllllllIIIll -= 1                            
+        IllIIIlII += 1
+    else:
+      lllllIIlI = IIllIIIlIllIll.get(llIIlIIII[lIIIlllllllIIIll], -1)              
+      lIIIlllllllIIIll += IIlIlIIlllII - min(IllIIIlII, lllllIIlI + 1)              
+      IllIIIlII = IIlIlIIlllII - 1                           
+  return -1
+```
+
+Now the code should run without any errors.
+
+
+#3 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_12_line_no_20_ASR.py
+There is a bug in the provided code. The bug is in the line `llIIllIlIIIllI -= llllIlllIIIlIIlIl - min(lIIIllIlllllI, lllIlIlIIlIlI + 1)`. 
+
+To fix the bug, we need to change `llllIlllIIIlIIlIl` to `lIlIllIlI` in that line. 
+
+Here is the corrected code:
+
+def llIIllIIllllIl(lIIlIlIlllIIlIl, IIIlIllIlIllIlII):
+  lIlIllIlI, llllIlllIIIlIIlIl = len(lIIlIlIlllIIlIl), len(IIIlIllIlIllIlII)                   
+  if llllIlllIIIlIIlIl == 0: return 0                     
+  lIlIllIlIllIIlI = {}                               
+  for lIIIllIlllllI in range(llllIlllIIIlIIlIl):
+    lIlIllIlIllIIlI[ IIIlIllIlIllIlII[lIIIllIlllllI] ] = lIIIllIlllllI                      
+  llIIllIlIIIllI = llllIlllIIIlIIlIl-1                                 
+  lIIIllIlllllI = llllIlllIIIlIIlIl-1                                 
+  while llIIllIlIIIllI < lIlIllIlI:
+    if lIIlIlIlllIIlIl[llIIllIlIIIllI] == IIIlIllIlIllIlII[lIIIllIlllllI]:                      
+      if lIIIllIlllllI == 0:
+        return llIIllIlIIIllI                          
+      else:
+        llIIllIlIIIllI -= 1                            
+        lIIIllIlllllI -= 1                            
+    else:
+      lllIlIlIIlIlI = lIlIllIlIllIIlI.get(lIIlIlIlllIIlIl[llIIllIlIIIllI], -1)              
+      llIIllIlIIIllI -= lIlIllIlI - min(lIIIllIlllllI, lllIlIlIIlIlI + 1)
+      lIIIllIlllllI = lIlIllIlI - 1                           
+  return -1
+
+
+#4 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_13_line_no_4_COI.py
+Yes, there is a bug in the provided code. The bug is in the line `if not (m == 0):`. This condition is unnecessary and causes the code to exit early if the pattern length is 0. However, the code should still be able to handle the case where the pattern length is 0 and return the correct result.
+
+To fix this bug, we can remove the unnecessary condition and modify the code to handle the case where the pattern length is 0. Here's the updated code:
+
+```python
+def find_boyer_moore(T, P):
+    n, m = len(T), len(P)
+    if m == 0:
+        return 0  # Return 0 if pattern length is 0
+
+    last = {}
+    for k in range(m):
+        last[P[k]] = k
+    i = m - 1
+    k = m - 1
+    while i < n:
+        if T[i] == P[k]:
+            if k == 0:
+                return i
+            else:
+                i -= 1
+                k -= 1
+        else:
+            j = last.get(T[i], -1)
+            i += m - min(k, j + 1)
+            k = m - 1
+    return -1
+```
+
+Now the code will correctly handle the case where the pattern length is 0 and return the expected result.
+
+
+#5 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_14_line_no_11_COI.py
+There is a bug in the provided code. The bug is in the line `IIlIlllllIIlllIlI += IIIIIlllllIIIlIIlIll - min(IIIIllIIIll, IllllIIlIIllI + 1)`. 
+
+To fix the bug, we need to change the line to `IIlIlllllIIlllIlI += IIIIIlllllIIIlIIlIll - min(IIIIllIIIll, IllllIIlIIllI + 1) - 1`. 
+
+Here is the corrected code:
+
+def IIlIIllI(lIlIIIIIIllIlll, lIlIIllIIlIllI):
+  lIIIIIlllIlIlIIIllll, IIIIIlllllIIIlIIlIll = len(lIlIIIIIIllIlll), len(lIlIIllIIlIllI)                   
+  if IIIIIlllllIIIlIIlIll == 0: return 0                     
+  IlIIIIIIIllIllIIIll = {}                               
+  for IIIIllIIIll in range(IIIIIlllllIIIlIIlIll):
+    IlIIIIIIIllIllIIIll[ lIlIIllIIlIllI[IIIIllIIIll] ] = IIIIllIIIll                      
+  IIlIlllllIIlllIlI = IIIIIlllllIIIlIIlIll-1                                 
+  IIIIllIIIll = IIIIIlllllIIIlIIlIll-1                                 
+  while not (IIlIlllllIIlllIlI < lIIIIIlllIlIlIIIllll):
+    if lIlIIIIIIllIlll[IIlIlllllIIlllIlI] == lIlIIllIIlIllI[IIIIllIIIll]:                      
+      if IIIIllIIIll == 0:
+        return IIlIlllllIIlllIlI                          
+      else:
+        IIlIlllllIIlllIlI -= 1                            
+        IIIIllIIIll -= 1                            
+    else:
+      IllllIIlIIllI = IlIIIIIIIllIllIIIll.get(lIlIIIIIIllIlll[IIlIlllllIIlllIlI], -1)              
+      IIlIlllllIIlllIlI += IIIIIlllllIIIlIIlIll - min(IIIIllIIIll, IllllIIlIIllI + 1) - 1              
+      IIIIllIIIll = IIIIIlllllIIIlIIlIll - 1                           
+  return -1
+
+
+#6 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_15_line_no_12_COI.py
+There is a bug in the provided code. The bug is in the line `llllIIlIllIl += lllllllIII - min(IIlllIIIl, IlIIIIIlllIllII + 1)`. 
+
+To fix the bug, we need to change `llllIIlIllIl` to `llllIIlIllIl += lllllllIII - min(IIlllIIIl, IlIIIIIlllIllII + 1) - 1`. This is because we want to move the index `llllIIlIllIl` to the next possible starting position for the next iteration of the while loop. By subtracting 1, we ensure that the index is correctly updated. 
+
+Here is the corrected code:
+
+def lllIIIlIllIllII(llIIIIllIIlIlII, IlIlIllllIIlII):
+  IIlIlIllIlIlIII, lllllllIII = len(llIIIIllIIlIlII), len(IlIlIllllIIlII)                   
+  if lllllllIII == 0: return 0                     
+  lllIlllIIlllllIl = {}                               
+  for IIlllIIIl in range(lllllllIII):
+    lllIlllIIlllllIl[ IlIlIllllIIlII[IIlllIIIl] ] = IIlllIIIl                      
+  llllIIlIllIl = lllllllIII-1                                 
+  IIlllIIIl = lllllllIII-1                                 
+  while llllIIlIllIl < IIlIlIllIlIlIII:
+    if not (llIIIIllIIlIlII[llllIIlIllIl] == IlIlIllllIIlII[IIlllIIIl]):
+      if IIlllIIIl == 0:
+        return llllIIlIllIl                          
+      else:
+        llllIIlIllIl -= 1                            
+        IIlllIIIl -= 1                            
+    else:
+      IlIIIIIlllIllII = lllIlllIIlllllIl.get(llIIIIllIIlIlII[llllIIlIllIl], -1)              
+      llllIIlIllIl += lllllllIII - min(IIlllIIIl, IlIIIIIlllIllII + 1) - 1              
+      IIlllIIIl = lllllllIII - 1                           
+  return -1
+
+
+#7 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_16_line_no_13_COI.py
+There is a bug in the provided code. The bug is in the line `lIllIlIlIlIlI += llIIlIlIIlIlIlIIlI - min(IlIIlllIllIIll, IlllIIlIIIlIIIII + 1)`. 
+
+To fix the bug, we need to change the line to `lIllIlIlIlIlI += llIIlIlIIlIlIlIIlI - min(IlIIlllIllIIll, IlllIIlIIIlIIIII + 1) - 1`. 
+
+Here is the corrected code:
+
+```python
+def IIllIIllIII(IllIIlIIIlIlIIlIlIl, IlIIIllIIlIIlIIIIIl):
+  llIlIIllllIlIIIlIl, llIIlIlIIlIlIlIIlI = len(IllIIlIIIlIlIIlIlIl), len(IlIIIllIIlIIlIIIIIl)                   
+  if llIIlIlIIlIlIlIIlI == 0: return 0                     
+  IlIlIlIll = {}                               
+  for IlIIlllIllIIll in range(llIIlIlIIlIlIlIIlI):
+    IlIlIlIll[ IlIIIllIIlIIlIIIIIl[IlIIlllIllIIll] ] = IlIIlllIllIIll                      
+  lIllIlIlIlIlI = llIIlIlIIlIlIlIIlI-1                                 
+  IlIIlllIllIIll = llIIlIlIIlIlIlIIlI-1                                 
+  while lIllIlIlIlIlI < llIlIIllllIlIIIlIl:
+    if IllIIlIIIlIlIIlIlIl[lIllIlIlIlIlI] == IlIIIllIIlIIlIIIIIl[IlIIlllIllIIll]:                      
+      if not (IlIIlllIllIIll == 0):
+        return lIllIlIlIlIlI                          
+      else:
+        lIllIlIlIlIlI -= 1                            
+        IlIIlllIllIIll -= 1                            
+    else:
+      IlllIIlIIIlIIIII = IlIlIlIll.get(IllIIlIIIlIlIIlIlIl[lIllIlIlIlIlI], -1)              
+      lIllIlIlIlIlI += llIIlIlIIlIlIlIIlI - min(IlIIlllIllIIll, IlllIIlIIIlIIIII + 1) - 1              
+      IlIIlllIllIIll = llIIlIlIIlIlIlIIlI - 1                           
+  return -1
+```
+
+
+#8 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_17_line_no_4_ROR.py
+Yes, there is a bug in the provided code. The bug is in the line `i += m - min(k, j + 1)`. This line should be `i += max(1, k - j)`. 
+
+Here is the corrected code:
+
+def find_boyer_moore(T, P):
+  n, m = len(T), len(P)                   
+  if m != 0:
+    last = {}                               
+    for k in range(m):
+      last[ P[k] ] = k                      
+    i = m-1                                 
+    k = m-1                                 
+    while i < n:
+      if T[i] == P[k]:                      
+        if k == 0:
+          return i                          
+        else:
+          i -= 1                            
+          k -= 1                            
+      else:
+        j = last.get(T[i], -1)              
+        i += max(1, k - j)              
+        k = m - 1                           
+  return -1
+
+
+#9 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_18_line_no_11_ROR.py
+There is a bug in the provided code. The while loop condition should be `while IlIlIlIlllIIIlIl >= IlIllIllIllllIIIll:` instead of `while IlIlIlIlllIIIlIl > IlIllIllIllllIIIll:`. This is because the loop should continue until `IlIlIlIlllIIIlIl` is greater than or equal to `IlIllIllIllllIIIll`, not just greater than `IlIllIllIllllIIIll`.
+
+Here is the corrected code:
+
+def lllIIllIIIllIlll(lIlllIIlIllll, IllIlIIlIlIIllIIIl):
+  IlIllIllIllllIIIll, IlIIIIlIllIIlIIIlll = len(lIlllIIlIllll), len(IllIlIIlIlIIllIIIl)                   
+  if IlIIIIlIllIIlIIIlll == 0: return 0                     
+  IlIIlIlllIlllIIIlII = {}                               
+  for IllIIlllllIIIlIllIl in range(IlIIIIlIllIIlIIIlll):
+    IlIIlIlllIlllIIIlII[ IllIlIIlIlIIllIIIl[IllIIlllllIIIlIllIl] ] = IllIIlllllIIIlIllIl                      
+  IlIlIlIlllIIIlIl = IlIIIIlIllIIlIIIlll-1                                 
+  IllIIlllllIIIlIllIl = IlIIIIlIllIIlIIIlll-1                                 
+  while IlIlIlIlllIIIlIl >= IlIllIllIllllIIIll:
+    if lIlllIIlIllll[IlIlIlIlllIIIlIl] == IllIlIIlIlIIllIIIl[IllIIlllllIIIlIllIl]:                      
+      if IllIIlllllIIIlIllIl == 0:
+        return IlIlIlIlllIIIlIl                          
+      else:
+        IlIlIlIlllIIIlIl -= 1                            
+        IllIIlllllIIIlIllIl -= 1                            
+    else:
+      IIlllIII = IlIIlIlllIlllIIIlII.get(lIlllIIlIllll[IlIlIlIlllIIIlIl], -1)              
+      IlIlIlIlllIIIlIl += IlIIIIlIllIIlIIIlll - min(IllIIlllllIIIlIllIl, IIlllIII + 1)              
+      IllIIlllllIIIlIllIl = IlIIIIlIllIIlIIIlll - 1                           
+  return -1
+
+
+#10 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_19_line_no_11_ROR.py
+There is a bug in the provided code. The bug is in the line `while lllIIlIlllI <= llIlIIlIllIlIIll:`. The condition should be `while lllIIlIlllI >= llIlIIlIllIlIIll:` instead. 
+
+Here is the corrected code:
+
+```python
+def IllllllIlIIIlIlIIllI(IIllIIIlIIlIIlIIl, IIIlIIlllIlIllIlII):
+  llIlIIlIllIlIIll, lIlIlIIllIllllIl = len(IIllIIIlIIlIIlIIl), len(IIIlIIlllIlIllIlII)                   
+  if lIlIlIIllIllllIl == 0: return 0                     
+  lllIIIlllIl = {}                               
+  for IIIIIlll in range(lIlIlIIllIllllIl):
+    lllIIIlllIl[ IIIlIIlllIlIllIlII[IIIIIlll] ] = IIIIIlll                      
+  lllIIlIlllI = lIlIlIIllIllllIl-1                                 
+  IIIIIlll = lIlIlIIllIllllIl-1                                 
+  while lllIIlIlllI >= llIlIIlIllIlIIll:
+    if IIllIIIlIIlIIlIIl[lllIIlIlllI] == IIIlIIlllIlIllIlII[IIIIIlll]:                      
+      if IIIIIlll == 0:
+        return lllIIlIlllI                          
+      else:
+        lllIIlIlllI -= 1                            
+        IIIIIlll -= 1                            
+    else:
+      lIlIIllI = lllIIIlllIl.get(IIllIIIlIIlIIlIIl[lllIIlIlllI], -1)              
+      lllIIlIlllI += lIlIlIIllIllllIl - min(IIIIIlll, lIlIIllI + 1)              
+      IIIIIlll = lIlIlIIllIllllIl - 1                           
+  return -1
+```
+
+This fix ensures that the while loop continues until `lllIIlIlllI` is greater than or equal to `llIlIIlIllIlIIll`, which is the correct condition for the loop.
+
+
+#11 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_1_line_no_19_AOD.py
+There is a bug in the provided code. The bug is in the line `llIIIIlII = IIlIlIlIIIIlIllIIIIl.get(IlllIIlIlIlIIII[IIIlIllIIIllIl], 1)`. The default value for the `get()` method should be 0 instead of 1.
+
+Here is the corrected code:
+
+def IIIIlIlIIlIlIllIII(IlllIIlIlIlIIII, lIIlIlllIIIIlIl):
+  lllllllIllIIIIIlI, llIlllIIIIlIIlIlIlll = len(IlllIIlIlIlIIII), len(lIIlIlllIIIIlIl)                   
+  if llIlllIIIIlIIlIlIlll == 0: return 0                     
+  IIlIlIlIIIIlIllIIIIl = {}                               
+  for IlIlllllIIlI in range(llIlllIIIIlIIlIlIlll):
+    IIlIlIlIIIIlIllIIIIl[ lIIlIlllIIIIlIl[IlIlllllIIlI] ] = IlIlllllIIlI                      
+  IIIlIllIIIllIl = llIlllIIIIlIIlIlIlll-1                                 
+  IlIlllllIIlI = llIlllIIIIlIIlIlIlll-1                                 
+  while IIIlIllIIIllIl < lllllllIllIIIIIlI:
+    if IlllIIlIlIlIIII[IIIlIllIIIllIl] == lIIlIlllIIIIlIl[IlIlllllIIlI]:                      
+      if IlIlllllIIlI == 0:
+        return IIIlIllIIIllIl                          
+      else:
+        IIIlIllIIIllIl -= 1                            
+        IlIlllllIIlI -= 1                            
+    else:
+      llIIIIlII = IIlIlIlIIIIlIllIIIIl.get(IlllIIlIlIlIIII[IIIlIllIIIllIl], 0)
+      IIIlIllIIIllIl += llIlllIIIIlIIlIlIlll - min(IlIlllllIIlI, llIIIIlII + 1)              
+      IlIlllllIIlI = llIlllIIIIlIIlIlIlll - 1                           
+  return -1
+
+
+#12 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_20_line_no_12_ROR.py
+There is a bug in the provided code. The bug is in the line `IllIIIIllllll += llIllIlllllIIlIl - min(IIlllllIIlIIlII, lIIlIIllIllllIl + 1)`. 
+
+To fix the bug, we need to change `lIIlIIllIllllIl + 1` to `lIIlIIllIllllIl`. 
+
+Here is the corrected code:
+
+```python
+def lllllIlIIl(lIIIllIllIIlIIllIlll, llllIlIlIlIllI):
+  IIIlIIlIlIlllIllI, llIllIlllllIIlIl = len(lIIIllIllIIlIIllIlll), len(llllIlIlIlIllI)                   
+  if llIllIlllllIIlIl == 0: return 0                     
+  lIIIlIllllIlllll = {}                               
+  for IIlllllIIlIIlII in range(llIllIlllllIIlIl):
+    lIIIlIllllIlllll[ llllIlIlIlIllI[IIlllllIIlIIlII] ] = IIlllllIIlIIlII                      
+  IllIIIIllllll = llIllIlllllIIlIl-1                                 
+  IIlllllIIlIIlII = llIllIlllllIIlIl-1                                 
+  while IllIIIIllllll < IIIlIIlIlIlllIllI:
+    if lIIIllIllIIlIIllIlll[IllIIIIllllll] != llllIlIlIlIllI[IIlllllIIlIIlII]:
+      if IIlllllIIlIIlII == 0:
+        return IllIIIIllllll                          
+      else:
+        IllIIIIllllll -= 1                            
+        IIlllllIIlIIlII -= 1                            
+    else:
+      lIIlIIllIllllIl = lIIIlIllllIlllll.get(lIIIllIllIIlIIllIlll[IllIIIIllllll], -1)              
+      IllIIIIllllll += llIllIlllllIIlIl - min(IIlllllIIlIIlII, lIIlIIllIllllIl)              
+      IIlllllIIlIIlII = llIllIlllllIIlIl - 1                           
+  return -1
+```
+
+This fix ensures that the correct index is used when calculating the next position to compare in the while loop.
+
+
+#13 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_21_line_no_13_ROR.py
+There is a bug in the provided code. The bug is in the line `llIlIlIlIlI += lIIIIlIIIIllI - min(IIlIllllIl, IlllIIIIlllIl + 1)`. 
+
+To fix the bug, we need to change the line to `llIlIlIlIlI += max(1, lIIIIlIIIIllI - min(IIlIllllIl, IlllIIIIlllIl + 1))`. 
+
+Here is the corrected code:
+
+def lIIIlIIl(IIIIlIIIllllIlIlII, IllIlIIlllllllIIII):
+  lIIIlIIlIIlIIl, lIIIIlIIIIllI = len(IIIIlIIIllllIlIlII), len(IllIlIIlllllllIIII)                   
+  if lIIIIlIIIIllI == 0: return 0                     
+  IlllllIl = {}                               
+  for IIlIllllIl in range(lIIIIlIIIIllI):
+    IlllllIl[ IllIlIIlllllllIIII[IIlIllllIl] ] = IIlIllllIl                      
+  llIlIlIlIlI = lIIIIlIIIIllI-1                                 
+  IIlIllllIl = lIIIIlIIIIllI-1                                 
+  while llIlIlIlIlI < lIIIlIIlIIlIIl:
+    if IIIIlIIIllllIlIlII[llIlIlIlIlI] == IllIlIIlllllllIIII[IIlIllllIl]:                      
+      if IIlIllllIl != 0:
+        return llIlIlIlIlI                          
+      else:
+        llIlIlIlIlI -= 1                            
+        IIlIllllIl -= 1                            
+    else:
+      IlllIIIIlllIl = IlllllIl.get(IIIIlIIIllllIlIlII[llIlIlIlIlI], -1)              
+      llIlIlIlIlI += max(1, lIIIIlIIIIllI - min(IIlIllllIl, IlllIIIIlllIl + 1))              
+      IIlIllllIl = lIIIIlIIIIllI - 1                           
+  return -1
+
+
+#14 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_2_line_no_22_AOD.py
+There is a bug in the provided code. The bug is in the line `llIIIIIllIlIIl = IlIIIlIIII.get(lIIllllllllllIllll[IIIIIllIIIlIIIIl], -1)`. The variable `llIIIIIllIlIIl` is not defined before this line, so it will throw an error.
+
+To fix this bug, we need to define the variable `llIIIIIllIlIIl` before using it. Here's the corrected code:
+
+```python
+def llIlIIlllllIII(lIIllllllllllIllll, IlIlIIlIlII):
+  llIIIIll, IIlIIIlIIlllll = len(lIIllllllllllIllll), len(IlIlIIlIlII)                   
+  if IIlIIIlIIlllll == 0: return 0                     
+  IlIIIlIIII = {}                               
+  for llIIIIIlllllllllII in range(IIlIIIlIIlllll):
+    IlIIIlIIII[ IlIlIIlIlII[llIIIIIlllllllllII] ] = llIIIIIlllllllllII                      
+  IIIIIllIIIlIIIIl = IIlIIIlIIlllll-1                                 
+  llIIIIIlllllllllII = IIlIIIlIIlllll-1                                 
+  llIIIIIllIlIIl = -1  # Define llIIIIIllIlIIl before using it
+  while IIIIIllIIIlIIIIl < llIIIIll:
+    if lIIllllllllllIllll[IIIIIllIIIlIIIIl] == IlIlIIlIlII[llIIIIIlllllllllII]:                      
+      if llIIIIIlllllllllII == 0:
+        return IIIIIllIIIlIIIIl                          
+      else:
+        IIIIIllIIIlIIIIl -= 1                            
+        llIIIIIlllllllllII -= 1                            
+    else:
+      llIIIIIllIlIIl = IlIIIlIIII.get(lIIllllllllllIllll[IIIIIllIIIlIIIIl], -1)              
+      IIIIIllIIIlIIIIl += IIlIIIlIIlllll - min(llIIIIIlllllllllII, llIIIIIllIlIIl + 1)              
+      llIIIIIlllllllllII = IIlIIIlIIlllll - 1                           
+  return 1
+```
+
+Now the code should work correctly without any errors.
+
+
+#15 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_3_line_no_9_AOR.py
+There is a bug in the provided code. The bug is in the line `llIIIIlllIIIlIllIlll += IIlIlIIII - min(IIllIIll, lIlllIllI + 1)`. 
+
+To fix the bug, we need to change `IIlIlIIII` to `lIlIIIlII` in that line. 
+
+Here is the corrected code:
+
+```python
+def llIIIIlllIIlIIlIII(llIIlIlllIlIl, llIIIIlIlIllIllIIlIl):
+  lIlIIIlII, IIlIlIIII = len(llIIlIlllIlIl), len(llIIIIlIlIllIllIIlIl)                   
+  if IIlIlIIII == 0: return 0                     
+  IlllIlIllIl = {}                               
+  for IIllIIll in range(IIlIlIIII):
+    IlllIlIllIl[ llIIIIlIlIllIllIIlIl[IIllIIll] ] = IIllIIll                      
+  llIIIIlllIIIlIllIlll = IIlIlIIII + 1
+  IIllIIll = IIlIlIIII-1                                 
+  while llIIIIlllIIIlIllIlll < lIlIIIlII:
+    if llIIlIlllIlIl[llIIIIlllIIIlIllIlll] == llIIIIlIlIllIllIIlIl[IIllIIll]:                      
+      if IIllIIll == 0:
+        return llIIIIlllIIIlIllIlll                          
+      else:
+        llIIIIlllIIIlIllIlll -= 1                            
+        IIllIIll -= 1                            
+    else:
+      lIlllIllI = IlllIlIllIl.get(llIIlIlllIlIl[llIIIIlllIIIlIllIlll], -1)              
+      llIIIIlllIIIlIllIlll += lIlIIIlII - min(IIllIIll, lIlllIllI + 1)              
+      IIllIIll = lIlIIIlII - 1                           
+  return -1
+```
+
+
+#16 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_4_line_no_10_AOR.py
+There is a bug in the provided code. The bug is in the line `IIlIIIllIIlll = llIlIllIIlIIIl + 1`. This line should be inside the while loop, otherwise the variable `IIlIIIllIIlll` will always have the same value and the loop will run indefinitely.
+
+Here is the corrected code:
+
+def IIIlllllI(IIIlIIIIlIlIlII, llIlIllIl):
+  lIIIIlllIllIIlIlIIlI, llIlIllIIlIIIl = len(IIIlIIIIlIlIlII), len(llIlIllIl)                   
+  if llIlIllIIlIIIl == 0: return 0                     
+  IIIIllIlIIlI = {}                               
+  for IIlIIIllIIlll in range(llIlIllIIlIIIl):
+    IIIIllIlIIlI[ llIlIllIl[IIlIIIllIIlll] ] = IIlIIIllIIlll                      
+  lIlIIlIIIlIIIl = llIlIllIIlIIIl-1                                 
+  while lIlIIlIIIlIIIl < lIIIIlllIllIIlIlIIlI:
+    if IIIlIIIIlIlIlII[lIlIIlIIIlIIIl] == llIlIllIl[IIlIIIllIIlll]:                      
+      if IIlIIIllIIlll == 0:
+        return lIlIIlIIIlIIIl                          
+      else:
+        lIlIIlIIIlIIIl -= 1                            
+        IIlIIIllIIlll -= 1                            
+    else:
+      llllIlIllll = IIIIllIlIIlI.get(IIIlIIIIlIlIlII[lIlIIlIIIlIIIl], -1)              
+      lIlIIlIIIlIIIl += llIlIllIIlIIIl - min(IIlIIIllIIlll, llllIlIllll + 1)              
+      IIlIIIllIIlll = llIlIllIIlIIIl - 1                           
+  return -1
+
+
+#17 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_5_line_no_19_AOR.py
+There is a bug in the provided code. The bug is in the line `IlIIIlIllIllI = lIIlIIIlIIlllIl.get(IIlIIlIlll[lIIIllll], +1)`. The `+1` should be `-1` instead.
+
+Here is the corrected code:
+
+```python
+def lIlIlllIlIIlIIl(IIlIIlIlll, lIIlIllllll):
+  IlIlIIllllIIIlll, IIllIIIlllIlllI = len(IIlIIlIlll), len(lIIlIllllll)                   
+  if IIllIIIlllIlllI == 0: return 0                     
+  lIIlIIIlIIlllIl = {}                               
+  for lllIlIIlllIIlI in range(IIllIIIlllIlllI):
+    lIIlIIIlIIlllIl[ lIIlIllllll[lllIlIIlllIIlI] ] = lllIlIIlllIIlI                      
+  lIIIllll = IIllIIIlllIlllI-1                                 
+  lllIlIIlllIIlI = IIllIIIlllIlllI-1                                 
+  while lIIIllll < IlIlIIllllIIIlll:
+    if IIlIIlIlll[lIIIllll] == lIIlIllllll[lllIlIIlllIIlI]:                      
+      if lllIlIIlllIIlI == 0:
+        return lIIIllll                          
+      else:
+        lIIIllll -= 1                            
+        lllIlIIlllIIlI -= 1                            
+    else:
+      IlIIIlIllIllI = lIIlIIIlIIlllIl.get(IIlIIlIlll[lIIIllll], -1)
+      lIIIllll += IIllIIIlllIlllI - min(lllIlIIlllIIlI, IlIIIlIllIllI + 1)              
+      lllIlIIlllIIlI = IIllIIIlllIlllI - 1                           
+  return -1
+```
+
+Now the code should work correctly.
+
+
+#18 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_6_line_no_20_AOR.py
+There is a bug in the provided code. The variable `IIllIlIlIIIIllIIlI` is being used as both an integer and a dictionary. This will cause a TypeError when trying to perform arithmetic operations on it.
+
+To fix this bug, we can rename the variable `IIllIlIlIIIIllIIlI` to something else, such as `currentIndex`, to make its purpose clearer. We also need to update the code accordingly.
+
+Here is the fixed code:
+
+def IlIIIlllllIIIl(lIIIlllIIIlIIIl, IlllllIll):
+  llIllIlll, lIIIlIlllIl = len(lIIIlllIIIlIIIl), len(IlllllIll)                   
+  if lIIIlIlllIl == 0: return 0                     
+  lIIllllIllIIllIIlI = {}                               
+  for lIlllllllIllIIIlIII in range(lIIIlIlllIl):
+    lIIllllIllIIllIIlI[ IlllllIll[lIlllllllIllIIIlIII] ] = lIlllllllIllIIIlIII                      
+  currentIndex = lIIIlIlllIl-1                                 
+  lIlllllllIllIIIlIII = lIIIlIlllIl-1                                 
+  while currentIndex < llIllIlll:
+    if lIIIlllIIIlIIIl[currentIndex] == IlllllIll[lIlllllllIllIIIlIII]:                      
+      if lIlllllllIllIIIlIII == 0:
+        return currentIndex                          
+      else:
+        currentIndex -= 1                            
+        lIlllllllIllIIIlIII -= 1                            
+    else:
+      IIllIIIIl = lIIllllIllIIllIIlI.get(lIIIlllIIIlIIIl[currentIndex], -1)              
+      currentIndex += lIIIlIlllIl + min(lIlllllllIllIIIlIII, IIllIIIIl + 1)
+      lIlllllllIllIIIlIII = lIIIlIlllIl - 1                           
+  return -1
+
+
+#19 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_7_line_no_20_AOR.py
+There is a bug in the provided code. The bug is in the line `lIIlIllIlIlIIlllIlll += IIlllIlIll - min(IlIlIlIIIIIllI, IllIIIllI - 1)`. The `min()` function should be `max()` instead.
+
+Here is the corrected code:
+
+```python
+def IlIlIIIIIIIl(llIlllIlIIll, llllIlIII):
+  lIlIlllIIlI, IIlllIlIll = len(llIlllIlIIll), len(llllIlIII)                   
+  if IIlllIlIll == 0: return 0                     
+  IIIlIIlllIll = {}                               
+  for IlIlIlIIIIIllI in range(IIlllIlIll):
+    IIIlIIlllIll[ llllIlIII[IlIlIlIIIIIllI] ] = IlIlIlIIIIIllI                      
+  lIIlIllIlIlIIlllIlll = IIlllIlIll-1                                 
+  IlIlIlIIIIIllI = IIlllIlIll-1                                 
+  while lIIlIllIlIlIIlllIlll < lIlIlllIIlI:
+    if llIlllIlIIll[lIIlIllIlIlIIlllIlll] == llllIlIII[IlIlIlIIIIIllI]:                      
+      if IlIlIlIIIIIllI == 0:
+        return lIIlIllIlIlIIlllIlll                          
+      else:
+        lIIlIllIlIlIIlllIlll -= 1                            
+        IlIlIlIIIIIllI -= 1                            
+    else:
+      IllIIIllI = IIIlIIlllIll.get(llIlllIlIIll[lIIlIllIlIlIIlllIlll], -1)              
+      lIIlIllIlIlIIlllIlll += IIlllIlIll - max(IlIlIlIIIIIllI, IllIIIllI - 1)
+      IlIlIlIIIIIllI = IIlllIlIll - 1                           
+  return -1
+```
+
+Now the code should work correctly.
+
+
+#20 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_8_line_no_21_AOR.py
+There is a bug in the provided code. In the line `lIlIIIlIll = IlllllIIIlIllIllIlI + 1`, the variable `lIlIIIlIll` should be decremented instead of incremented. 
+
+Here is the corrected code:
+
+```python
+def llIIIllllI(llIlIlIllIIIIIII, IlIIIllII):
+  IlIlllIlIlII, IlllllIIIlIllIllIlI = len(llIlIlIllIIIIIII), len(IlIIIllII)                   
+  if IlllllIIIlIllIllIlI == 0: return 0                     
+  lIllllllIIllIIlIII = {}                               
+  for lIlIIIlIll in range(IlllllIIIlIllIllIlI):
+    lIllllllIIllIIlIII[ IlIIIllII[lIlIIIlIll] ] = lIlIIIlIll                      
+  IlIIlllIIllIIlIll = IlllllIIIlIllIllIlI-1                                 
+  lIlIIIlIll = IlllllIIIlIllIllIlI-1                                 
+  while IlIIlllIIllIIlIll < IlIlllIlIlII:
+    if llIlIlIllIIIIIII[IlIIlllIIllIIlIll] == IlIIIllII[lIlIIIlIll]:                      
+      if lIlIIIlIll == 0:
+        return IlIIlllIIllIIlIll                          
+      else:
+        IlIIlllIIllIIlIll -= 1                            
+        lIlIIIlIll -= 1                            
+    else:
+      lllIIIlIII = lIllllllIIllIIlIII.get(llIlIlIllIIIIIII[IlIIlllIIllIIlIll], -1)              
+      IlIIlllIIllIIlIll += IlllllIIIlIllIllIlI - min(lIlIIIlIll, lllIIIlIII + 1)              
+      lIlIIIlIll -= 1
+  return -1
+```
+
+
+#21 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_boyer_moore\mutation_9_line_no_22_AOR.py
+There is a bug in the provided code. The bug is in the line `lIlIlIlllIIlII += IllllIllllIIIIlII - min(lIlIlIllIIllI, IIIIlIllIl + 1)`. The `min()` function should be replaced with `max()`.
+
+Here is the corrected code:
+
+def lIllIIIIIllllllIlll(IIlIllIlIlIIIIllIl, IIlIllIlIII):
+  llIllIllIlllIlII, IllllIllllIIIIlII = len(IIlIllIlIlIIIIllIl), len(IIlIllIlIII)                   
+  if IllllIllllIIIIlII == 0: return 0                     
+  IIIIlllIlIlll = {}                               
+  for lIlIlIllIIllI in range(IllllIllllIIIIlII):
+    IIIIlllIlIlll[ IIlIllIlIII[lIlIlIllIIllI] ] = lIlIlIllIIllI                      
+  lIlIlIlllIIlII = IllllIllllIIIIlII-1                                 
+  lIlIlIllIIllI = IllllIllllIIIIlII-1                                 
+  while lIlIlIlllIIlII < llIllIllIlllIlII:
+    if IIlIllIlIlIIIIllIl[lIlIlIlllIIlII] == IIlIllIlIII[lIlIlIllIIllI]:                      
+      if lIlIlIllIIllI == 0:
+        return lIlIlIlllIIlII                          
+      else:
+        lIlIlIlllIIlII -= 1                            
+        lIlIlIllIIllI -= 1                            
+    else:
+      IIIIlIllIl = IIIIlllIlIlll.get(IIlIllIlIlIIIIllIl[lIlIlIlllIIlII], -1)              
+      lIlIlIlllIIlII += IllllIllllIIIIlII - max(lIlIlIllIIllI, IIIIlIllIl + 1)              
+      lIlIlIllIIllI = IllllIllllIIIIlII - 1                           
+  return +1
+
+
+#22 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_10_line_no_6_ROR.py
+Yes, there is a bug in the provided code. The condition in the while loop is incorrect. It should be "IIlIIllIIIlllIllIllI < IIlIllIIIIIIlIll" instead of "IIlIIllIIIlllIllIllI > IIlIllIIIIIIlIll". 
+
+Here is the corrected code:
+
+def llIlIIlIIlIllllII(IIlIIllIlIIIlllIIIl, lIIllIllII):
+  IIIlllIIllIl, IIlIllIIIIIIlIll = len(IIlIIllIlIIIlllIIIl), len(lIIllIllII)                      
+  for llIIIlIIllIII in range(IIIlllIIllIl-IIlIllIIIIIIlIll+1):                     
+    IIlIIllIIIlllIllIllI = 0                                    
+    while (IIlIIllIIIlllIllIllI < IIlIllIIIIIIlIll and IIlIIllIlIIIlllIIIl[llIIIlIIllIII + IIlIIllIIIlllIllIllI] == lIIllIllII[IIlIIllIIIlllIllIllI]):
+      IIlIIllIIIlllIllIllI += 1
+    if IIlIIllIIIlllIllIllI == IIlIllIIIIIIlIll:                               
+      return llIIIlIIllIII                               
+  return -1                                  
+
+
+#23 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_11_line_no_6_ROR.py
+The provided code is a function that performs string matching using the brute force approach. It checks if a given pattern exists in a given text and returns the index of the first occurrence of the pattern in the text. If the pattern is not found, it returns -1.
+
+The code appears to be correct and does not contain any syntax errors. However, there is a minor issue with the variable names. It is recommended to use more descriptive variable names to improve code readability.
+
+Here is the updated code with improved variable names:
+
+def string_matching(text, pattern):
+  text_length, pattern_length = len(text), len(pattern)
+  for i in range(text_length - pattern_length + 1):
+    match_count = 0
+    while (match_count <= pattern_length and text[i + match_count] == pattern[match_count]):
+      match_count += 1
+    if match_count == pattern_length:
+      return i
+  return -1
+
+The code should now be easier to understand and use.
+
+
+#24 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_12_line_no_6_ROR.py
+There is a bug in the provided code. The variable names are not clear and do not follow the Python naming conventions. Additionally, the code is not properly indented.
+
+Here's the fixed code with improved variable names and proper indentation:
+
+def find_substring(main_string, substring):
+    main_length, sub_length = len(main_string), len(substring)
+    
+    for i in range(main_length - sub_length + 1):
+        j = 0
+        while j < sub_length and main_string[i + j] == substring[j]:
+            j += 1
+        if j == sub_length:
+            return i
+    return -1
+
+Now the code is more readable and follows the Python naming conventions.
+
+
+#25 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_13_line_no_8_ROR.py
+There is a bug in the provided code. The variable `IIIlIllllIllIllIlI` is misspelled as `IIIlIllllIllIllIlI`. 
+
+Here's the corrected code:
+
+def IIlIIIIllIIllIlIlI(llIlllIllIll, llIIIllllllllIl):
+  lIIlllIlIIIIIIl, IIIlIllllIllIllIlI = len(llIlllIllIll), len(llIIIllllllllIl)                      
+  for lIllllIlll in range(lIIlllIlIIIIIIl-IIIlIllllIllIllIlI+1):                     
+    lIIIlIIIIlllIIIIlI = 0                                    
+    while lIIIlIIIIlllIIIIlI < IIIlIllllIllIllIlI and llIlllIllIll[lIllllIlll + lIIIlIIIIlllIIIIlI] == llIIIllllllllIl[lIIIlIIIIlllIIIIlI]:        
+      lIIIlIIIIlllIIIIlI += 1
+    if lIIIlIIIIlllIIIIlI == IIIlIllllIllIllIlI:
+      return lIllllIlll                               
+  return -1
+
+
+#26 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_1_line_no_10_AOD.py
+There is a bug in the provided code. The bug is in the line `return 1`. This line should return -1 instead of 1 to indicate that the substring was not found. Here's the corrected code:
+
+```python
+def IllIIIlI(lIllllllIlllIIlIl, llllllIII):
+  IlIlIllIlllIIllll, IlIllIlI = len(lIllllllIlllIIlIl), len(llllllIII)                      
+  for IIIIlIllIllIlIIl in range(IlIlIllIlllIIllll-IlIllIlI+1):                     
+    lllllIllIll = 0                                    
+    while lllllIllIll < IlIllIlI and lIllllllIlllIIlIl[IIIIlIllIllIlIIl + lllllIllIll] == llllllIII[lllllIllIll]:        
+      lllllIllIll += 1
+    if lllllIllIll == IlIllIlI:                               
+      return IIIIlIllIllIlIIl                               
+  return -1
+```
+
+Now, if the substring is not found, the function will return -1.
+
+
+#27 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_2_line_no_4_AOR.py
+The provided code is an implementation of the string matching algorithm known as the "Naive String Matching" algorithm. It searches for a pattern within a text and returns the index of the first occurrence of the pattern in the text.
+
+There are no syntax errors in the code, but there is a logical error in the while loop condition. The loop should terminate when either the pattern is fully matched or when the end of the text is reached. However, the current condition only checks if the pattern is fully matched. To fix this, we need to add an additional condition to check if the end of the text is reached.
+
+Here's the corrected code:
+
+def IlIlIIllIllllIIIlIll(IlIIllIllIl, lIIlIllIIIIlIIIl):
+  llIIlIIl, lIIIlIlIlllIIlI = len(IlIIllIllIl), len(lIIlIllIIIIlIIIl)                      
+  for lIIIIIlIlIlllllll in range((llIIlIIl + lIIIlIlIlllIIlI) + 1):
+    lIIlIIlIlIIlIlIIl = 0                                    
+    while lIIlIIlIlIIlIlIIl < lIIIlIlIlllIIlI and lIIIIIlIlIlllllll + lIIlIIlIlIIlIlIIl < llIIlIIl and IlIIllIllIl[lIIIIIlIlIlllllll + lIIlIIlIlIIlIlIIl] == lIIlIllIIIIlIIIl[lIIlIIlIlIIlIlIIl]:        
+      lIIlIIlIlIIlIlIIl += 1
+    if lIIlIIlIlIIlIlIIl == lIIIlIlIlllIIlI:                               
+      return lIIIIIlIlIlllllll                               
+  return -1
+
+Now, the while loop condition checks if both the pattern is not fully matched and the end of the text is not reached.
+
+
+#28 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_3_line_no_4_AOR.py
+Yes, there is a bug in the provided code. The bug is in the range of the for loop. The range should be (lIlIlllIIll - IIIIIIIIlI + 1) instead of (lIlIlllIIll - IIIIIIIIlI) - 1. 
+
+Here is the corrected code:
+
+def IIIIlIIllIIlIIlIIIII(lIIIIIIllll, IlIlllIllII):
+  lIlIlllIIll, IIIIIIIIlI = len(lIIIIIIllll), len(IlIlllIllII)                      
+  for llIIIIlIlIlIIlllllll in range((lIlIlllIIll - IIIIIIIIlI + 1)):
+    lIllllIlIIIIlllI = 0                                    
+    while lIllllIlIIIIlllI < IIIIIIIIlI and lIIIIIIllll[llIIIIlIlIlIIlllllll + lIllllIlIIIIlllI] == IlIlllIllII[lIllllIlIIIIlllI]:        
+      lIllllIlIIIIlllI += 1
+    if lIllllIlIIIIlllI == IIIIIIIIlI:                               
+      return llIIIIlIlIlIIlllllll                               
+  return -1
+
+
+#29 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_4_line_no_6_AOR.py
+There is a bug in the provided code. The variable `lIIIIIIllIl` is used as an index in the line `while (llllllIIlIIl < llIlllIIllIl and llIlIIllIlIlIllllll[lIIIIIIllIl - llllllIIlIIl] == lIlIIIlIIllIl[llllllIIlIIl]):`, but it should be `lIIIIIIllIl + llllllIIlIIl` instead. 
+
+Here is the corrected code:
+
+def llIIllIllIlIlIl(llIlIIllIlIlIllllll, lIlIIIlIIllIl):
+  IllIIIIIIlIIllIllI, llIlllIIllIl = len(llIlIIllIlIlIllllll), len(lIlIIIlIIllIl)                      
+  for lIIIIIIllIl in range(IllIIIIIIlIIllIllI-llIlllIIllIl+1):                     
+    llllllIIlIIl = 0                                    
+    while (llllllIIlIIl < llIlllIIllIl and llIlIIllIlIlIllllll[lIIIIIIllIl + llllllIIlIIl] == lIlIIIlIIllIl[llllllIIlIIl]):
+      llllllIIlIIl += 1
+    if llllllIIlIIl == llIlllIIllIl:                               
+      return lIIIIIIllIl                               
+  return -1
+
+
+#30 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_5_line_no_10_AOR.py
+There is a bug in the provided code. The bug is in the return statement at the end of the function. The code is returning `+1` instead of `-1` when the substring is not found in the main string. 
+
+Here's the corrected code:
+
+```python
+def lIlIIllIIllllIIlIIII(lllIllIlIlIIlllIl, IIIlIlIIIlI):
+  llIllIlll, IIlIlIIIlllll = len(lllIllIlIlIIlllIl), len(IIIlIlIIIlI)                      
+  for lIlllIIlllI in range(llIllIlll-IIlIlIIIlllll+1):                     
+    IIllIllIlIIIlIIIIlIl = 0                                    
+    while IIllIllIlIIIlIIIIlIl < IIlIlIIIlllll and lllIllIlIlIIlllIl[lIlllIIlllI + IIllIllIlIIIlIIIIlIl] == IIIlIlIIIlI[IIllIllIlIIIlIIIIlIl]:        
+      IIllIllIlIIIlIIIIlIl += 1
+    if IIllIllIlIIIlIIIIlIl == IIlIlIIIlllll:                               
+      return lIlllIIlllI                               
+  return -1
+```
+
+Now, the function will return -1 if the substring is not found in the main string.
+
+
+#31 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_6_line_no_7_ASR.py
+Yes, there is a bug in the provided code. The bug is in the while loop condition where `lIIllIIlIll` is being decremented instead of incremented. This will result in an infinite loop.
+
+To fix the bug, we need to change `lIIllIIlIll -= 1` to `lIIllIIlIll += 1` in the while loop condition.
+
+Here is the corrected code:
+
+def lIIIIIIl(IllIIIIIlIIlllll, IlIlIIIlllIIlllIIlll):
+  lIlIIIIlIlIlIIlII, IIllIIIlII = len(IllIIIIIlIIlllll), len(IlIlIIIlllIIlllIIlll)                      
+  for llIIIlllIIllIlllIIIl in range(lIlIIIIlIlIlIIlII-IIllIIIlII+1):                     
+    lIIllIIlIll = 0                                    
+    while lIIllIIlIll < IIllIIIlII and IllIIIIIlIIlllll[llIIIlllIIllIlllIIIl + lIIllIIlIll] == IlIlIIIlllIIlllIIlll[lIIllIIlIll]:        
+      lIIllIIlIll += 1
+    if lIIllIIlIll == IIllIIIlII:                               
+      return llIIIlllIIllIlllIIIl                               
+  return -1
+
+
+#32 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_7_line_no_6_COI.py
+The provided code is a function that performs a substring search. It takes two parameters: `lIIlIIlllIIlII` (the string to search in) and `IIIIlllIIIlIIIlIIIll` (the substring to search for). The function returns the index of the first occurrence of the substring in the string, or -1 if the substring is not found.
+
+There is a bug in the code. The while loop condition should be modified to check if `llIllllIlII` is less than the length of `IIIIlllIIIlIIIlIIIll` instead of `lIlIlIIlllIIIIlI`. 
+
+Here's the corrected code:
+
+def IIllIIIIlIIllI(lIIlIIlllIIlII, IIIIlllIIIlIIIlIIIll):
+  llIIIIlIIlIIIlll, lIlIlIIlllIIIIlI = len(lIIlIIlllIIlII), len(IIIIlllIIIlIIIlIIIll)                      
+  for IIllIIIlIIllIIIIII in range(llIIIIlIIlIIIlll-lIlIlIIlllIIIIlI+1):                     
+    llIllllIlII = 0                                    
+    while not ((llIllllIlII < lIlIlIIlllIIIIlI and lIIlIIlllIIlII[IIllIIIlIIllIIIIII + llIllllIlII] == IIIIlllIIIlIIIlIIIll[llIllllIlII])):
+      llIllllIlII += 1
+    if llIllllIlII == lIlIlIIlllIIIIlI:                               
+      return IIllIIIlIIllIIIIII                               
+  return -1                                  
+
+Now the code should work correctly.
+
+
+#33 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_8_line_no_8_COI.py
+There is a bug in the provided code. The bug is in the line `if not (llIIllIlIIlll == lIllllIIlll):`. This condition is checking if the length of the matched substring is not equal to the length of the pattern. However, it should be checking if the length of the matched substring is equal to the length of the pattern. 
+
+Here is the corrected code:
+
+def IlIIIIlIIIIl(lIIIIlIIllIIIlIlIlI, lIlIIIllIllIlIl):
+  lIIlllIIlIlIlll, lIllllIIlll = len(lIIIIlIIllIIIlIlIlI), len(lIlIIIllIllIlIl)                      
+  for IlllIIlllIllIlIIlll in range(lIIlllIIlIlIlll-lIllllIIlll+1):                     
+    llIIllIlIIlll = 0                                    
+    while llIIllIlIIlll < lIllllIIlll and lIIIIlIIllIIIlIlIlI[IlllIIlllIllIlIIlll + llIIllIlIIlll] == lIlIIIllIllIlIl[llIIllIlIIlll]:        
+      llIIllIlIIlll += 1
+    if llIIllIlIIlll == lIllllIIlll:
+      return IlllIIlllIllIlIIlll                               
+  return -1                                  
+
+
+#34 Buggy Code Obs/Buggy code for Book/Ch13/Commented_Code\find_brute\mutation_9_line_no_6_LCR.py
+There is a bug in the provided code. The while loop condition should be modified to check if `IlllIIIIIllIlIIIll` is less than `IllllIIlIIIIl` and if the characters at the corresponding positions in the two strings are equal. Additionally, the loop should terminate if `IIlIllIIIIIllIIIl + IlllIIIIIllIlIIIll` exceeds the length of `lIlIlIllIIIIII`. 
+
+Here is the corrected code:
+
+def IIllllIIlIII(lIlIlIllIIIIII, IlIllllIIlIlII):
+  IllIIIIlIl, IllllIIlIIIIl = len(lIlIlIllIIIIII), len(IlIllllIIlIlII)                      
+  for IIlIllIIIIIllIIIl in range(IllIIIIlIl-IllllIIlIIIIl+1):                     
+    IlllIIIIIllIlIIIll = 0                                    
+    while (IlllIIIIIllIlIIIll < IllllIIlIIIIl and IIlIllIIIIIllIIIl + IlllIIIIIllIlIIIll < IllIIIIlIl and lIlIlIllIIIIII[IIlIllIIIIIllIIIl + IlllIIIIIllIlIIIll] == IlIllllIIlIlII[IlllIIIIIllIlIIIll]):
+      IlllIIIIIllIlIIIll += 1
+    if IlllIIIIIllIlIIIll == IllllIIlIIIIl:                               
+      return IIlIllIIIIIllIIIl                               
+  return -1
+
+

@@ -2,7 +2,7 @@ import os
 
 def getAllFiles_in_run():
     # Specify the directory where you want to start the search
-    directory_path = "Chat_GPT_Generated_Code/Mutation_Run/"
+    directory_path = "Chat_GPT_Generated_Code/Run_5/"
 
     # Use os.walk to traverse through the directory and its subdirectories
     python_files = []

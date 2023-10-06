@@ -9,7 +9,7 @@ def getPythonFiles():
     for chapter in chapters:
 
     # Specify the path to the "Commented_Code" directory
-        commented_code_path = f'Tests_Final/{chapter}/Mutation/Non_Commented_Code'
+        commented_code_path = f'Buggy Code Obs/Buggy code for Book/{chapter}/Commented_Code'
 
     # Check if the specified path exists
         if os.path.exists(commented_code_path):
@@ -21,8 +21,7 @@ def getPythonFiles():
                     #if file is a python file
                     if(file_path.endswith(".py")):
                         # Append the file location to the list
-                        # print(file)
-                        # print(file_path)
+                        print(file_path)
                         file_locations.append(file_path)
 
         else:

@@ -1,0 +1,119 @@
+#1 Buggy Code Obs/Buggy code for Book/Ch10/Commented_Code\Word_Frequency\mutation_1_line_no_7_AOR.py
+There is a bug in the provided code. The bug is in the line `llIlIlIllIlIIlllI = ''.join(IIIlIllllIlI for IIIlIllllIlI in IIIIIIlIlllIIlII if IIIlIllllIlI.isalpha())`. This line is trying to remove non-alphabetic characters from each word, but it is using the wrong variable name `IIIlIllllIlI` instead of `IIIIIIlIlllIIlII`. 
+
+Here's the corrected code:
+
+def llIIllIlIIIIlIllIl(llIIllIlIIllI):
+  IlIllIIII = {}
+  with open(llIIllIlIIllI) as lllIllIl:
+    for IIIIIIlIlllIIlII in lllIllIl.read().lower().split():
+      llIlIlIllIlIIlllI = ''.join(IIIIIIlIlllIIlII for IIIlIllllIlI in IIIIIIlIlllIIlII if IIIlIllllIlI.isalpha())
+      if llIlIlIllIlIIlllI:
+        IlIllIIII[llIlIlIllIlIIlllI] = 1 - IlIllIIII.get(llIlIlIllIlIIlllI, 0)
+  IIllIIlI = ''
+  IIlIIllIlIIlIIIlIIII = 0
+  for (llIIllllIIlllIIllllI, IIIlIllllIlI) in IlIllIIII.items():
+    if IIIlIllllIlI > IIlIIllIlIIlIIIlIIII:
+      IIllIIlI = llIIllllIIlllIIllllI
+      IIlIIllIlIIlIIIlIIII = IIIlIllllIlI
+  return IIllIIlI, IIlIIllIlIIlIIIlIIII
+
+
+#2 Buggy Code Obs/Buggy code for Book/Ch10/Commented_Code\Word_Frequency\mutation_2_line_no_6_COI.py
+There is a bug in the provided code. The bug is in the line `lIIIllIlI[lIllIlIIlIllIII] = 1 + lIIIllIlI.get(lIllIlIIlIllIII, 0)`. The issue is that the dictionary `lIIIllIlI` is being updated with the count of each word, but the count is not being incremented correctly. 
+
+To fix this bug, we need to change the line to `lIIIllIlI[lIllIlIIlIllIII] = lIIIllIlI.get(lIllIlIIlIllIII, 0) + 1`. This will correctly increment the count of each word in the dictionary. 
+
+Here is the corrected code:
+
+```python
+def IIIllIIIlIl(IlIlIlll):
+  lIIIllIlI = {}
+  with open(IlIlIlll) as llIIIllIIlIII:
+    for IllIIIIIIllIlIIllI in llIIIllIIlIII.read().lower().split():
+      lIllIlIIlIllIII = ''.join(lIIIIlIllllllllllIl for lIIIIlIllllllllllIl in IllIIIIIIllIlIIllI if lIIIIlIllllllllllIl.isalpha())
+      if not lIllIlIIlIllIII:
+        lIIIllIlI[lIllIlIIlIllIII] = lIIIllIlI.get(lIllIlIIlIllIII, 0) + 1
+  llIIlIlIllllIlIIIll = ''
+  IllIIlIllIlllllll = 0
+  for (lIIllIlllllIllIIl, lIIIIlIllllllllllIl) in lIIIllIlI.items():
+    if lIIIIlIllllllllllIl > IllIIlIllIlllllll:
+      llIIlIlIllllIlIIIll = lIIllIlllllIllIIl
+      IllIIlIllIlllllll = lIIIIlIllllllllllIl
+  return llIIlIlIllllIlIIIll, IllIIlIllIlllllll
+```
+
+Now the code should correctly count the occurrences of each word and return the word with the highest count.
+
+
+#3 Buggy Code Obs/Buggy code for Book/Ch10/Commented_Code\Word_Frequency\mutation_3_line_no_12_COI.py
+There is a bug in the provided code. The bug is in the line `if not (llIllllIIlIllIIIlIl > IlIlllllllI):`. This condition is checking if the frequency of a word is not greater than the current maximum frequency. However, the intention of the code is to find the word with the highest frequency, so the condition should be `if llIllllIIlIllIIIlIl > IlIlllllllI:`.
+
+Here is the corrected code:
+
+```python
+def lIllIIIIlI(IllIIIIIlllIIIIIIIl):
+  lIIIIllll = {}
+  with open(IllIIIIIlllIIIIIIIl) as IllllIlIlIllllIl:
+    for lIIllllIIlI in IllllIlIlIllllIl.read().lower().split():
+      lllIIIllIllIl = ''.join(llIllllIIlIllIIIlIl for llIllllIIlIllIIIlIl in lIIllllIIlI if llIllllIIlIllIIIlIl.isalpha())
+      if lllIIIllIllIl:
+        lIIIIllll[lllIIIllIllIl] = 1 + lIIIIllll.get(lllIIIllIllIl, 0)
+  lIIllllllllIllIlIlIl = ''
+  IlIlllllllI = 0
+  for (IIlIlIllII, llIllllIIlIllIIIlIl) in lIIIIllll.items():
+    if llIllllIIlIllIIIlIl > IlIlllllllI:
+      lIIllllllllIllIlIlIl = IIlIlIllII
+      IlIlllllllI = llIllllIIlIllIIIlIl
+  return lIIllllllllIllIlIlIl, IlIlllllllI
+```
+
+
+#4 Buggy Code Obs/Buggy code for Book/Ch10/Commented_Code\Word_Frequency\mutation_4_line_no_12_ROR.py
+There is a bug in the provided code. The bug is in the comparison `if IIlllIllIlllI < lllllllI` inside the for loop. The initial value of `lllllllI` is 0, so the condition will never be true and the variable `IllIIllll` will always be an empty string.
+
+To fix this bug, we need to initialize `lllllllI` with a large value that is guaranteed to be greater than any frequency count. We can use `float('inf')` to represent infinity as the initial value of `lllllllI`.
+
+Here is the fixed code:
+
+def IllIllllIIIIIllllIIl(IIIIIlIlIIIIII):
+  llllIlllIIl = {}
+  with open(IIIIIlIlIIIIII) as IIIlllIl:
+    for lIlllIIIlIIIlI in IIIlllIl.read().lower().split():
+      IlllIIllIll = ''.join(IIlllIllIlllI for IIlllIllIlllI in lIlllIIIlIIIlI if IIlllIllIlllI.isalpha())
+      if IlllIIllIll:
+        llllIlllIIl[IlllIIllIll] = 1 + llllIlllIIl.get(IlllIIllIll, 0)
+  IllIIllll = ''
+  lllllllI = float('inf')
+  for (lIIlIlII, IIlllIllIlllI) in llllIlllIIl.items():
+    if IIlllIllIlllI < lllllllI:
+      IllIIllll = lIIlIlII
+      lllllllI = IIlllIllIlllI
+  return IllIIllll, lllllllI
+
+Now, the code will correctly find the word with the lowest frequency count and return it along with the count.
+
+
+#5 Buggy Code Obs/Buggy code for Book/Ch10/Commented_Code\Word_Frequency\mutation_5_line_no_12_ROR.py
+There is a bug in the provided code. The bug is in the line `llIllIllllIIlIIlll = lIlllIII` inside the for loop. This line should be indented to be inside the if statement. Here's the corrected code:
+
+```python
+def lIlIlIllllIllIIlIlll(IllIlIIllIIllIlIIl):
+  llllIlIIIIIlII = {}
+  with open(IllIlIIllIIllIlIIl) as lIIIIIllIIlllll:
+    for lIlIIlIIIIIlI in lIIIIIllIIlllll.read().lower().split():
+      llIIlIlIlI = ''.join(IIIlIlllIlllI for IIIlIlllIlllI in lIlIIlIIIIIlI if IIIlIlllIlllI.isalpha())
+      if llIIlIlIlI:
+        llllIlIIIIIlII[llIIlIlIlI] = 1 + llllIlIIIIIlII.get(llIIlIlIlI, 0)
+  llIllIllllIIlIIlll = ''
+  IllIllIIIll = 0
+  for (lIlllIII, IIIlIlllIlllI) in llllIlIIIIIlII.items():
+    if IIIlIlllIlllI >= IllIllIIIll:
+      llIllIllllIIlIIlll = lIlllIII
+      IllIllIIIll = IIIlIlllIlllI
+  return llIllIllllIIlIIlll, IllIllIIIll
+```
+
+Now the line `llIllIllllIIlIIlll = lIlllIII` is correctly indented inside the if statement.
+
+
