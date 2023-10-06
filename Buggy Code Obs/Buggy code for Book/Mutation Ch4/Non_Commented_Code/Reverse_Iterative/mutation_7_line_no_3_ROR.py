@@ -1,0 +1,5 @@
+def IlIllIIlIll(IlIlllllIIIlIl):
+  IlllIlIIIIIlIIIIIlII, IIlllIIIIIlIIII = 0, len(IlIlllllIIIlIl)
+  while IlllIlIIIIIlIIIIIlII > IIlllIIIIIlIIII - 1:
+    IlIlllllIIIlIl[IlllIlIIIIIlIIIIIlII], IlIlllllIIIlIl[IIlllIIIIIlIIII-1] = IlIlllllIIIlIl[IIlllIIIIIlIIII-1], IlIlllllIIIlIl[IlllIlIIIIIlIIIIIlII]
+    IlllIlIIIIIlIIIIIlII, IIlllIIIIIlIIII = IlllIlIIIIIlIIIIIlII + 1, IIlllIIIIIlIIII - 1
