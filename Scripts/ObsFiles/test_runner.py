@@ -2,8 +2,16 @@ import re
 import unittest
 import os
 
-# Import your custom function from 'getAllFiles_runs.py'
+from getClosestFunctionName import getClosetFunctionName
+
 from getAllFiles_runs import getAllFiles_in_run
+
+from getundefinedFunction import find_undefined_functions
+
+
+
+# Import your custom function from 'getAllFiles_runs.py'
+
 
 # Call the function to get a list of files
 allrunfiles = getAllFiles_in_run()
@@ -18,23 +26,23 @@ overall_test_passed = True
 for filez in allrunfiles:
     # Convert backslashes to forward slashes for file path compatibility
     python_file_path = filez.replace('\\', '/')
-    print(python_file_path)  # Print the file path
+    # print(python_file_path)  # Print the file path
 
     # Extract chapter number and name from the file path
     x = python_file_path.split('/')
     chapter_number = x[2]
     chapter_name = x[3]
-    print(chapter_name)
-    print(chapter_number)
+    # print(chapter_name)
+    # print(chapter_number)
 
     if chapter_name:
         # Generate the test file path based on chapter information
         test_file_path = f'Tests_Final/{chapter_number}/test_{chapter_name}.py'
-        print(test_file_path)
+        # print(test_file_path)
 
         # Define the output test file path where combined content will be saved
         output_test_file_path = 'combined_test.py'  # Change this to the desired output file path
-
+        
         # Read the content of the Python file
         with open(python_file_path, 'r') as python_file:
             python_content = python_file.read()
@@ -53,8 +61,16 @@ for filez in allrunfiles:
             test_content = filtered_content
 
         # Combine the content of the two files
-        combined_content = "\nimport unittest\n" + python_content+"\n" + test_content
-
+        combined_content0 = "\nimport unittest\n" + python_content+"\n" + test_content
+        
+        undefiendFunctions = getClosetFunctionName(find_undefined_functions(test_content),chapter_name.lower())
+        print(undefiendFunctions)
+        print(python_file_path)
+        undefiendFunction = undefiendFunctions[0]
+        
+        combined_content = re.sub(r'def\s+\w+\s*\(', f'def {undefiendFunction}(', combined_content0, count=1)
+        #print(combined_content)
+  
         # Write the combined content to a new file
         with open(output_test_file_path, 'w', encoding='utf-8') as output_file:
             output_file.write(combined_content)
@@ -80,9 +96,9 @@ for filez in allrunfiles:
         # Store individual test result in a list
            # Append the individual test result
         if tests_passed == total_tests:
-            individual_test_results.append(f"yes({tests_passed}/{total_tests})")
+            individual_test_results.append(f"yes--{python_file_path}--({tests_passed}/{total_tests})")
         else:
-            individual_test_results.append(f"no({tests_passed}/{total_tests})")
+            individual_test_results.append(f"no--{python_file_path}--({tests_passed}/{total_tests})")
 
         # Check if the current test result is successful
         if not test_result.wasSuccessful():
