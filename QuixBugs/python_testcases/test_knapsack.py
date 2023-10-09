@@ -1,7 +1,9 @@
 import pytest
+
+from QuixBugs.Run_6.knapsack1 import knapsack
 from load_testdata import load_json_testcases
 
-from QuixBugs.python_programs.knapsack import knapsack
+# from QuixBugs.python_programs.knapsack import knapsack
 # from QuixBugs.gptTOcode._knapsack import knapsack
 
 testdata = load_json_testcases(knapsack.__name__)

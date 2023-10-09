@@ -1,7 +1,9 @@
 import pytest
+
+from QuixBugs.Run_6.lcs_length import lcs_length
 from load_testdata import load_json_testcases
 
-from QuixBugs.correct_python_programs.lcs_length import lcs_length
+# from QuixBugs.correct_python_programs.lcs_length import lcs_length
 #from QuixBugs.gptTOcode._lcs_length import lcs_length
 
 testdata = load_json_testcases(lcs_length.__name__)

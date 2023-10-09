@@ -1,7 +1,9 @@
 import pytest
+
+from QuixBugs.Run_6.depth_first_search import depth_first_search
 from QuixBugs.python_testcases.node import Node
 
-from QuixBugs.correct_python_programs.depth_first_search import depth_first_search
+# from QuixBugs.correct_python_programs.depth_first_search import depth_first_search
 #from QuixBugs.gptTOcode._depth_first_search import depth_first_search
 
 def test1():

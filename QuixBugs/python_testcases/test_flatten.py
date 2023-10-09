@@ -1,7 +1,9 @@
 import pytest
+
+from QuixBugs.Run_6.flatten import flatten
 from load_testdata import load_json_testcases
 
-from QuixBugs.correct_python_programs.flatten import flatten
+# from QuixBugs.correct_python_programs.flatten import flatten
 #from QuixBugs.gptTOcode._flatten import flatten
 
 testdata = load_json_testcases(flatten.__name__)

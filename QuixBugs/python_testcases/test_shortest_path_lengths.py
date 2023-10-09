@@ -1,6 +1,9 @@
 import pytest
 
-from QuixBugs.correct_python_programs.shortest_path_lengths import shortest_path_lengths
+from QuixBugs.Run_6.shortest_path_lengths import shortest_path_lengths
+
+
+# from QuixBugs.correct_python_programs.shortest_path_lengths import shortest_path_lengths
 # from QuixBugs.gptTOcode._shortest_path_lengths import shortest_path_lengths
 
 def test1():

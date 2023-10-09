@@ -1,7 +1,9 @@
 import pytest
+
+from QuixBugs.Run_6.kth import kth
 from load_testdata import load_json_testcases
 
-from QuixBugs.correct_python_programs.kth import kth
+# from QuixBugs.correct_python_programs.kth import kth
 #from QuixBugs.gptTOcode._kth import kth
 
 testdata = load_json_testcases(kth.__name__)
