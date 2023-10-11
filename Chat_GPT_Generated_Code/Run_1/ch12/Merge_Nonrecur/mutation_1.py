@@ -1,6 +1,0 @@
-#mutation_1_line_no_5_AOR.py
-#
-#I don't see any bugs in the provided code. It appears to be a correct implementation of the merge sort algorithm.
-#
-#
-#

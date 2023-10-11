@@ -54,13 +54,13 @@ def filesGenerator(file_path, chapter_no,run):
         os.makedirs(disjoint, exist_ok=True)
 
         # Create the full path for the new Python file with .py extension
-        # new_filename = f"mutation_{mutation_number}.py"
-        new_filename = re.search(r'_obs_(.*?)\.py', filename).group(1)
+        new_filename = f"mutation_{mutation_number}.py"
+        # new_filename = re.search(r'_obs_(.*?)\.py', filename).group(1)
     
-        pattern = r'def\s+(\w+)\('  # This pattern captures the function name
-        modified_code = re.sub(pattern, f'def {new_filename}(', modified_code)
+        # pattern = r'def\s+(\w+)\('  # This pattern captures the function name
+        # modified_code = re.sub(pattern, f'def {new_filename}(', modified_code)
 
-        new_filename = new_filename + ".py"
+        # new_filename = new_filename + ".py"
         new_filepath = os.path.join(disjoint, new_filename)
         
         # Open the new Python file in write ('w') mode and write content
@@ -70,13 +70,14 @@ def filesGenerator(file_path, chapter_no,run):
     print(f'{len(section_headers)} sections extracted and saved to separate Python files in the  folder.')
 
 
-# run = 5
-# chapters = ['03', '04', '05', '10', '12', '13']
-# for chapter in chapters:
-#     file_path = f'{os.getcwd()}/Runs/Run_5_Commented_Code/Run-5-ch{chapter}-chatgpt-response-for-obs-commented.txt'
-#     # file_path = f'Runs/Run_1_commented_code/run-1_ch{chapter}_commented_code.txt'
-#     filesGenerator(file_path, chapter,run)
+run = 1
+chapters = ['03', '04', '05', '10', '12', '13']
+for chapter in chapters:
+    # file_path = f'{os.getcwd()}/Runs/Run_1_Commented_Code/Run-1-ch{chapter}-chatgpt-response-for-obs-commented.txt'
+    file_path = f'Runs/Run_1_commented_code/run-1_ch{chapter}_commented_code.txt'
+    filesGenerator(file_path, chapter,run)
 
-file_path = f'{os.getcwd()}/Runs/Run-6-quixbox-chatgpt-response-for-obs-commented.txt'
-filesGenerator(file_path, 0,6)
+#obs
+# file_path = f'{os.getcwd()}/Runs/Run-6-quixbox-chatgpt-response-for-obs-commented.txt'
+# filesGenerator(file_path, 0,6)
 

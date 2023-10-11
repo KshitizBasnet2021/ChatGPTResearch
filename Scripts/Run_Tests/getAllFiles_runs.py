@@ -1,8 +1,9 @@
 import os
 
+
 def getAllFiles_in_run():
     # Specify the directory where you want to start the search
-    directory_path = "Chat_GPT_Generated_Code/Run_5/"
+    directory_path = "Chat_GPT_Generated_Code/Run_1/"
 
     # Use os.walk to traverse through the directory and its subdirectories
     python_files = []
@@ -13,4 +14,5 @@ def getAllFiles_in_run():
 
     return python_files
 
-print(getAllFiles_in_run())
+for filez in getAllFiles_in_run():
+    print(filez)
