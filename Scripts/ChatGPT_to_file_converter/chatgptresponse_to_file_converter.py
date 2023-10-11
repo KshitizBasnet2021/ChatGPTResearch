@@ -57,9 +57,6 @@ def filesGenerator(file_path, chapter_no,run):
         # Use re.search to find the first match
         match = re.search(pattern, filename)
 
-        # Use re.search to find the first match
-        match = re.search(pattern, filename)
-
         # Create the full path for the new Python file with .py extension
         new_filename = match.group(0)
         # new_filename = re.search(r'_obs_(.*?)\.py', filename).group(1)

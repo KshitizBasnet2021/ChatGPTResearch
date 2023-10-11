@@ -76,13 +76,18 @@ for filez in allrunfiles:
         tests_passed = test_result.testsRun - len(test_result.failures) - len(test_result.errors)
         total_tests = test_result.testsRun
        
-            
+        #extract mutation
+        pattern = r'mutation_(\S+)'
+        # Use re.search to find the first match
+        match = re.search(pattern, python_file_path)
+        # Create the full path for the new Python file with .py extension
+        new_filename = match.group(0)    
         # Store individual test result in a list
            # Append the individual test result
         if tests_passed == total_tests:
-            individual_test_results.append(f"yes({tests_passed}/{total_tests})")
+            individual_test_results.append(f"{new_filename}--yes--{tests_passed}--{total_tests}")
         else:
-            individual_test_results.append(f"no({tests_passed}/{total_tests})")
+            individual_test_results.append(f"{new_filename}--no--{tests_passed}--{total_tests}")
 
         # Check if the current test result is successful
         if not test_result.wasSuccessful():
