@@ -1,20 +1,42 @@
 
 import unittest
-#mutation_9_line_no_6_LCR.py
+#mutation_11_line_no_27_AOR.py
 #
-#There is a bug in the provided code. The while loop condition should be modified to check if `IlllIIIIIllIlIIIll` is less than `IllllIIlIIIIl` and if the characters at the corresponding positions in the two strings are equal. Additionally, the loop should terminate if `IIlIllIIIIIllIIIl + IlllIIIIIllIlIIIll` exceeds the length of `lIlIlIllIIIIII`. 
+#There is a bug in the code. In the inner loop of the merge_sort function, the range should be range(0, n, i) instead of range(0, n, 2 / i). The division operator (/) should be changed to integer division operator (//) to ensure that the loop increments by the correct value of i.
 #
 #Here is the corrected code:
 #
-def find_brute(lIlIlIllIIIIII, IlIllllIIlIlII):
-  IllIIIIlIl, IllllIIlIIIIl = len(lIlIlIllIIIIII), len(IlIllllIIlIlII)                      
-  for IIlIllIIIIIllIIIl in range(IllIIIIlIl-IllllIIlIIIIl+1):                     
-    IlllIIIIIllIlIIIll = 0                                    
-    while (IlllIIIIIllIlIIIll < IllllIIlIIIIl and IIlIllIIIIIllIIIl + IlllIIIIIllIlIIIll < IllIIIIlIl and lIlIlIllIIIIII[IIlIllIIIIIllIIIl + IlllIIIIIllIlIIIll] == IlIllllIIlIlII[IlllIIIIIllIlIIIll]):
-      IlllIIIIIllIlIIIll += 1
-    if IlllIIIIIllIlIIIll == IllllIIlIIIIl:                               
-      return IIlIllIIIIIllIIIl                               
-  return -1
+import math
+#
+def merge(src, result, start, inc):
+  """Merge src[start:start+inc] and src[start+inc:start+2*inc] into result."""
+  end1 = start+inc                        # boundary for run 1
+  end2 = min(start+2*inc, len(src))       # boundary for run 2
+  x, y, z = start, start+inc, start       # index into run 1, run 2, result
+  while x < end1 and y < end2:
+    if src[x] < src[y]:
+      result[z] = src[x]
+      x += 1
+    else:
+      result[z] = src[y]
+      y += 1
+    z += 1                                # increment z to reflect new result
+  if x < end1:
+    result[z:end2] = src[x:end1]          # copy remainder of run 1 to output
+  elif y < end2:
+    result[z:end2] = src[y:end2]          # copy remainder of run 2 to output
+#
+def merge_sort(S):
+  """Sort the elements of Python list S using the merge-sort algorithm."""
+  n = len(S)
+  logn = math.ceil(math.log(n,2))
+  src, dest = S, [None] * n               # make temporary storage for dest
+  for i in (2**k for k in range(logn)):   # pass i creates all runs of length 2i
+    for j in range(0, n, i):
+      merge(src, dest, j, i)
+    src, dest = dest, src                 # reverse roles of lists
+  if S is not src:
+    S[0:n] = src[0:n]                     # additional copy to get results to S
 #
 #
 #
@@ -22,41 +44,36 @@ import unittest
 
 
 
-class TestBruteForce(unittest.TestCase):
+class TestMergeSort(unittest.TestCase):
 
-    def test_empty_pattern(self):
-        self.assertEqual(find_brute("text", ""), 0)
 
-    def test_exact_match(self):
-        self.assertEqual(find_brute("test", "test"), 0)
 
-    def test_no_match(self):
-        self.assertEqual(find_brute("abcdefg", "xyz"), -1)
+    def test_single_element_list(self):
+        S = [5]
+        merge_sort(S)
+        self.assertEqual(S, [5])
 
-    def test_partial_match(self):
-        self.assertEqual(find_brute("abcdefgh", "cde"), 2)
+    def test_sorted_list(self):
+        S = [1, 2, 3, 4, 5]
+        merge_sort(S)
+        self.assertEqual(S, [1, 2, 3, 4, 5])
 
-    def test_multiple_matches(self):
-        self.assertEqual(find_brute("ababab", "aba"), 0)
-        self.assertEqual(find_brute("ababab", "bab"), 1)
-        self.assertEqual(find_brute("ababab", "abab"), 0)
-        self.assertEqual(find_brute("ababab", "ab"), 0)
+    def test_reverse_sorted_list(self):
+        S = [5, 4, 3, 2, 1]
+        merge_sort(S)
+        self.assertEqual(S, [1, 2, 3, 4, 5])
 
-    def test_long_pattern(self):
-        self.assertEqual(find_brute("abcdefg", "defgijkl"), -1)
+    def test_mixed_list(self):
+        S = [3, 1, 4, 5, 2]
+        merge_sort(S)
+        self.assertEqual(S, [1, 2, 3, 4, 5])
 
-    def test_long_text(self):
-        self.assertEqual(find_brute("a" * 10000, "a" * 1000), 0)
+    def test_duplicate_elements(self):
+        S = [3, 1, 4, 2, 4]
+        merge_sort(S)
+        self.assertEqual(S, [1, 2, 3, 4, 4])
 
-    def test_case_sensitivity(self):
-        self.assertEqual(find_brute("AbCdEf", "cde"), -1)
-        self.assertEqual(find_brute("AbCdEf", "CdE"), 2)
-
-    def test_unicode_characters(self):
-        self.assertEqual(find_brute("こんにちは", "にち"), 2)
-
-    def test_special_characters(self):
-        self.assertEqual(find_brute("abc$%123#^xyz", "#^x"), 8)
-
-    def test_pattern_longer_than_text(self):
-        self.assertEqual(find_brute("test", "testing"), -1)
+    def test_large_input(self):
+        S = list(range(10000, 0, -1))
+        merge_sort(S)
+        self.assertEqual(S, list(range(1, 10001)))

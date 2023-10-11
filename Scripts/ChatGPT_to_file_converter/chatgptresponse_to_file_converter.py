@@ -47,21 +47,28 @@ def filesGenerator(file_path, chapter_no,run):
 
         modified_code = extractPythonCode(lines)
 
-        disjoint = f'Chat_GPT_Generated_Code/Run_{run}/ch{chapter_no}/'+parts[-2]
-        mutation_number = i
+        targetFolder = f'Chat_GPT_Generated_Code/Run_{run}/ch{chapter_no}/'+parts[-2]
+        
 
         # Ensure the 'disjoint' directory exists or create it
-        os.makedirs(disjoint, exist_ok=True)
+        os.makedirs(targetFolder, exist_ok=True)
+        pattern = r'mutation_(\S+)'
+
+        # Use re.search to find the first match
+        match = re.search(pattern, filename)
+
+        # Use re.search to find the first match
+        match = re.search(pattern, filename)
 
         # Create the full path for the new Python file with .py extension
-        new_filename = f"mutation_{mutation_number}.py"
+        new_filename = match.group(0)
         # new_filename = re.search(r'_obs_(.*?)\.py', filename).group(1)
     
         # pattern = r'def\s+(\w+)\('  # This pattern captures the function name
         # modified_code = re.sub(pattern, f'def {new_filename}(', modified_code)
 
         # new_filename = new_filename + ".py"
-        new_filepath = os.path.join(disjoint, new_filename)
+        new_filepath = os.path.join(targetFolder, new_filename)
         
         # Open the new Python file in write ('w') mode and write content
         with open(new_filepath, 'w') as newfile:
