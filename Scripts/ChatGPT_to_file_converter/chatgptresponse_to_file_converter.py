@@ -74,11 +74,11 @@ def filesGenerator(file_path, chapter_no,run):
     print(f'{len(section_headers)} sections extracted and saved to separate Python files in the  folder.')
 
 
-run = 1
+run = 2
 chapters = ['03', '04', '05', '10', '12', '13']
 for chapter in chapters:
     # file_path = f'{os.getcwd()}/Runs/Run_1_Commented_Code/Run-1-ch{chapter}-chatgpt-response-for-obs-commented.txt'
-    file_path = f'Runs/Run_1_commented_code/run-1_ch{chapter}_commented_code.txt'
+    file_path = f'Runs/Run_2_Non_commented_code/run-2_ch{chapter}_non_commented_code.txt'
     filesGenerator(file_path, chapter,run)
 
 #obs

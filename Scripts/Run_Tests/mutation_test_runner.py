@@ -85,10 +85,13 @@ for filez in allrunfiles:
         # Store individual test result in a list
            # Append the individual test result
         if tests_passed == total_tests:
-            individual_test_results.append(f"{new_filename}--yes--{tests_passed}--{total_tests}")
+            # individual_test_results.append(f"{new_filename}--yes--{tests_passed}--{total_tests}")
+            individual_test_results.append(f"{tests_passed}")
+            # individual_test_results.append(f"yes")
         else:
-            individual_test_results.append(f"{new_filename}--no--{tests_passed}--{total_tests}")
-
+            # individual_test_results.append(f"{new_filename}--no--{tests_passed}--{total_tests}")
+            # individual_test_results.append(f"no")
+            individual_test_results.append(f"{tests_passed}")
         # Check if the current test result is successful
         if not test_result.wasSuccessful():
             overall_test_passed = False
