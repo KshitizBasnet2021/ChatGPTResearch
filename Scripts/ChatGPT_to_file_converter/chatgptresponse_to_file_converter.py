@@ -47,7 +47,7 @@ def filesGenerator(file_path, chapter_no,run):
 
         modified_code = extractPythonCode(lines)
 
-        targetFolder = f'Chat_GPT_Generated_Code/Run_{run}/ch{chapter_no}/'+parts[-2]
+        targetFolder = f'Chat_GPT_Generated_Code/Run_7/ch{chapter_no}/'+parts[-2]
         
 
         # Ensure the 'disjoint' directory exists or create it
@@ -74,14 +74,14 @@ def filesGenerator(file_path, chapter_no,run):
     print(f'{len(section_headers)} sections extracted and saved to separate Python files in the  folder.')
 
 
-run = 2
-chapters = ['03', '04', '05', '10', '12', '13']
-for chapter in chapters:
-    # file_path = f'{os.getcwd()}/Runs/Run_1_Commented_Code/Run-1-ch{chapter}-chatgpt-response-for-obs-commented.txt'
-    file_path = f'Runs/Run_2_Non_commented_code/run-2_ch{chapter}_non_commented_code.txt'
-    filesGenerator(file_path, chapter,run)
+# run = 2
+# chapters = ['03', '04', '05', '10', '12', '13']
+# for chapter in chapters:
+#     # file_path = f'{os.getcwd()}/Runs/Run_1_Commented_Code/Run-1-ch{chapter}-chatgpt-response-for-obs-commented.txt'
+#     file_path = f'Runs/Run_2_Non_commented_code/run-2_ch{chapter}_non_commented_code.txt'
+#     filesGenerator(file_path, chapter,run)
 
-#obs
-# file_path = f'{os.getcwd()}/Runs/Run-6-quixbox-chatgpt-response-for-obs-commented.txt'
-# filesGenerator(file_path, 0,6)
+# obs
+file_path = f'{os.getcwd()}/Runs/Run-7-quixbox-chatgpt-response-for-obs-strict-commented'
+filesGenerator(file_path, 0,6)
 
