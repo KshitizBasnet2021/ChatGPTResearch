@@ -52,19 +52,19 @@ def filesGenerator(file_path, chapter_no,run):
 
         # Ensure the 'disjoint' directory exists or create it
         os.makedirs(targetFolder, exist_ok=True)
-        pattern = r'mutation_(\S+)'
+        # pattern = r'mutation_(\S+)'
 
-        # Use re.search to find the first match
-        match = re.search(pattern, filename)
+        # # Use re.search to find the first match
+        # match = re.search(pattern, filename)
 
         # Create the full path for the new Python file with .py extension
-        new_filename = match.group(0)
-        # new_filename = re.search(r'_obs_(.*?)\.py', filename).group(1)
+        # new_filename = match.group(0)
+        new_filename = re.search(r'_obs_(.*?)\.py', filename).group(1)
     
-        # pattern = r'def\s+(\w+)\('  # This pattern captures the function name
-        # modified_code = re.sub(pattern, f'def {new_filename}(', modified_code)
+        pattern = r'def\s+(\w+)\('  # This pattern captures the function name
+        modified_code = re.sub(pattern, f'def {new_filename}(', modified_code)
 
-        # new_filename = new_filename + ".py"
+        new_filename = new_filename + ".py"
         new_filepath = os.path.join(targetFolder, new_filename)
         
         # Open the new Python file in write ('w') mode and write content
@@ -82,6 +82,6 @@ def filesGenerator(file_path, chapter_no,run):
 #     filesGenerator(file_path, chapter,run)
 
 # obs
-file_path = f'{os.getcwd()}/Runs/Run-7-quixbox-chatgpt-response-for-obs-strict-commented'
+file_path = f'{os.getcwd()}/Runs/Run-7-quixbox-chatgpt-response-for-obs-strict-commented.txt'
 filesGenerator(file_path, 0,6)
 

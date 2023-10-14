@@ -13,13 +13,13 @@ Output:
 
 def IlIIlIIIl(IIIlIlIlllIl, IIIlIIlllIlIl):
     IlIIllllll = set()
-    def IIIllllIIllI(llIlIlIIlllIII):
+    def search_from(llIlIlIIlllIII):
         if llIlIlIIlllIII in IlIIllllll:
             return False
         elif llIlIlIIlllIII is IIIlIIlllIlIl:
             return True
         else:
             return any(
-                IIIllllIIllI(IIIllIlIIIlIIIl) for IIIllIlIIIlIIIl in llIlIlIIlllIII.successors
+                search_from(IIIllIlIIIlIIIl) for IIIllIlIIIlIIIl in llIlIlIIlllIII.successors
             )
-    return IIIllllIIllI(IIIlIlIlllIl)
+    return search_from(IIIlIlIlllIl)

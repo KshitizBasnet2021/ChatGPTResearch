@@ -16,14 +16,14 @@ Example:
 """
 
 def IllIIIIIIII(IIIIlIllllIll, IlIIllIlIIlIlI):
-    def IlllIIlI(lIIlIIllIlll, llIIllIIllIlllII):
+    def binsearch(lIIlIIllIlll, llIIllIIllIlllII):
         if lIIlIIllIlll == llIIllIIllIlllII:
             return -1
         IlIIIIllIlIlIlIIlIIl = lIIlIIllIlll + (llIIllIIllIlllII - lIIlIIllIlll) // 2
         if IlIIllIlIIlIlI < IIIIlIllllIll[IlIIIIllIlIlIlIIlIIl]:
-            return IlllIIlI(lIIlIIllIlll, IlIIIIllIlIlIlIIlIIl)
+            return binsearch(lIIlIIllIlll, IlIIIIllIlIlIlIIlIIl)
         elif IlIIllIlIIlIlI > IIIIlIllllIll[IlIIIIllIlIlIlIIlIIl]:
-            return IlllIIlI(IlIIIIllIlIlIlIIlIIl, llIIllIIllIlllII)
+            return binsearch(IlIIIIllIlIlIlIIlIIl, llIIllIIllIlllII)
         else:
             return IlIIIIllIlIlIlIIlIIl
-    return IlllIIlI(0, len(IIIIlIllllIll))
+    return binsearch(0, len(IIIIlIllllIll))
