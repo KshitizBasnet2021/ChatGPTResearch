@@ -1,19 +1,16 @@
 #1 real_code\ch03\disjoint.py
-Yes, there is a bug in the provided code. The bug is that the code returns True if there is no common element between the lists A, B, and C, but it does not handle the case where any of the lists are empty.
+Yes, there is a bug in the provided code. The bug is that the code returns True if there is no common element in the three lists, but it should return False in that case. 
 
-To fix this bug, we can add a check at the beginning of the function to return True if any of the lists are empty. Here's the updated code:
+To fix the bug, we need to change the return statement at the end of the function from "return True" to "return False". Here is the corrected code:
 
 def disjoint1(A, B, C):
   """Return True if there is no element common to all three lists."""
-  if not A or not B or not C:
-    return True               # if any of the lists are empty, they are disjoint
-
   for a in A:
     for b in B:
       for c in C:
         if a == b == c:
           return False      # we found a common value
-  return True               # if we reach this, sets are disjoint
+  return False              # if we reach this, sets are not disjoint
 
 
 #2 real_code\ch03\find.py
@@ -141,7 +138,7 @@ def reverse_iterative(S):
     start, stop = start + 1, stop - 1          # narrow the range
 ```
 
-Now the code should correctly reverse the elements in the sequence `S`.
+With this fix, the code should correctly reverse the elements in the sequence `S`.
 
 
 #13 real_code\ch05\insertion_sort.py
@@ -177,27 +174,58 @@ def find_most_frequent_word(filename):
       if word:
         freq[word] = 1 + freq.get(word, 0)
 
-  max_words = []
-  max_count = 0
-  for (w, c) in freq.items():
-    if c > max_count:
-      max_words = [w]
-      max_count = c
-    elif c == max_count:
-      max_words.append(w)
+  max_count = max(freq.values())
+  max_words = [word for word, count in freq.items() if count == max_count]
 
   return max_words, max_count
 
 Now, the function will return a list of all the words with the maximum frequency, instead of just the first word.
 
 
-Eroor at real_code\ch12\merge_array.py{"error":{"code":502,"message":"Bad gateway.","param":null,"type":"cf_bad_gateway"}}
+#15 real_code\ch12\merge_array.py
+The provided code appears to be correct and does not contain any bugs. It implements the merge sort algorithm correctly.
+
 
 #16 real_code\ch12\merge_nonrecur.py
 I don't see any bugs in the provided code. It appears to be a correct implementation of the merge sort algorithm.
 
 
-Eroor at real_code\ch13\find_boyer_moore.py{"error":{"code":502,"message":"Bad gateway.","param":null,"type":"cf_bad_gateway"}}
+#17 real_code\ch13\find_boyer_moore.py
+There is a bug in the provided code. The bug is in the line `i += m - min(k, j + 1)`. This line is used to calculate the jump step when a mismatch occurs. However, the calculation is incorrect.
 
-Eroor at real_code\ch13\find_brute.py{"error":{"code":502,"message":"Bad gateway.","param":null,"type":"cf_bad_gateway"}}
+To fix the bug, we need to change the line to `i += m - min(k, j + 1) if j != -1 else m`. This will correctly calculate the jump step by considering the last occurrence of the mismatched character in the pattern.
+
+Here is the corrected code:
+
+```python
+def find_boyer_moore(T, P):
+  """Return the lowest index of T at which substring P begins (or else -1)."""
+  n, m = len(T), len(P)                   # introduce convenient notations
+  if m == 0: return 0                     # trivial search for empty string
+  last = {}                               # build 'last' dictionary
+  for k in range(m):
+    last[ P[k] ] = k                      # later occurrence overwrites
+  # align end of pattern at index m-1 of text
+  i = m-1                                 # an index into T
+  k = m-1                                 # an index into P
+  while i < n:
+    if T[i] == P[k]:                      # a matching character
+      if k == 0:
+        return i                          # pattern begins at index i of text
+      else:
+        i -= 1                            # examine previous character
+        k -= 1                            # of both T and P
+    else:
+      j = last.get(T[i], -1)              # last(T[i]) is -1 if not found
+      i += m - min(k, j + 1) if j != -1 else m  # case analysis for jump step
+      k = m - 1                           # restart at end of pattern
+  return -1
+```
+
+Now the code should work correctly.
+
+
+#18 real_code\ch13\find_brute.py
+The provided code appears to be correct and does not contain any bugs.
+
 
