@@ -1,0 +1,717 @@
+#1 QuixBugs/correct_python_programs\bitcount.py
+The provided code is a correct implementation of counting the number of set bits (or 1s) in a binary representation of a number. There are no bugs in the code.
+
+
+#2 QuixBugs/correct_python_programs\breadth_first_search.py
+Yes, there is a bug in the provided code. The bug is in the line `if node is goalnode:`. The `is` operator is used to check if two objects are the same object, not if they have the same value. To fix this, we should use the `==` operator instead. Here's the corrected code:
+
+```python
+from collections import deque as Queue
+
+def breadth_first_search(startnode, goalnode):
+    queue = Queue()
+    queue.append(startnode)
+
+    nodesseen = set()
+    nodesseen.add(startnode)
+
+    while queue:
+        node = queue.popleft()
+
+        if node == goalnode:
+            return True
+        else:
+            queue.extend(node for node in node.successors if node not in nodesseen)
+            nodesseen.update(node.successors)
+
+    return False
+```
+
+This code will correctly check if the `node` is equal to the `goalnode` using the `==` operator.
+
+
+#3 QuixBugs/correct_python_programs\breadth_first_search_test.py
+I don't see any bugs in the provided code. It looks correct.
+
+
+#4 QuixBugs/correct_python_programs\bucketsort.py
+Yes, there is a bug in the provided code. In the second for loop, the code should iterate over the range of `k` instead of `arr`. Here's the corrected code:
+
+```python
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i in range(k):
+        sorted_arr.extend([i] * counts[i])
+
+    return sorted_arr
+```
+
+This will ensure that the elements are sorted correctly based on their counts.
+
+
+#5 QuixBugs/correct_python_programs\depth_first_search.py
+There is a bug in the provided code. The bug is in the line `elif node is goalnode:`. The `is` operator checks for object identity, not equality. So, this line will only return True if `node` and `goalnode` are the exact same object, not if they have the same value.
+
+To fix this bug, you should use the `==` operator instead of `is` to check for equality. The corrected line should be `elif node == goalnode:`.
+
+Here is the corrected code:
+
+def depth_first_search(startnode, goalnode):
+    nodesvisited = set()
+
+    def search_from(node):
+        if node in nodesvisited:
+            return False
+        elif node == goalnode:
+            return True
+        else:
+            nodesvisited.add(node)
+            return any(
+                search_from(nextnode) for nextnode in node.successors
+            )
+
+    return search_from(startnode)
+
+
+#6 QuixBugs/correct_python_programs\depth_first_search_test.py
+I don't see any bugs in the provided code. It looks correct.
+
+
+#7 QuixBugs/correct_python_programs\detect_cycle.py
+Yes, there is a bug in the provided code. The bug is in the condition `if hare is None or hare.successor is None:`. This condition should check if either `hare` or `hare.successor` is `None`, but it only checks if `hare` is `None`. 
+
+To fix this bug, we need to modify the condition to `if hare is None or hare.successor is None or hare.successor.successor is None:`. This way, it will correctly check if either `hare`, `hare.successor`, or `hare.successor.successor` is `None`. 
+
+Here is the corrected code:
+
+```
+def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        if hare is None or hare.successor is None or hare.successor.successor is None:
+            return False
+
+        tortoise = tortoise.successor
+        hare = hare.successor.successor
+
+        if hare is tortoise:
+            return True
+```
+
+
+#8 QuixBugs/correct_python_programs\detect_cycle_test.py
+I don't see any bugs in the provided code. It looks correct.
+
+
+#9 QuixBugs/correct_python_programs\find_first_in_sorted.py
+Yes, there is a bug in the provided code. The bug is in the line `hi = len(arr)` where the upper bound of the search range is set to the length of the array. This is incorrect because the upper bound should be `len(arr) - 1` since array indices start from 0.
+
+Here is the corrected code:
+
+```python
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr) - 1
+
+    while lo <= hi:
+        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid - 1
+
+        else:
+            lo = mid + 1
+
+    return -1
+```
+
+In the corrected code, the upper bound `hi` is set to `len(arr) - 1` and in the `elif` condition, `hi` is updated to `mid - 1` instead of `mid`.
+
+
+#10 QuixBugs/correct_python_programs\find_in_sorted.py
+The code provided seems to have a bug in the recursive call to `binsearch` when `x < arr[mid]`. The start index for the next recursive call should be `start` instead of `start + 1`. 
+
+Here's the corrected code:
+
+```python
+def find_in_sorted(arr, x):
+    def binsearch(start, end):
+        if start == end:
+            return -1
+        mid = start + (end - start) // 2
+        if x < arr[mid]:
+            return binsearch(start, mid)
+        elif x > arr[mid]:
+            return binsearch(mid + 1, end)
+        else:
+            return mid
+
+    return binsearch(0, len(arr))
+```
+
+With this fix, the code should work correctly to find the index of `x` in the sorted array `arr`.
+
+
+#11 QuixBugs/correct_python_programs\flatten.py
+The provided code is a recursive function that flattens a nested list. It uses a generator to yield each element in the flattened list.
+
+There is no bug in the code. It is a correct implementation of the flatten function.
+
+
+#12 QuixBugs/correct_python_programs\gcd.py
+The provided code is correct and does not have any bugs. It implements the Euclidean algorithm to find the greatest common divisor (GCD) of two numbers.
+
+
+#13 QuixBugs/correct_python_programs\get_factors.py
+Yes, there is a bug in the provided code. The bug is in the second implementation of the `get_factors` function. 
+
+The bug is that the range in the for loop should start from 2 and end at `int(n ** 0.5) + 1` instead of `n + 1`. This is because we only need to check factors up to the square root of `n` to find all the factors. 
+
+Here is the corrected code:
+
+```python
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return [n]
+```
+
+This code will correctly find all the factors of a given number `n`.
+
+
+#14 QuixBugs/correct_python_programs\hanoi.py
+There is a bug in the provided code. The line `helper = ({1, 2, 3} - {start} - {end}).pop()` is incorrect. It is trying to find the helper peg by subtracting the start and end pegs from the set {1, 2, 3}, but this will not work correctly if the start or end peg is not 1, 2, or 3.
+
+To fix this bug, we can use a simple if-else statement to determine the helper peg based on the start and end pegs. Here's the corrected code:
+
+```python
+def hanoi(height, start=1, end=3):
+    steps = []
+    if height > 0:
+        helper = 6 - start - end
+        steps.extend(hanoi(height - 1, start, helper))
+        steps.append((start, end))
+        steps.extend(hanoi(height - 1, helper, end))
+
+    return steps
+```
+
+In this code, we calculate the helper peg by subtracting the start and end pegs from 6, which gives us the remaining peg. This will work correctly regardless of the values of the start and end pegs.
+
+
+#15 QuixBugs/correct_python_programs\is_valid_parenthesization.py
+The provided code is correct and does not contain any bugs. It correctly checks if the given string of parentheses is a valid parenthesization by keeping track of the depth of the parentheses. If the depth becomes negative at any point, it means there is a closing parenthesis without a corresponding opening parenthesis, so the code returns False. If the depth is zero at the end, it means all parentheses have been matched correctly, so the code returns True.
+
+
+#16 QuixBugs/correct_python_programs\kheapsort.py
+The provided code is missing a closing parenthesis on the last line. Here is the corrected code:
+
+def kheapsort(arr, k):
+    import heapq
+
+    heap = arr[:k]
+    heapq.heapify(heap)
+
+    for x in arr[k:]:
+        yield heapq.heappushpop(heap, x)
+
+    while heap:
+        yield heapq.heappop(heap)
+
+
+#17 QuixBugs/correct_python_programs\knapsack.py
+The provided code is missing the initialization of the memoization table for the base cases. To fix this, we can add a loop before the main loop to initialize the memoization table for the base cases.
+
+Here's the updated code:
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    # Initialize memoization table for base cases
+    for j in range(1, capacity + 1):
+        weight, value = items[0]
+        if weight <= j:
+            memo[1, j] = value
+
+    for i in range(2, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            if weight <= j:
+                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+#18 QuixBugs/correct_python_programs\kth.py
+There is a bug in the provided code. The bug occurs when the value of k is equal to the number of elements in the array that are less than or equal to the pivot. In this case, the code should return the pivot value, but it currently returns the kth element from the "above" list.
+
+To fix this bug, we need to change the condition in the elif statement from "k >= num_lessoreq" to "k > num_lessoreq". This will ensure that the correct value is returned when k is equal to the number of elements in the array that are less than or equal to the pivot.
+
+Here is the corrected code:
+
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k > num_lessoreq:
+        return kth(above, k - num_lessoreq)
+    else:
+        return pivot
+
+
+#19 QuixBugs/correct_python_programs\lcs_length.py
+Yes, there is a bug in the provided code. The bug occurs when accessing the values of `dp` using the keys `i - 1, j - 1` in the line `dp[i, j] = dp[i - 1, j - 1] + 1`. This will result in a `KeyError` when `i` or `j` is 0.
+
+To fix this bug, we can add a condition to check if `i` or `j` is 0 before accessing the values of `dp`. If either `i` or `j` is 0, we can set the value to 0 instead of trying to access the non-existent key.
+
+Here's the fixed code:
+
+def lcs_length(s, t):
+    from collections import Counter
+
+    dp = Counter()
+
+    for i in range(len(s)):
+        for j in range(len(t)):
+            if s[i] == t[j]:
+                if i == 0 or j == 0:
+                    dp[i, j] = 1
+                else:
+                    dp[i, j] = dp[i - 1, j - 1] + 1
+
+    return max(dp.values()) if dp else 0
+
+
+#20 QuixBugs/correct_python_programs\levenshtein.py
+Yes, there is a bug in the provided code. The base case for the recursion is incorrect. Currently, it returns the length of the non-empty string instead of 0 when one of the strings is empty. 
+
+Here's the corrected code:
+
+def levenshtein(source, target):
+    if source == '':
+        return len(target)
+    elif target == '':
+        return len(source)
+    elif source[0] == target[0]:
+        return levenshtein(source[1:], target[1:])
+    else:
+        return 1 + min(
+            levenshtein(source, target[1:]),
+            levenshtein(source[1:], target[1:]),
+            levenshtein(source[1:], target)
+        )
+
+
+#21 QuixBugs/correct_python_programs\lis.py
+Yes, there is a bug in the provided code. In the line `longest = max(length + 1, longest)`, the order of the arguments passed to the `max()` function is incorrect. It should be `max(longest, length + 1)` instead. 
+
+Here's the corrected code:
+
+```python
+def lis(arr):
+    ends = {}
+    longest = 0
+
+    for i, val in enumerate(arr):
+
+        prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] < val]
+
+        length = max(prefix_lengths) if prefix_lengths else 0
+
+        if length == longest or val < arr[ends[length + 1]]:
+            ends[length + 1] = i
+            longest = max(longest, length + 1)
+
+    return longest
+```
+
+
+#22 QuixBugs/correct_python_programs\longest_common_subsequence.py
+The provided code is missing a base case for when both strings are empty. This can be fixed by adding an additional condition at the beginning of the function to check if both strings are empty, and if so, return an empty string.
+
+Here is the updated code:
+
+def longest_common_subsequence(a, b):
+    if not a or not b:
+        return ''
+
+    elif a[0] == b[0]:
+        return a[0] + longest_common_subsequence(a[1:], b[1:])
+
+    elif not a and not b:
+        return ''
+
+    else:
+        return max(
+            longest_common_subsequence(a, b[1:]),
+            longest_common_subsequence(a[1:], b),
+            key=len
+        )
+
+
+#23 QuixBugs/correct_python_programs\max_sublist_sum.py
+The provided code is correct and does not contain any bugs. It implements the Kadane's algorithm to find the maximum sum of a subarray in an array. The code iterates through the array and keeps track of the maximum sum ending at each position and the maximum sum seen so far. It correctly returns the maximum sum of a subarray.
+
+
+#24 QuixBugs/correct_python_programs\mergesort.py
+The provided code is correct and does not contain any bugs. It implements the merge sort algorithm correctly.
+
+
+#25 QuixBugs/correct_python_programs\minimum_spanning_tree.py
+There is a bug in the provided code. The bug is in the line `if group_by_node.setdefault(u, {u}) != group_by_node.setdefault(v, {v}):`. The `setdefault()` method is used to set a default value for a key if the key is not already present in the dictionary. However, in this case, we want to check if the keys `u` and `v` are already present in the dictionary `group_by_node`. 
+
+To fix this bug, we can replace the line with `if u not in group_by_node or v not in group_by_node or group_by_node[u] != group_by_node[v]:`. This will correctly check if the keys `u` and `v` are already present in the dictionary and if their corresponding values are different.
+
+
+#26 QuixBugs/correct_python_programs\minimum_spanning_tree_test.py
+I don't see any bugs in the provided code. It appears to be a driver program to test the `minimum_spanning_tree` function.
+
+
+Eroor at QuixBugs/correct_python_programs\next_palindrome.py<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>cloudflare</center>
+</body>
+</html>
+
+
+#28 QuixBugs/correct_python_programs\next_permutation.py
+Yes, there is a bug in the provided code. In the inner loop, the condition `if perm[i] < perm[j]:` should be `if perm[j] > perm[i]:` to correctly find the next permutation. 
+
+Here's the corrected code:
+
+```python
+def next_permutation(perm):
+    for i in range(len(perm) - 2, -1, -1):
+        if perm[i] < perm[i + 1]:
+            for j in range(len(perm) - 1, i, -1):
+                if perm[j] > perm[i]:
+                    next_perm = list(perm)
+                    next_perm[i], next_perm[j] = perm[j], perm[i]
+                    next_perm[i + 1:] = reversed(next_perm[i + 1:])
+                    return next_perm
+```
+
+
+#29 QuixBugs/correct_python_programs\node.py
+Yes, there is a bug in the provided code. The bug is that the class has methods with the same name as some of its attributes. This can cause confusion and unexpected behavior when trying to access those attributes.
+
+To fix this bug, we need to rename the methods that have the same name as the attributes. Here's the corrected code:
+
+class Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor_node = successor
+        self.successor_nodes = successors
+        self.predecessor_nodes = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def get_successor(self):
+        return self.successor_node
+
+    def get_successors(self):
+        return self.successor_nodes
+
+    def get_predecessors(self):
+        return self.predecessor_nodes
+
+Now, we have renamed the methods `successor`, `successors`, and `predecessors` to `get_successor`, `get_successors`, and `get_predecessors` respectively. This way, we can access the attributes directly using their names without any confusion.
+
+
+#30 QuixBugs/correct_python_programs\pascal.py
+There is a bug in the provided code. When calculating the values for the current row, the code is using a value of 0 for the upleft and upright elements if they are out of range. However, this should be 1 instead of 0.
+
+Here is the corrected code:
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        for c in range(0, r + 1):
+            upleft = rows[r - 1][c - 1] if c > 0 else 1
+            upright = rows[r - 1][c] if c < r else 1
+            row.append(upleft + upright)
+        rows.append(row)
+
+    return rows
+
+Now, the code will correctly calculate the Pascal's triangle up to the given number of rows.
+
+
+#31 QuixBugs/correct_python_programs\possible_change.py
+The provided code has a bug in the recursive calls. It should be calling `possible_change(rest, total - first)` instead of `possible_change(coins, total - first)`. Here's the corrected code:
+
+```python
+def possible_change(coins, total):
+    if total == 0:
+        return 1
+    if total < 0 or not coins:
+        return 0
+
+    first, *rest = coins
+    return possible_change(rest, total - first) + possible_change(coins, total)
+```
+
+This fix ensures that the recursive calls are made with the remaining coins (`rest`) and the updated total (`total - first`).
+
+
+#32 QuixBugs/correct_python_programs\powerset.py
+The provided code is correct and does not contain any bugs. Both versions of the code will correctly generate the powerset of a given array.
+
+
+#33 QuixBugs/correct_python_programs\quicksort.py
+Yes, there is a bug in the provided code. The bug is in the line where the "greater" list is created. The condition should be "x > pivot" instead of "x >= pivot". 
+
+Here is the corrected code:
+
+def quicksort(arr):
+    if not arr:
+        return []
+
+    pivot = arr[0]
+    lesser = quicksort([x for x in arr[1:] if x < pivot])
+    greater = quicksort([x for x in arr[1:] if x > pivot])
+    return lesser + [pivot] + greater
+
+The corrected code will correctly sort the input array using the quicksort algorithm.
+
+
+#34 QuixBugs/correct_python_programs\reverse_linked_list.py
+Yes, there is a bug in the provided code. The variable name "successor" is not a standard attribute for a linked list node. It should be "next" instead. 
+
+Here's the corrected code:
+
+def reverse_linked_list(node):
+    prevnode = None
+    while node:
+        nextnode = node.next
+        node.next = prevnode
+        prevnode = node
+        node = nextnode
+    return prevnode
+
+
+#35 QuixBugs/correct_python_programs\reverse_linked_list_test.py
+I don't see any bugs in the provided code. It looks correct.
+
+
+#36 QuixBugs/correct_python_programs\rpn_eval.py
+Yes, there is a bug in the provided code. The bug is in the `op` function where the order of the operands is incorrect. The correct order should be `a` followed by `b`, but the code currently has `b` followed by `a`. 
+
+To fix the bug, you need to swap the order of the operands in the `op` function. Here's the corrected code:
+
+```python
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                op(token, a, b)
+            )
+
+    return stack.pop()
+```
+
+I have commented out the alternative code you provided, as it seems to be using a `Stack` class that is not defined in the code. If you provide the definition of the `Stack` class, I can help you with that as well.
+
+
+#37 QuixBugs/correct_python_programs\shortest_paths.py
+Yes, there is a bug in the provided code. The bug is in the inner loop where the weights are updated. The weights should be updated based on the current weight of the source node plus the weight of the edge, not the weight of the source node plus the weight of the current edge being iterated.
+
+Here is the corrected code:
+
+def shortest_paths(source, weight_by_edge):
+    weight_by_node = {
+        v: float('inf') for u, v in weight_by_edge
+    }
+    weight_by_node[source] = 0
+
+    for i in range(len(weight_by_node) - 1):
+        for (u, v), weight in weight_by_edge.items():
+            weight_by_node[v] = min(
+                weight_by_node[u] + weight,
+                weight_by_node[v]
+            )
+
+    return weight_by_node
+
+Now, the weights will be updated correctly and the shortest paths will be calculated accurately.
+
+
+#38 QuixBugs/correct_python_programs\shortest_paths_test.py
+I don't see any bugs in the provided code. It appears to be a test script for the `shortest_paths` function.
+
+
+#39 QuixBugs/correct_python_programs\shortest_path_length.py
+Yes, there is a bug in the provided code. In the `get` function, the default return value is incorrect. It should return `float('inf')` instead of `0` when the wanted node is not found in the node heap.
+
+Here is the corrected code:
+
+```python
+def get(node_heap, wanted_node):
+    for dist, node in node_heap:
+        if node == wanted_node:
+            return dist
+    return float('inf')
+```
+
+Other than that, the code looks fine.
+
+
+#40 QuixBugs/correct_python_programs\shortest_path_lengths.py
+I don't see any bugs in the provided code. It looks correct and should work as intended.
+
+
+#41 QuixBugs/correct_python_programs\shortest_path_lengths_test.py
+I don't see any bugs in the provided code. It appears to be a test script for the `shortest_path_lengths` function.
+
+
+#42 QuixBugs/correct_python_programs\shortest_path_length_test.py
+I don't see any bugs in the provided code. It looks correct.
+
+
+#43 QuixBugs/correct_python_programs\shunting_yard.py
+I don't see any bugs in the provided code. It appears to be a correct implementation of the shunting yard algorithm for converting infix expressions to reverse Polish notation (RPN).
+
+
+#44 QuixBugs/correct_python_programs\sieve.py
+The provided code is correct and does not contain any bugs. It implements the Sieve of Eratosthenes algorithm to find all prime numbers up to a given maximum value.
+
+
+#45 QuixBugs/correct_python_programs\sqrt.py
+Yes, there is a bug in the provided code. The bug is in the condition of the while loop. 
+
+The condition should be `abs(x - approx ** 2) > epsilon` instead of `abs(x - approx * approx) > epsilon`. 
+
+To fix the bug, you can replace the line `while abs(x - approx * approx) > epsilon:` with `while abs(x - approx ** 2) > epsilon:`. 
+
+Here is the corrected code:
+
+```python
+def sqrt(x, epsilon):
+    approx = x / 2
+    while abs(x - approx ** 2) > epsilon:
+        approx = 0.5 * (approx + x / approx)
+    return approx
+```
+
+
+#46 QuixBugs/correct_python_programs\subsequences.py
+Yes, there is a bug in the provided code. The range in the for loop should be adjusted to `range(a, b + 1)` instead of `range(a, b + 1 - k)`. This is because we want to include the value of `b` in the range.
+
+Here is the corrected code:
+
+def subsequences(a, b, k):
+    if k == 0:
+        return [[]]
+
+    ret = []
+    for i in range(a, b + 1):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+#47 QuixBugs/correct_python_programs\topological_ordering.py
+Yes, there is a bug in the provided code. The bug is in the line `if set(ordered_nodes).issuperset(nextnode.incoming_nodes) and nextnode not in ordered_nodes:`. 
+
+The bug is that `set(ordered_nodes)` is being created inside the loop, which means that it will be recreated and checked for every `nextnode`. This is unnecessary and inefficient. 
+
+To fix this bug, we can create the set `ordered_nodes_set` outside the loop and use it for the check. Here's the updated code:
+
+```python
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+    ordered_nodes_set = set(ordered_nodes)
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            if ordered_nodes_set.issuperset(nextnode.incoming_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+                ordered_nodes_set.add(nextnode)
+
+    return ordered_nodes
+```
+
+This way, the set `ordered_nodes_set` is created only once and can be reused for all the checks.
+
+
+#48 QuixBugs/correct_python_programs\topological_ordering_test.py
+I don't see any bugs in the provided code. It appears to be correctly defining the graph nodes and their relationships, and then calling the `topological_ordering` function to get the topological ordering of the nodes.
+
+
+#49 QuixBugs/correct_python_programs\to_base.py
+The provided code has two implementations of the `to_base` function. The first implementation is commented out, and the second implementation is active. 
+
+The second implementation of the `to_base` function is correct and does not have any bugs. It converts a given number `num` to its representation in base `b` using the characters from the `alphabet` string.
+
+If you want to use the first implementation instead, you can uncomment it by removing the triple quotes at the beginning and end of the code block. However, note that the first implementation returns the result in reverse order, so you may need to reverse it again if you want the correct representation.
+
+
+#50 QuixBugs/correct_python_programs\wrap.py
+Yes, there is a bug in the provided code. The bug occurs when the length of the text is exactly equal to the number of columns. In this case, the code will enter an infinite loop because the condition `len(text) > cols` will always be true.
+
+To fix this bug, we can modify the condition to `len(text) >= cols`. This way, the loop will exit when the length of the remaining text is less than or equal to the number of columns.
+
+Here is the fixed code:
+
+```python
+def wrap(text, cols):
+    lines = []
+    while len(text) >= cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    lines.append(text)
+    return lines
+```
+
+With this fix, the code will correctly handle cases where the length of the text is equal to the number of columns.
+
+

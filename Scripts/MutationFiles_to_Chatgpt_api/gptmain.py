@@ -58,7 +58,7 @@ python_files = getPythonFiles()
 # Create a text file to store the responses
 output_directory = 'test'
 
-output_file = os.path.join(output_directory, 'Run-7-quixbox-chatgpt-response-for-obs-strict-commented.txt')
+output_file = os.path.join(output_directory, 'Run-9-no-bugs-quixbugs.txt')
 os.makedirs(output_directory, exist_ok=True)
 # Iterate over the Python files
 with open(output_file, "w") as output_file:

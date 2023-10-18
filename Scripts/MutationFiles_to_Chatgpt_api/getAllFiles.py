@@ -10,7 +10,7 @@ def getPythonFiles():
 
     # Specify the path to the "Commented_Code" directory
         # commented_code_path = f'Buggy Code Obs/Buggy code for Book/{chapter}/Commented_Code'
-        commented_code_path = f'QuixBugs/quixbugs_obs_commented'
+        commented_code_path = f'QuixBugs/correct_python_programs'
 
     # Check if the specified path exists
         if os.path.exists(commented_code_path):
