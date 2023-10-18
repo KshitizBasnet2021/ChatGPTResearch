@@ -3,7 +3,8 @@ from load_testdata import load_json_testcases
 
 
 # from QuixBugs.correct_python_programs.longest_common_subsequence import longest_common_subsequence
-#from QuixBugs.gptTOcode._longest_common_subsequence import longest_common_subsequence
+from QuixBugs.Run_7.commented_longest_common_subsequence import longest_common_subsequence
+from QuixBugs.correct_python_programs.max_sublist_sum import max_sublist_sum
 
 testdata = load_json_testcases(longest_common_subsequence.__name__)
 

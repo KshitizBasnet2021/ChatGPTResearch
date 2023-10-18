@@ -22,13 +22,13 @@ def shortest_path_length(IIIIIIlll, lIIIIllllllllIlII, llIlIllIIIlIIIlIIIII):
         if IlIIIlII is llIlIllIIIlIIIlIIIII:
             return IlIlllIIlllIII
         IIIllIlllllIllllI.add(IlIIIlII)
-        for IlIIIIllIIlIllII in IIIIIlll[IlIIIlII]:
+        for IlIIIIllIIlIllII in shortest_path_length[IlIIIlII]:
             if IlIIIIllIIlIllII in IIIllIlllllIllllI:
                 continue
-            IllIllIllII(IIlIllIII,
+            shortest_path_length(IIlIllIII,
                 (min(
-                    IIIIlIllIlllIll(IIlIllIII, IlIIIIllIIlIllII) or float('inf'),
-                    IIIIlIllIlllIll(IIlIllIII, IlIIIIllIIlIllII) + IIIIIIlll[IlIIIlII, IlIIIIllIIlIllII]
+                    shortest_path_length(IIlIllIII, IlIIIIllIIlIllII) or float('inf'),
+                    shortest_path_length(IIlIllIII, IlIIIIllIIlIllII) + IIIIIIlll[IlIIIlII, IlIIIIllIIlIllII]
                 ),
                 IlIIIIllIIlIllII)
             )

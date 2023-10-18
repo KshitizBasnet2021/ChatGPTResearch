@@ -1,5 +1,6 @@
 import pytest
 
+# from QuixBugs.Run_6.lis import lis
 from QuixBugs.Run_6.lis import lis
 from load_testdata import load_json_testcases
 

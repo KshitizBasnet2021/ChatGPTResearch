@@ -1,6 +1,7 @@
 import pytest
 
-from QuixBugs.Run_6.quicksort import quicksort
+# from QuixBugs.Run_6.quicksort import quicksort
+from QuixBugs.Run_7.commented_quicksort import quicksort
 from load_testdata import load_json_testcases
 
 # from QuixBugs.correct_python_programs.quicksort import quicksort

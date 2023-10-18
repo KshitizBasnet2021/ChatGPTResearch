@@ -1,7 +1,7 @@
 import pytest
 
-from QuixBugs.Run_6.shortest_paths import shortest_paths
-
+# from QuixBugs.Run_6.shortest_paths import shortest_paths
+from QuixBugs.Run_7.commented_shortest_paths import shortest_paths
 
 # from QuixBugs.correct_python_programs.shortest_paths import shortest_paths
 #from QuixBugs.gptTOcode._shortest_paths import shortest_paths

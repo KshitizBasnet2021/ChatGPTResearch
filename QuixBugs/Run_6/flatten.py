@@ -8,7 +8,7 @@
 def flatten(IlIIlIIllll):
     for IIlIlIIIll in IlIIlIIllll:
         if isinstance(IIlIlIIIll, list):
-            for IIIlIIlllI in lllIIIlll(IIlIlIIIll):
+            for IIIlIIlllI in flatten(IIlIlIIIll):
                 yield IIIlIIlllI
         else:
             yield IIlIlIIIll

@@ -8,16 +8,16 @@
 
 def depth_first_search(IIIlIlIlllIl, IIIlIIlllIlIl):
     IlIIllllll = set()
-    def depth_first_search(llIlIlIIlllIII, successors):
+    def search_from(llIlIlIIlllIII, successors):
         if llIlIlIIlllIII in IlIIllllll:
             return False
-        elif llIlIIlllIlIl is llIlIlIIlllIII:
+        elif search_from is llIlIlIIlllIII:
             return True
         else:
             return any(
-                IIIllllIIllI(IIIllIlIIIlIIIl, successors) for IIIllIlIIIlIIIl in successors
+                search_from(IIIllIlIIIlIIIl, successors) for IIIllIlIIIlIIIl in successors
             )
-    return IIIllllIIllI(IIIlIlIlllIl, IIIlIIlllIlIl.successors)
+    return search_from(IIIlIlIlllIl, IIIlIIlllIlIl.successors)
 #```
 #
 #Now, the `IIIllllIIllI` function takes an additional argument `successors`, which should be a list of successors for a given node. The function checks if the current node is in the set `IlIIllllll` and returns `False` if it is. If the current node is the target node (`IIIlIIlllIlIl`), it returns `True`. Otherwise, it recursively calls `IIIllllIIllI` for each successor in the `successors` list and returns `True` if any of the recursive calls return `True`.

@@ -1,6 +1,8 @@
 import pytest
 
-from QuixBugs.Run_6.find_first_in_sorted import find_first_in_sorted
+# from QuixBugs.Run_6.find_first_in_sorted import find_first_in_sorted
+from QuixBugs.Run_7.commented_find_first_in_sorted import find_first_in_sorted
+
 from load_testdata import load_json_testcases
 
 # from QuixBugs.correct_python_programs.find_first_in_sorted import find_first_in_sorted

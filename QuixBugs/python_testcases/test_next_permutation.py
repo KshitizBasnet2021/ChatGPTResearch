@@ -1,5 +1,6 @@
 import pytest
 
+# from QuixBugs.Run_6.next_permutation import next_permutation
 from QuixBugs.Run_6.next_permutation import next_permutation
 from load_testdata import load_json_testcases
 

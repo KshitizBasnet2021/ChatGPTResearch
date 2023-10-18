@@ -8,17 +8,17 @@
 #
 #```python
 def find_in_sorted(IIIIlIllllIll, IlIIllIlIIlIlI):
-    def find_in_sorted(lIIlIIllIlll, llIIllIIllIlllII):
+    def binsearch(lIIlIIllIlll, llIIllIIllIlllII):
         if lIIlIIllIlll >= llIIllIIllIlllII:
             return -1
         IlIIIIllIlIlIlIIlIIl = lIIlIIllIlll + (llIIllIIllIlllII - lIIlIIllIlll) // 2
         if IlIIllIlIIlIlI < IIIIlIllllIll[IlIIIIllIlIlIlIIlIIl]:
-            return IlllIIlI(lIIlIIllIlll, IlIIIIllIlIlIlIIlIIl)
+            return binsearch(lIIlIIllIlll, IlIIIIllIlIlIlIIlIIl)
         elif IlIIllIlIIlIlI > IIIIlIllllIll[IlIIIIllIlIlIlIIlIIl]:
-            return IlllIIlI(IlIIIIllIlIlIlIIlIIl + 1, llIIllIIllIlllII)
+            return binsearch(IlIIIIllIlIlIlIIlIIl + 1, llIIllIIllIlllII)
         else:
             return IlIIIIllIlIlIlIIlIIl
-    return IlllIIlI(0, len(IIIIlIllllIll))
+    return binsearch(0, len(IIIIlIllllIll))
 #```
 #
 #In the updated code, when the target value is less than the middle element, we update the range to search in the lower half by setting `llIIllIIllIlllII` to `IlIIIIllIlIlIlIIlIIl + 1`. This ensures that the middle element is not considered again in the next recursive call.

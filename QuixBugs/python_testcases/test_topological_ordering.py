@@ -1,6 +1,7 @@
 import pytest
 
-from QuixBugs.Run_6.topological_ordering import topological_ordering
+# from QuixBugs.Run_6.topological_ordering import topological_ordering
+from QuixBugs.Run_7.commented_topological_ordering import topological_ordering
 from QuixBugs.python_testcases.node import Node
 
 # from QuixBugs.correct_python_programs.topological_ordering import topological_ordering

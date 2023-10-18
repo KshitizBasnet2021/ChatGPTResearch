@@ -11,7 +11,7 @@ def get_factors(IllIIlIlIIIIIl):
         return []
     for IlIIIIlIllIIIIIlIlll in range(2, int(IllIIlIlIIIIIl ** 0.5) + 1):
         if IllIIlIlIIIIIl % IlIIIIlIllIIIIIlIlll == 0:
-            return [IlIIIIlIllIIIIIlIlll] + IIIlIlIlllIIllIIIll(IllIIlIlIIIIIl // IlIIIIlIllIIIIIlIlll)
+            return [IlIIIIlIllIIIIIlIlll] + get_factors(IllIIlIlIIIIIl // IlIIIIlIllIIIIIlIlll)
     return []
 #
 #Now, if we call the function with a prime number, it will correctly return an empty list.
