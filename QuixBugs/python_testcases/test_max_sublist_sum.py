@@ -2,9 +2,9 @@ import pytest
 from load_testdata import load_json_testcases
 
 # from QuixBugs.correct_python_programs.max_sublist_sum import max_sublist_sum
-from QuixBugs.Run_7.commented_max_sublist_sum import max_sublist_sum
+# from QuixBugs.Run_7.commented_max_sublist_sum import max_sublist_sum
 #from QuixBugs.gptTOcode._max_sublist_sum import max_sublist_sum
-
+from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_max_sublist_sum import max_sublist_sum
 testdata = load_json_testcases(max_sublist_sum.__name__)
 
 

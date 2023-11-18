@@ -2,8 +2,8 @@ import pytest
 
 # from QuixBugs.Run_6.minimum_spanning_tree import minimum_spanning_tree
 
-from QuixBugs.Run_7.commented_minimum_spanning_tree import minimum_spanning_tree
-
+# from QuixBugs.Run_7.commented_minimum_spanning_tree import minimum_spanning_tree
+from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_minimum_spanning_tree import minimum_spanning_tree
 # from QuixBugs.correct_python_programs.minimum_spanning_tree import minimum_spanning_tree
 # from QuixBugs.gptTOcode._minimum_spanning_tree import minimum
 

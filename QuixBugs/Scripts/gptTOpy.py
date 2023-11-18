@@ -42,7 +42,7 @@ def filesGenerator(file_path):
         section_name = section_header.strip().replace('\\', '_').replace('/', '_').replace(' ', '_')
         filename = f'{section_name}'
 
-        pattern = r'python_programs(.*?)\.py'
+        pattern = r'(.*?)\.py'
 
         # Use re.search to find the pattern in the input string
         match_filename = re.search(pattern, filename)
@@ -62,7 +62,7 @@ def filesGenerator(file_path):
 
         modified_code = extractPythonCode(lines)
 
-        target_folder_name = "QuixBugs/gptTOcode/"
+        target_folder_name = "QuixBugs/gptTOcodeNonCommented/"
         # Ensure the 'disjoint' directory exists or create it
         os.makedirs(target_folder_name, exist_ok=True)
 
@@ -79,6 +79,6 @@ def filesGenerator(file_path):
 
 
 
-file_path = "Quixbugs/chatgpt-response.txt"
+file_path = "Quixbugs/Run-10-quixbugs-non-commented.txt"
 
 filesGenerator(file_path)

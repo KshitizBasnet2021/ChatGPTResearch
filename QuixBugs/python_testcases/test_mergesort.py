@@ -2,7 +2,8 @@ import pytest
 from load_testdata import load_json_testcases
 
 # from QuixBugs.python_programs.mergesort import mergesort
-from QuixBugs.Run_7.commented_mergesort import mergesort
+# from QuixBugs.Run_7.commented_mergesort import mergesort
+from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_mergesort import mergesort
 # from QuixBugs.gptTOcode._mergesort import mergesort
 
 testdata = load_json_testcases(mergesort.__name__)
