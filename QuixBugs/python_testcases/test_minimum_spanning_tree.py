@@ -3,10 +3,10 @@ import pytest
 # from QuixBugs.Run_6.minimum_spanning_tree import minimum_spanning_tree
 
 # from QuixBugs.Run_7.commented_minimum_spanning_tree import minimum_spanning_tree
-from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_minimum_spanning_tree import minimum_spanning_tree
+# from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_minimum_spanning_tree import minimum_spanning_tree
 # from QuixBugs.correct_python_programs.minimum_spanning_tree import minimum_spanning_tree
 # from QuixBugs.gptTOcode._minimum_spanning_tree import minimum
-
+from Chat_GPT_Generated_Code.Run_12.minimum_spanning_tree import minimum_spanning_tree
 def test1():
     """Case 1: Simple tree input.
     Output: (1, 2) (3, 4) (1, 4)

@@ -5,7 +5,8 @@ import pytest
 from load_testdata import load_json_testcases
 # from QuixBugs.correct_python_programs.sqrt import sqrt
 #from QuixBugs.gptTOcode._sqrt import sqrt
-from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_sqrt import sqrt
+# from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_sqrt import sqrt
+from Chat_GPT_Generated_Code.Run_12.sqrt import sqrt
 testdata = load_json_testcases(sqrt.__name__)
 
 

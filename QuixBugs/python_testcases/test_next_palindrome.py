@@ -5,7 +5,8 @@ from load_testdata import load_json_testcases
 # from QuixBugs.Run_7.commented_next_palindrome import next_palindrome
 # from QuixBugs.correct_python_programs.next_palindrome import next_palindrome
 #from QuixBugs.gptTOcode._next_palindrome import next_palindrome
-from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_next_palindrome import next_palindrome
+# from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_next_palindrome import next_palindrome
+from Chat_GPT_Generated_Code.Run_12.next_palindrome import next_palindrome
 testdata = load_json_testcases(next_palindrome.__name__)
 
 

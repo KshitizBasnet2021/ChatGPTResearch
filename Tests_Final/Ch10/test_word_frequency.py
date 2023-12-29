@@ -1,7 +1,7 @@
 import unittest
 
-from ch10.No_comments.word_frequency import find_most_frequent_word
-
+#from ch10.No_comments.word_frequency import find_most_frequent_word
+from Chat_gpt_res_textbook.word_frequency import find_most_frequent_word
 
 class TestFindMostFrequentWord(unittest.TestCase):
 

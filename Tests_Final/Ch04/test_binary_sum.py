@@ -1,7 +1,7 @@
 import unittest
 
-from ch04.No_Comments.binary_sum import binary_sum
-
+#from ch04.No_Comments.binary_sum import binary_sum
+from Chat_gpt_res_textbook.binary_sum import binary_sum
 
 class TestBinarySum(unittest.TestCase):
 

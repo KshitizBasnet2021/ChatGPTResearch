@@ -1,7 +1,7 @@
 import unittest
 
-from ch03.unique import unique1
-
+#from ch03.unique import unique1
+from Chat_gpt_res_textbook.unique import unique1
 
 class TestUniqueFunctions(unittest.TestCase):
 

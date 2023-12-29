@@ -2,9 +2,9 @@ import pytest
 
 # from QuixBugs.Run_6.detect_cycle import detect_cycle
 # from QuixBugs.Run_7.commented_detect_cycle import detect_cycle
-from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_detect_cycle import detect_cycle
+# from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_detect_cycle import detect_cycle
 from QuixBugs.python_testcases.node import Node
-
+from Chat_GPT_Generated_Code.Run_12.detect_cycle import detect_cycle
 # from QuixBugs.correct_python_programs.detect_cycle import detect_cycle
 #from QuixBugs.gptTOcode._detect_cycle import detect_cycle
 

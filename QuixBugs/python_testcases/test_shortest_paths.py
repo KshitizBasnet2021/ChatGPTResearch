@@ -2,10 +2,10 @@ import pytest
 
 # from QuixBugs.Run_6.shortest_paths import shortest_paths
 # from QuixBugs.Run_7.commented_shortest_paths import shortest_paths
-from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_shortest_paths import shortest_paths
+# from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_shortest_paths import shortest_paths
 # from QuixBugs.correct_python_programs.shortest_paths import shortest_paths
 #from QuixBugs.gptTOcode._shortest_paths import shortest_paths
-
+from Chat_GPT_Generated_Code.Run_12.shortest_paths import shortest_paths
 def test1():
     """Case 1: Graph with multiple paths
     Output: {'A': 0, 'C': 3, 'B': 1, 'E': 5, 'D': 10, 'F': 4}

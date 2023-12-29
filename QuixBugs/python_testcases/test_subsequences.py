@@ -3,10 +3,10 @@ import pytest
 # from QuixBugs.Run_6.subsequences import subsequences
 # from QuixBugs.Run_7.commented_subsequences import subsequences
 from load_testdata import load_json_testcases
-from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_subsequences import subsequences
+# from QuixBugs.gptTOcodeNonCommented.QuixBugs_Non_commented_py_code_subsequences import subsequences
 # from QuixBugs.correct_python_programs.subsequences import subsequences
 #from QuixBugs.gptTOcode._subsequences import subsequences
-
+from Chat_GPT_Generated_Code.Run_12.subsequences import subsequences
 testdata = load_json_testcases(subsequences.__name__)
 
 

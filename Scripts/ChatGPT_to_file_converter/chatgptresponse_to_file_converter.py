@@ -39,7 +39,8 @@ def filesGenerator(file_path, chapter_no,run):
 
     for i, (section_header, section_content) in enumerate(zip(section_headers, sections), 1):
         section_name = section_header.strip().replace('\\', '_').replace('/', '_').replace(' ', '_')
-        filename = f'{section_name}.py'
+        filename = f'{section_name}'
+       
         parts = section_header.split('\\')
         extracted_string = parts[-1]
 
@@ -47,7 +48,7 @@ def filesGenerator(file_path, chapter_no,run):
 
         modified_code = extractPythonCode(lines)
 
-        targetFolder = f'Chat_GPT_Generated_Code/Run_7/ch{chapter_no}/'+parts[-2]
+        targetFolder = f'Chat_GPT_Generated_Code/Run_12/'
         
 
         # Ensure the 'disjoint' directory exists or create it
@@ -59,12 +60,12 @@ def filesGenerator(file_path, chapter_no,run):
 
         # Create the full path for the new Python file with .py extension
         # new_filename = match.group(0)
-        new_filename = re.search(r'_obs_(.*?)\.py', filename).group(1)
+        # new_filename = re.search(r'_obs_(.*?)\.py', filename).group(1)
     
         pattern = r'def\s+(\w+)\('  # This pattern captures the function name
-        modified_code = re.sub(pattern, f'def {new_filename}(', modified_code)
+        # modified_code = re.sub(pattern, f'def {filename}(', modified_code)
 
-        new_filename = new_filename + ".py"
+        new_filename = extracted_string
         new_filepath = os.path.join(targetFolder, new_filename)
         
         # Open the new Python file in write ('w') mode and write content
@@ -82,6 +83,6 @@ def filesGenerator(file_path, chapter_no,run):
 #     filesGenerator(file_path, chapter,run)
 
 # obs
-file_path = f'{os.getcwd()}/Runs/Run-7-quixbox-chatgpt-response-for-obs-strict-commented.txt'
+file_path = f'{os.getcwd()}/Runs/Run-12-non-obs-quixbugs.txt'
 filesGenerator(file_path, 0,6)
 

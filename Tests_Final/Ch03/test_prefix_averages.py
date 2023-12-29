@@ -1,7 +1,7 @@
 import unittest
 
-from ch03.No_Comments.prefix_averages import  prefix_average3
-
+#from ch03.No_Comments.prefix_averages import  prefix_average3
+from Chat_gpt_res_textbook.prefix_averages import prefix_average3;
 
 class TestPrefixAverageFunctions(unittest.TestCase):
 

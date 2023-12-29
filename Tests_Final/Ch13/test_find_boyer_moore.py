@@ -1,7 +1,7 @@
 import unittest
 
-from ch13.No_Comments.find_boyer_moore import find_boyer_moore
-
+#from ch13.No_Comments.find_boyer_moore import find_boyer_moore
+from Chat_gpt_res_textbook.find_boyer_moore import find_boyer_moore
 
 class TestBoyerMoore(unittest.TestCase):
 

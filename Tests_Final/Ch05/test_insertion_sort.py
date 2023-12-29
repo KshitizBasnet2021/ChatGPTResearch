@@ -1,7 +1,7 @@
 import unittest
 
-from ch05.No_Comments.insertion_sort import insertion_sort
-
+#from ch05.No_Comments.insertion_sort import insertion_sort
+from Chat_gpt_res_textbook.insertion_sort import insertion_sort
 
 class TestInsertionSort(unittest.TestCase):
 

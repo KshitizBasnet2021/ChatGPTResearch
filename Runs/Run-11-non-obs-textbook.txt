@@ -1,0 +1,233 @@
+#1 real_code\ch03\disjoint.py
+Yes, there is a bug in the provided code. The bug is that the code returns True if there is no common element in the three lists, but it should return False in that case. 
+
+To fix the bug, we need to change the return statement at the end of the function from "return True" to "return False". Here is the corrected code:
+
+def disjoint1(A, B, C):
+  """Return True if there is no element common to all three lists."""
+  for a in A:
+    for b in B:
+      for c in C:
+        if a == b == c:
+          return False      # we found a common value
+  return False              # if we reach this, sets are not disjoint
+
+
+#2 real_code\ch03\find.py
+The provided code looks correct and does not have any bugs. It is a simple implementation of linear search to find the index of a given value in a list.
+
+
+#3 real_code\ch03\find_max.py
+The provided code looks correct and does not have any bugs. It correctly finds the maximum element from a nonempty Python list.
+
+
+#4 real_code\ch03\prefix_averages.py
+There is a potential bug in the provided code. 
+
+The bug is in the line `A[j] = total / (j+1)`. This line is calculating the average based on the current sum, but it should be dividing by `j+1` instead of just `j`. 
+
+To fix this bug, you can change the line to `A[j] = total / (j+1)`. This will correctly calculate the average based on the current sum.
+
+
+#5 real_code\ch03\unique.py
+Yes, there is a bug in the provided code. The bug is that the code does not handle cases where the input sequence S is empty. In such cases, the code will throw an IndexError because the range function will be called with a length of 0.
+
+To fix this bug, we can add a check at the beginning of the function to return True if the length of S is 0. This will handle the case of an empty sequence correctly.
+
+Here is the fixed code:
+
+def unique1(S):
+  """Return True if there are no duplicate elements in sequence S."""
+  if len(S) == 0:
+    return True
+
+  for j in range(len(S)):
+    for k in range(j+1, len(S)):
+      if S[j] == S[k]:
+        return False              # found duplicate pair
+  return True                     # if we reach this, elements were unique
+
+
+#6 real_code\ch04\binary_search.py
+The provided code looks correct and does not have any bugs. It implements the binary search algorithm recursively to search for a target value within a specified portion of a Python list.
+
+
+#7 real_code\ch04\binary_search_iterative.py
+The provided code looks correct and does not have any bugs. It implements the iterative binary search algorithm correctly.
+
+
+#8 real_code\ch04\binary_sum.py
+Yes, there is a bug in the provided code. The bug is in the recursive calls to `binary_sum` function. 
+
+The first recursive call should be `binary_sum(S, start, mid)` to sum the elements from `start` to `mid-1`, and the second recursive call should be `binary_sum(S, mid, stop)` to sum the elements from `mid` to `stop-1`. 
+
+Here is the corrected code:
+
+```python
+def binary_sum(S, start, stop):
+  """Return the sum of the numbers in implicit slice S[start:stop]."""
+  if start >= stop:                      # zero elements in slice
+    return 0
+  elif start == stop-1:                  # one element in slice
+    return S[start]
+  else:                                  # two or more elements in slice
+    mid = (start + stop) // 2
+    return binary_sum(S, start, mid) + binary_sum(S, mid, stop)
+```
+
+Now the code should work correctly.
+
+
+#9 real_code\ch04\disk_usage.py
+There is a potential bug in the provided code. When calculating the total disk usage, the code does not account for symbolic links. If a symbolic link points to a file or directory, the code will count the size of the symbolic link itself, rather than the size of the file or directory it points to.
+
+To fix this bug, we can use the `os.path.islink()` function to check if a path is a symbolic link. If it is, we can use the `os.path.realpath()` function to get the real path that the symbolic link points to, and calculate the size of that path instead.
+
+Here's the modified code with the bug fix:
+
+```python
+import os
+
+def disk_usage(path):
+  """Return the number of bytes used by a file/folder and any descendents."""
+  total = os.path.getsize(path)                  # account for direct usage
+  if os.path.isdir(path):                        # if this is a directory,
+    for filename in os.listdir(path):            # then for each child:
+      childpath = os.path.join(path, filename)   # compose full path to child
+      if os.path.islink(childpath):              # if child is a symbolic link
+        childpath = os.path.realpath(childpath)  # get the real path it points to
+      total += disk_usage(childpath)             # add child's usage to total
+
+  print ('{0:<7}'.format(total), path)           # descriptive output (optional)
+  return total                                   # return the grand total
+```
+
+With this modification, the code will correctly calculate the disk usage, taking into account symbolic links.
+
+
+#10 real_code\ch04\power_fast.py
+The provided code is correct and does not contain any bugs. It correctly computes the value of x raised to the power of n using a recursive approach.
+
+
+#11 real_code\ch04\reverse.py
+The provided code is missing a base case for the recursion. If `start >= stop - 1`, it means that there are no elements to reverse, so the function should simply return without making any changes.
+
+Here's the corrected code:
+
+```python
+def reverse(S, start, stop):
+  """Reverse elements in implicit slice S[start:stop]."""
+  if start >= stop - 1:                        # base case: no elements to reverse
+    return
+  S[start], S[stop-1] = S[stop-1], S[start]    # swap first and last
+  reverse(S, start+1, stop-1)                  # recur on rest
+```
+
+With this fix, the function will work correctly and reverse the elements in the given slice `S[start:stop]`.
+
+
+#12 real_code\ch04\reverse_iterative.py
+Yes, there is a bug in the provided code. The code is attempting to reverse the elements in the sequence `S` using an iterative approach, but the swapping of elements is incorrect.
+
+To fix the bug, we need to update the swapping line to correctly swap the elements. Here's the corrected code:
+
+```python
+def reverse_iterative(S):
+  """Reverse elements in sequence S."""
+  start, stop = 0, len(S)
+  while start < stop - 1:
+    S[start], S[stop-1] = S[stop-1], S[start]  # swap first and last
+    start, stop = start + 1, stop - 1          # narrow the range
+```
+
+With this fix, the code should correctly reverse the elements in the sequence `S`.
+
+
+#13 real_code\ch05\insertion_sort.py
+The provided code is missing the return statement. To fix it, you can add a return statement at the end of the function to return the sorted list.
+
+Here's the updated code:
+
+def insertion_sort(A):
+  """Sort list of comparable elements into nondecreasing order."""
+  for k in range(1, len(A)):         # from 1 to n-1
+    cur = A[k]                       # current element to be inserted
+    j = k                            # find correct index j for current
+    while j > 0 and A[j-1] > cur:    # element A[j-1] must be after current
+      A[j] = A[j-1]
+      j -= 1
+    A[j] = cur                       # cur is now in the right place
+  
+  return A                          # return the sorted list
+
+
+#14 real_code\ch10\word_frequency.py
+There is a bug in the provided code. The bug is that the code does not handle cases where there are multiple words with the same maximum frequency. In such cases, the code only returns the first word it encounters with the maximum frequency.
+
+To fix this bug, we can modify the code to store all the words with the maximum frequency in a list and return that list instead of just the first word.
+
+Here is the modified code:
+
+def find_most_frequent_word(filename):
+  freq = {}
+  with open(filename) as file:
+    for piece in file.read().lower().split():
+      word = ''.join(c for c in piece if c.isalpha())
+      if word:
+        freq[word] = 1 + freq.get(word, 0)
+
+  max_count = max(freq.values())
+  max_words = [word for word, count in freq.items() if count == max_count]
+
+  return max_words, max_count
+
+Now, the function will return a list of all the words with the maximum frequency, instead of just the first word.
+
+
+#15 real_code\ch12\merge_array.py
+The provided code appears to be correct and does not contain any bugs. It implements the merge sort algorithm correctly.
+
+
+#16 real_code\ch12\merge_nonrecur.py
+I don't see any bugs in the provided code. It appears to be a correct implementation of the merge sort algorithm.
+
+
+#17 real_code\ch13\find_boyer_moore.py
+There is a bug in the provided code. The bug is in the line `i += m - min(k, j + 1)`. This line is used to calculate the jump step when a mismatch occurs. However, the calculation is incorrect.
+
+To fix the bug, we need to change the line to `i += m - min(k, j + 1) if j != -1 else m`. This will correctly calculate the jump step by considering the last occurrence of the mismatched character in the pattern.
+
+Here is the corrected code:
+
+```python
+def find_boyer_moore(T, P):
+  """Return the lowest index of T at which substring P begins (or else -1)."""
+  n, m = len(T), len(P)                   # introduce convenient notations
+  if m == 0: return 0                     # trivial search for empty string
+  last = {}                               # build 'last' dictionary
+  for k in range(m):
+    last[ P[k] ] = k                      # later occurrence overwrites
+  # align end of pattern at index m-1 of text
+  i = m-1                                 # an index into T
+  k = m-1                                 # an index into P
+  while i < n:
+    if T[i] == P[k]:                      # a matching character
+      if k == 0:
+        return i                          # pattern begins at index i of text
+      else:
+        i -= 1                            # examine previous character
+        k -= 1                            # of both T and P
+    else:
+      j = last.get(T[i], -1)              # last(T[i]) is -1 if not found
+      i += m - min(k, j + 1) if j != -1 else m  # case analysis for jump step
+      k = m - 1                           # restart at end of pattern
+  return -1
+```
+
+Now the code should work correctly.
+
+
+#18 real_code\ch13\find_brute.py
+The provided code appears to be correct and does not contain any bugs.
+
+
