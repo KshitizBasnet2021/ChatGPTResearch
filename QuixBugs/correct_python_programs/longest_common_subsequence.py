@@ -1,4 +1,3 @@
-
 def longest_common_subsequence(a, b):
     if not a or not b:
         return ''
