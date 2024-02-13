@@ -1,4 +1,20 @@
-Copyright 2013, Michael H. Goldwasser
+# Investigating Large Language Models Capabilities for Automatic Code Repair in Python
+
+## Prerequisites
+
+Version numbers below are of confirmed working releases for this project.
+
+    python 3.6.5
+    Keras  2.2.0
+    Keras-Applications  1.0.2
+    Keras-Preprocessing 1.0.1  
+    numpy 1.19.2
+    pandas 1.1.5
+    scikit-learn 0.21.2
+    scipy 1.6.0
+    tensorflow 1.14.0
+
+## Copyright 2013, Michael H. Goldwasser
 
 Developed for use with the book:
 
